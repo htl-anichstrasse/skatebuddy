@@ -37,8 +37,9 @@ Step 2 here
 
 If you have any questions about this project, please feel free to contact us.
 
-Student name 1 here - student@tsn.at<br>
-Student name 2 here - student@tsn.at<br>
+Neuner Maximilian - maximilineuner@tsn.at<br>
+Schuler Philipp - student@tsn.at<br>
+Bertoni Alexander - student@tsn.at<br>
 HTL Anichstraße - htlinn@tsn.at
 
 <a href="https://htl-anichstrasse.tirol" target="_blank"><img src=".github/htl-anichstrasse-logo.svg" width="200px"></a>
