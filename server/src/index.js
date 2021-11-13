@@ -1,9 +1,16 @@
 const express = require('express')
+const apiRouter = require('./routes');
+const fs = require('fs');
+
 const app = express()
 const port = 3000
 
-app.get('/', (req, res) => {
-    res.end('Hello World!');
+app.use(express.json());
+
+app.use('/tests', apiRouter);
+
+app.get('/test', (req, res) => {
+    fs.readFile(__dirname + "/" + "test.json")
 });
 
 app.listen(port, () => {
