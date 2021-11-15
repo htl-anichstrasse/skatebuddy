@@ -1,4 +1,4 @@
-# Project Name
+# Skater App
 
 <br/>
 <p align="center">
