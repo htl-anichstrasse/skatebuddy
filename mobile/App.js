@@ -1,11 +1,12 @@
-import React from 'react';
-import {Text, View} from 'react-native';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import BottomTabsNavigator from "./routes/BottomTabsNavigator";
 
 const App = () => {
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Try editing me! 🎉</Text>
-    </View>
+    <NavigationContainer>
+      <BottomTabsNavigator />
+    </NavigationContainer>
   );
 };
 
