@@ -3,6 +3,7 @@ import { View, Text, Dimensions } from "react-native";
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 
 import styles from "../styles/MapStyles";
+import Button from "../components/Button";
 
 styles.mapContainer = {
   ...styles.mapContainer,
@@ -35,6 +36,12 @@ const Map = () => {
           />
         </MapView>
       </View>
+      <Button
+        title="Move map"
+        onPress={() => {
+          alert("Move map");
+        }}
+      />
     </View>
   );
 };
