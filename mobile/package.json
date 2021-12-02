@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "start": "npx react-native start",
     "android": "npx react-native run-android",
     "ios": "npx react-native run-ios",
-    "start": "npx react-native start",
+    "json": "npx json-server --watch data/db.json",
     "test": "jest",
     "lint": "eslint ."
   },
@@ -13,6 +14,7 @@
     "@react-navigation/bottom-tabs": "^6.0.9",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",
+    "flow-bin": "^0.158.0",
     "react": "17.0.2",
     "react-native": "0.66.3",
     "react-native-maps": "0.29.4",
