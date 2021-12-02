@@ -1,21 +1,19 @@
-import React from "react";
-import { View, Text } from "react-native";
+import React from 'react';
+import { View, Text } from 'react-native';
+import Button from '../components/Button';
 
-const Skateparks = () => {
-  const fetchSkateparks = () => {
-    return fetch("http://localhost:3000/skateparks")
-      .then(response => response.json())
-      .then(json => {
-        return json.skateparks;
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  };
+import SkateparkEntry from '../components/SkateparkEntry';
 
+const Skateparks = ({ navigation }) => {
   return (
     <View>
       <Text>Skateparks</Text>
+      <Button
+        title="Go to SkateparkDetails"
+        onPress={() =>
+          navigation.navigate('SkateparkDetails', { test: 'test' })
+        }
+      />
     </View>
   );
 };

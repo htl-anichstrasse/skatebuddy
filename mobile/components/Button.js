@@ -1,6 +1,6 @@
-import React from "react";
-import { View, Text, Pressable } from "react-native";
-import styles from "../styles/ButtonStyles";
+import React from 'react';
+import { View, Text, Pressable } from 'react-native';
+import styles from '../styles/ButtonStyles';
 
 const Button = ({ title, onPress, color }) => {
   if (color) {
@@ -11,8 +11,10 @@ const Button = ({ title, onPress, color }) => {
   }
 
   return (
-    <Pressable style={styles.container} onPress={onPress}>
-      <Text>{title}</Text>
+    <Pressable onPress={onPress}>
+      <View style={styles.container}>
+        <Text style={styles.text}>{title}</Text>
+      </View>
     </Pressable>
   );
 };

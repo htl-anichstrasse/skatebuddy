@@ -1,12 +1,20 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "skyblue",
-    paddingVertical: 5,
-    paddingHorizontal: 10,
-    borderRadius: 5,
-    marginVertical: 5,
+    borderColor: '#007AFF',
+    borderStyle: 'solid',
+    borderWidth: 1,
+
+    backgroundColor: 'transparent',
+    borderRadius: 10,
+    margin: 5,
+    alignSelf: 'center',
+  },
+  text: {
+    padding: 10,
+    fontSize: 16,
+    color: '#007AFF',
   },
 });
 
