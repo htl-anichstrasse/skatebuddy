@@ -1,11 +1,25 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Pressable, Image } from 'react-native';
 
-const SkateparkEntry = ({ data }) => {
+import styles from '../styles/SkateparksStyles';
+import { skateparksImages } from '../styles/Images';
+
+const SkateparkEntry = ({ skatepark, navigation }) => {
   return (
-    <View>
-      <Text>{data.name}</Text>
-    </View>
+    <Pressable
+      onPress={() => {
+        navigation.navigate('SkateparkDetails', { skatepark: skatepark });
+      }}>
+      <View style={styles.entryContainer}>
+        <Text style={styles.entryName}>{skatepark.name}</Text>
+        <Text>{skatepark.latitude}</Text>
+        <Text>{skatepark.longitude}</Text>
+        <Image
+          style={styles.entryImage}
+          source={skateparksImages[skatepark.skateparkId].main}
+        />
+      </View>
+    </Pressable>
   );
 };
 

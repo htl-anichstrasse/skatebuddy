@@ -1,18 +1,35 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 import Button from '../components/Button';
 
 import SkateparkEntry from '../components/SkateparkEntry';
 
 const Skateparks = ({ navigation }) => {
+  const skateparks = [
+    {
+      skateparkId: 1,
+      name: 'Skatepark Rum Sane Plaza',
+      latitude: '47.268467',
+      longitude: 11.447938,
+    },
+    {
+      skateparkId: 2,
+      name: 'Skatepark Tivoli',
+      latitude: 47.2587839,
+      longitude: 11.4075082,
+    },
+  ];
+
+  const renderItem = ({ item }) => (
+    <SkateparkEntry skatepark={item} navigation={navigation} />
+  );
+
   return (
     <View>
-      <Text>Skateparks</Text>
-      <Button
-        title="Go to SkateparkDetails"
-        onPress={() =>
-          navigation.navigate('SkateparkDetails', { test: 'test' })
-        }
+      <FlatList
+        data={skateparks}
+        renderItem={renderItem}
+        keyExtractor={item => item.skateparkId}
       />
     </View>
   );
