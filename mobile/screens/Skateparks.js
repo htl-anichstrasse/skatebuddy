@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text, FlatList } from 'react-native';
-import Button from '../components/Button';
+import { View, FlatList } from 'react-native';
 
 import SkateparkEntry from '../components/SkateparkEntry';
+import styles from '../styles/SkateparksStyles';
 
 const Skateparks = ({ navigation }) => {
   const skateparks = [
@@ -25,7 +25,7 @@ const Skateparks = ({ navigation }) => {
   );
 
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
         data={skateparks}
         renderItem={renderItem}
