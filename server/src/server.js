@@ -10,9 +10,9 @@ app.use(express.json());
 app.use('/tests', apiRouter);
 
 app.get('/test', (req, res) => {
-	fs.readFile(__dirname + '/' + 'test.json');
+    fs.readFile(__dirname + '/' + 'test.json');
 });
 
 app.listen(port, () => {
-	console.log(`app listening at http://localhost:${port}`);
+    console.log(`app listening at http://localhost:${port}`);
 });
