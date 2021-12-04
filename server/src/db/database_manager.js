@@ -6,14 +6,14 @@ const con = mysql.createPool({
 	user: 'root',
 	password: 'bichl601',
 	port: '3306',
-	database: 'diplomDb',
+	database: 'skater-app',
 });
 
 let diplomdb = {};
 
-diplomdb.all = () => {
+diplomdb.selectAll = (table) => {
 	return new Promise((resolve, reject) => {
-		con.query('Select * from testtable;', (err, result) => {
+		con.query('Select * from ?', [table], (err, result) => {
 			if (err) {
 				return reject(err);
 			}
@@ -22,9 +22,11 @@ diplomdb.all = () => {
 	});
 };
 
-diplomdb.getId = (id) => {
+diplomdb.getById = (table, id) => {
 	return new Promise((resolve, reject) => {
-		con.query('Select * from testtable where id = ?',[id],
+		con.query(
+			'Select * from ? where id = ?',
+			[table, id],
 			(err, result) => {
 				if (err) {
 					return reject(err);
@@ -35,17 +37,20 @@ diplomdb.getId = (id) => {
 	});
 };
 
-diplomdb.insertValue = (testString) => {
+diplomdb.insertValue = (table, testString) => {
 	return new Promise((resolve, reject) => {
-		con.query('Insert into testtable values (?)',[testString],
+		con.query(
+			'Insert into ? values (?)',
+			[table, testString],
 			(err, result) => {
 				if (err) {
 					return reject(err);
 				}
 				return resolve(result[0]);
-				console.log("Succsessfully inserted!");
+				console.log('Succsessfully inserted!');
 			},
 		);
 	});
 };
+
 module.exports = diplomdb;
