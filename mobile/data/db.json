@@ -23,6 +23,12 @@
       "name": "Skatepark Rum Sane Plaza",
       "latitude": "47.268467",
       "longitude": 11.447938
+    },
+    {
+      "skateparkId": 2,
+      "name": "Skatepark Tivoli",
+      "latitude": 47.2587839,
+      "longitude": 11.4075082
     }
   ],
   "skatepark_pictures": [
