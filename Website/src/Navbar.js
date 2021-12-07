@@ -9,7 +9,7 @@ const Navbar = () => {
                     color:'white',
                     backgroundColor: 'gray',
                     borderRadius: '5px',
-                    marginRight: '5px'
+                    marginRight: '100px'
                 }}>Home</Link>
                 <Link to="/parks" style={{
                     

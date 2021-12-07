@@ -1,0 +1,16 @@
+.Navbar{
+    position: sticky;
+    top:0;
+}
+
+.Header{
+    text-align: center;    
+}
+
+.Footer{
+    position: fixed;
+    text-align: center;
+    bottom: 0;
+    min-width: 100%;
+    border-top: 4px solid darkgrey;
+}
