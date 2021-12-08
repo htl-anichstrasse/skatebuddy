@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { View, Dimensions, ScrollView } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Dimensions, ScrollView, ActivityIndicator } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 import styles from '../styles/MapStyles';
 import Button from '../components/Button';
+import SkateparkMarkers from '../components/SkateparkMarkers';
+import useSkateparks from '../hooks/useSkateparks';
 
 styles.mapContainer = {
   ...styles.mapContainer,
@@ -14,6 +16,13 @@ styles.mapContainer = {
 const animDur = 500;
 
 const MapScreen = () => {
+  const [skateparks, setSkateparks] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    useSkateparks(setSkateparks, setIsLoading);
+  }, []);
+
   const [region, setRegion] = useState({
     latitude: 47.2625012,
     longitude: 11.396226,
@@ -39,22 +48,19 @@ const MapScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.mapContainer}>
-        <MapView
-          ref={ref => setMapview(ref)}
-          provider={PROVIDER_GOOGLE}
-          style={styles.map}
-          region={region}
-          onRegionChangeComplete={setRegion}
-          mapType={mapType}>
-          <MapView.Marker
-            coordinate={{
-              latitude: 47.2625012,
-              longitude: 11.396226,
-            }}
-            title={'Marker'}
-            description={'Marker description'}
-          />
-        </MapView>
+        {isLoading ? (
+          <ActivityIndicator />
+        ) : (
+          <MapView
+            ref={ref => setMapview(ref)}
+            provider={PROVIDER_GOOGLE}
+            style={styles.map}
+            region={region}
+            onRegionChangeComplete={setRegion}
+            mapType={mapType}>
+            <SkateparkMarkers skateparks={skateparks} mapview={mapview} />
+          </MapView>
+        )}
       </View>
       <ScrollView horizontal={true}>
         <Button

@@ -8,8 +8,12 @@ const SkateparkDetails = ({ navigation, route }) => {
   return (
     <View>
       <Text>SkateparkDetails {skatepark.name}</Text>
-      <Text>{skatepark.latitude}</Text>
-      <Text>{skatepark.longitude}</Text>
+      <Text>{skatepark.latitude}° N</Text>
+      <Text>{skatepark.longitude}° W</Text>
+
+      {skatepark.address != '' ? <Text>{skatepark.address}</Text> : null}
+
+      <Text>Beste Öffi-Verbindung: {skatepark.busStop} </Text>
 
       <Button title="Go back" onPress={() => navigation.goBack()} />
     </View>
