@@ -15,6 +15,12 @@ styles.mapContainer = {
 // animation duration in ms
 const animDur = 500;
 
+const initialRegion = {
+  latitude: 47.2625012,
+  longitude: 11.396226,
+  latitudeDelta: 0.2,
+  longitudeDelta: 0.2,
+};
 const MapScreen = () => {
   const [skateparks, setSkateparks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -23,12 +29,7 @@ const MapScreen = () => {
     useSkateparks(setSkateparks, setIsLoading);
   }, []);
 
-  const [region, setRegion] = useState({
-    latitude: 47.2625012,
-    longitude: 11.396226,
-    latitudeDelta: 0.2,
-    longitudeDelta: 0.2,
-  });
+  const [region, setRegion] = useState(initialRegion);
 
   const [mapType, setMapType] = useState('standard');
   const cycleMapType = () => {
@@ -43,7 +44,7 @@ const MapScreen = () => {
     }
   };
 
-  const [mapview, setMapview] = useState(null);
+  const [mapView, setMapView] = useState(null);
 
   return (
     <View style={styles.container}>
@@ -64,19 +65,16 @@ const MapScreen = () => {
       </View>
       <ScrollView horizontal={true}>
         <Button
-          title="Move map"
+          title="Reset map"
           onPress={() => {
-            setRegion({
-              ...region,
-              latitude: region.latitude + 0.01,
-            });
+            mapView.animateToRegion(initialRegion, animDur);
           }}
         />
         <Button title="mapType" onPress={cycleMapType} />
         <Button
           title="Move west"
           onPress={() =>
-            mapview.animateToRegion(
+            mapView.animateToRegion(
               {
                 ...region,
                 longitude: region.longitude - 0.1,
@@ -88,7 +86,7 @@ const MapScreen = () => {
         <Button
           title="Move east"
           onPress={() =>
-            mapview.animateToRegion(
+            mapView.animateToRegion(
               {
                 ...region,
                 longitude: region.longitude + 0.1,
