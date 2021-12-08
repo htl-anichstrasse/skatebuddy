@@ -1,7 +1,7 @@
 const useSkateparks = async (setSkateparks, setIsLoading) => {
   // TODO get skateparks from real API
 
-  await new Promise(r => setTimeout(r, 2000));
+  await new Promise(r => setTimeout(r, 500));
   setIsLoading(false);
 
   setSkateparks([

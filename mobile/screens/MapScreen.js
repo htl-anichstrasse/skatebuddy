@@ -16,10 +16,10 @@ styles.mapContainer = {
 const animDur = 500;
 
 const initialRegion = {
-  latitude: 47.2625012,
-  longitude: 11.396226,
-  latitudeDelta: 0.2,
-  longitudeDelta: 0.2,
+  latitude: 47.265,
+  longitude: 11.42,
+  latitudeDelta: 0.08,
+  longitudeDelta: 0.08,
 };
 const MapScreen = () => {
   const [skateparks, setSkateparks] = useState([]);
@@ -31,7 +31,7 @@ const MapScreen = () => {
 
   const [region, setRegion] = useState(initialRegion);
 
-  const [mapType, setMapType] = useState('standard');
+  const [mapType, setMapType] = useState('satellite');
   const cycleMapType = () => {
     if (mapType === 'standard') {
       setMapType('satellite');
@@ -53,13 +53,13 @@ const MapScreen = () => {
           <ActivityIndicator />
         ) : (
           <MapView
-            ref={ref => setMapview(ref)}
+            ref={ref => setMapView(ref)}
             provider={PROVIDER_GOOGLE}
             style={styles.map}
             region={region}
             onRegionChangeComplete={setRegion}
             mapType={mapType}>
-            <SkateparkMarkers skateparks={skateparks} mapview={mapview} />
+            <SkateparkMarkers skateparks={skateparks} />
           </MapView>
         )}
       </View>
@@ -71,30 +71,6 @@ const MapScreen = () => {
           }}
         />
         <Button title="mapType" onPress={cycleMapType} />
-        <Button
-          title="Move west"
-          onPress={() =>
-            mapView.animateToRegion(
-              {
-                ...region,
-                longitude: region.longitude - 0.1,
-              },
-              animDur,
-            )
-          }
-        />
-        <Button
-          title="Move east"
-          onPress={() =>
-            mapView.animateToRegion(
-              {
-                ...region,
-                longitude: region.longitude + 0.1,
-              },
-              animDur,
-            )
-          }
-        />
       </ScrollView>
     </View>
   );
