@@ -1,11 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { View, Dimensions, ScrollView, ActivityIndicator } from 'react-native';
+import React, { useState } from 'react';
+import {
+  Text,
+  View,
+  Dimensions,
+  ScrollView,
+  ActivityIndicator,
+} from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 import styles from '../styles/MapStyles';
 import Button from '../components/Button';
 import SkateparkMarkers from '../components/SkateparkMarkers';
-import useSkateparks from '../hooks/useSkateparks';
+import useFetch from '../hooks/useFetch';
 
 styles.mapContainer = {
   ...styles.mapContainer,
@@ -22,12 +28,7 @@ const initialRegion = {
   longitudeDelta: 0.08,
 };
 const MapScreen = () => {
-  const [skateparks, setSkateparks] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    useSkateparks(setSkateparks, setIsLoading);
-  }, []);
+  const { data: skateparks, isLoading, error } = useFetch('skateparks');
 
   const [region, setRegion] = useState(initialRegion);
 
@@ -49,9 +50,8 @@ const MapScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.mapContainer}>
-        {isLoading ? (
-          <ActivityIndicator />
-        ) : (
+        {isLoading && <ActivityIndicator style={styles.loadingCircle} />}
+        {skateparks && (
           <MapView
             ref={ref => setMapView(ref)}
             provider={PROVIDER_GOOGLE}
@@ -62,6 +62,7 @@ const MapScreen = () => {
             <SkateparkMarkers skateparks={skateparks} />
           </MapView>
         )}
+        {error && <Text style={styles.error}>Error {error}</Text>}
       </View>
       <ScrollView horizontal={true}>
         <Button

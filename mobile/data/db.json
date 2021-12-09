@@ -44,5 +44,15 @@
       "skateparkId": 1,
       "pictureId": 3
     }
+  ],
+  "reviews": [
+    {
+      "reviewId": 1,
+      "userId": 1,
+      "skateparkId": 1,
+      "rating": 5,
+      "title": "Sueeee",
+      "content": "Rum hat a geile ramp seitdem sie nen 2020 umbaut ham, less go weiter so jungs #skatekeks"
+    }
   ]
 }
