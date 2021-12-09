@@ -10,7 +10,6 @@ const Parks = () =>{
                 return res.json();
             })
             .then(data => {
-                console.log(data);
                 setPark(data);
             });
     }, []);
