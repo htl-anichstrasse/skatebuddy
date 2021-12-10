@@ -17,6 +17,9 @@ const SkateparksStyles = StyleSheet.create({
     height: 180,
     borderRadius: 10,
   },
+  loadingCircle: {
+    paddingTop: 100,
+  },
 });
 
 export default SkateparksStyles;

@@ -1,6 +1,16 @@
 var mysql = require('mysql');
 
-const con = mysql.createPool({
+class Users {
+    constructor(id, name, passworHash, email, profilePictureId) {
+        this.id = id;
+        this.name = name;
+        this.passworHhash = passworHash;
+        this.email = email;
+        this.profilePictureId = profilePictureId;
+    }
+}
+
+/*const con = mysql.createPool({
     connectionLimit: 10,
     host: 'localhost',
     user: 'root',
@@ -8,12 +18,11 @@ const con = mysql.createPool({
     port: '3306',
     database: 'skater-app',
 });
+*/
 
-let diplomdb = {};
-
-diplomdb.selectAll = table => {
+Users.selectAll = con => {
     return new Promise((resolve, reject) => {
-        con.query('Select * from ?', [table], (err, result) => {
+        con.query('Select * from users', (err, result) => {
             if (err) {
                 return reject(err);
             }
@@ -22,26 +31,11 @@ diplomdb.selectAll = table => {
     });
 };
 
-diplomdb.getById = (table, id) => {
+Users.insertValue = (con, name, passworHash, email, profilePictureId) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'Select * from ? where id = ?',
-            [table, id],
-            (err, result) => {
-                if (err) {
-                    return reject(err);
-                }
-                return resolve(result[0]);
-            },
-        );
-    });
-};
-
-diplomdb.insertValue = (table, testString) => {
-    return new Promise((resolve, reject) => {
-        con.query(
-            'Insert into ? values (?)',
-            [table, testString],
+            'Insert into users(Name, PasswordHash, Email, ProfilePictureID) values (?, ?, ?, ?)',
+            [name, passworHash, email, profilePictureId],
             (err, result) => {
                 if (err) {
                     return reject(err);
@@ -53,12 +47,10 @@ diplomdb.insertValue = (table, testString) => {
     });
 };
 
-diplomdb.update = (table, set, condition, conditionValue) => {
+Users.update = (con, row, oldValue, newValue) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'UPDATE ? SET ? Where ? = ?'[
-                (table, set, condition, conditionValue)
-            ],
+            'UPDATE Users SET ? Where ? = ?'[(row, oldValue, newValue)],
             (err, result) => {
                 if (err) {
                     return reject(err);
@@ -69,16 +61,16 @@ diplomdb.update = (table, set, condition, conditionValue) => {
     });
 };
 
-diplomdb.insertValue = (table, rowNames, insertValue) => {
+Users.delete = (con, row, rowValue) => {
     return new Promise((resolve, reject) => {
-        var sql = 'INSERT INTO ? (?) VALUES (?)';
-        con.query(sql, [rowNames], [insertValue], (err, result) => {
-            if (err) {
-                return reject(err);
-            }
-            return resolve(result.affectedRows);
-        });
+        con.query(
+            'DELETE FROM Users WHERE ? = ?'[(row, rowValue)],
+            (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                return resolve(result.affectedRows);
+            },
+        );
     });
 };
-
-module.exports = diplomdb;
