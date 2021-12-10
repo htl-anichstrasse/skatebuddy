@@ -1,3 +1,30 @@
+# Installation
+
+```
+cd mobile
+npm install
+```
+
+Open ./android in Android Studio
+
+Edit Gradle Scripts > local.properties
+
+```
+## This file must *NOT* be checked into Version Control Systems,
+# as it contains information specific to your local configuration.
+#
+# Location of the SDK. This is only used by Gradle.
+# For customization when using a Version Control System, please read the
+# header note.
+#Fri Dec 10 13:47:13 CET 2021
+sdk.dir=C\:\\Users\\schul\\AppData\\Local\\Android\\Sdk
+MAPS_API_KEY=AIzaS...by1c_8
+```
+
+Get this API Key from the Google Cloud Platform and activate Maps SDK for Android
+  
+Sync Project with Gradle Files
+
 # Aktueller Status:
 
 ## UI
