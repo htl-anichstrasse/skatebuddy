@@ -17,9 +17,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: 'red',
   },
-  loadingCircle: {
-    paddingTop: 100,
-  },
 });
 
 export default styles;
