@@ -21,13 +21,9 @@ const SkateparkDetails = ({ navigation, route }) => {
         <Text>Beste Öffi-Verbindung: {skatepark.busStop} </Text>
       </View>
 
-      <Button
-        style={styles.button}
-        title="Go back"
-        onPress={() => navigation.goBack()}
-      />
+      <Button title="Go back" onPress={() => navigation.goBack()} />
 
-      <Reviews skateparkId={skatepark.skateparkId} />
+      <Reviews skateparkId={skatepark.skateparkId} navigation={navigation} />
     </View>
   );
 };

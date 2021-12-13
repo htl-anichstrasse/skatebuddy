@@ -8,10 +8,12 @@ import {
 } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
-import styles from '../styles/MapStyles';
 import Button from '../components/Button';
 import SkateparkMarkers from '../components/SkateparkMarkers';
 import useFetch from '../hooks/useFetch';
+
+import styles from '../styles/MapStyles';
+import gStyles from '../styles/GlobalStyles';
 
 styles.mapContainer = {
   ...styles.mapContainer,
@@ -50,7 +52,7 @@ const MapScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.mapContainer}>
-        {isLoading && <ActivityIndicator style={styles.loadingCircle} />}
+        {isLoading && <ActivityIndicator style={gStyles.loadingCircle} />}
         {skateparks && (
           <MapView
             ref={ref => setMapView(ref)}

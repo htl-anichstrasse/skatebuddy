@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 
-const useFetch = url => {
+// useFetch will be used for the fetching of data from the database
+// as soon as the server for our database is up and running I will add the needed functionality
+
+const useFetch = (url, id) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -27,22 +30,43 @@ const useFetch = url => {
           },
         ]);
       } else if (url == 'reviews') {
-        setData([
-          {
-            reviewId: 1,
-            userId: 1,
-            skateparkId: 1,
-            rating: 5,
-            title: 'Sueeee',
-            content:
-              'Rum hat a geile ramp seitdem sie nen 2020 umbaut ham, less go weiter so jungs #skatekeks',
-          },
-        ]);
+        if (id == 1) {
+          setData([
+            {
+              reviewId: 1,
+              userId: 1,
+              skateparkId: 1,
+              rating: 5,
+              title: 'Sueeee',
+              content:
+                'Rum hat a geile ramp seitdem sie nen 2020 umbaut ham, less go weiter so jungs #skatekeks',
+            },
+            {
+              reviewId: 3,
+              userId: 2,
+              skateparkId: 1,
+              rating: 4,
+              title: 'Nice',
+              content: 'Ganz nice',
+            },
+          ]);
+        } else if (id == 2) {
+          setData([
+            {
+              reviewId: 2,
+              userId: 1,
+              skateparkId: 2,
+              rating: 5,
+              title: 'Heftig',
+              content: 'Tivoli hat a geile outdoor bowl okaaayyy letss gooo',
+            },
+          ]);
+        }
       } else {
         setError('404');
       }
       setIsLoading(false);
-    }, 5000);
+    }, 500);
   }, [url]);
 
   return { data, isLoading, error };
