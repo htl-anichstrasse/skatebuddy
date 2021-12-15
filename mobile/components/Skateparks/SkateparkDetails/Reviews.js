@@ -1,56 +1,30 @@
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
 
-import Review from '../components/Review';
+import Review from './Review';
 import Button from '../../common/Button';
-import LoadingCircle from '../../common/LoadingCircle';
-
-import useFetch from '../../../hooks/useFetch';
 
 import styles from '../../../styles/ReviewsStyles';
 
-const Reviews = ({ navigation, skateparkId }) => {
-  const { data: reviews, isLoading, error } = useFetch('reviews', skateparkId);
-
-  const addReview = review => {
-    reviews.push(review);
+const Reviews = ({ navigation, reviews, newReview }) => {
+  const newReviewObject = {
+    userId: 3,
+    skateparkId: 1,
+    rating: 1,
+    title: 'Ganz ok',
+    content: 'Mittelmäiger spot aber nice ramp',
   };
 
   return (
-    <View>
-      {isLoading && <LoadingCircle />}
-      {error && <Text>Error!</Text>}
-      {reviews && (
-        <>
-          <Button
-            title="New Review"
-            onPress={() =>
-              addReview({
-                reviewId: 4,
-                userId: 2,
-                skateparkId: skateparkId,
-                rating: 4,
-                title: 'neue review',
-                content: 'heeuuuu',
-              })
-            }
-          />
-          <View style={styles.reviews}>
-            <View style={styles.header}>
-              <View style={styles.headerTextContainer}>
-                <Text style={styles.headerText}>Reviews</Text>
-              </View>
-              <View style={styles.reviewsCountContainer}>
-                <Text style={styles.reviewsCount}>{reviews.length}</Text>
-              </View>
-            </View>
-            <FlatList
-              data={reviews}
-              renderItem={({ item }) => <Review review={item} />}
-            />
-          </View>
-        </>
-      )}
+    <View style={styles.container}>
+      <Text style={styles.headerText}>Anzahl Reviews: {reviews.length}</Text>
+      <View style={styles.reviewsContainer}>
+        <FlatList
+          data={reviews}
+          renderItem={({ item }) => <Review review={item} />}
+          keyExtractor={item => item.reviewId}
+        />
+      </View>
     </View>
   );
 };

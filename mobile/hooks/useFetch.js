@@ -8,6 +8,10 @@ const useFetch = (url, id) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const changeData = reviews => setData(reviews);
+  const changeIsLoading = isLoading => setIsLoading(isLoading);
+  const changeError = error => setError(error);
+
   useEffect(() => {
     setTimeout(() => {
       if (url == 'skateparks') {
@@ -33,6 +37,22 @@ const useFetch = (url, id) => {
         if (id == 1) {
           setData([
             {
+              reviewId: 3,
+              userId: 3,
+              skateparkId: 1,
+              rating: 1,
+              title: 'Nit so nice',
+              content: 'Schlechter Spot und schlechte qualität',
+            },
+            {
+              reviewId: 2,
+              userId: 2,
+              skateparkId: 1,
+              rating: 4,
+              title: 'Nice',
+              content: 'Ganz nice',
+            },
+            {
               reviewId: 1,
               userId: 1,
               skateparkId: 1,
@@ -41,19 +61,11 @@ const useFetch = (url, id) => {
               content:
                 'Rum hat a geile ramp seitdem sie nen 2020 umbaut ham, less go weiter so jungs #skatekeks',
             },
-            {
-              reviewId: 3,
-              userId: 2,
-              skateparkId: 1,
-              rating: 4,
-              title: 'Nice',
-              content: 'Ganz nice',
-            },
           ]);
         } else if (id == 2) {
           setData([
             {
-              reviewId: 2,
+              reviewId: 4,
               userId: 1,
               skateparkId: 2,
               rating: 5,
@@ -69,7 +81,7 @@ const useFetch = (url, id) => {
     }, 500);
   }, [url]);
 
-  return { data, isLoading, error };
+  return { data, isLoading, error, changeData, changeIsLoading, changeError };
 };
 
 export default useFetch;

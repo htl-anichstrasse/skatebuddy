@@ -13,10 +13,19 @@ const SkateparkDetailsStyles = StyleSheet.create({
   container: {
     alignItems: 'center',
     flex: 1,
-    backgroundColor: '#fff',
   },
   coordinates: {
     padding: 10,
+  },
+  modalContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '80%',
+    backgroundColor: '#fff',
+    margin: 20,
+    borderColor: '#ddd',
+    borderWidth: 2,
+    borderStyle: 'solid',
   },
 });
 

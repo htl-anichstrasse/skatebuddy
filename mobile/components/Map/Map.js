@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import SkateparkMarkers from '../components/SkateparkMarkers';
+import SkateparkMarkers from './SkateparkMarkers';
 
 const Map = () => {
   return (
@@ -17,4 +17,3 @@ const Map = () => {
 };
 
 export default Map;
-export { ref };
