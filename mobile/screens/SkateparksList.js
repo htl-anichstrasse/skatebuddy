@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, FlatList, ActivityIndicator } from 'react-native';
+import { View, FlatList } from 'react-native';
 
 import SkateparkEntry from '../components/SkateparkEntry';
+import LoadingCircle from '../components/common/LoadingCircle';
+
 import styles from '../styles/SkateparksStyles';
-import gStyles from '../styles/GlobalStyles';
 
 import useFetch from '../hooks/useFetch';
 
@@ -13,7 +14,7 @@ const SkateparksScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       {isLoading ? (
-        <ActivityIndicator style={gStyles.loadingCircle} />
+        <LoadingCircle />
       ) : (
         <FlatList
           data={skateparks}

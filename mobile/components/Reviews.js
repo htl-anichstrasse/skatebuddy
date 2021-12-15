@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
-import { View, Text, ActivityIndicator, FlatList } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 
 import Review from '../components/Review';
-import Button from '../components/Button';
+import Button from '../components/common/Button';
+import LoadingCircle from './common/LoadingCircle';
+
 import useFetch from '../hooks/useFetch';
 
 import styles from '../styles/ReviewsStyles';
-import gStyles from '../styles/GlobalStyles';
 
 const Reviews = ({ navigation, skateparkId }) => {
   const { data: reviews, isLoading, error } = useFetch('reviews', skateparkId);
@@ -17,7 +18,7 @@ const Reviews = ({ navigation, skateparkId }) => {
 
   return (
     <View>
-      {isLoading && <ActivityIndicator style={gStyles.loadingCircle} />}
+      {isLoading && <LoadingCircle />}
       {error && <Text>Error!</Text>}
       {reviews && (
         <>

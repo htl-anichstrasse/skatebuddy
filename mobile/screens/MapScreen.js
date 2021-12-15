@@ -1,19 +1,13 @@
 import React, { useState } from 'react';
-import {
-  Text,
-  View,
-  Dimensions,
-  ScrollView,
-  ActivityIndicator,
-} from 'react-native';
+import { Text, View, Dimensions, ScrollView } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
-import Button from '../components/Button';
+import Button from '../components/common/Button';
 import SkateparkMarkers from '../components/SkateparkMarkers';
+import LoadingCircle from '../components/common/LoadingCircle';
 import useFetch from '../hooks/useFetch';
 
 import styles from '../styles/MapStyles';
-import gStyles from '../styles/GlobalStyles';
 
 styles.mapContainer = {
   ...styles.mapContainer,
@@ -52,7 +46,7 @@ const MapScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.mapContainer}>
-        {isLoading && <ActivityIndicator style={gStyles.loadingCircle} />}
+        {isLoading && <LoadingCircle />}
         {skateparks && (
           <MapView
             ref={ref => setMapView(ref)}

@@ -1,8 +1,10 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import Button from '../components/Button';
-import styles from '../styles/SkateparkDetailsStyles';
+
+import Button from '../components/common/Button';
 import Reviews from '../components/Reviews';
+
+import styles from '../styles/SkateparkDetailsStyles';
 
 const SkateparkDetails = ({ navigation, route }) => {
   const skatepark = route.params.skatepark;

@@ -1,10 +1,41 @@
-import React from "react";
-import { View, Text } from "react-native";
+import React from 'react';
+import { View, Text, ScrollView } from 'react-native';
+import styles from '../styles/HomeStyles';
+
+const Content = () => {
+  return (
+    <>
+      <View style={styles.row}>
+        <Text>Try editing me! 🎉</Text>
+      </View>
+      <View style={styles.row}>
+        <Text>Try editing me! 🎉</Text>
+      </View>
+      <View style={styles.row}>
+        <Text>Try editing me! 🎉</Text>
+      </View>
+      <View style={styles.row}>
+        <Text>Try editing me! 🎉</Text>
+      </View>
+      <View style={styles.row}>
+        <Text>Try editing me! 🎉</Text>
+      </View>
+      <View style={styles.row}>
+        <Text>Try editing me! 🎉</Text>
+      </View>
+      <View style={styles.row}>
+        <Text>Try editing me! 🎉</Text>
+      </View>
+    </>
+  );
+};
 
 const Home = () => {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Try editing me! 🎉</Text>
+    <View style={styles.container}>
+      <ScrollView>
+        <Content />
+      </ScrollView>
     </View>
   );
 };
