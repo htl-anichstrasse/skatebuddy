@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 
 import Button from '../components/common/Button';
-import Reviews from '../components/Reviews';
+import Reviews from '../components/Skateparks/SkateparkDetails/Reviews';
 
 import styles from '../styles/SkateparkDetailsStyles';
 

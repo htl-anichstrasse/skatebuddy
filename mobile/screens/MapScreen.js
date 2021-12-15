@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Text, View, Dimensions, ScrollView } from 'react-native';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
+import Map from '../components/Map/Map';
 import Button from '../components/common/Button';
-import SkateparkMarkers from '../components/SkateparkMarkers';
 import LoadingCircle from '../components/common/LoadingCircle';
 import useFetch from '../hooks/useFetch';
 
@@ -47,17 +46,7 @@ const MapScreen = () => {
     <View style={styles.container}>
       <View style={styles.mapContainer}>
         {isLoading && <LoadingCircle />}
-        {skateparks && (
-          <MapView
-            ref={ref => setMapView(ref)}
-            provider={PROVIDER_GOOGLE}
-            style={styles.map}
-            region={region}
-            onRegionChangeComplete={setRegion}
-            mapType={mapType}>
-            <SkateparkMarkers skateparks={skateparks} />
-          </MapView>
-        )}
+        {skateparks && <Map />}
         {error && <Text style={styles.error}>Error {error}</Text>}
       </View>
       <ScrollView horizontal={true}>

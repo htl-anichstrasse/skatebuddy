@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, Pressable, Image } from 'react-native';
 
-import styles from '../styles/SkateparksStyles';
-import { skateparksImages } from '../styles/Images';
+import styles from '../../styles/SkateparksStyles';
+import { skateparksImages } from '../../styles/Images';
 
 const SkateparkEntry = ({ skatepark, navigation }) => {
   const navigateToSkateparkDetails = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, FlatList } from 'react-native';
 
-import SkateparkEntry from '../components/SkateparkEntry';
+import SkateparkEntry from '../components/Skateparks/SkateparkDetailsSkateparkEntry';
 import LoadingCircle from '../components/common/LoadingCircle';
 
 import styles from '../styles/SkateparksStyles';

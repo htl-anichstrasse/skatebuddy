@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-import styles from '../styles/ReviewsStyles';
+import styles from '../../../styles/ReviewsStyles';
 
 const Review = ({ review }) => {
   return (

@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { View, Text, FlatList } from 'react-native';
 
 import Review from '../components/Review';
-import Button from '../components/common/Button';
-import LoadingCircle from './common/LoadingCircle';
+import Button from '../../common/Button';
+import LoadingCircle from '../../common/LoadingCircle';
 
-import useFetch from '../hooks/useFetch';
+import useFetch from '../../../hooks/useFetch';
 
-import styles from '../styles/ReviewsStyles';
+import styles from '../../../styles/ReviewsStyles';
 
 const Reviews = ({ navigation, skateparkId }) => {
   const { data: reviews, isLoading, error } = useFetch('reviews', skateparkId);
