@@ -1,22 +1,12 @@
-import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  Modal,
-  Pressable,
-  TextInput,
-  ScrollView,
-} from 'react-native';
+import React from 'react';
+import { View, Text, Modal, ScrollView } from 'react-native';
 
-import { Formik } from 'formik';
+import AddReviewForm from './AddReviewForm';
+import Button from '../../../components/common/Button';
 
 import styles from '../../../styles/SkateparkDetailsStyles';
 
 const AddReviewModal = ({ modalVisible, setModalVisible }) => {
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const [rating, setRating] = useState('');
-
   return (
     <Modal
       hardwareAccelerated={true}
@@ -30,51 +20,12 @@ const AddReviewModal = ({ modalVisible, setModalVisible }) => {
         <View style={styles.modalContainer}>
           <Text>New Review</Text>
 
-          <Formik
-            initialValues={{ title, content, rating }}
-            onSubmit={values => {
-              console.log(values);
-            }}>
-            {({ handleChange, handleBlur, handleSubmit, values }) => (
-              <>
-                <Text>Title</Text>
-                <TextInput
-                  name="title"
-                  style={styles.input}
-                  onChangeText={handleChange('title')}
-                  onBlur={handleBlur('title')}
-                  value={values.title}
-                  placeholder="Title"
-                />
-                <Text>Content</Text>
-                <TextInput
-                  style={styles.input}
-                  onChangeText={handleChange('content')}
-                  onBlur={handleBlur('content')}
-                  value={values.content}
-                  multiline={true}
-                  numberOfLines={4}
-                  placeholder="Content"
-                />
-                <Text>Rating</Text>
-                <TextInput
-                  style={styles.input}
-                  onChangeText={handleChange('rating')}
-                  onBlur={handleBlur('rating')}
-                  value={values.rating}
-                  keyboardType="number-pad"
-                  placeholder="Rating"
-                />
-                <Pressable onPress={handleSubmit}>
-                  <Text>Submit</Text>
-                </Pressable>
-              </>
-            )}
-          </Formik>
+          <AddReviewForm />
 
-          <Pressable onPress={() => setModalVisible(!modalVisible)}>
-            <Text>Hide Modal</Text>
-          </Pressable>
+          <Button
+            title="Hide Modal"
+            onPress={() => setModalVisible(!modalVisible)}
+          />
         </View>
       </ScrollView>
     </Modal>

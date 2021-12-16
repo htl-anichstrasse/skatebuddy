@@ -14,7 +14,7 @@ const Tab = createBottomTabNavigator();
 const BottomTabsNavigator = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Skateparks"
+      initialRouteName="Map"
       screenOptions={{
         header: ({ route, options }) => {
           const title = getHeaderTitle(options, route.name);
