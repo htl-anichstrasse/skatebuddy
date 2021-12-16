@@ -1,17 +1,13 @@
 const express = require('express');
-const apiRouter = require('./routes');
+const userRouter = require('./routes/user_routes');
 const fs = require('fs');
+const bodyParser = require('body-parser');
 
 const app = express();
 const port = 3000;
 
-app.use(express.json());
-
-app.use('/tests', apiRouter);
-
-app.get('/test', (req, res) => {
-    fs.readFile(__dirname + '/' + 'test.json');
-});
+app.use(bodyParser.json());
+app.use('/api', userRouter);
 
 app.listen(port, () => {
     console.log(`app listening at http://localhost:${port}`);

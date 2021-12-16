@@ -17,6 +17,20 @@ obstacles.selectAll = con => {
     });
 };
 
+obstacles.getById = (con, id) => {
+    return new Promise((resolve, reject) => {
+        con.query(
+            'Select * from obstacles where ObstacleId = ?',
+            [id],
+            (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                resolve(result[0]);
+            },
+        );
+    });
+};
 obstacles.insertValue = (con, obstacleID, description, difficulty) => {
     return new Promise((resolve, reject) => {
         con.query(
@@ -33,10 +47,11 @@ obstacles.insertValue = (con, obstacleID, description, difficulty) => {
     });
 };
 
-obstacles.update = (con, row, oldValue, newValue) => {
+obstacles.update = (con, column, newValue, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'UPDATE obstacles SET ? Where ? = ?'[(row, oldValue, newValue)],
+            `UPDATE obstacles SET ${column} = ? Where ObstacleID = ? `,
+            [(column, newValue, id)],
             (err, result) => {
                 if (err) {
                     return reject(err);
@@ -47,10 +62,11 @@ obstacles.update = (con, row, oldValue, newValue) => {
     });
 };
 
-obstacles.delete = (con, row, rowValue) => {
+obstacles.deleteValue = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'DELETE FROM obstacles WHERE ? = ?'[(row, rowValue)],
+            'DELETE FROM obstacles WHERE ObstacleID = ?',
+            [id],
             (err, result) => {
                 if (err) {
                     return reject(err);

@@ -1,6 +1,6 @@
 var mysql = require('mysql');
 
-class skaterparks {
+class skateparks {
     constructor(id, name, lon, lat) {
         this.id = id;
         this.name = name;
@@ -9,7 +9,7 @@ class skaterparks {
     }
 }
 
-skaterparks.selectAll = con => {
+skateparks.selectAll = con => {
     return new Promise((resolve, reject) => {
         con.query('Select * from skateparks', (err, result) => {
             if (err) {
@@ -20,7 +20,21 @@ skaterparks.selectAll = con => {
     });
 };
 
-skaterparks.insertValue = (con, name, lon, lat) => {
+skateparks.getById = (con, id) => {
+    return new Promise((resolve, reject) => {
+        con.query(
+            'Select * from skateparks where SkateparkID = ?',
+            [id],
+            (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                resolve(result[0]);
+            },
+        );
+    });
+};
+skateparks.insertValue = (con, name, lon, lat) => {
     return new Promise((resolve, reject) => {
         con.query(
             'Insert into skateparks(Name, lon, lat) values (?, ?, ?)',
@@ -36,10 +50,11 @@ skaterparks.insertValue = (con, name, lon, lat) => {
     });
 };
 
-skaterparks.update = (con, row, oldValue, newValue) => {
+skateparks.update = (con, column, newValue, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'UPDATE skateparks SET ? Where ? = ?'[(row, oldValue, newValue)],
+            `UPDATE Skateparks SET ${column} = ? Where SkateparkID = ? `,
+            [(column, newValue, id)],
             (err, result) => {
                 if (err) {
                     return reject(err);
@@ -50,10 +65,11 @@ skaterparks.update = (con, row, oldValue, newValue) => {
     });
 };
 
-skaterparks.delete = (con, row, rowValue) => {
+skateparks.deleteValue = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'DELETE FROM skateparks WHERE ? = ?'[(row, rowValue)],
+            'DELETE FROM skateparks WHERE SkateparkID = ?',
+            [id],
             (err, result) => {
                 if (err) {
                     return reject(err);

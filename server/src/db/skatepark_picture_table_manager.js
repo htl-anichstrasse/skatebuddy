@@ -16,6 +16,20 @@ skateparkPictures.selectAll = con => {
     });
 };
 
+skateparkPictures.getById = (con, id) => {
+    return new Promise((resolve, reject) => {
+        con.query(
+            'Select * from skatepark_pictures where SkateparkID = ?',
+            [id],
+            (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                result[0];
+            },
+        );
+    });
+};
 skateparkPictures.insertValue = (con, parkId, picId) => {
     return new Promise((resolve, reject) => {
         con.query(
@@ -32,12 +46,11 @@ skateparkPictures.insertValue = (con, parkId, picId) => {
     });
 };
 
-skateparkPictures.update = (con, row, oldValue, newValue) => {
+skateparkPictures.update = (con, column, newValue, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'UPDATE Skatepark_pictures SET ? Where ? = ?'[
-                (row, oldValue, newValue)
-            ],
+            `UPDATE Skatepark_pictures SET ${column} = ? Where SkateparkID = ? `,
+            [(column, newValue, id)],
             (err, result) => {
                 if (err) {
                     return reject(err);
@@ -48,10 +61,11 @@ skateparkPictures.update = (con, row, oldValue, newValue) => {
     });
 };
 
-skateparkPictures.delete = (con, row, rowValue) => {
+skateparkPictures.deleteValue = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'DELETE FROM Skatepark_pictures WHERE ? = ?'[(row, rowValue)],
+            'DELETE FROM Skatepark_pictures WHERE SkateparkID = ?',
+            [id],
             (err, result) => {
                 if (err) {
                     return reject(err);

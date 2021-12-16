@@ -1,10 +1,7 @@
-var mysql = require('mysql');
-
 class Users {
-    constructor(id, name, passworHash, email, profilePictureId) {
-        this.id = id;
+    constructor(name, passwordHash, email, profilePictureId) {
         this.name = name;
-        this.passworHhash = passworHash;
+        this.passwordHash = passwordHash;
         this.email = email;
         this.profilePictureId = profilePictureId;
     }
@@ -31,26 +28,41 @@ Users.selectAll = con => {
     });
 };
 
-Users.insertValue = (con, name, passworHash, email, profilePictureId) => {
+Users.getById = (con, id) => {
+    return new Promise((resolve, reject) => {
+        con.query(
+            'Select * from Users where UserId = ?',
+            [id],
+            (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                resolve(result[0]);
+            },
+        );
+    });
+};
+
+Users.insertValue = (con, user) => {
     return new Promise((resolve, reject) => {
         con.query(
             'Insert into users(Name, PasswordHash, Email, ProfilePictureID) values (?, ?, ?, ?)',
-            [name, passworHash, email, profilePictureId],
+            [user.name, user.passwordHash, user.email, user.profilePictureId],
             (err, result) => {
                 if (err) {
                     return reject(err);
                 }
-                return resolve(result[0]);
-                console.log('Succsessfully inserted!');
+                resolve(result[0]);
             },
         );
     });
 };
 
-Users.update = (con, row, oldValue, newValue) => {
+Users.update = (con, column, newValue, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'UPDATE Users SET ? Where ? = ?'[(row, oldValue, newValue)],
+            `UPDATE Users SET ${column} = ? Where UserId = ? `,
+            [newValue, parseInt(id)],
             (err, result) => {
                 if (err) {
                     return reject(err);
@@ -61,16 +73,19 @@ Users.update = (con, row, oldValue, newValue) => {
     });
 };
 
-Users.delete = (con, row, rowValue) => {
+Users.deleteValue = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'DELETE FROM Users WHERE ? = ?'[(row, rowValue)],
+            'Delete from Users where Userid = ? ',
+            [id],
             (err, result) => {
                 if (err) {
                     return reject(err);
                 }
-                return resolve(result.affectedRows);
+                resolve(result.affectedRows);
             },
         );
     });
 };
+
+module.exports = Users;
