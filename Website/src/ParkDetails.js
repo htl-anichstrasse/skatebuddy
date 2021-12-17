@@ -1,22 +1,59 @@
+import './ParkDetails.css'
 import { useParams } from "react-router-dom";
-import SimpleMap from "./Map";
 import useFetch from "./UseFetch";
+import raw from './Key.txt';
+import GoogleMapReact from 'google-map-react';
+import { useState } from 'react/cjs/react.development';
+
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 const ParkDetails = () => {
   const { id } = useParams();
   const { data: park, isPending, error } = useFetch('http://localhost:8000/skateparks?skateparkId=' + id);
+  const [Keys,setKeys] = useState(null);
+
+  const defaultProps = {
+    center: {
+      lat: 47.2683,
+      lng: 11.3933
+    },
+    zoom: 11
+  };
+
+  const options ={
+    minZoom: 9,
+    maxZoom: 20
+  }
+
+  fetch(raw)
+  .then(r => r.text())
+  .then(text => {
+    setKeys(text);
+  });
   
   return (
     <div className="park-details">
       { isPending && <div>Loading...</div> }
       { error && <div>{ error }</div> }
-      { park && (<>
-          <h2>{ park[0].name }</h2>
-          <p>Latitude: {park[0].latitude}</p>
-          <p>Longitude: {park[0].longitude}</p>
-          <SimpleMap></SimpleMap>
-      </>
-      )}
+      { park && <>
+          <h2 className='ParkName'>{ park[0].name }</h2>
+
+        <div className="map" style={{ height: '55vh', width: '80%', marginRight: 'auto', marginLeft: 'auto'}}>
+          <GoogleMapReact
+          options ={options}
+          bootstrapURLKeys={{ key:Keys}} //API-Key
+          defaultCenter={defaultProps.center} 
+          defaultZoom={defaultProps.zoom}
+        >
+          <AnyReactComponent
+            lat={park[0].latitude}
+            lng={park[0].longitude}
+            text="My Marker"
+          />
+        </GoogleMapReact>
+      </div>
+
+      </>}
     </div>
   );
 }
