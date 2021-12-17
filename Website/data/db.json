@@ -34,18 +34,15 @@
     "skatepark_pictures": [
       {
         "skateparkId": 1,
-        "pictureId": 1,
-        "picture": "Rum.jpg"
+        "pictureId": 1
       },
       {
         "skateparkId": 1,
-        "pictureId": 2,
-        "picture": "Rum.jpg"
+        "pictureId": 2
       },
       {
         "skateparkId": 2,
-        "pictureId": 1,
-        "picture": "Tivoli.jpg"
+        "pictureId": 1
       }
     ]
   }
