@@ -1,4 +1,4 @@
-class obstacles {
+class Obstacles {
     constructor(obstacleId, description, difficulty) {
         this.obstacleId = obstacleId;
         this.description = description;
@@ -6,7 +6,7 @@ class obstacles {
     }
 }
 
-obstacles.selectAll = con => {
+Obstacles.selectAll = con => {
     return new Promise((resolve, reject) => {
         con.query('Select * from obstacles', (err, result) => {
             if (err) {
@@ -17,7 +17,7 @@ obstacles.selectAll = con => {
     });
 };
 
-obstacles.getById = (con, id) => {
+Obstacles.getById = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             'Select * from obstacles where ObstacleId = ?',
@@ -31,11 +31,11 @@ obstacles.getById = (con, id) => {
         );
     });
 };
-obstacles.insertValue = (con, obstacleID, description, difficulty) => {
+Obstacles.insertValue = (con, obstacle) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'Insert into obstacles(ObstacleID, Description, Difficulty) values (?, ?, ?)',
-            [obstacleID, description, difficulty],
+            'Insert into obstacles(Description, Difficulty) values (?, ?)',
+            [obstacle.description, obstacle.difficulty],
             (err, result) => {
                 if (err) {
                     return reject(err);
@@ -47,11 +47,11 @@ obstacles.insertValue = (con, obstacleID, description, difficulty) => {
     });
 };
 
-obstacles.update = (con, column, newValue, id) => {
+Obstacles.update = (con, column, newValue, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             `UPDATE obstacles SET ${column} = ? Where ObstacleID = ? `,
-            [(column, newValue, id)],
+            [newValue, parseInt(id)],
             (err, result) => {
                 if (err) {
                     return reject(err);
@@ -62,7 +62,7 @@ obstacles.update = (con, column, newValue, id) => {
     });
 };
 
-obstacles.deleteValue = (con, id) => {
+Obstacles.deleteValue = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             'DELETE FROM obstacles WHERE ObstacleID = ?',
@@ -76,3 +76,5 @@ obstacles.deleteValue = (con, id) => {
         );
     });
 };
+
+module.exports = Obstacles;
