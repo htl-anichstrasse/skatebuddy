@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-import Button from '../components/Button';
+import Button from '../components/common/Button';
 
 const NewReview = ({ navigation, route }) => {
   const skateparkId = route.params.skateparkId;

@@ -1,4 +1,4 @@
-class obstacles {
+class Obstacles {
     constructor(obstacleId, description, difficulty) {
         this.obstacleId = obstacleId;
         this.description = description;
@@ -6,7 +6,7 @@ class obstacles {
     }
 }
 
-obstacles.selectAll = con => {
+Obstacles.selectAll = con => {
     return new Promise((resolve, reject) => {
         con.query('Select * from obstacles', (err, result) => {
             if (err) {
@@ -17,11 +17,25 @@ obstacles.selectAll = con => {
     });
 };
 
-obstacles.insertValue = (con, obstacleID, description, difficulty) => {
+Obstacles.getById = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'Insert into obstacles(ObstacleID, Description, Difficulty) values (?, ?, ?)',
-            [obstacleID, description, difficulty],
+            'Select * from obstacles where ObstacleId = ?',
+            [id],
+            (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                resolve(result[0]);
+            },
+        );
+    });
+};
+Obstacles.insertValue = (con, obstacle) => {
+    return new Promise((resolve, reject) => {
+        con.query(
+            'Insert into obstacles(Description, Difficulty) values (?, ?)',
+            [obstacle.description, obstacle.difficulty],
             (err, result) => {
                 if (err) {
                     return reject(err);
@@ -33,10 +47,11 @@ obstacles.insertValue = (con, obstacleID, description, difficulty) => {
     });
 };
 
-obstacles.update = (con, row, oldValue, newValue) => {
+Obstacles.update = (con, column, newValue, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'UPDATE obstacles SET ? Where ? = ?'[(row, oldValue, newValue)],
+            `UPDATE obstacles SET ${column} = ? Where ObstacleID = ? `,
+            [newValue, parseInt(id)],
             (err, result) => {
                 if (err) {
                     return reject(err);
@@ -47,10 +62,11 @@ obstacles.update = (con, row, oldValue, newValue) => {
     });
 };
 
-obstacles.delete = (con, row, rowValue) => {
+Obstacles.deleteValue = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'DELETE FROM obstacles WHERE ? = ?'[(row, rowValue)],
+            'DELETE FROM obstacles WHERE ObstacleID = ?',
+            [id],
             (err, result) => {
                 if (err) {
                     return reject(err);
@@ -60,3 +76,5 @@ obstacles.delete = (con, row, rowValue) => {
         );
     });
 };
+
+module.exports = Obstacles;

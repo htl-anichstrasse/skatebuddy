@@ -1,8 +1,13 @@
 import React from 'react';
 import { View, Text, Pressable } from 'react-native';
-import styles from '../styles/ButtonStyles';
+
+import styles from '../../styles/ButtonStyles';
 
 const Button = ({ title, onPress }) => {
+  if (!title) {
+    title = 'Button';
+  }
+
   return (
     <Pressable onPress={onPress}>
       <View style={styles.container}>
