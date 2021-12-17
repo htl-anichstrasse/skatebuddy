@@ -30,11 +30,11 @@ skateparkPictures.getById = (con, id) => {
         );
     });
 };
-skateparkPictures.insertValue = (con, parkId, picId) => {
+skateparkPictures.insertValue = (con, skateparkpic) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'Insert into skatepark_pictures(SkaterparkID, PictureId) values (?, ?)',
-            [parkId, picId],
+            'Insert into skatepark_pictures(SkateparkID, PictureId) values (?, ?)',
+            [skateparkpic.parkId, skateparkpic.picId],
             (err, result) => {
                 if (err) {
                     return reject(err);
@@ -50,7 +50,7 @@ skateparkPictures.update = (con, column, newValue, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             `UPDATE Skatepark_pictures SET ${column} = ? Where SkateparkID = ? `,
-            [(column, newValue, id)],
+            [newValue, parseInt(id)],
             (err, result) => {
                 if (err) {
                     return reject(err);
@@ -75,3 +75,5 @@ skateparkPictures.deleteValue = (con, id) => {
         );
     });
 };
+
+module.exports = skateparkPictures;

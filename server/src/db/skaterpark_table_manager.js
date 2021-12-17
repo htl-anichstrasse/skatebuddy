@@ -1,6 +1,6 @@
 var mysql = require('mysql');
 
-class skateparks {
+class Skateparks {
     constructor(id, name, lon, lat) {
         this.id = id;
         this.name = name;
@@ -9,7 +9,7 @@ class skateparks {
     }
 }
 
-skateparks.selectAll = con => {
+Skateparks.selectAll = con => {
     return new Promise((resolve, reject) => {
         con.query('Select * from skateparks', (err, result) => {
             if (err) {
@@ -20,7 +20,7 @@ skateparks.selectAll = con => {
     });
 };
 
-skateparks.getById = (con, id) => {
+Skateparks.getById = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             'Select * from skateparks where SkateparkID = ?',
@@ -34,11 +34,11 @@ skateparks.getById = (con, id) => {
         );
     });
 };
-skateparks.insertValue = (con, name, lon, lat) => {
+Skateparks.insertValue = (con, skatepark) => {
     return new Promise((resolve, reject) => {
         con.query(
             'Insert into skateparks(Name, lon, lat) values (?, ?, ?)',
-            [name, lon, lat],
+            [skatepark.name, skatepark.lon, skatepark.lat],
             (err, result) => {
                 if (err) {
                     return reject(err);
@@ -50,11 +50,11 @@ skateparks.insertValue = (con, name, lon, lat) => {
     });
 };
 
-skateparks.update = (con, column, newValue, id) => {
+Skateparks.update = (con, column, newValue, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             `UPDATE Skateparks SET ${column} = ? Where SkateparkID = ? `,
-            [(column, newValue, id)],
+            [newValue, id],
             (err, result) => {
                 if (err) {
                     return reject(err);
@@ -65,7 +65,7 @@ skateparks.update = (con, column, newValue, id) => {
     });
 };
 
-skateparks.deleteValue = (con, id) => {
+Skateparks.deleteValue = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             'DELETE FROM skateparks WHERE SkateparkID = ?',
@@ -79,3 +79,5 @@ skateparks.deleteValue = (con, id) => {
         );
     });
 };
+
+module.exports = Skateparks;
