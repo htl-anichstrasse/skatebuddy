@@ -2,6 +2,7 @@ const express = require('express');
 const userRouter = require('./routes/user_routes');
 const obstacleRouter = require('./routes/obstacle_routes');
 const skateparkRouter = require('./routes/skatepark_routes');
+const skateparkPicRouter = require('./routes/skatepark_picture_routes');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 
@@ -12,6 +13,7 @@ app.use(bodyParser.json());
 app.use('/api', userRouter);
 app.use('/api', skateparkRouter);
 app.use('/api', obstacleRouter);
+app.use('/api', skateparkPicRouter);
 
 app.listen(port, () => {
     console.log(`app listening at http://localhost:${port}`);
