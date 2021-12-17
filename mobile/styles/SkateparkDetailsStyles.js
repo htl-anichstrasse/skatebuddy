@@ -38,6 +38,9 @@ const SkateparkDetailsStyles = StyleSheet.create({
     borderStyle: 'solid',
     marginBottom: 10,
   },
+  errorMessage: {
+    color: 'red',
+  },
 });
 
 export default SkateparkDetailsStyles;
