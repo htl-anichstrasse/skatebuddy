@@ -6,7 +6,7 @@ import Button from '../../../components/common/Button';
 
 import styles from '../../../styles/SkateparkDetailsStyles';
 
-const AddReviewModal = ({ modalVisible, setModalVisible }) => {
+const AddReviewModal = ({ modalVisible, setModalVisible, newReview }) => {
   return (
     <Modal
       hardwareAccelerated={true}
@@ -20,7 +20,10 @@ const AddReviewModal = ({ modalVisible, setModalVisible }) => {
         <View style={styles.modalContainer}>
           <Text>New Review</Text>
 
-          <AddReviewForm />
+          <AddReviewForm
+            newReview={newReview}
+            setModalVisible={setModalVisible}
+          />
 
           <Button
             title="Hide Modal"

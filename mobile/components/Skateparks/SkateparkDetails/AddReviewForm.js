@@ -20,14 +20,17 @@ const reviewSchema = yup.object({
     }),
 });
 
-const AddReviewForm = () => {
+const AddReviewForm = ({ newReview, setModalVisible }) => {
   return (
     <Formik
       initialValues={{ title: '', content: '', rating: '3' }}
       validationSchema={reviewSchema}
       onSubmit={(values, actions) => {
         actions.resetForm();
-        console.log(values);
+        //! TODO values.userId = session.getCurrentUser().userId;
+        values.userId = 0;
+        newReview(values);
+        setModalVisible(false);
       }}>
       {({
         setFieldValue,

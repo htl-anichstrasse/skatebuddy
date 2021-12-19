@@ -49,6 +49,7 @@ const SkateparkDetails = ({ navigation, route }) => {
           <AddReviewModal
             modalVisible={modalVisible}
             setModalVisible={setModalVisible}
+            newReview={newReview}
           />
           <Button
             title="Add Review"
