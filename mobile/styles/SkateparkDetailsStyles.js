@@ -41,6 +41,11 @@ const SkateparkDetailsStyles = StyleSheet.create({
   errorMessage: {
     color: 'red',
   },
+  horizontalScroll: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  column: {},
 });
 
 export default SkateparkDetailsStyles;
