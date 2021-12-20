@@ -34,15 +34,37 @@
     "skatepark_pictures": [
       {
         "skateparkId": 1,
-        "pictureId": 1
+        "pictureId": 1,
+        "path": "../data/skatepark_pictures/1-rum/main.jpg"
       },
       {
         "skateparkId": 1,
-        "pictureId": 2
+        "pictureId": 2,
+        "path": "./1-rum/main.jpg"
       },
       {
         "skateparkId": 2,
-        "pictureId": 1
+        "pictureId": 1,
+        "path": "./1-rum/main.jpg"
+      }
+    ],
+    "reviews": [
+      {
+        "reviewId": 1,
+        "userId": 1,
+        "skateparkId": 1,
+        "rating": 5,
+        "title": "Sueeee",
+        "content": "Rum hat a geile ramp seitdem sie nen 2020 umbaut ham, less go weiter so jungs #skatekeks"
+      },
+      {
+        "reviewId": 2,
+        "userId": 2,
+        "skateparkId": 1,
+        "rating": 1,
+        "title": "Schleeecht",
+        "content": "Nix machen Spaß"
       }
     ]
+  
   }

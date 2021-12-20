@@ -4,12 +4,14 @@ import useFetch from "./UseFetch";
 import raw from './Key.txt';
 import GoogleMapReact from 'google-map-react';
 import { useState } from 'react/cjs/react.development';
+import Reviews from './Reviews';
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 const ParkDetails = () => {
   const { id } = useParams();
   const { data: park, isPending, error } = useFetch('http://localhost:8000/skateparks?skateparkId=' + id);
+  const { data: picture, picIsPending, picError} = useFetch('http://localhost:8000/skatepark_pictures?skateparkId=' + id)
   const [Keys,setKeys] = useState(null);
 
   const defaultProps = {
@@ -33,10 +35,11 @@ const ParkDetails = () => {
   
   return (
     <div className="park-details">
-      { isPending && <div>Loading...</div> }
+      { isPending && picIsPending && <div>Loading...</div> }
       { error && <div>{ error }</div> }
-      { park && <>
-          <h2 className='ParkName'>{ park[0].name }</h2>
+      { picError&& <di>{picError}</di>}
+      { park && Keys && picture &&<>
+        <h2 className='ParkName'>{ park[0].name }</h2>
 
         <div className="map" style={{ height: '55vh', width: '80%', marginRight: 'auto', marginLeft: 'auto'}}>
           <GoogleMapReact
@@ -53,6 +56,11 @@ const ParkDetails = () => {
         </GoogleMapReact>
       </div>
 
+      <img src={""} alt="pic"/>
+
+      <div className="Reviews">
+          <Reviews id = {id}></Reviews>
+      </div>
       </>}
     </div>
   );

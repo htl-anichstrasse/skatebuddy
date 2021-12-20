@@ -8,7 +8,7 @@
 }
 
 .Footer{
-    position: fixed;
+    position: relative;
     text-align: center;
     bottom: 0;
     min-width: 100%;
