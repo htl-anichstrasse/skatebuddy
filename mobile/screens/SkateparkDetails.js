@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Modal } from 'react-native';
+import { View, Text, Dimensions, ScrollView } from 'react-native';
 
 import Button from '../components/common/Button';
 import LoadingCircle from '../components/common/LoadingCircle';
@@ -9,6 +9,11 @@ import Reviews from '../components/Skateparks/SkateparkDetails/Reviews';
 import useFetch from '../hooks/useFetch';
 
 import styles from '../styles/SkateparkDetailsStyles';
+
+styles.column = {
+  ...styles.column,
+  width: Dimensions.get('window').width,
+};
 
 const SkateparkDetails = ({ navigation, route }) => {
   const skatepark = route.params.skatepark;
@@ -28,41 +33,58 @@ const SkateparkDetails = ({ navigation, route }) => {
   };
 
   const [modalVisible, setModalVisible] = useState(false);
+  const [scrollRef, setScrollRef] = useState(null);
 
   return (
     <View style={styles.container}>
       <Button title="Go Back" onPress={() => navigation.goBack()} />
       <Text style={styles.title}>{skatepark.name}</Text>
-      <Text>{skatepark.latitude}° N</Text>
-      <Text>{skatepark.longitude}° W</Text>
 
-      {skatepark.address != '' ? <Text>{skatepark.address}</Text> : null}
+      <View style={styles.horizontalScroll}>
+        <ScrollView
+          ref={ref => {
+            setScrollRef(ref);
+          }}
+          horizontal={true}
+          pagingEnabled={true}>
+          <View style={styles.column}>
+            <Text>{skatepark.latitude}° N</Text>
+            <Text>{skatepark.longitude}° W</Text>
 
-      <View style={styles.coordinates}>
-        <Text>Beste Öffi-Verbindung: {skatepark.busStop} </Text>
+            {skatepark.address != '' ? <Text>{skatepark.address}</Text> : null}
+
+            <View style={styles.coordinates}>
+              <Text>Beste Öffi-Verbindung: {skatepark.busStop} </Text>
+            </View>
+
+            {isLoading && <LoadingCircle />}
+            {error && <Text>Error!</Text>}
+            {reviews && (
+              <>
+                <AddReviewModal
+                  modalVisible={modalVisible}
+                  setModalVisible={setModalVisible}
+                  newReview={newReview}
+                />
+                <Button
+                  title="Add Review"
+                  onPress={() => {
+                    setModalVisible(true);
+                  }}
+                />
+                <Reviews
+                  reviews={reviews}
+                  navigation={navigation}
+                  newReview={newReview}
+                />
+              </>
+            )}
+          </View>
+          <View style={styles.column}>
+            <Text>sdhfbisdf</Text>
+          </View>
+        </ScrollView>
       </View>
-
-      {isLoading && <LoadingCircle />}
-      {error && <Text>Error!</Text>}
-      {reviews && (
-        <>
-          <AddReviewModal
-            modalVisible={modalVisible}
-            setModalVisible={setModalVisible}
-          />
-          <Button
-            title="Add Review"
-            onPress={() => {
-              setModalVisible(true);
-            }}
-          />
-          <Reviews
-            reviews={reviews}
-            navigation={navigation}
-            newReview={newReview}
-          />
-        </>
-      )}
     </View>
   );
 };

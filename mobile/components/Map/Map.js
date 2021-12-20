@@ -5,8 +5,6 @@ import SkateparkMarkers from './SkateparkMarkers';
 import mapStyles from '../../styles/MapStyles';
 
 const Map = ({ skateparks, setRef, onCalloutPress }) => {
-  let markerActive = false;
-
   const camera = {
     center: {
       latitude: 47.265,
@@ -31,7 +29,7 @@ const Map = ({ skateparks, setRef, onCalloutPress }) => {
       minZoomLevel={8}
       rotateEnabled={false}
       pitchEnabled={false}
-      toolbarEnabled={false}
+      toolbarEnabled={true}
       // events
       onCalloutPress={onCalloutPress}>
       <SkateparkMarkers skateparks={skateparks} />

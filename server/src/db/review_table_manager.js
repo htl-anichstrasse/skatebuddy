@@ -1,13 +1,16 @@
-class skateparkPictures {
-    constructor(parkId, picId) {
+class Review {
+    constructor(parkId, userId, rating, title, content) {
         this.parkId = parkId;
-        this.picId = picId;
+        this.userId = userId;
+        this.rating = rating;
+        this.title = title;
+        this.content = content;
     }
 }
 
-skateparkPictures.selectAll = con => {
+Review.selectAll = con => {
     return new Promise((resolve, reject) => {
-        con.query('Select * from skatepark_pictures', (err, result) => {
+        con.query('Select * from reviews', (err, result) => {
             if (err) {
                 return reject(err);
             }
@@ -16,40 +19,46 @@ skateparkPictures.selectAll = con => {
     });
 };
 
-skateparkPictures.getById = (con, id) => {
+Review.getById = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'Select * from skatepark_pictures where SkateparkID = ?',
+            'Select * from reviews where reviewId = ?',
             [id],
             (err, result) => {
                 if (err) {
                     return reject(err);
                 }
-                result[0];
-            },
-        );
-    });
-};
-skateparkPictures.insertValue = (con, skateparkpic) => {
-    return new Promise((resolve, reject) => {
-        con.query(
-            'Insert into skatepark_pictures(SkateparkID, PictureId) values (?, ?)',
-            [skateparkpic.parkId, skateparkpic.picId],
-            (err, result) => {
-                if (err) {
-                    return reject(err);
-                }
-                return resolve(result[0]);
-                console.log('Succsessfully inserted!');
+                resolve(result[0]);
             },
         );
     });
 };
 
-skateparkPictures.update = (con, column, newValue, id) => {
+Review.insertValue = (con, review) => {
     return new Promise((resolve, reject) => {
         con.query(
-            `UPDATE Skatepark_pictures SET ${column} = ? Where SkateparkID = ? `,
+            'Insert into reviews(Skateparkid, UserId, Rating, Title, Content) values (?, ?, ?, ?, ?)',
+            [
+                review.parkId,
+                review.userId,
+                review.rating,
+                review.title,
+                review.content,
+            ],
+            (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                resolve(result[0]);
+            },
+        );
+    });
+};
+
+Review.update = (con, column, newValue, id) => {
+    return new Promise((resolve, reject) => {
+        con.query(
+            `UPDATE reviews SET ${column} = ? Where reviewId = ? `,
             [newValue, parseInt(id)],
             (err, result) => {
                 if (err) {
@@ -61,19 +70,19 @@ skateparkPictures.update = (con, column, newValue, id) => {
     });
 };
 
-skateparkPictures.deleteValue = (con, id) => {
+Review.deleteValue = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'DELETE FROM Skatepark_pictures WHERE SkateparkID = ?',
+            'Delete from review where ReviewId = ? ',
             [id],
             (err, result) => {
                 if (err) {
                     return reject(err);
                 }
-                return resolve(result.affectedRows);
+                resolve(result.affectedRows);
             },
         );
     });
 };
 
-module.exports = skateparkPictures;
+module.exports = Review;
