@@ -1,10 +1,10 @@
 import './ParkDetails.css'
 import { useParams } from "react-router-dom";
-import useFetch from "./UseFetch";
+import useFetch from "../hooks/UseFetch";
 import raw from './Key.txt';
 import GoogleMapReact from 'google-map-react';
 import { useState } from 'react/cjs/react.development';
-import Reviews from './Reviews';
+import Reviews from '../Reviews/Reviews';
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
@@ -39,6 +39,7 @@ const ParkDetails = () => {
       { error && <div>{ error }</div> }
       { picError&& <di>{picError}</di>}
       { park && Keys && picture &&<>
+
         <h2 className='ParkName'>{ park[0].name }</h2>
 
         <div className="map" style={{ height: '55vh', width: '80%', marginRight: 'auto', marginLeft: 'auto'}}>

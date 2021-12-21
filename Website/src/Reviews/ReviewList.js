@@ -12,13 +12,9 @@ const ReviewList = ({reviews}) =>{
           {reviews.map(review => (
             <div className="park-content" key={review.skateparkId} >
                 <h4>{review.title}</h4>
-                <h5>{review.userId}</h5>
+                <h5>UserId: {review.userId}</h5>
                 <div id="rating_bitch" className="rating">
-                <span class="fa fa-star checked"></span>    
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
+                <h5>Rating: {review.rating}</h5>
                 </div>
                 <p>{ review.content }</p>
             </div>

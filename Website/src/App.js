@@ -1,8 +1,8 @@
 import './App.css';
 import Navbar from './Navbar';
-import Parks from './Parks';
+import Parks from './Parks/Parks';
 import Home from './Home';
-import ParkDetails from './ParkDetails';
+import ParkDetails from './Parks/ParkDetails';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 
@@ -12,7 +12,7 @@ function App() {
     <Router>
       <div className="App">
         <div className="Header">
-        <h2>Header</h2>
+        <header>Header</header>
         </div>
         <div className="Navbar">
             <Navbar />
