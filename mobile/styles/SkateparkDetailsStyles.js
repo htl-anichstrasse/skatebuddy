@@ -13,12 +13,13 @@ const SkateparkDetailsStyles = StyleSheet.create({
     borderBottomWidth: 1,
     borderStyle: 'solid',
   },
+  titleContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   container: {
     alignItems: 'center',
     flex: 1,
-  },
-  coordinates: {
-    padding: 10,
   },
   modalContainer: {
     justifyContent: 'center',
@@ -46,6 +47,9 @@ const SkateparkDetailsStyles = StyleSheet.create({
     flexDirection: 'row',
   },
   column: {},
+  textCenter: {
+    textAlign: 'center',
+  },
 });
 
 export default SkateparkDetailsStyles;

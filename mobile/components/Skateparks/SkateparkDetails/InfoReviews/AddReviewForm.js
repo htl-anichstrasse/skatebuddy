@@ -5,9 +5,9 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 import Slider from '@react-native-community/slider';
 
-import Button from '../../../components/common/Button';
+import Button from '../../../common/Button';
 
-import styles from '../../../styles/SkateparkDetailsStyles';
+import styles from '../../../../styles/SkateparkDetailsStyles';
 
 const reviewSchema = yup.object({
   title: yup.string().required().min(4),
@@ -31,7 +31,8 @@ const AddReviewForm = ({ newReview, setModalVisible }) => {
         values.userId = 0;
         newReview(values);
         setModalVisible(false);
-      }}>
+      }}
+    >
       {({
         setFieldValue,
         handleChange,
