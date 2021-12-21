@@ -1,10 +1,10 @@
-.navbar{
-    border-top: 4px solid darkgray;
-    border-bottom: 4px solid darkgray;
-    background-color: white;
+.navbar {
+  border-top: 4px solid darkgray;
+  border-bottom: 4px solid darkgray;
+  background-color: white;
 }
 
-.links{
-    padding: 10px;
-    text-align: center;    
+.links {
+  padding: 10px;
+  text-align: center;
 }

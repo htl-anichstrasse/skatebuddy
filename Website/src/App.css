@@ -1,16 +1,16 @@
-.Navbar{
-    position: sticky;
-    top:0;
+.Navbar {
+  position: sticky;
+  top: 0;
 }
 
-header{
-    text-align: center;   
+header {
+  text-align: center;
 }
 
-footer{
-    position: relative;
-    text-align: center;
-    bottom: 0;
-    min-width: 100%;
-    border-top: 4px solid darkgrey;
+footer {
+  position: relative;
+  text-align: center;
+  bottom: 0;
+  min-width: 100%;
+  border-top: 4px solid darkgrey;
 }
