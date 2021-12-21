@@ -29,6 +29,12 @@
         "name": "Skatepark Tivoli",
         "latitude": 47.2587839,
         "longitude": 11.4075082
+      },
+      {
+        "skateparkId":3,
+        "name": "Skatepark Schwaz",
+        "latitude": 47.356132953928274,
+        "longitude":11.715198837273547
       }
     ],
     "skatepark_pictures": [

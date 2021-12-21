@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import useFetch from "../hooks/UseFetch";
 import raw from './Key.txt';
 import GoogleMapReact from 'google-map-react';
-import { useState } from 'react/cjs/react.development';
-import Reviews from '../Reviews/Reviews';
+import React, { useState } from 'react';
+import Reviews from '../reviews/Reviews';
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
