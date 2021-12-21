@@ -73,7 +73,7 @@ Review.update = (con, column, newValue, id) => {
 Review.deleteValue = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'Delete from review where ReviewId = ? ',
+            'Delete from reviews where ReviewId = ? ',
             [id],
             (err, result) => {
                 if (err) {

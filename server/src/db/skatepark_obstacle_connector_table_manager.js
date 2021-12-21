@@ -33,11 +33,11 @@ skateObstacleConnector.getById = (con, id) => {
         );
     });
 };
-skateObstacleConnector.insertValue = (con, parkId, obstacleID) => {
+skateObstacleConnector.insertValue = (con, SkateparkObstacle) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'Insert into skaterpark_obstacle_connector(SkaterparkID, ObstacleID) values (?, ?)',
-            [parkId, obstacleID],
+            'Insert into skaterpark_obstacle_connector(ObstacleID, SkateparkID) values (?, ?)',
+            [SkateparkObstacle.parkId, SkateparkObstacle.obstacleId],
             (err, result) => {
                 if (err) {
                     return reject(err);
@@ -78,3 +78,5 @@ skateObstacleConnector.deleteValue = (con, id) => {
         );
     });
 };
+
+module.exports = skateObstacleConnector;
