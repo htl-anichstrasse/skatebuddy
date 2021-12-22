@@ -1,11 +1,11 @@
-class skateparkPictures {
+class SkateparkPictures {
     constructor(parkId, picId) {
         this.parkId = parkId;
         this.picId = picId;
     }
 }
 
-skateparkPictures.selectAll = con => {
+SkateparkPictures.selectAll = con => {
     return new Promise((resolve, reject) => {
         con.query('Select * from skatepark_pictures', (err, result) => {
             if (err) {
@@ -16,7 +16,7 @@ skateparkPictures.selectAll = con => {
     });
 };
 
-skateparkPictures.getById = (con, id) => {
+SkateparkPictures.getById = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             'Select * from skatepark_pictures where SkateparkID = ?',
@@ -30,7 +30,7 @@ skateparkPictures.getById = (con, id) => {
         );
     });
 };
-skateparkPictures.insertValue = (con, skateparkpic) => {
+SkateparkPictures.insertValue = (con, skateparkpic) => {
     return new Promise((resolve, reject) => {
         con.query(
             'Insert into skatepark_pictures(SkateparkID, PictureId) values (?, ?)',
@@ -46,7 +46,7 @@ skateparkPictures.insertValue = (con, skateparkpic) => {
     });
 };
 
-skateparkPictures.update = (con, column, newValue, id) => {
+SkateparkPictures.update = (con, column, newValue, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             `UPDATE Skatepark_pictures SET ${column} = ? Where SkateparkID = ? `,
@@ -61,7 +61,7 @@ skateparkPictures.update = (con, column, newValue, id) => {
     });
 };
 
-skateparkPictures.deleteValue = (con, id) => {
+SkateparkPictures.deleteValue = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             'DELETE FROM Skatepark_pictures WHERE SkateparkID = ?',
@@ -76,4 +76,4 @@ skateparkPictures.deleteValue = (con, id) => {
     });
 };
 
-module.exports = skateparkPictures;
+module.exports = SkateparkPictures;

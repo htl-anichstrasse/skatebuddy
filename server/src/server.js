@@ -5,7 +5,6 @@ const skateparkRouter = require('./routes/skatepark_routes');
 const skateparkPicRouter = require('./routes/skatepark_picture_routes');
 const reviewRouter = require('./routes/review_routes');
 const skateparkObstacleRouter = require('./routes/skatepark_obstacle_con_routes');
-const fs = require('fs');
 const bodyParser = require('body-parser');
 
 const app = express();
