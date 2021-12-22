@@ -3,12 +3,16 @@ const Obstacles = require('../db/obstacle_table_manager');
 const router = express.Router();
 var mysql = require('mysql');
 const { json } = require('body-parser');
+const password = fs.readFileSync(
+    'C:/Users/Maximilian Neuner/Documents/Schule/Diplomarbeit/skater-app/server/src/db/password.txt',
+    'utf8',
+);
 
 const con = mysql.createPool({
     connectionLimit: 10,
     host: 'localhost',
     user: 'root',
-    password: 'hurensohn',
+    password: password,
     port: '3306',
     database: 'skater_app',
 });

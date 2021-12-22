@@ -1,11 +1,11 @@
-class skateObstacleConnector {
+class SkateObstacleConnector {
     constructor(parkId, obstacleId) {
         this.parkId = parkId;
         this.obstacleId = obstacleId;
     }
 }
 
-skateObstacleConnector.selectAll = con => {
+SkateObstacleConnector.selectAll = con => {
     return new Promise((resolve, reject) => {
         con.query(
             'Select * from skaterpark_obstacle_connector',
@@ -19,7 +19,7 @@ skateObstacleConnector.selectAll = con => {
     });
 };
 
-skateObstacleConnector.getById = (con, id) => {
+SkateObstacleConnector.getById = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             'Select * from skaterpark_obstacle_connector where ObstacleId = ?',
@@ -33,7 +33,7 @@ skateObstacleConnector.getById = (con, id) => {
         );
     });
 };
-skateObstacleConnector.insertValue = (con, SkateparkObstacle) => {
+SkateObstacleConnector.insertValue = (con, SkateparkObstacle) => {
     return new Promise((resolve, reject) => {
         con.query(
             'Insert into skaterpark_obstacle_connector(ObstacleID, SkateparkID) values (?, ?)',
@@ -49,7 +49,7 @@ skateObstacleConnector.insertValue = (con, SkateparkObstacle) => {
     });
 };
 
-skateObstacleConnector.update = (con, column, newValue, id) => {
+SkateObstacleConnector.update = (con, column, newValue, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             `UPDATE skaterpark_obstacle_connector SET ${column} = ? Where ObstacleID = ? `,
@@ -64,7 +64,7 @@ skateObstacleConnector.update = (con, column, newValue, id) => {
     });
 };
 
-skateObstacleConnector.deleteValue = (con, id) => {
+SkateObstacleConnector.deleteValue = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             'DELETE FROM skaterpark_obstacle_connector WHERE ObstacleID = ?',
@@ -79,4 +79,4 @@ skateObstacleConnector.deleteValue = (con, id) => {
     });
 };
 
-module.exports = skateObstacleConnector;
+module.exports = SkateObstacleConnector;
