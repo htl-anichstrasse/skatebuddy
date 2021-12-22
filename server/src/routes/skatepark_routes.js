@@ -1,21 +1,9 @@
 const express = require('express');
 const router = express.Router();
-var mysql = require('mysql');
 const { json } = require('body-parser');
 const Skateparks = require('../db/skaterpark_table_manager');
-const password = fs.readFileSync(
-    'C:/Users/Maximilian Neuner/Documents/Schule/Diplomarbeit/skater-app/server/src/db/password.txt',
-    'utf8',
-);
+const con = require('../db/database_manager');
 
-const con = mysql.createPool({
-    connectionLimit: 10,
-    host: 'localhost',
-    user: 'root',
-    password: password,
-    port: '3306',
-    database: 'skater_app',
-});
 router.get('/skateparks', async (req, res, next) => {
     try {
         let results = await Skateparks.selectAll(con);

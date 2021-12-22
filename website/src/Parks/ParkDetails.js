@@ -70,9 +70,6 @@ const ParkDetails = () => {
               />
             </GoogleMapReact>
           </div>
-
-          <img src={''} alt="pic" />
-
           <div className="Reviews">
             <Reviews id={id}></Reviews>
           </div>

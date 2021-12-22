@@ -26,7 +26,9 @@ function App() {
         </div>
 
         <div className="footer">
-          <footer>footer</footer>
+          <footer>
+            <h2>Hey</h2>
+          </footer>
         </div>
       </div>
     </Router>

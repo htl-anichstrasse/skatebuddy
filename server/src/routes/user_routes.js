@@ -3,23 +3,8 @@ const users = require('../db/user_table_manager');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-var mysql = require('mysql');
 const { json } = require('body-parser');
-var fs = require('fs');
-const password = fs.readFileSync(
-    'C:/Users/Maximilian Neuner/Documents/Schule/Diplomarbeit/skater-app/server/src/db/password.txt',
-    'utf8',
-);
-console.log(password);
-
-const con = mysql.createPool({
-    connectionLimit: 10,
-    host: 'localhost',
-    user: 'root',
-    password: password,
-    port: '3306',
-    database: 'skater_app',
-});
+const con = require('../db/database_manager');
 
 router.get('/users', async (req, res, next) => {
     try {
