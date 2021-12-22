@@ -1,7 +1,6 @@
 const express = require('express');
 const SkateparkObstacleCon = require('../db/skatepark_obstacle_connector_table_manager');
 const router = express.Router();
-var mysql = require('mysql');
 const { json } = require('body-parser');
 const con = require('../db/database_manager');
 

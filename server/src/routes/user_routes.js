@@ -3,7 +3,6 @@ const users = require('../db/user_table_manager');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-var mysql = require('mysql');
 const { json } = require('body-parser');
 const con = require('../db/database_manager');
 
