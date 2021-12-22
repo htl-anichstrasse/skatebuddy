@@ -26,24 +26,28 @@ const useLocation = () => {
         return false;
       }
     } else if (Platform.OS === 'ios') {
-      // ! TODO: Implement iOS permission check
+      // TODO: Implement iOS permission check
       return false;
     }
   };
 
-  requestPermission();
-
   const getLocation = async () => {
-    Geolocation.getCurrentPosition(
-      location => {
-        setLocation(location);
-      },
-      error => {
-        setError(error.code + ' ' + error.message);
-      },
-      { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 },
-    );
+    if (requestPermission()) {
+      Geolocation.getCurrentPosition(
+        location => {
+          setLocation(location);
+        },
+        error => {
+          setError(error.code + ' ' + error.message);
+        },
+        { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 },
+      );
+    } else {
+      setError('Location permission denied');
+    }
   };
+
+  getLocation();
 
   return { location, error };
 };
