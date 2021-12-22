@@ -5,4 +5,7 @@ export const skateparksImages = {
   2: {
     main: require('../data/skatepark_pictures/2-tivoli/main.jpg'),
   },
+  3: {
+    main: require('../data/skatepark_pictures/3-usi/main.jpg'),
+  },
 };

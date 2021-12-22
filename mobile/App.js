@@ -14,7 +14,7 @@ const App = () => {
     setTimeout(() => {
       setIsAuthenticated(true);
       setIsLoading(false);
-    }, 5000);
+    }, 1);
   }, []);
 
   return isLoading ? (

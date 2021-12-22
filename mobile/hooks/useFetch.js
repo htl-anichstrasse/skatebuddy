@@ -32,6 +32,14 @@ const useFetch = (url, id) => {
             address: 'Olympiastraße 33, 6020 Innsbruck',
             busStop: 'Innsbruck Olympiaworld',
           },
+          {
+            skateparkId: 3,
+            name: 'Skatepark Usi',
+            latitude: 47.255859,
+            longitude: 11.35585,
+            address: 'Hans-Flöckinger-Promenade, 6020 Innsbruck',
+            busStop: 'Innsbruck Olympiaworld',
+          },
         ]);
       } else if (url == 'reviews') {
         if (id == 1) {

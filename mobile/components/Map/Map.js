@@ -30,7 +30,6 @@ const Map = ({ skateparks, setRef, onCalloutPress }) => {
       minZoomLevel={8}
       rotateEnabled={false}
       pitchEnabled={false}
-      toolbarEnabled={true}
       // events
       onCalloutPress={onCalloutPress}
     >

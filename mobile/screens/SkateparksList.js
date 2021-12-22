@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { View, ScrollView, RefreshControl } from 'react-native';
+import { View, ScrollView, RefreshControl, Dimensions } from 'react-native';
 
 import SkateparkEntry from '../components/Skateparks/SkateparkEntry';
 import LoadingCircle from '../components/common/LoadingCircle';
 
 import styles from '../styles/SkateparksStyles';
+import gStyles from '../styles/GlobalStyles';
 
 import useFetch from '../hooks/useFetch';
 
@@ -14,7 +15,7 @@ const SkateparksList = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      {isLoading && <LoadingCircle />}
+      {isLoading && <LoadingCircle style={gStyles.LoadingCircle} />}
       {error && <Text>Error!</Text>}
       {skateparks && (
         <ScrollView
@@ -26,7 +27,8 @@ const SkateparksList = ({ navigation }) => {
                 setRefreshing(false);
               }}
             />
-          }>
+          }
+        >
           {skateparks.map(skatepark => (
             <SkateparkEntry
               key={skatepark.skateparkId}
