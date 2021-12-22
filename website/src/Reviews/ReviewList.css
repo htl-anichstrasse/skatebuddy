@@ -9,3 +9,7 @@ h5 {
 .username {
   margin-bottom: 0;
 }
+
+.review-list {
+  min-height: 100%;
+}
