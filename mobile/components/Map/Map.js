@@ -19,6 +19,7 @@ const Map = ({ skateparks, setRef, onCalloutPress }) => {
   return (
     <MapView
       // props
+      showsUserLocation={true}
       provider={PROVIDER_GOOGLE}
       style={mapStyles.map}
       ref={ref => setRef(ref)}
@@ -31,7 +32,8 @@ const Map = ({ skateparks, setRef, onCalloutPress }) => {
       pitchEnabled={false}
       toolbarEnabled={true}
       // events
-      onCalloutPress={onCalloutPress}>
+      onCalloutPress={onCalloutPress}
+    >
       <SkateparkMarkers skateparks={skateparks} />
     </MapView>
   );

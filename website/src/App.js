@@ -1,8 +1,8 @@
 import './App.css';
 import Navbar from './staticViews/Navbar';
-import Parks from './Parks/Parks';
+import Parks from './parks/Parks';
 import Home from './staticViews/Home';
-import ParkDetails from './Parks/ParkDetails';
+import ParkDetails from './parks/ParkDetails';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {

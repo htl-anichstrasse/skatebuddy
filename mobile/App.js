@@ -6,6 +6,7 @@ import LoginSignupStack from './routes/LoginSignupStack';
 
 const App = () => {
   // ! TODO - Verify jwt
+
   const [isLoading, setIsLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
