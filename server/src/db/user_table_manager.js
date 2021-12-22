@@ -7,16 +7,6 @@ class Users {
     }
 }
 
-/*const con = mysql.createPool({
-    connectionLimit: 10,
-    host: 'localhost',
-    user: 'root',
-    password: 'bichl601',
-    port: '3306',
-    database: 'skater-app',
-});
-*/
-
 Users.selectAll = con => {
     return new Promise((resolve, reject) => {
         con.query('Select * from users', (err, result) => {

@@ -1,17 +1,8 @@
 const express = require('express');
 const router = express.Router();
-var mysql = require('mysql');
 const { json } = require('body-parser');
 const Skateparks = require('../db/skaterpark_table_manager');
-
-const con = mysql.createPool({
-    connectionLimit: 10,
-    host: 'localhost',
-    user: 'root',
-    password: 'hurensohn',
-    port: '3306',
-    database: 'skater_app',
-});
+const con = require('../db/database_manager');
 
 router.get('/skateparks', async (req, res, next) => {
     try {

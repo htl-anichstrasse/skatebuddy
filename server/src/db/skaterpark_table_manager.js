@@ -1,5 +1,3 @@
-var mysql = require('mysql');
-
 class Skateparks {
     constructor(id, name, lon, lat) {
         this.id = id;

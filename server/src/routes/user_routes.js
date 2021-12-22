@@ -1,17 +1,10 @@
 const express = require('express');
 const users = require('../db/user_table_manager');
 const router = express.Router();
-var mysql = require('mysql');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 const { json } = require('body-parser');
-
-const con = mysql.createPool({
-    connectionLimit: 10,
-    host: 'localhost',
-    user: 'root',
-    password: 'hurensohn',
-    port: '3306',
-    database: 'skater_app',
-});
+const con = require('../db/database_manager');
 
 router.get('/users', async (req, res, next) => {
     try {
@@ -26,18 +19,29 @@ router.get('/users', async (req, res, next) => {
 router.get('/users/:id', async (req, res, next) => {
     try {
         let results = await users.getById(con, req.params.id);
+        var password = req.body.passwordHash;
+        results.PasswordHash = await bcrypt.compare(
+            password,
+            results.PasswordHash,
+        );
+        results.PasswordHash = password;
+        console.log(results.PasswordHash);
+
         res.json(results);
     } catch (e) {
         console.log(e);
-        res.sendStatus(500);
+        res.sendStatus();
     }
 });
 
 router.post('/users', async (req, res, next) => {
+    const password = req.body.passwordHash;
+    const encryptedPassword = await bcrypt.hash(password, saltRounds);
+
     try {
         const user = {
             name: req.body.name,
-            passwordHash: req.body.passwordHash,
+            passwordHash: encryptedPassword,
             email: req.body.email,
             profilePictureId: req.body.profilePictureId,
         };
