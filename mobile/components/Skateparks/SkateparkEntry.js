@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, Pressable, Image, Dimensions } from 'react-native';
 
 import useFetch from '../../hooks/useFetch';
-import useLocation from '../../hooks/useLocation';
 
 import styles from '../../styles/SkateparksStyles';
 import { skateparksImages } from '../../styles/Images';
@@ -14,19 +13,15 @@ const SkateparkEntry = ({ skatepark, navigation }) => {
     error,
   } = useFetch('reviews', skatepark.skateparkId);
 
-  let reviewsRatingSum = 0;
-  let averageRating;
+  let averageRating = 0;
 
   if (reviews) {
     reviews.forEach(element => {
-      reviewsRatingSum += element.rating;
+      averageRating += element.rating;
     });
-    averageRating = reviewsRatingSum / reviews.length;
-    averageRating = Math.round((averageRating + Number.EPSILON) * 10) / 10;
+    averageRating =
+      Math.round((averageRating / reviews.length + Number.EPSILON) * 10) / 10;
   }
-
-  const location = useLocation();
-  console.log(location);
 
   return (
     <Pressable
@@ -43,8 +38,6 @@ const SkateparkEntry = ({ skatepark, navigation }) => {
             <Text style={styles.entryRating}>No ratings</Text>
           )}
         </View>
-
-        <View></View>
 
         <Image
           style={styles.entryImage}

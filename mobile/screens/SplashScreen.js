@@ -7,6 +7,7 @@ const SplashScreen = () => {
   return (
     <View style={styles.splashScreen}>
       <Logo />
+      <Text style={styles.splashScreenText}>Skate Bubatz</Text>
     </View>
   );
 };

@@ -25,6 +25,12 @@ const SkateparksStyles = StyleSheet.create({
     marginBottom: 5,
   },
   entryRating: {
+    padding: 5,
+    backgroundColor: '#71B6F4',
+    borderRadius: 10,
+    marginBottom: 5,
+    color: '#fff',
+
     fontWeight: 'normal',
     textAlign: 'center',
   },
