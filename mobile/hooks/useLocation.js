@@ -4,35 +4,61 @@ import Geolocation from 'react-native-geolocation-service';
 
 const useLocation = () => {
   const [location, setLocation] = useState(null);
-  const [error, setError] = useState(null);
+  const [locError, setLocError] = useState(null);
 
-  const requestPermission = () => {
+  /*
+  {
+    title: 'Requesting location permission',
+    message:
+      'Skateparks App needs access to your location to show you the closest skateparks',
+    buttonNeutral: 'Ask Me Later',
+    buttonNegative: 'Cancel',
+    buttonPositive: 'OK',
+  }
+  */
+
+  const checkPermission = () => {
     if (Platform.OS === 'android') {
-      const granted = PermissionsAndroid.request(
+      PermissionsAndroid.check(
         PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-        {
-          title: 'Requesting location permission',
-          message:
-            'Skateparks App needs access to your location to show you the closest skateparks',
-          buttonNeutral: 'Ask Me Later',
-          buttonNegative: 'Cancel',
-          buttonPositive: 'OK',
-        },
-      );
-
-      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-        return true;
-      } else {
-        return false;
-      }
+      ).then(status => {
+        if (status) {
+          console.log('oida');
+          setLocError(null);
+          return true;
+        } else {
+          setLocError('Location permission denied');
+          return false;
+        }
+      });
     } else if (Platform.OS === 'ios') {
-      // TODO: Implement iOS permission check
+      // TODO Implement iOS permission check
       return false;
     }
   };
 
-  const getLocation = async () => {
-    if (requestPermission()) {
+  const requestPermission = () => {
+    if (Platform.OS === 'android') {
+      PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+      ).then(granted => {
+        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+          setLocError(null);
+          return true;
+        } else {
+          setLocError('Location permission denied');
+          return false;
+        }
+      });
+    } else if (Platform.OS === 'ios') {
+      // TODO: Implement iOS permission request
+      return false;
+    }
+  };
+
+  const getLocation = () => {
+    if (checkPermission() || requestPermission()) {
+      console.log('getLocation');
       Geolocation.getCurrentPosition(
         location => {
           setLocation(location);
@@ -42,14 +68,10 @@ const useLocation = () => {
         },
         { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 },
       );
-    } else {
-      setError('Location permission denied');
     }
   };
 
-  getLocation();
-
-  return { location, error };
+  return { location, locError, getLocation };
 };
 
 export default useLocation;

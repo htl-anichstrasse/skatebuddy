@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Pressable, Image, Dimensions } from 'react-native';
+import Button from '../common/Button';
 
 import useFetch from '../../hooks/useFetch';
 
@@ -38,6 +39,13 @@ const SkateparkEntry = ({ skatepark, navigation }) => {
             <Text style={styles.entryRating}>No ratings</Text>
           )}
         </View>
+
+        <Button
+          title="getLocation"
+          onPress={() => {
+            //console.log(location);
+          }}
+        />
 
         <Image
           style={styles.entryImage}
