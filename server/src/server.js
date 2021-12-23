@@ -1,4 +1,10 @@
 const express = require('express');
+const result = require('dotenv').config();
+
+if (result.error) {
+    throw result.error;
+}
+console.log(process.env.JWT_HASH_SECRET);
 const userRouter = require('./routes/user_routes');
 const obstacleRouter = require('./routes/obstacle_routes');
 const skateparkRouter = require('./routes/skatepark_routes');

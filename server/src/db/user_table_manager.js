@@ -1,3 +1,5 @@
+const jwt = require('jsonwebtoken');
+
 class Users {
     constructor(name, passwordHash, email, profilePictureId) {
         this.name = name;
@@ -7,7 +9,7 @@ class Users {
     }
 }
 
-Users.selectAll = con => {
+Users.selectAll = (con) => {
     return new Promise((resolve, reject) => {
         con.query('Select * from users', (err, result) => {
             if (err) {
@@ -23,6 +25,21 @@ Users.getById = (con, id) => {
         con.query(
             'Select * from Users where UserId = ?',
             [id],
+            (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                resolve(result[0]);
+            },
+        );
+    });
+};
+
+Users.getByEmail = (con, email) => {
+    return new Promise((resolve, reject) => {
+        con.query(
+            'Select * from Users where Email = ?',
+            [email],
             (err, result) => {
                 if (err) {
                     return reject(err);
@@ -77,5 +94,12 @@ Users.deleteValue = (con, id) => {
         );
     });
 };
+
+Users.generateToken = (user) =>
+    jwt.sign(
+        { name: user.name, email: user.email },
+        process.env.JWT_HASH_SECRET,
+        { expiresIn: '135d' },
+    );
 
 module.exports = Users;

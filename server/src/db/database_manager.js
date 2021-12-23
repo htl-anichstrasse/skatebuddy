@@ -1,13 +1,10 @@
 var mysql = require('mysql');
-var fs = require('fs');
-
-const password = fs.readFileSync('./db/password.txt', 'utf8');
 
 const con = mysql.createPool({
     connectionLimit: 10,
-    host: 'localhost',
-    user: 'root',
-    password: password,
+    host: 'pma.josholaus.com',
+    user: 'skater-app',
+    password: process.env.DB_PASSWORD,
     port: '3306',
     database: 'skater_app',
 });

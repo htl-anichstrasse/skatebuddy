@@ -52,8 +52,8 @@ SkateObstacleConnector.insertValue = (con, SkateparkObstacle) => {
 SkateObstacleConnector.update = (con, column, newValue, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            `UPDATE skaterpark_obstacle_connector SET ${column} = ? Where ObstacleID = ? `,
-            [(column, newValue, id)],
+            `UPDATE skaterpark_obstacle_connector SET ${column} = ? Where ObstacleID = ?`,
+            [parseInt(newValue), parseInt(id)],
             (err, result) => {
                 if (err) {
                     return reject(err);
