@@ -1,0 +1,14 @@
+.Navbar {
+  position: sticky;
+  top: 0;
+}
+
+header {
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  min-width: 100%;
+  border-top: 4px solid darkgrey;
+}

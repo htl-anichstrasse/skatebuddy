@@ -1,0 +1,205 @@
+{
+  "geocoded_waypoints": [
+    {
+      "geocoder_status": "OK",
+      "place_id": "ChIJ1Z_2t_prnUcR0ADzLnpt6Tg",
+      "types": ["premise"]
+    },
+    {
+      "geocoder_status": "OK",
+      "place_id": "ChIJ1VhGWitpnUcRYu9uSHfewgQ",
+      "types": ["establishment", "point_of_interest", "transit_station"]
+    }
+  ],
+  "routes": [
+    {
+      "bounds": {
+        "northeast": {
+          "lat": 47.281292,
+          "lng": 11.4478663
+        },
+        "southwest": {
+          "lat": 47.2659282,
+          "lng": 11.3895793
+        }
+      },
+      "copyrights": "Map data ©2021",
+      "legs": [
+        {
+          "distance": {
+            "text": "6.3 km",
+            "value": 6263
+          },
+          "duration": {
+            "text": "14 mins",
+            "value": 834
+          },
+          "end_address": "Innsbruck Hallenbad O-Dorf, 6063 Innsbruck, Austria",
+          "end_location": {
+            "lat": 47.2683747,
+            "lng": 11.4478663
+          },
+          "start_address": "Innrain 23, 6020 Innsbruck, Austria",
+          "start_location": {
+            "lat": 47.2659282,
+            "lng": 11.3895793
+          },
+          "steps": [
+            {
+              "distance": {
+                "text": "2.1 km",
+                "value": 2132
+              },
+              "duration": {
+                "text": "6 mins",
+                "value": 351
+              },
+              "end_location": {
+                "lat": 47.2809994,
+                "lng": 11.405485
+              },
+              "html_instructions": "Head \u003cb\u003enortheast\u003c/b\u003e on \u003cb\u003eInnrain\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003eB171\u003c/b\u003e toward \u003cb\u003eHerzog-Siegmund-Ufer\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eContinue to follow B171\u003c/div\u003e",
+              "polyline": {
+                "points": "asn_H{oodAUYe@m@y@eAGGEGKKKK{@u@GCIGYIA?C?[BYUQMw@k@cAw@a@YUSe@c@qBmBQQg@e@wAoAKKoBeBa@[SSGIGGGKEICEEMIUESEWESCUCWASCm@?G?CAEMSCCCEGEIEMCWCQAS?_DUA?[CMCEAEAKEWMa@Sg@Yo@c@CCu@i@k@e@II_@[eAcAw@w@KMc@g@]c@aB{Bu@iAm@gAs@qA_@u@oAsCKUIMO[yA_Cm@gAIQKSuBeES]Oi@]gAGSUc@e@Sc@YkD{BIMs@i@QS"
+              },
+              "start_location": {
+                "lat": 47.2659282,
+                "lng": 11.3895793
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "2.6 km",
+                "value": 2642
+              },
+              "duration": {
+                "text": "3 mins",
+                "value": 204
+              },
+              "end_location": {
+                "lat": 47.27641,
+                "lng": 11.4386245
+              },
+              "html_instructions": "Slight \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eHaller Str.\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003eB171\u003c/b\u003e",
+              "maneuver": "turn-slight-right",
+              "polyline": {
+                "points": "gqq_HgsrdAg@qCKWEe@AY@g@?OBi@NeAJk@DWf@}CF[BOfAcHHi@D[r@gFVoBDa@LmADe@\\_DBSJu@Z}BpAcLD[l@iFNk@L}@n@yFp@gF|@cFPcALk@V}@^yAbB_GRs@hA{DJ_@DKx@oCLg@Ji@\\eBFe@Jk@@GF_@L{@BYDk@HeADy@B{@@y@?}@Ay@AgAEeAIeBGcAq@aLW_EMoBSyBC[KcAKgAOcBKcA"
+              },
+              "start_location": {
+                "lat": 47.2809994,
+                "lng": 11.405485
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "0.3 km",
+                "value": 321
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 35
+              },
+              "end_location": {
+                "lat": 47.27700919999999,
+                "lng": 11.4426992
+              },
+              "html_instructions": "Keep \u003cb\u003eright\u003c/b\u003e to continue on \u003cb\u003eHaller Str.\u003c/b\u003e",
+              "maneuver": "keep-right",
+              "polyline": {
+                "points": "qtp_HkbydAP_@UeBCU_AwJo@{G"
+              },
+              "start_location": {
+                "lat": 47.27641,
+                "lng": 11.4386245
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "0.2 km",
+                "value": 176
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 30
+              },
+              "end_location": {
+                "lat": 47.2754937,
+                "lng": 11.4433666
+              },
+              "html_instructions": "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eCol-di-Lana-Straße\u003c/b\u003e",
+              "maneuver": "turn-right",
+              "polyline": {
+                "points": "ixp_H{{ydAnC_A~Bw@^M"
+              },
+              "start_location": {
+                "lat": 47.27700919999999,
+                "lng": 11.4426992
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "0.1 km",
+                "value": 126
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 21
+              },
+              "end_location": {
+                "lat": 47.2757571,
+                "lng": 11.4449938
+              },
+              "html_instructions": "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003ePontlatzer Str.\u003c/b\u003e",
+              "maneuver": "turn-left",
+              "polyline": {
+                "points": "ynp_Ha`zdACYq@iH"
+              },
+              "start_location": {
+                "lat": 47.2754937,
+                "lng": 11.4433666
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "0.9 km",
+                "value": 866
+              },
+              "duration": {
+                "text": "3 mins",
+                "value": 193
+              },
+              "end_location": {
+                "lat": 47.2683747,
+                "lng": 11.4478663
+              },
+              "html_instructions": "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eKugelfangweg\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the left\u003c/div\u003e",
+              "maneuver": "turn-right",
+              "polyline": {
+                "points": "opp_HejzdAxCcAz@SdBg@vFiB`@Ef@S~@YPGxIqC|Bs@NGpAa@x@[NEJ@D?NHd@VNJBIJUDOBG"
+              },
+              "start_location": {
+                "lat": 47.2757571,
+                "lng": 11.4449938
+              },
+              "travel_mode": "DRIVING"
+            }
+          ],
+          "traffic_speed_entry": [],
+          "via_waypoint": []
+        }
+      ],
+      "overview_polyline": {
+        "points": "asn_H{oodA}BuCyAuAQK[I_@Bk@c@{BcBw@m@qEiEuF}Ek@q@Ys@UuAIaBAIQWKKWI}E[q@IkAi@wA}@y@m@{CoCcAeAaAkAaB{Bu@iAaByCeCmFaDuFaCyES]Oi@e@{AUc@e@SoEuCIMs@i@QSg@qCKWEe@?aABy@hAgH|AyJvAuKt@gHf@sDvA_Ml@iFNk@|@wHp@gF|@cF^oBnDkMtCwJXqAd@kCb@oCHeAN_CDuBAwBGmCQiDiAaRa@iFk@kGKcAP_@Y{BoBsSnGwB^MCYq@iHxCcA`D{@vFiB`@EfBm@jJyClC{@jC}@ZCTHt@b@N_@HW"
+      },
+      "summary": "B171",
+      "warnings": [],
+      "waypoint_order": []
+    }
+  ],
+  "status": "OK"
+}

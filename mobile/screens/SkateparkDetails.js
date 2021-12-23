@@ -1,17 +1,81 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import Button from '../components/Button';
+import React, { useState } from 'react';
+import { View, Text, Dimensions, ScrollView } from 'react-native';
+
+import LoadingCircle from '../components/common/LoadingCircle';
+import Button from '../components/common/Button';
+
+import AdditionalInfo from '../components/Skateparks/SkateparkDetails/InfoReviews/AdditionalInfo';
+import Reviews from '../components/Skateparks/SkateparkDetails/InfoReviews/Reviews';
+import Obstacles from '../components/Skateparks/SkateparkDetails/Obstacles/Obstacles';
+
+import useFetch from '../hooks/useFetch';
+
+import styles from '../styles/SkateparkDetailsStyles';
+
+styles.column = {
+  ...styles.column,
+  width: Dimensions.get('window').width,
+};
 
 const SkateparkDetails = ({ navigation, route }) => {
   const skatepark = route.params.skatepark;
 
-  return (
-    <View>
-      <Text>SkateparkDetails {skatepark.name}</Text>
-      <Text>{skatepark.latitude}</Text>
-      <Text>{skatepark.longitude}</Text>
+  const {
+    data: reviews,
+    isLoading,
+    error,
+    changeData: setReviews,
+  } = useFetch('reviews', skatepark.skateparkId);
 
-      <Button title="Go back" onPress={() => navigation.goBack()} />
+  const newReview = review => {
+    setReviews(prevReviews => {
+      review.reviewId = prevReviews.length + 1;
+      return [review, ...prevReviews];
+    });
+  };
+
+  const [hScrollRef, setHScrollRef] = useState(null);
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>{skatepark.name}</Text>
+
+      <View style={styles.horizontalScroll}>
+        <ScrollView
+          ref={ref => {
+            setHScrollRef(ref);
+          }}
+          horizontal={true}
+          pagingEnabled={true}
+        >
+          <View style={styles.column}>
+            <AdditionalInfo skatepark={skatepark} />
+
+            <Button
+              title="To Obstacles"
+              onPress={() => {
+                hScrollRef.scrollTo({
+                  x: Dimensions.get('window').width,
+                  animated: true,
+                });
+              }}
+            />
+
+            {isLoading && <LoadingCircle />}
+            {error && <Text>Error!</Text>}
+            {reviews && (
+              <Reviews
+                reviews={reviews}
+                navigation={navigation}
+                newReview={newReview}
+              />
+            )}
+          </View>
+          <View style={styles.column}>
+            <Obstacles />
+          </View>
+        </ScrollView>
+      </View>
     </View>
   );
 };

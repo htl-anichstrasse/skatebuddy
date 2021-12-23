@@ -1,0 +1,446 @@
+{
+  "geocoded_waypoints": [
+    {
+      "geocoder_status": "OK",
+      "place_id": "ChIJ1Z_2t_prnUcR0ADzLnpt6Tg",
+      "types": ["premise"]
+    },
+    {
+      "geocoder_status": "OK",
+      "place_id": "ChIJ1VhGWitpnUcRYu9uSHfewgQ",
+      "types": ["establishment", "point_of_interest", "transit_station"]
+    }
+  ],
+  "routes": [
+    {
+      "bounds": {
+        "northeast": {
+          "lat": 47.2685033,
+          "lng": 11.4478279
+        },
+        "southwest": {
+          "lat": 47.2626155,
+          "lng": 11.3895793
+        }
+      },
+      "copyrights": "Map data ©2021",
+      "legs": [
+        {
+          "distance": {
+            "text": "5.0 km",
+            "value": 5024
+          },
+          "duration": {
+            "text": "1 hour 2 mins",
+            "value": 3707
+          },
+          "end_address": "Innsbruck Hallenbad O-Dorf, 6063 Innsbruck, Austria",
+          "end_location": {
+            "lat": 47.2683884,
+            "lng": 11.4478279
+          },
+          "start_address": "Innrain 23, 6020 Innsbruck, Austria",
+          "start_location": {
+            "lat": 47.2659282,
+            "lng": 11.3895793
+          },
+          "steps": [
+            {
+              "distance": {
+                "text": "0.1 km",
+                "value": 103
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 75
+              },
+              "end_location": {
+                "lat": 47.2666548,
+                "lng": 11.3904268
+              },
+              "html_instructions": "Head \u003cb\u003enortheast\u003c/b\u003e on \u003cb\u003eInnrain\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003eB171\u003c/b\u003e",
+              "polyline": {
+                "points": "asn_H{oodAUYe@m@y@eAGGEGKK"
+              },
+              "start_location": {
+                "lat": 47.2659282,
+                "lng": 11.3895793
+              },
+              "travel_mode": "WALKING"
+            },
+            {
+              "distance": {
+                "text": "0.1 km",
+                "value": 129
+              },
+              "duration": {
+                "text": "2 mins",
+                "value": 100
+              },
+              "end_location": {
+                "lat": 47.2668824,
+                "lng": 11.3920973
+              },
+              "html_instructions": "Turn \u003cb\u003eright\u003c/b\u003e toward \u003cb\u003eMarktgraben\u003c/b\u003e",
+              "maneuver": "turn-right",
+              "polyline": {
+                "points": "qwn_HeuodA[aEQkC"
+              },
+              "start_location": {
+                "lat": 47.2666548,
+                "lng": 11.3904268
+              },
+              "travel_mode": "WALKING"
+            },
+            {
+              "distance": {
+                "text": "12 m",
+                "value": 12
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 9
+              },
+              "end_location": {
+                "lat": 47.26678,
+                "lng": 11.3921602
+              },
+              "html_instructions": "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eMarktgraben\u003c/b\u003e",
+              "maneuver": "turn-right",
+              "polyline": {
+                "points": "_yn_Hs_pdAFEJE"
+              },
+              "start_location": {
+                "lat": 47.2668824,
+                "lng": 11.3920973
+              },
+              "travel_mode": "WALKING"
+            },
+            {
+              "distance": {
+                "text": "0.2 km",
+                "value": 213
+              },
+              "duration": {
+                "text": "3 mins",
+                "value": 158
+              },
+              "end_location": {
+                "lat": 47.26736529999999,
+                "lng": 11.3948361
+              },
+              "html_instructions": "Turn \u003cb\u003eleft\u003c/b\u003e to stay on \u003cb\u003eMarktgraben\u003c/b\u003e",
+              "maneuver": "turn-left",
+              "polyline": {
+                "points": "kxn_H_`pdAGg@CUE]Gq@Gs@?EGm@C[CWGk@AGSiAQ{@Mc@EO"
+              },
+              "start_location": {
+                "lat": 47.26678,
+                "lng": 11.3921602
+              },
+              "travel_mode": "WALKING"
+            },
+            {
+              "distance": {
+                "text": "0.6 km",
+                "value": 578
+              },
+              "duration": {
+                "text": "7 mins",
+                "value": 435
+              },
+              "end_location": {
+                "lat": 47.2662674,
+                "lng": 11.4023084
+              },
+              "html_instructions": "Slight \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eMuseumstraße\u003c/b\u003e",
+              "maneuver": "turn-slight-right",
+              "polyline": {
+                "points": "a|n_HwppdA\\}DJ_BFmAFs@Du@JeBLyA^uEr@}JNkAFMDUL_B@Q?I"
+              },
+              "start_location": {
+                "lat": 47.26736529999999,
+                "lng": 11.3948361
+              },
+              "travel_mode": "WALKING"
+            },
+            {
+              "distance": {
+                "text": "0.9 km",
+                "value": 931
+              },
+              "duration": {
+                "text": "12 mins",
+                "value": 698
+              },
+              "end_location": {
+                "lat": 47.2626155,
+                "lng": 11.4128673
+              },
+              "html_instructions": "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eAmraser Str.\u003c/b\u003e",
+              "maneuver": "turn-right",
+              "polyline": {
+                "points": "eun_Hm_rdAVKx@Yh@q@LQV[Te@HWb@{@p@{Ad@oA^aBN{@Z_ADe@LaD?CDc@BMVo@@Wh@gBVu@NYLYd@aBb@}BTsAZqCN_CV{CJgBDu@@]"
+              },
+              "start_location": {
+                "lat": 47.2662674,
+                "lng": 11.4023084
+              },
+              "travel_mode": "WALKING"
+            },
+            {
+              "distance": {
+                "text": "15 m",
+                "value": 15
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 16
+              },
+              "end_location": {
+                "lat": 47.2627487,
+                "lng": 11.4129042
+              },
+              "html_instructions": "Turn \u003cb\u003eleft\u003c/b\u003e at \u003cb\u003eDoktor-Glatz-Straße\u003c/b\u003e",
+              "maneuver": "turn-left",
+              "polyline": {
+                "points": "k~m_HmatdAYE"
+              },
+              "start_location": {
+                "lat": 47.2626155,
+                "lng": 11.4128673
+              },
+              "travel_mode": "WALKING"
+            },
+            {
+              "distance": {
+                "text": "0.9 km",
+                "value": 872
+              },
+              "duration": {
+                "text": "10 mins",
+                "value": 624
+              },
+              "end_location": {
+                "lat": 47.2646046,
+                "lng": 11.4232912
+              },
+              "html_instructions": "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eKranewitterstraße\u003c/b\u003e",
+              "maneuver": "turn-right",
+              "polyline": {
+                "points": "e_n_HsatdAEYOs@MiAUyCQyAQsAw@wDUcAu@}CsAwFk@eC]gBMk@m@qCI_@UqAGa@S_BCW?I?G?G@IBEBG~BaE"
+              },
+              "start_location": {
+                "lat": 47.2627487,
+                "lng": 11.4129042
+              },
+              "travel_mode": "WALKING"
+            },
+            {
+              "distance": {
+                "text": "0.2 km",
+                "value": 239
+              },
+              "duration": {
+                "text": "3 mins",
+                "value": 168
+              },
+              "end_location": {
+                "lat": 47.2649832,
+                "lng": 11.4261829
+              },
+              "html_instructions": "Turn \u003cb\u003eleft\u003c/b\u003e to stay on \u003cb\u003eKranewitterstraße\u003c/b\u003e",
+              "maneuver": "turn-left",
+              "polyline": {
+                "points": "wjn_HqbvdAA[Ig@y@s@E]AKAKAOCa@?S?UDaD@}A@W?_@"
+              },
+              "start_location": {
+                "lat": 47.2646046,
+                "lng": 11.4232912
+              },
+              "travel_mode": "WALKING"
+            },
+            {
+              "distance": {
+                "text": "52 m",
+                "value": 52
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 39
+              },
+              "end_location": {
+                "lat": 47.26456959999999,
+                "lng": 11.4265028
+              },
+              "html_instructions": "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eAndechsstraße\u003c/b\u003e",
+              "maneuver": "turn-right",
+              "polyline": {
+                "points": "cmn_HstvdApA_A"
+              },
+              "start_location": {
+                "lat": 47.2649832,
+                "lng": 11.4261829
+              },
+              "travel_mode": "WALKING"
+            },
+            {
+              "distance": {
+                "text": "66 m",
+                "value": 66
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 53
+              },
+              "end_location": {
+                "lat": 47.26405099999999,
+                "lng": 11.4269284
+              },
+              "html_instructions": "Slight \u003cb\u003eleft\u003c/b\u003e to stay on \u003cb\u003eAndechsstraße\u003c/b\u003e",
+              "maneuver": "turn-slight-left",
+              "polyline": {
+                "points": "qjn_HsvvdAPW`@Wr@e@"
+              },
+              "start_location": {
+                "lat": 47.26456959999999,
+                "lng": 11.4265028
+              },
+              "travel_mode": "WALKING"
+            },
+            {
+              "distance": {
+                "text": "0.8 km",
+                "value": 774
+              },
+              "duration": {
+                "text": "9 mins",
+                "value": 569
+              },
+              "end_location": {
+                "lat": 47.2648604,
+                "lng": 11.4369071
+              },
+              "html_instructions": "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eGrabenweg\u003c/b\u003e",
+              "maneuver": "turn-left",
+              "polyline": {
+                "points": "ign_HiyvdAAg@q@{CCMs@gDKe@YsAG]GY?M?kA@kA@gABeEFgFDcD@gDAy@@_@QiGE_A?S"
+              },
+              "start_location": {
+                "lat": 47.26405099999999,
+                "lng": 11.4269284
+              },
+              "travel_mode": "WALKING"
+            },
+            {
+              "distance": {
+                "text": "0.7 km",
+                "value": 675
+              },
+              "duration": {
+                "text": "8 mins",
+                "value": 494
+              },
+              "end_location": {
+                "lat": 47.2669985,
+                "lng": 11.4447067
+              },
+              "html_instructions": "Slight \u003cb\u003eright\u003c/b\u003e to stay on \u003cb\u003eGrabenweg\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eGo through 1 roundabout\u003c/div\u003e",
+              "maneuver": "turn-slight-right",
+              "polyline": {
+                "points": "kln_HuwxdADOAo@FADI@K?KACCCACAACCEg@C]GO?[E{AGoBE{AGwAIuAEe@E_@SgBKu@SwAWsAWaAGQQ]O][_Ag@w@o@_Ao@{@]a@]c@"
+              },
+              "start_location": {
+                "lat": 47.2648604,
+                "lng": 11.4369071
+              },
+              "travel_mode": "WALKING"
+            },
+            {
+              "distance": {
+                "text": "0.2 km",
+                "value": 218
+              },
+              "duration": {
+                "text": "3 mins",
+                "value": 161
+              },
+              "end_location": {
+                "lat": 47.2675331,
+                "lng": 11.4468487
+              },
+              "html_instructions": "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eArchenweg\u003c/b\u003e",
+              "maneuver": "turn-right",
+              "polyline": {
+                "points": "wyn_HmhzdAJKJQFKJUL[FUDM@I@GAIEOQWi@{@_@m@o@gAMQISIO"
+              },
+              "start_location": {
+                "lat": 47.2669985,
+                "lng": 11.4447067
+              },
+              "travel_mode": "WALKING"
+            },
+            {
+              "distance": {
+                "text": "0.1 km",
+                "value": 122
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 89
+              },
+              "end_location": {
+                "lat": 47.2685033,
+                "lng": 11.4475884
+              },
+              "html_instructions": "Continue onto \u003cb\u003eNew Orleans Brücke\u003c/b\u003e",
+              "polyline": {
+                "points": "a}n_HyuzdAuBuAy@k@ECKM"
+              },
+              "start_location": {
+                "lat": 47.2675331,
+                "lng": 11.4468487
+              },
+              "travel_mode": "WALKING"
+            },
+            {
+              "distance": {
+                "text": "25 m",
+                "value": 25
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 19
+              },
+              "end_location": {
+                "lat": 47.2683884,
+                "lng": 11.4478279
+              },
+              "html_instructions": "Turn \u003cb\u003eright\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the left\u003c/div\u003e",
+              "maneuver": "turn-right",
+              "polyline": {
+                "points": "cco_HmzzdABIJUDO"
+              },
+              "start_location": {
+                "lat": 47.2685033,
+                "lng": 11.4475884
+              },
+              "travel_mode": "WALKING"
+            }
+          ],
+          "traffic_speed_entry": [],
+          "via_waypoint": []
+        }
+      ],
+      "overview_polyline": {
+        "points": "asn_H{oodA}BuCQSm@mIRKK}@UiCWmCUqA_@_BEO\\}DRmDf@iHrAsQNkAFMRuB@[pAe@v@cAV[Te@l@sAvAkDn@}CZ_ADe@LeDHq@Vo@@W`A}C\\s@d@aBb@}Bp@eFf@{GP}C@]YEUmAc@cFc@mDmA{FiCuKeCkL_@qB[aCCq@DObCiEA[Ig@y@s@E]CWEq@FiH@w@pA_APWtA}@Ag@q@{Cw@uDe@yBOw@?yANaQFkI?yAWiI?SDOAo@FAFUAOEGEEIeAGO?[MkEMsDO{BYgC_@mCo@uCYo@k@}AwAwBmA}A]c@JKR]Xq@Lc@BQGY{@sAoAuBWe@IOuBuA_Ao@KMBIPe@"
+      },
+      "summary": "Grabenweg",
+      "warnings": [
+        "Walking directions are in beta. Use caution – This route may be missing sidewalks or pedestrian paths."
+      ],
+      "waypoint_order": []
+    }
+  ],
+  "status": "OK"
+}

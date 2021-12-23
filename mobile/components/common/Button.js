@@ -1,13 +1,11 @@
 import React from 'react';
 import { View, Text, Pressable } from 'react-native';
-import styles from '../styles/ButtonStyles';
 
-const Button = ({ title, onPress, color }) => {
-  if (color) {
-    styles.container = {
-      ...styles.container,
-      backgroundColor: color,
-    };
+import styles from '../../styles/ButtonStyles';
+
+const Button = ({ title, onPress }) => {
+  if (!title) {
+    title = 'Button';
   }
 
   return (
