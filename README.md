@@ -3,7 +3,7 @@
 <br/>
 <p align="center">
   <a href="https://htl-anichstrasse.tirol">
-    <img src=".github/logo.png" alt="Logo" width="80" height="80">
+    <img src=".github/logo.svg" alt="Logo" width="100" height="100">
   </a>
 
   <h3 align="center">Project Name</h3>
@@ -20,6 +20,7 @@
 </p>
 
 ## About the project
+
 Enter a description about the project, its history and its goals here.
 
 ## Installation
@@ -27,6 +28,7 @@ Enter a description about the project, its history and its goals here.
 Enter a step by step explanation for installing this repository on a local machine.
 
 Clone the repository.
+
 ```
 git clone https://github.com/htl-anichstrasse/template.git
 ```
