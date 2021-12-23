@@ -1,0 +1,285 @@
+{
+  "geocoded_waypoints": [
+    {
+      "geocoder_status": "OK",
+      "place_id": "ChIJ1Z_2t_prnUcR0ADzLnpt6Tg",
+      "types": ["premise"]
+    },
+    {
+      "geocoder_status": "OK",
+      "place_id": "ChIJ1VhGWitpnUcRYu9uSHfewgQ",
+      "types": ["establishment", "point_of_interest", "transit_station"]
+    }
+  ],
+  "routes": [
+    {
+      "bounds": {
+        "northeast": {
+          "lat": 47.2752928,
+          "lng": 11.4478279
+        },
+        "southwest": {
+          "lat": 47.2644445,
+          "lng": 11.3895184
+        }
+      },
+      "copyrights": "Map data ©2021",
+      "legs": [
+        {
+          "arrival_time": {
+            "text": "4:15pm",
+            "time_zone": "Europe/Vienna",
+            "value": 1640272524
+          },
+          "departure_time": {
+            "text": "3:43pm",
+            "time_zone": "Europe/Vienna",
+            "value": 1640270590
+          },
+          "distance": {
+            "text": "6.2 km",
+            "value": 6194
+          },
+          "duration": {
+            "text": "32 mins",
+            "value": 1934
+          },
+          "end_address": "Innsbruck Hallenbad O-Dorf, 6063 Innsbruck, Austria",
+          "end_location": {
+            "lat": 47.2683884,
+            "lng": 11.4478279
+          },
+          "start_address": "Innrain 23, 6020 Innsbruck, Austria",
+          "start_location": {
+            "lat": 47.2659346,
+            "lng": 11.3895442
+          },
+          "steps": [
+            {
+              "distance": {
+                "text": "76 m",
+                "value": 76
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 56
+              },
+              "end_location": {
+                "lat": 47.26649,
+                "lng": 11.3900061
+              },
+              "html_instructions": "Walk to Innsbruck Terminal Marktplatz",
+              "polyline": {
+                "points": "asn_HsoodAYDA?C?AAECECKOu@iA"
+              },
+              "start_location": {
+                "lat": 47.2659346,
+                "lng": 11.3895442
+              },
+              "steps": [
+                {
+                  "distance": {
+                    "text": "76 m",
+                    "value": 76
+                  },
+                  "duration": {
+                    "text": "1 min",
+                    "value": 56
+                  },
+                  "end_location": {
+                    "lat": 47.26649,
+                    "lng": 11.3900061
+                  },
+                  "html_instructions": "Head \u003cb\u003enorth\u003c/b\u003e toward \u003cb\u003eHerzog-Siegmund-Ufer\u003c/b\u003e",
+                  "polyline": {
+                    "points": "asn_HsoodAYDA?C?AAECECKOu@iA"
+                  },
+                  "start_location": {
+                    "lat": 47.2659346,
+                    "lng": 11.3895442
+                  },
+                  "travel_mode": "WALKING"
+                }
+              ],
+              "travel_mode": "WALKING"
+            },
+            {
+              "distance": {
+                "text": "5.5 km",
+                "value": 5495
+              },
+              "duration": {
+                "text": "24 mins",
+                "value": 1428
+              },
+              "end_location": {
+                "lat": 47.2716163,
+                "lng": 11.4435755
+              },
+              "html_instructions": "Tram towards Innsbruck Josef-Kerschbaumer-Straße",
+              "polyline": {
+                "points": "kvn_H{rodACFe@m@DCKMOOOOOOWSo@c@ECEEGGEIAKAKAK@M@E@EDIFK~AiCBIBG@I@G?I?G?GKoAOyBE[E[]{BAKCICIGKGMAGCIAK?G?I^iFnA}P?CA??@J_Bp@_JPkBDs@H_AHWNQ\\MTO^Wb@i@NWB@?@JSLWDKFUBG@ER_@JWHYPo@La@Pi@H]Jg@Js@Jc@BM@SB]D{AFuA?Q?UA[Aq@C]C]E]Ie@oAoGCMCKAACKCKO_AqAgHk@}Cm@iCCKAAEGEGGCCAC?G?E@GBID{@p@QLIDULIBKBIBI@U@O@I@GBqDnAWHQDQBK@mD|@[HqAj@K@G?GACCECCEEGCKe@mBe@_BI]K]UgAIa@ACOy@oA}FAIGQGOIOKMIMMKKISKQISIk@UWKUK[Qa@USKSMQOUSA?MOOQSYQWQ[O[kEiJKUISGQGSG[G[CQ?CAGC]ImACc@E}@Aa@EgCAo@?m@?o@Bm@@a@Ba@B_@BWLeAD]Jm@Nw@Nu@n@oCLk@xDmOp@oCFWBQ?QAOAGAIACCIGIEGq@y@MQ}E}GKOGMISIUIYE[G]Gi@AYC_@?C?O?MBMBMBEBEZ_@DIJMHOJSHWHUNa@FUFWFWFWDWDUBYDYBYBYBg@@[@e@DeC@eB@y@XaIz@eW?AHuB?C@E@ABCDA^CpAM^G^GdB[j@WbBc@AI"
+              },
+              "start_location": {
+                "lat": 47.266459,
+                "lng": 11.390056
+              },
+              "transit_details": {
+                "arrival_stop": {
+                  "location": {
+                    "lat": 47.2716163,
+                    "lng": 11.4435755
+                  },
+                  "name": "Innsbruck Josef-Kerschbaumer-Straße"
+                },
+                "arrival_time": {
+                  "text": "4:07pm",
+                  "time_zone": "Europe/Vienna",
+                  "value": 1640272074
+                },
+                "departure_stop": {
+                  "location": {
+                    "lat": 47.266459,
+                    "lng": 11.390056
+                  },
+                  "name": "Innsbruck Terminal Marktplatz"
+                },
+                "departure_time": {
+                  "text": "3:44pm",
+                  "time_zone": "Europe/Vienna",
+                  "value": 1640270646
+                },
+                "headsign": "Innsbruck Josef-Kerschbaumer-Straße",
+                "line": {
+                  "agencies": [
+                    {
+                      "name": "Innsbrucker Verkehrsbetriebe und Stubaitalbahn GmbH",
+                      "url": "https://www.ivb.at/"
+                    }
+                  ],
+                  "name": "J. Kerschbaumer-Straße - Peerhofsiedlung/Technik West",
+                  "short_name": "2",
+                  "vehicle": {
+                    "icon": "//maps.gstatic.com/mapfiles/transit/iw2/6/tram2.png",
+                    "name": "Tram",
+                    "type": "TRAM"
+                  }
+                },
+                "num_stops": 17,
+                "trip_short_name": "0"
+              },
+              "travel_mode": "TRANSIT"
+            },
+            {
+              "distance": {
+                "text": "0.6 km",
+                "value": 623
+              },
+              "duration": {
+                "text": "8 mins",
+                "value": 450
+              },
+              "end_location": {
+                "lat": 47.2683884,
+                "lng": 11.4478279
+              },
+              "html_instructions": "Walk to Innsbruck Hallenbad O-Dorf, 6063 Innsbruck, Austria",
+              "polyline": {
+                "points": "uvo_Hi_zdAhADN@h@O\\SR]Pm@?ETNlBhBHFF]p@gCJu@Di@@y@RcBZmATg@NMTg@HWR}@VoAHc@BODMJYJe@BIJUDO"
+              },
+              "start_location": {
+                "lat": 47.2716307,
+                "lng": 11.4432531
+              },
+              "steps": [
+                {
+                  "distance": {
+                    "text": "0.1 km",
+                    "value": 130
+                  },
+                  "duration": {
+                    "text": "2 mins",
+                    "value": 94
+                  },
+                  "end_location": {
+                    "lat": 47.27063,
+                    "lng": 11.4437961
+                  },
+                  "html_instructions": "Head \u003cb\u003esouth\u003c/b\u003e on \u003cb\u003eKajetan-Sweth-Straße\u003c/b\u003e toward \u003cb\u003eEisensteckenweg\u003c/b\u003e",
+                  "polyline": {
+                    "points": "uvo_Hi_zdAhADN@h@O\\SR]Pm@?E"
+                  },
+                  "start_location": {
+                    "lat": 47.2716307,
+                    "lng": 11.4432531
+                  },
+                  "travel_mode": "WALKING"
+                },
+                {
+                  "distance": {
+                    "text": "92 m",
+                    "value": 92
+                  },
+                  "duration": {
+                    "text": "1 min",
+                    "value": 64
+                  },
+                  "end_location": {
+                    "lat": 47.2699248,
+                    "lng": 11.4431518
+                  },
+                  "html_instructions": "Turn \u003cb\u003eright\u003c/b\u003e",
+                  "maneuver": "turn-right",
+                  "polyline": {
+                    "points": "mpo_HwbzdATNlBhBHF"
+                  },
+                  "start_location": {
+                    "lat": 47.27063,
+                    "lng": 11.4437961
+                  },
+                  "travel_mode": "WALKING"
+                },
+                {
+                  "distance": {
+                    "text": "0.4 km",
+                    "value": 401
+                  },
+                  "duration": {
+                    "text": "5 mins",
+                    "value": 292
+                  },
+                  "end_location": {
+                    "lat": 47.2683884,
+                    "lng": 11.4478279
+                  },
+                  "html_instructions": "Turn \u003cb\u003eleft\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the left\u003c/div\u003e",
+                  "maneuver": "turn-left",
+                  "polyline": {
+                    "points": "_lo_Hu~ydAF]p@gCJu@Di@@y@RcBZmATg@NMTg@HWR}@VoAHc@BODMJYJe@BIJUDO"
+                  },
+                  "start_location": {
+                    "lat": 47.2699248,
+                    "lng": 11.4431518
+                  },
+                  "travel_mode": "WALKING"
+                }
+              ],
+              "travel_mode": "WALKING"
+            }
+          ],
+          "traffic_speed_entry": [],
+          "via_waypoint": []
+        }
+      ],
+      "overview_polyline": {
+        "points": "asn_HsoodAa@BKGaAyADICFe@m@DC[]_@_@sAaAMQCW?YBKpBiDDQ@Q[yEk@_EWm@Ge@nBqXHaBrA_QHWNQr@]^Wb@i@NWBBXk@Ro@^w@ZiA^kATeAVwADa@PoECuBG{@OcAyAkHGWaBgJk@}Cm@iCEMKOKEK?MDaBjA_@PUFy@FqE|Ac@HyD~@mBt@S@KEIIISkAmEu@eDcBeIOa@U]WY_@UiBu@gB_A}@q@]a@e@q@a@w@wE_Ka@uAMy@WmEIgGHaDZ{CZeB~@eExFiUJi@Aa@I_@mA}AiFmHQa@So@My@MgB?]F[h@u@j@iAh@eBZ}APgBDcAFkDB_DXaIdAa[BGHEpBQ~@OdB[j@WbBc@AIA`AhADN@h@O\\SR]Ps@bCxBHFF]p@gCJu@FcBRcBZmATg@NM^_Aj@mC^{ANo@Pe@"
+      },
+      "summary": "",
+      "warnings": [
+        "Walking directions are in beta. Use caution – This route may be missing sidewalks or pedestrian paths."
+      ],
+      "waypoint_order": []
+    }
+  ],
+  "status": "OK"
+}

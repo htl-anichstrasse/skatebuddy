@@ -5,6 +5,7 @@ import Geolocation from 'react-native-geolocation-service';
 const useLocation = () => {
   const [location, setLocation] = useState(null);
   const [locError, setLocError] = useState(null);
+  const [locLoading, setLocLoading] = useState(true);
 
   /*
   {
@@ -17,48 +18,50 @@ const useLocation = () => {
   }
   */
 
-  const checkPermission = () => {
+  const checkPermission = async () => {
     if (Platform.OS === 'android') {
-      PermissionsAndroid.check(
+      const status = await PermissionsAndroid.check(
         PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-      ).then(status => {
-        if (status) {
-          console.log('oida');
-          setLocError(null);
-          return true;
-        } else {
-          setLocError('Location permission denied');
-          return false;
-        }
-      });
+      );
+
+      if (status) {
+        setLocError(null);
+        setLocLoading(false);
+        return true;
+      } else {
+        // setLocError('Location permission denied');
+        return false;
+      }
     } else if (Platform.OS === 'ios') {
       // TODO Implement iOS permission check
       return false;
     }
   };
 
-  const requestPermission = () => {
+  const requestPermission = async () => {
     if (Platform.OS === 'android') {
-      PermissionsAndroid.request(
+      const granted = await PermissionsAndroid.request(
         PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-      ).then(granted => {
-        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-          setLocError(null);
-          return true;
-        } else {
-          setLocError('Location permission denied');
-          return false;
-        }
-      });
+      );
+      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+        setLocError(null);
+        setLocLoading(false);
+        return true;
+      } else {
+        setLocError('Location permission denied');
+        setLocLoading(false);
+        return false;
+      }
     } else if (Platform.OS === 'ios') {
       // TODO: Implement iOS permission request
       return false;
     }
   };
 
-  const getLocation = () => {
-    if (checkPermission() || requestPermission()) {
-      console.log('getLocation');
+  const getLocation = async () => {
+    setLocLoading(true);
+    setLocError(null);
+    if ((await checkPermission()) || (await requestPermission())) {
       Geolocation.getCurrentPosition(
         location => {
           setLocation(location);
@@ -71,7 +74,7 @@ const useLocation = () => {
     }
   };
 
-  return { location, locError, getLocation };
+  return { location, locLoading, locError, getLocation };
 };
 
 export default useLocation;

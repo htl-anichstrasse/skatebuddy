@@ -3,12 +3,11 @@ import { StyleSheet } from 'react-native';
 const SkateparksStyles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 10,
     alignItems: 'center',
   },
   entryContainer: {
-    margin: 10,
-    marginTop: 0,
+    marginVertical: 5,
+    marginHorizontal: 10,
     backgroundColor: '#fff',
     padding: 10,
     borderRadius: 10,
@@ -26,7 +25,7 @@ const SkateparksStyles = StyleSheet.create({
   },
   entryRating: {
     padding: 5,
-    backgroundColor: '#71B6F4',
+    backgroundColor: '#4D63F5',
     borderRadius: 10,
     marginBottom: 5,
     color: '#fff',
