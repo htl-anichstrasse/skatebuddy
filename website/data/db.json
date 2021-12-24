@@ -56,7 +56,7 @@
   ],
   "reviews": [
     {
-      "reviewId": 1,
+      "id": 1,
       "userId": 1,
       "skateparkId": 1,
       "rating": 5,
@@ -64,12 +64,36 @@
       "content": "Rum hat a geile ramp seitdem sie nen 2020 umbaut ham, less go weiter so jungs #skatekeks"
     },
     {
-      "reviewId": 2,
+      "id": 2,
       "userId": 2,
       "skateparkId": 1,
       "rating": 1,
       "title": "Schleeecht",
       "content": "Nix machen Spaß"
+    },
+    {
+      "userId": "1",
+      "skateparkId": "1",
+      "rating": "4",
+      "title": "Gute Park",
+      "content": "Park sehr gut und empfehlenswert",
+      "id": 3
+    },
+    {
+      "userId": "1",
+      "skateparkId": "2",
+      "rating": "4",
+      "title": "wild",
+      "content": "Richtig wild und richtige geile leute da",
+      "id": 4
+    },
+    {
+      "userId": "1",
+      "skateparkId": "3",
+      "rating": "1",
+      "title": "Ne muss nicht",
+      "content": "richtig schlecht\n",
+      "id": 5
     }
   ]
 }

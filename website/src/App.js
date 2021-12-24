@@ -12,25 +12,24 @@ function App() {
         <div className="Header">
           <header>header</header>
         </div>
+          <div className="Navbar">
+            <Navbar />
+          </div>
 
-        <div className="Navbar">
-          <Navbar />
+          <div className="Content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/parks" element={<Parks />} />
+              <Route path="/skateparks/:id" element={<ParkDetails />} />
+            </Routes>
+          </div>
+
         </div>
-
-        <div className="Content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/parks" element={<Parks />} />
-            <Route path="/skateparks/:id" element={<ParkDetails />} />
-          </Routes>
-        </div>
-
         <div className="footer">
           <footer>
             <h2>Hey</h2>
           </footer>
         </div>
-      </div>
     </Router>
   );
 }

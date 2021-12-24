@@ -9,7 +9,7 @@ const ReviewList = ({ reviews }) => {
           <h4>{review.title}</h4>
           <UserName id={review.userId} className="username"></UserName>
           <div id="rating" className="rating">
-            <h5>Rating: {review.rating}</h5>
+            <h5>Bewertung: {review.rating}</h5>
           </div>
           <p>{review.content}</p>
         </div>
