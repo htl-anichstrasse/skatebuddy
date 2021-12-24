@@ -1,12 +1,6 @@
-class Obstacles {
-    constructor(obstacleId, description, difficulty) {
-        this.obstacleId = obstacleId;
-        this.description = description;
-        this.difficulty = difficulty;
-    }
-}
+const Obstacle = require('../models/obstacle');
 
-Obstacles.selectAll = con => {
+Obstacle.selectAll = (con) => {
     return new Promise((resolve, reject) => {
         con.query('Select * from obstacles', (err, result) => {
             if (err) {
@@ -17,21 +11,24 @@ Obstacles.selectAll = con => {
     });
 };
 
-Obstacles.getById = (con, id) => {
+Obstacle.getById = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'Select * from obstacles where ObstacleId = ?',
+            'Select * from obstacles where ObstacleID = ?',
             [id],
             (err, result) => {
                 if (err) {
                     return reject(err);
                 }
-                resolve(result[0]);
+                console.log(resolve(result[0]));
+                return resolve(
+                    new Obstacle(result[0].description, result[0].difficulty),
+                );
             },
         );
     });
 };
-Obstacles.insertValue = (con, obstacle) => {
+Obstacle.insertValue = (con, obstacle) => {
     return new Promise((resolve, reject) => {
         con.query(
             'Insert into obstacles(Description, Difficulty) values (?, ?)',
@@ -47,7 +44,7 @@ Obstacles.insertValue = (con, obstacle) => {
     });
 };
 
-Obstacles.update = (con, column, newValue, id) => {
+Obstacle.update = (con, column, newValue, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             `UPDATE obstacles SET ${column} = ? Where ObstacleID = ? `,
@@ -62,7 +59,7 @@ Obstacles.update = (con, column, newValue, id) => {
     });
 };
 
-Obstacles.deleteValue = (con, id) => {
+Obstacle.deleteValue = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             'DELETE FROM obstacles WHERE ObstacleID = ?',
@@ -77,4 +74,4 @@ Obstacles.deleteValue = (con, id) => {
     });
 };
 
-module.exports = Obstacles;
+module.exports = Obstacle;

@@ -1,11 +1,6 @@
-class SkateparkPictures {
-    constructor(parkId, picId) {
-        this.parkId = parkId;
-        this.picId = picId;
-    }
-}
+const SkateparkPictures = require('../models/skatepark_pictures');
 
-SkateparkPictures.selectAll = con => {
+SkateparkPictures.selectAll = (con) => {
     return new Promise((resolve, reject) => {
         con.query('Select * from skatepark_pictures', (err, result) => {
             if (err) {

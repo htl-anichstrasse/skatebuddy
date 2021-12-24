@@ -1,11 +1,6 @@
-class SkateObstacleConnector {
-    constructor(parkId, obstacleId) {
-        this.parkId = parkId;
-        this.obstacleId = obstacleId;
-    }
-}
+const ParkObstacleConnector = require('../models/park_obstacle_connector');
 
-SkateObstacleConnector.selectAll = con => {
+ParkObstacleConnector.selectAll = (con) => {
     return new Promise((resolve, reject) => {
         con.query(
             'Select * from skaterpark_obstacle_connector',
@@ -19,7 +14,7 @@ SkateObstacleConnector.selectAll = con => {
     });
 };
 
-SkateObstacleConnector.getById = (con, id) => {
+ParkObstacleConnector.getById = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             'Select * from skaterpark_obstacle_connector where ObstacleId = ?',
@@ -28,12 +23,12 @@ SkateObstacleConnector.getById = (con, id) => {
                 if (err) {
                     return reject(err);
                 }
-                resolve(result[0]);
+                resolve();
             },
         );
     });
 };
-SkateObstacleConnector.insertValue = (con, SkateparkObstacle) => {
+ParkObstacleConnector.insertValue = (con, SkateparkObstacle) => {
     return new Promise((resolve, reject) => {
         con.query(
             'Insert into skaterpark_obstacle_connector(ObstacleID, SkateparkID) values (?, ?)',
@@ -49,7 +44,7 @@ SkateObstacleConnector.insertValue = (con, SkateparkObstacle) => {
     });
 };
 
-SkateObstacleConnector.update = (con, column, newValue, id) => {
+ParkObstacleConnector.update = (con, column, newValue, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             `UPDATE skaterpark_obstacle_connector SET ${column} = ? Where ObstacleID = ?`,
@@ -64,7 +59,7 @@ SkateObstacleConnector.update = (con, column, newValue, id) => {
     });
 };
 
-SkateObstacleConnector.deleteValue = (con, id) => {
+ParkObstacleConnector.deleteValue = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             'DELETE FROM skaterpark_obstacle_connector WHERE ObstacleID = ?',
@@ -79,4 +74,4 @@ SkateObstacleConnector.deleteValue = (con, id) => {
     });
 };
 
-module.exports = SkateObstacleConnector;
+module.exports = ParkObstacleConnector;

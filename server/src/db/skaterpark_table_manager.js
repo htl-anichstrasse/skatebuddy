@@ -1,13 +1,6 @@
-class Skateparks {
-    constructor(id, name, lon, lat) {
-        this.id = id;
-        this.name = name;
-        this.lon = lon;
-        this.lat = lat;
-    }
-}
+const Skatepark = require('../models/skatepark');
 
-Skateparks.selectAll = con => {
+Skatepark.selectAll = (con) => {
     return new Promise((resolve, reject) => {
         con.query('Select * from skateparks', (err, result) => {
             if (err) {
@@ -18,7 +11,7 @@ Skateparks.selectAll = con => {
     });
 };
 
-Skateparks.getById = (con, id) => {
+Skatepark.getById = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             'Select * from skateparks where SkateparkID = ?',
@@ -27,28 +20,29 @@ Skateparks.getById = (con, id) => {
                 if (err) {
                     return reject(err);
                 }
-                resolve(result[0]);
+                return resolve(
+                    new Skatepark(result[0].Name, result[0].Lon, result[0].Lat),
+                );
             },
         );
     });
 };
-Skateparks.insertValue = (con, skatepark) => {
+Skatepark.insertValue = (con, skatepark) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'Insert into skateparks(Name, lon, lat) values (?, ?, ?)',
+            'Insert into skateparks(Name, Lon, Lat) values (?, ?, ?)',
             [skatepark.name, skatepark.lon, skatepark.lat],
             (err, result) => {
                 if (err) {
                     return reject(err);
                 }
                 return resolve(result[0]);
-                console.log('Succsessfully inserted!');
             },
         );
     });
 };
 
-Skateparks.update = (con, column, newValue, id) => {
+Skatepark.update = (con, column, newValue, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             `UPDATE Skateparks SET ${column} = ? Where SkateparkID = ? `,
@@ -63,7 +57,7 @@ Skateparks.update = (con, column, newValue, id) => {
     });
 };
 
-Skateparks.deleteValue = (con, id) => {
+Skatepark.deleteValue = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             'DELETE FROM skateparks WHERE SkateparkID = ?',
@@ -78,4 +72,4 @@ Skateparks.deleteValue = (con, id) => {
     });
 };
 
-module.exports = Skateparks;
+module.exports = Skatepark;

@@ -1,15 +1,7 @@
 const jwt = require('jsonwebtoken');
+const User = require('../models/user');
 
-class Users {
-    constructor(name, passwordHash, email, profilePictureId) {
-        this.name = name;
-        this.passwordHash = passwordHash;
-        this.email = email;
-        this.profilePictureId = profilePictureId;
-    }
-}
-
-Users.selectAll = (con) => {
+User.selectAll = (con) => {
     return new Promise((resolve, reject) => {
         con.query('Select * from users', (err, result) => {
             if (err) {
@@ -20,7 +12,7 @@ Users.selectAll = (con) => {
     });
 };
 
-Users.getById = (con, id) => {
+User.getById = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             'Select * from Users where UserId = ?',
@@ -29,13 +21,20 @@ Users.getById = (con, id) => {
                 if (err) {
                     return reject(err);
                 }
-                resolve(result[0]);
+                return resolve(
+                    new User(
+                        result[0].Name,
+                        result[0].PasswordHash,
+                        result[0].Email,
+                        result[0].ProfilePictureID,
+                    ),
+                );
             },
         );
     });
 };
 
-Users.getByEmail = (con, email) => {
+User.getByEmail = (con, email) => {
     return new Promise((resolve, reject) => {
         con.query(
             'Select * from Users where Email = ?',
@@ -44,13 +43,20 @@ Users.getByEmail = (con, email) => {
                 if (err) {
                     return reject(err);
                 }
-                resolve(result[0]);
+                return resolve(
+                    new User(
+                        result[0].Name,
+                        result[0].PasswordHash,
+                        result[0].Email,
+                        result[0].ProfilePictureID,
+                    ),
+                );
             },
         );
     });
 };
 
-Users.insertValue = (con, user) => {
+User.insertValue = (con, user) => {
     return new Promise((resolve, reject) => {
         con.query(
             'Insert into users(Name, PasswordHash, Email, ProfilePictureID) values (?, ?, ?, ?)',
@@ -65,7 +71,7 @@ Users.insertValue = (con, user) => {
     });
 };
 
-Users.update = (con, column, newValue, id) => {
+User.update = (con, column, newValue, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             `UPDATE Users SET ${column} = ? Where UserId = ? `,
@@ -80,7 +86,7 @@ Users.update = (con, column, newValue, id) => {
     });
 };
 
-Users.deleteValue = (con, id) => {
+User.deleteValue = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             'Delete from Users where Userid = ? ',
@@ -95,11 +101,11 @@ Users.deleteValue = (con, id) => {
     });
 };
 
-Users.generateToken = (user) =>
+User.generateToken = (user) =>
     jwt.sign(
         { name: user.name, email: user.email },
         process.env.JWT_HASH_SECRET,
         { expiresIn: '135d' },
     );
 
-module.exports = Users;
+module.exports = User;

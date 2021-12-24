@@ -27,6 +27,7 @@ router.get('/users', async (req, res, next) => {
     try {
         let results = await users.selectAll(con);
         res.json(results);
+        console.log(results);
     } catch (e) {
         console.log(e);
         res.sendStatus(500);
@@ -51,7 +52,7 @@ router.post('/register', async (req, res, next) => {
     try {
         const user = {
             name: req.body.name,
-            passwordHash: encryptedPassword,
+            password: encryptedPassword,
             email: req.body.email,
             profilePictureId: req.body.profilePictureId,
         };

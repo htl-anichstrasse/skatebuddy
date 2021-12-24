@@ -1,20 +1,12 @@
-class Review {
-    constructor(parkId, userId, rating, title, content) {
-        this.parkId = parkId;
-        this.userId = userId;
-        this.rating = rating;
-        this.title = title;
-        this.content = content;
-    }
-}
+const Review = require('../models/review');
 
-Review.selectAll = con => {
+Review.selectAll = (con) => {
     return new Promise((resolve, reject) => {
         con.query('Select * from reviews', (err, result) => {
             if (err) {
                 return reject(err);
             }
-            return resolve(result);
+            resolve(result);
         });
     });
 };
@@ -28,7 +20,15 @@ Review.getById = (con, id) => {
                 if (err) {
                     return reject(err);
                 }
-                resolve(result[0]);
+                return resolve(
+                    new Review(
+                        result[0].SkareparkID,
+                        result[0].UserID,
+                        result[0].Rating,
+                        result[0].Title,
+                        result[0].Content,
+                    ),
+                );
             },
         );
     });
