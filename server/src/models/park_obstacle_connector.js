@@ -1,7 +1,7 @@
 class ParkObstacleConnector {
-    constructor(parkId, obstacleId) {
-        this.parkId = parkId;
+    constructor(obstacleId, parkId) {
         this.obstacleId = obstacleId;
+        this.parkId = parkId;
     }
 }
 

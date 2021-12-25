@@ -18,6 +18,7 @@ router.get('/obstacles/:id', async (req, res, next) => {
     try {
         let results = await Obstacles.getById(con, req.params.id);
         res.json(results);
+        console.log(results);
     } catch (e) {
         console.log(e);
         res.sendStatus();
@@ -26,10 +27,10 @@ router.get('/obstacles/:id', async (req, res, next) => {
 
 router.post('/obstacles', async (req, res, next) => {
     try {
-        const obstacle = {
-            description: req.body.description,
-            difficulty: req.body.difficulty,
-        };
+        const obstacle = new Obstacles(
+            req.body.description,
+            req.body.difficulty,
+        );
         await Obstacles.insertValue(con, obstacle);
         res.send({ success: true, message: 'Succsessfully inserted' });
     } catch (e) {

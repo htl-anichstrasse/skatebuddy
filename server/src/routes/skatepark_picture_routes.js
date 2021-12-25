@@ -26,10 +26,7 @@ router.get('/skateparkpictures/:id', async (req, res, next) => {
 
 router.post('/skateparkpictures', async (req, res, next) => {
     try {
-        const skateparkpic = {
-            parkId: req.body.parkId,
-            picId: req.body.picId,
-        };
+        const skateparkpic = new Skateparkpic(req.body.parkId, req.body.picId);
         await Skateparkpic.insertValue(con, skateparkpic);
         res.send({ success: true, message: 'Succsessfully inserted' });
     } catch (e) {

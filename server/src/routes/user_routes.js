@@ -1,5 +1,5 @@
 const express = require('express');
-const users = require('../db/user_table_manager');
+const Users = require('../db/user_table_manager');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
@@ -25,7 +25,7 @@ router.use('/users*', async (req, res, next) => {
 
 router.get('/users', async (req, res, next) => {
     try {
-        let results = await users.selectAll(con);
+        let results = await Users.selectAll(con);
         res.json(results);
         console.log(results);
     } catch (e) {
@@ -36,7 +36,7 @@ router.get('/users', async (req, res, next) => {
 
 router.get('/users/:id', async (req, res, next) => {
     try {
-        let results = await users.getById(con, req.params.id);
+        let results = await Users.getById(con, req.params.id);
         res.json(results);
     } catch (e) {
         console.log(e);
@@ -50,16 +50,16 @@ router.post('/register', async (req, res, next) => {
     console.log(password);
     const encryptedPassword = await bcrypt.hash(password, saltRounds);
     try {
-        const user = {
-            name: req.body.name,
-            password: encryptedPassword,
-            email: req.body.email,
-            profilePictureId: req.body.profilePictureId,
-        };
+        const user = new User(
+            req.body.name,
+            encryptedPassword,
+            req.body.email,
+            req.body.profilePictureId,
+        );
 
-        token = users.generateToken(user);
+        token = Users.generateToken(user);
 
-        await users.insertValue(con, user);
+        await Users.insertValue(con, user);
         res.send({ success: true, token: token });
     } catch (e) {
         console.log(e);
@@ -76,13 +76,11 @@ router.post('/login', async (req, res) => {
             res.sendStatus(400);
         }
 
-        const user = await users.getByEmail(con, email);
-
-        console.log(user);
+        const user = await Users.getByEmail(con, email);
 
         if (user && (await bcrypt.compare(password, user.PasswordHash))) {
             // Create token
-            token = users.generateToken(user);
+            token = Users.generateToken(user);
             res.send({ success: true, token: token });
         }
     } catch (e) {
@@ -107,7 +105,7 @@ router.post('/users/validate', async (req, res) => {
 
 router.delete('/users/:id', async (req, res, next) => {
     try {
-        await users.deleteValue(con, req.params.id);
+        await Users.deleteValue(con, req.params.id);
         res.send({ success: true, message: 'Succssessfully deleted' });
     } catch (e) {
         console.log(e);
@@ -121,7 +119,7 @@ router.put('/users/:id', async (req, res, next) => {
         newValue: req.body.newValue,
     };
     try {
-        await users.update(con, x.column, x.newValue, req.params.id);
+        await Users.update(con, x.column, x.newValue, req.params.id);
         res.send({ success: true, message: 'Succssessfully updated' });
     } catch (e) {
         console.log(e);

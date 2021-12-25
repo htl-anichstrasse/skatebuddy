@@ -26,10 +26,10 @@ router.get('/skateparkObstacle/:id', async (req, res, next) => {
 
 router.post('/skateparkObstacle', async (req, res, next) => {
     try {
-        const skateparkObstacle = {
-            obstacleId: req.body.obstacleId,
-            parkId: req.body.parkId,
-        };
+        const skateparkObstacle = new SkateparkObstacleCon(
+            req.body.obstacleId,
+            req.body.parkId,
+        );
         await SkateparkObstacleCon.insertValue(con, skateparkObstacle);
         res.send({ success: true, message: 'Succsessfully inserted' });
     } catch (e) {
