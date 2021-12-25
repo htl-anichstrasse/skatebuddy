@@ -1,0 +1,16 @@
+.invalid-feedback {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+
+input:focus {
+  background-color: rgb(240, 233, 233);
+  outline: none;
+}
+
+.form-control.is-invalid,
+.form-control:invalid {
+  border-color: #dc3545;
+}

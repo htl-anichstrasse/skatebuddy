@@ -3,6 +3,8 @@ import Navbar from './staticViews/Navbar';
 import Parks from './parks/Parks';
 import Home from './staticViews/Home';
 import ParkDetails from './parks/ParkDetails';
+import LogIn from './account/LogIn';
+import CreateAccount from './account/CreateAccount';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/parks" element={<Parks />} />
               <Route path="/skateparks/:id" element={<ParkDetails />} />
+              <Route path="/LogIN" element={<LogIn/>}/>
+              <Route path="/CreateAccount" element={<CreateAccount/>}/>
             </Routes>
           </div>
 

@@ -4,19 +4,18 @@ import './Navbar.css';
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <div className="links">
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            backgroundColor: 'gray',
-            borderRadius: '5px',
-            marginRight: '100px',
-          }}>
+      <div className="nav">
+        <Link to="/" className='home'>
           Home
         </Link>
-        <Link to="/parks" style={{}}>
+        <Link to="/parks" className='parks'>
           Parks
+        </Link>
+        <Link to="/LogIn" className='login'>
+          Login
+        </Link>
+        <Link to="/CreateAccount" className='createAccount'>
+          Account Erstellen
         </Link>
       </div>
     </nav>

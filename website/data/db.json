@@ -1,20 +1,32 @@
 {
   "users": [
     {
-      "userId": 1,
+      "id": 1,
       "name": "John",
       "email": "john@gmail.com",
-      "passwordHash": "12345",
-      "createdAt": "2019-01-01 00:00:00",
-      "profilePictureId": 1
+      "password": "12345",
+      "createdAt": "2019-01-01"
     },
     {
-      "userId": 2,
+      "id": 2,
       "name": "Jane",
       "email": "jane@gmail.com",
-      "passwordHash": "23456",
-      "createdAt": "2019-01-02 00:00:00",
-      "profilePictureId": 2
+      "password": "23456",
+      "createdAt": "2019-01-02"
+    },
+    {
+      "name": "Steff",
+      "email": "Steff@example.com",
+      "password": "Stevenpwd",
+      "createdAt": "25-12-2021",
+      "id": 3
+    },
+    {
+      "name": "Manuel",
+      "email": "maues@manu.mail",
+      "password": "Manuel",
+      "createdAt": "25-12-2021",
+      "id": 4
     }
   ],
   "skateparks": [
@@ -35,6 +47,12 @@
       "name": "Skatepark Schwaz",
       "latitude": 47.356132953928274,
       "longitude": 11.715198837273547
+    },
+    {
+      "skateparkId": 4,
+      "name": "Skatepark Mayrhofen",
+      "latitude": 47.16365156720211,
+      "longitude": 11.868889701765916
     }
   ],
   "skatepark_pictures": [
@@ -94,6 +112,22 @@
       "title": "Ne muss nicht",
       "content": "richtig schlecht\n",
       "id": 5
+    },
+    {
+      "userId": "1",
+      "skateparkId": "3",
+      "rating": "4",
+      "title": "Good",
+      "content": "Very good",
+      "id": 6
+    },
+    {
+      "userId": "1",
+      "skateparkId": "4",
+      "rating": "5",
+      "title": "geile",
+      "content": "geile ",
+      "id": 7
     }
   ]
 }

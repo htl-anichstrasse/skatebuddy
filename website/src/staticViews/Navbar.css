@@ -4,7 +4,20 @@
   background-color: white;
 }
 
-.links {
+.nav {
   padding: 10px;
-  text-align: center;
+}
+
+.createAccount {
+  float: right;
+}
+
+.login {
+  float: right;
+  margin-right: 1%;
+  margin-left: 1%;
+}
+
+.home {
+  margin-right: 1%;
 }
