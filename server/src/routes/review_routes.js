@@ -26,13 +26,14 @@ router.get('/reviews/:id', async (req, res, next) => {
 
 router.post('/reviews', async (req, res, next) => {
     try {
-        const review = {
-            parkId: req.body.parkId,
-            userId: req.body.userId,
-            rating: req.body.rating,
-            title: req.body.title,
-            content: req.body.content,
-        };
+        const review = new Review(
+            req.body.parkId,
+            req.body.userId,
+            req.body.rating,
+            req.body.title,
+            req.body.content,
+        );
+        console.log(review);
         await Review.insertValue(con, review);
         res.send({ success: true, message: 'Succsessfully inserted' });
     } catch (e) {

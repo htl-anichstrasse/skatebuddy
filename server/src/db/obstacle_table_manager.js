@@ -20,9 +20,8 @@ Obstacle.getById = (con, id) => {
                 if (err) {
                     return reject(err);
                 }
-                console.log(resolve(result[0]));
                 return resolve(
-                    new Obstacle(result[0].description, result[0].difficulty),
+                    new Obstacle(result[0].Description, result[0].Difficulty),
                 );
             },
         );

@@ -11,6 +11,8 @@ const skateparkRouter = require('./routes/skatepark_routes');
 const skateparkPicRouter = require('./routes/skatepark_picture_routes');
 const reviewRouter = require('./routes/review_routes');
 const skateparkObstacleRouter = require('./routes/skatepark_obstacle_con_routes');
+const loginRouter = require('./routes/util/login_routes');
+const signUpRouter = require('./routes/util/sign_up_routes');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -23,6 +25,8 @@ app.use('/api', obstacleRouter);
 app.use('/api', skateparkPicRouter);
 app.use('/api', reviewRouter);
 app.use('/api', skateparkObstacleRouter);
+app.use('/api', signUpRouter);
+app.use('/api', loginRouter);
 
 app.listen(port, () => {
     console.log(`app listening at http://localhost:${port}`);

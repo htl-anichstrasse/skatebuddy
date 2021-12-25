@@ -20,7 +20,12 @@ SkateparkPictures.getById = (con, id) => {
                 if (err) {
                     return reject(err);
                 }
-                result[0];
+                return resolve(
+                    new SkateparkPictures(
+                        result[0].SkateparkID,
+                        result[0].PictureID,
+                    ),
+                );
             },
         );
     });

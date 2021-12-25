@@ -23,7 +23,12 @@ ParkObstacleConnector.getById = (con, id) => {
                 if (err) {
                     return reject(err);
                 }
-                resolve();
+                return resolve(
+                    new ParkObstacleConnector(
+                        result[0].ObstacleID,
+                        result[0].SkateparkID,
+                    ),
+                );
             },
         );
     });
@@ -32,13 +37,12 @@ ParkObstacleConnector.insertValue = (con, SkateparkObstacle) => {
     return new Promise((resolve, reject) => {
         con.query(
             'Insert into skaterpark_obstacle_connector(ObstacleID, SkateparkID) values (?, ?)',
-            [SkateparkObstacle.parkId, SkateparkObstacle.obstacleId],
+            [SkateparkObstacle.obstacleId, SkateparkObstacle.parkid],
             (err, result) => {
                 if (err) {
                     return reject(err);
                 }
                 return resolve(result[0]);
-                console.log('Succsessfully inserted!');
             },
         );
     });
