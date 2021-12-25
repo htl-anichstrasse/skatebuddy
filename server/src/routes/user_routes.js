@@ -1,5 +1,5 @@
 const express = require('express');
-const Users = require('../db/user_table_manager');
+const User = require('../db/user_table_manager');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
@@ -25,7 +25,7 @@ router.use('/users*', async (req, res, next) => {
 
 router.get('/users', async (req, res, next) => {
     try {
-        let results = await Users.selectAll(con);
+        let results = await User.selectAll(con);
         res.json(results);
         console.log(results);
     } catch (e) {
@@ -36,7 +36,7 @@ router.get('/users', async (req, res, next) => {
 
 router.get('/users/:id', async (req, res, next) => {
     try {
-        let results = await Users.getById(con, req.params.id);
+        let results = await User.getById(con, req.params.id);
         res.json(results);
     } catch (e) {
         console.log(e);
@@ -56,11 +56,14 @@ router.post('/register', async (req, res, next) => {
             req.body.email,
             req.body.profilePictureId,
         );
-
-        token = Users.generateToken(user);
-
-        await Users.insertValue(con, user);
-        res.send({ success: true, token: token });
+        var ok = await User.alreadyExists(con, user.name, user.email);
+        if (!ok) {
+            token = User.generateToken(user);
+            await User.insertValue(con, user);
+            res.send({ success: true, token: token });
+        } else {
+            res.send({ success: false, message: 'User already exists!' });
+        }
     } catch (e) {
         console.log(e);
         res.sendStatus(500);
@@ -76,11 +79,11 @@ router.post('/login', async (req, res) => {
             res.sendStatus(400);
         }
 
-        const user = await Users.getByEmail(con, email);
+        const user = await User.getByEmail(con, email);
 
         if (user && (await bcrypt.compare(password, user.PasswordHash))) {
             // Create token
-            token = Users.generateToken(user);
+            token = User.generateToken(user);
             res.send({ success: true, token: token });
         }
     } catch (e) {
@@ -105,7 +108,7 @@ router.post('/users/validate', async (req, res) => {
 
 router.delete('/users/:id', async (req, res, next) => {
     try {
-        await Users.deleteValue(con, req.params.id);
+        await User.deleteValue(con, req.params.id);
         res.send({ success: true, message: 'Succssessfully deleted' });
     } catch (e) {
         console.log(e);
@@ -119,7 +122,7 @@ router.put('/users/:id', async (req, res, next) => {
         newValue: req.body.newValue,
     };
     try {
-        await Users.update(con, x.column, x.newValue, req.params.id);
+        await User.update(con, x.column, x.newValue, req.params.id);
         res.send({ success: true, message: 'Succssessfully updated' });
     } catch (e) {
         console.log(e);
