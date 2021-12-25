@@ -56,7 +56,7 @@ const ParkDetails = () => {
               height: '55vh',
               width: '80%',
               marginRight: 'auto',
-              marginLeft: 'auto',
+              marginLeft: 'auto'
             }}>
             <GoogleMapReact
               options={options}
