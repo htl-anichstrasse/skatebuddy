@@ -24,22 +24,22 @@ const useFetch = (url, id) => {
             address: 'Innsbruck Hallenbad O-Dorf, 6063 Innsbruck',
             busStop: 'Innsbruck Hallenbad O-Dorf',
           },
-          // {
-          //   skateparkId: 2,
-          //   name: 'Skatepark Tivoli',
-          //   latitude: 47.2587839,
-          //   longitude: 11.4075082,
-          //   address: 'Olympiastraße 33, 6020 Innsbruck',
-          //   busStop: 'Innsbruck Olympiaworld',
-          // },
-          // {
-          //   skateparkId: 3,
-          //   name: 'Skatepark USI',
-          //   latitude: 47.255859,
-          //   longitude: 11.35585,
-          //   address: 'Hans-Flöckinger-Promenade, 6020 Innsbruck',
-          //   busStop: 'Innsbruck Uni-Sportstätten',
-          // },
+          {
+            skateparkId: 2,
+            name: 'Skatepark Tivoli',
+            latitude: 47.2587839,
+            longitude: 11.4075082,
+            address: 'Olympiastraße 33, 6020 Innsbruck',
+            busStop: 'Innsbruck Olympiaworld',
+          },
+          {
+            skateparkId: 3,
+            name: 'Skatepark USI',
+            latitude: 47.255859,
+            longitude: 11.35585,
+            address: 'Hans-Flöckinger-Promenade, 6020 Innsbruck',
+            busStop: 'Innsbruck Uni-Sportstätten',
+          },
         ]);
       } else if (url == 'reviews') {
         if (id == 1) {

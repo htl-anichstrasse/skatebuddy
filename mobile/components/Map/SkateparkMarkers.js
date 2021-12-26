@@ -4,9 +4,6 @@ import MapView from 'react-native-maps';
 // marker colors: red (default)
 
 const SkateparkMarkers = ({ skateparks }) => {
-  skateparks[0].color = 'red';
-  skateparks[1].color = 'navy';
-
   return skateparks.map(skatepark => (
     <MapView.Marker
       key={skatepark.skateparkId}
@@ -16,8 +13,6 @@ const SkateparkMarkers = ({ skateparks }) => {
       }}
       title={skatepark.name}
       description={skatepark.busStop}
-      //
-      pinColor={skatepark.color}
     />
   ));
 };
