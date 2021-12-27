@@ -41,7 +41,8 @@ const useFetch = (url, id) => {
             busStop: 'Innsbruck Uni-Sportstätten',
           },
         ]);
-      } else if (url == 'reviews') {
+      }
+      if (url == 'reviews') {
         if (id == 1) {
           setData([
             {
@@ -82,8 +83,15 @@ const useFetch = (url, id) => {
             },
           ]);
         }
-      } else {
-        setError('404');
+      }
+      if (url == 'users') {
+        if (id == 1) {
+          setData({
+            userId: 1,
+            username: 'johndoe',
+            email: 'johndoe@email.com',
+          });
+        }
       }
       setIsLoading(false);
     }, 500);
