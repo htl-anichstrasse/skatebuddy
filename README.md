@@ -41,7 +41,7 @@ If you have any questions about this project, please feel free to contact us.
 
 Neuner Maximilian - maximilineuner@tsn.at<br>
 Schuler Philipp - pschuler@tsn.at<br>
-Bertoni Alexander - student@tsn.at<br>
+Bertoni Alexander - abertoni@tsn.at<br>
 HTL Anichstraße - htlinn@tsn.at
 
 <a href="https://htl-anichstrasse.tirol" target="_blank"><img src=".github/htl-anichstrasse-logo.svg" width="200px"></a>
