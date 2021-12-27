@@ -7,17 +7,6 @@ const useLocation = () => {
   const [locError, setLocError] = useState(null);
   const [locLoading, setLocLoading] = useState(true);
 
-  /*
-  {
-    title: 'Requesting location permission',
-    message:
-      'Skateparks App needs access to your location to show you the closest skateparks',
-    buttonNeutral: 'Ask Me Later',
-    buttonNegative: 'Cancel',
-    buttonPositive: 'OK',
-  }
-  */
-
   const checkPermission = async () => {
     if (Platform.OS === 'android') {
       const status = await PermissionsAndroid.check(

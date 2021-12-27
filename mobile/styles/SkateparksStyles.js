@@ -23,33 +23,50 @@ const SkateparksStyles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 5,
   },
-  entryRating: {
+  entryRatingContainer: {
     padding: 5,
     backgroundColor: '#00A86B',
     borderRadius: 10,
     marginBottom: 5,
-    color: '#fff',
-
+  },
+  entryRatingText: {
     fontWeight: 'normal',
     textAlign: 'center',
+    color: '#fff',
   },
+  entryDirectionsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    borderColor: '#ccc',
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderRadius: 10,
+    marginBottom: 5,
+  },
+  entryDirectionsMethodContainer: {
+    padding: 5,
+    paddingRight: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  entryDirectionsMethodContainerBorder: {
+    borderRightColor: '#ccc',
+    borderRightWidth: 1,
+    borderStyle: 'solid',
+  },
+  entryDirectionsMethodText: {
+    fontSize: 12,
+    paddingRight: 5,
+    color: '#000',
+  },
+  entryDirectionsIcon: {},
   entryImage: {
     flex: 1,
     width: '100%',
     height: null,
     borderRadius: 10,
     aspectRatio: 16 / 8,
-  },
-  shadow: {
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-
-    elevation: 5,
   },
 });
 
