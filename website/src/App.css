@@ -9,7 +9,8 @@ header {
 }
 
 footer {
-  text-align: center;
-  min-width: 100%;
+  position: relative;
+  bottom: 0;
+  width: 100%;
   border-top: 4px solid darkgrey;
 }
