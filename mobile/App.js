@@ -1,28 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import BottomTabsNavigator from './routes/BottomTabsNavigator';
-import SplashScreen from './screens/SplashScreen';
-import LoginSignupStack from './routes/LoginSignupStack';
+
+import { AuthProvider } from './contexts/AuthContext';
+import AuthHandler from './screens/AuthHandler';
 
 const App = () => {
-  // ! TODO - Verify jwt
-
-  const [isLoading, setIsLoading] = useState(true);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsAuthenticated(true);
-      setIsLoading(false);
-    }, 1000);
-  }, []);
-
-  return isLoading ? (
-    <SplashScreen />
-  ) : (
-    <NavigationContainer>
-      {isAuthenticated ? <BottomTabsNavigator /> : <LoginSignupStack />}
-    </NavigationContainer>
+  return (
+    <AuthProvider>
+      <NavigationContainer>
+        <AuthHandler />
+      </NavigationContainer>
+    </AuthProvider>
   );
 };
 

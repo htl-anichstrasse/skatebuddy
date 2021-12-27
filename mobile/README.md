@@ -25,6 +25,20 @@ Get this API Key from the Google Cloud Platform and activate Maps SDK for Androi
 
 Sync Project with Gradle Files
 
+![Screenshot_1640606837](https://user-images.githubusercontent.com/38164738/147470600-e3b3c6f7-ec3d-4da4-9e86-b6b46f80e6c8.png)
+
+![Screenshot_1640606849](https://user-images.githubusercontent.com/38164738/147470610-57c31948-92ce-4b7b-9240-fb39e508a528.png)
+
+![Screenshot_1640606860](https://user-images.githubusercontent.com/38164738/147470617-c2a12000-801a-4dc0-ac1d-bbb3a98f4fa3.png)
+
+![Screenshot_1640606865](https://user-images.githubusercontent.com/38164738/147470624-2c36e4e8-3bed-4734-b031-910b6c227772.png)
+
+![Screenshot_1640606887](https://user-images.githubusercontent.com/38164738/147470634-2ea38732-e1c8-4db9-b4a3-1e15e116fee8.png)
+
+![Screenshot_1640606892](https://user-images.githubusercontent.com/38164738/147470642-0d05e054-fb02-458c-8410-a5610738f740.png)
+
+![Screenshot_1640606922](https://user-images.githubusercontent.com/38164738/147470646-5eab9253-d0d6-43a6-b5b3-a71699e4b098.png)
+
 # Aktueller Status:
 
 ## UI
@@ -42,9 +56,3 @@ Sync Project with Gradle Files
 
 - [x] Google Maps Platform Api Key
 - [x] Mit react-native-maps vertraut gemacht
-
-![image](https://user-images.githubusercontent.com/38164738/145279652-3592f73e-60ff-4134-8edd-49caa8ab938b.png)
-
-![image](https://user-images.githubusercontent.com/38164738/145279973-cc20e5a8-6ca6-476c-8d4f-045abd8537e4.png)
-
-![image](https://user-images.githubusercontent.com/38164738/145279896-2434c359-4846-4e2d-acc5-cf8dced5e7b5.png)
