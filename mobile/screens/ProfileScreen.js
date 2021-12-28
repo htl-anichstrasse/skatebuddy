@@ -1,11 +1,18 @@
+// librarys
 import React from 'react';
 import { View, Text } from 'react-native';
-
-import Button from '../components/common/Button';
-import styles from '../styles/HomeStyles';
-
-import { useAuthContext, useAuthContextState } from '../contexts/AuthContext';
 import * as Keychain from 'react-native-keychain';
+
+// components
+import Button from '../components/common/Button';
+
+import SortingTest from '../components/SortingTest';
+
+// styles
+import styles from '../styles/ProfileStyles';
+
+// hooks / contexts
+import { useAuthContext, useAuthContextState } from '../contexts/AuthContext';
 
 const ProfileScreen = () => {
   const { signOut } = useAuthContext();
@@ -24,6 +31,7 @@ const ProfileScreen = () => {
           });
         }}
       />
+      <SortingTest />
     </View>
   );
 };

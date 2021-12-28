@@ -23,7 +23,7 @@ const calculateAvgRating = reviews => {
   return Math.round((total / reviews.length + Number.EPSILON) * 10) / 10;
 };
 
-const SkateparkEntry = ({ skatepark, navigation, location, distanceMode }) => {
+const SkateparkEntry = ({ skatepark, navigation, location }) => {
   const {
     data: reviews,
     isLoading,
@@ -40,7 +40,7 @@ const SkateparkEntry = ({ skatepark, navigation, location, distanceMode }) => {
 
   useEffect(() => {
     getDurations();
-  }, []);
+  }, [location]);
 
   return (
     <Pressable
@@ -60,8 +60,14 @@ const SkateparkEntry = ({ skatepark, navigation, location, distanceMode }) => {
           </View>
         </View>
         <View style={styles.entryDirectionsContainer}>
-          {durations === [] ? (
-            <Text style={styles.entryDirectionsText}>Loading...</Text>
+          {location === null ? (
+            <Text style={styles.entryDirectionsText}>
+              Location service unavailable
+            </Text>
+          ) : durations === undefined ? (
+            <Text style={styles.entryDirectionsText}>
+              Calculating directions...
+            </Text>
           ) : (
             durations.map((duration, index) => {
               const colors = ['#009E7B', '#009288', '#008690', '#007994'];
@@ -71,7 +77,7 @@ const SkateparkEntry = ({ skatepark, navigation, location, distanceMode }) => {
                   key={index}
                   icon={icons[index]}
                   color={colors[index]}
-                  duration={duration}
+                  duration={duration.text}
                   index={index}
                 />
               );

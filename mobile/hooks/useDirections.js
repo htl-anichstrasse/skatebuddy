@@ -8,6 +8,7 @@ import driving from './directionsRequests/driving.json';
 
 const useDirections = (location, skatepark) => {
   const [durations, setDurations] = useState([]);
+  const methods = ['walking', 'bicycling', 'transit', 'driving'];
 
   const buildUrl = method => {
     let url = 'https://maps.googleapis.com/maps/api/directions/json?origin=';
@@ -23,29 +24,30 @@ const useDirections = (location, skatepark) => {
     return url;
   };
 
+  const fetchDuration = async method => {
+    const url = buildUrl(method);
+    const response = await fetch(url);
+    const json = await response.json();
+
+    const value = json.routes[0].legs[0].duration.value;
+    const text = json.routes[0].legs[0].duration.text;
+
+    return { value, text };
+  };
+
   const getDurations = async () => {
-    let res = await fetch(buildUrl('walking'));
-    let data = await res.json();
-    const walkingDuration = data.routes[0].legs[0].duration.text;
-
-    res = await fetch(buildUrl('bicycling'));
-    data = await res.json();
-    const bicyclingDuration = data.routes[0].legs[0].duration.text;
-
-    res = await fetch(buildUrl('transit'));
-    data = await res.json();
-    const transitDuration = data.routes[0].legs[0].duration.text;
-
-    res = await fetch(buildUrl('driving'));
-    data = await res.json();
-    const drivingDuration = data.routes[0].legs[0].duration.text;
-
-    setDurations([
-      walkingDuration,
-      bicyclingDuration,
-      transitDuration,
-      drivingDuration,
-    ]);
+    // if (location != null) {
+    //   const durations = await Promise.all(
+    //     methods.map(method => fetchDuration(method)),
+    //   );
+    //   setDurations(durations);
+    // }
+    // * Using presaved json files to avoid hitting the API
+    const wDur = walking.routes[0].legs[0].duration;
+    const bDur = bicycling.routes[0].legs[0].duration;
+    const tDur = transit.routes[0].legs[0].duration;
+    const dDur = driving.routes[0].legs[0].duration;
+    setDurations([wDur, bDur, tDur, dDur]);
   };
 
   return { durations, getDurations };

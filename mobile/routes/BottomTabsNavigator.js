@@ -3,7 +3,6 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import HomeScreen from '../screens/HomeScreen';
 import MapScreen from '../screens/MapScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import SkateparksStack from './SkateparksStack';
@@ -14,7 +13,7 @@ const BottomTabsNavigator = () => {
   return (
     <Tab.Navigator
       backBehavior="initialRoute"
-      initialRouteName="Skateparks"
+      initialRouteName="Profile"
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;

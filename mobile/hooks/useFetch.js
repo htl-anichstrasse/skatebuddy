@@ -92,6 +92,8 @@ const useFetch = (url, id) => {
             email: 'johndoe@email.com',
           });
         }
+        // if (id == undefined) {
+        // }
       }
       setIsLoading(false);
     }, 500);

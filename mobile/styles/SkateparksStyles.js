@@ -3,21 +3,41 @@ import { StyleSheet } from 'react-native';
 const SkateparksStyles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+  },
+  settingsContainer: {
+    borderStyle: 'solid',
+    borderColor: '#000',
+    borderWidth: 1,
+  },
+  settingsText: {
+    textAlign: 'center',
+  },
+  settingsMethods: {
+    flexDirection: 'row',
+  },
+  settingsMethod: {
+    width: '25%',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: '#ccc',
+  },
+  settingsMethodText: {
+    textAlign: 'center',
   },
   entryContainer: {
+    borderRadius: 10,
     marginVertical: 5,
     marginHorizontal: 10,
     backgroundColor: '#fff',
     padding: 10,
-    borderRadius: 10,
   },
   titleContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 5,
   },
   entryName: {
-    textAlign: 'center',
     color: '#000',
     fontSize: 18,
     fontWeight: 'bold',
@@ -27,7 +47,6 @@ const SkateparksStyles = StyleSheet.create({
     padding: 5,
     backgroundColor: '#00A86B',
     borderRadius: 10,
-    marginBottom: 5,
   },
   entryRatingText: {
     fontWeight: 'normal',
