@@ -3,8 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, Pressable, Image } from 'react-native';
 
 // components
-import DirectionsMethod from './DirectionsMethod';
 import Button from '../common/Button';
+import EntryHeader from './EntryHeader';
+import EntryDirections from './EntryDirections';
 
 // hooks
 import useFetch from '../../hooks/useFetch';
@@ -30,17 +31,15 @@ const SkateparkEntry = ({ skatepark, navigation, location }) => {
     error,
   } = useFetch('reviews', skatepark.skateparkId);
 
-  let averageRating;
-
   if (reviews) {
-    averageRating = calculateAvgRating(reviews);
+    skatepark.averageRating = calculateAvgRating(reviews);
   }
 
-  const { durations, getDurations } = useDirections(location, skatepark);
+  const { getDurations } = useDirections(location, skatepark);
 
   useEffect(() => {
     getDurations();
-  }, [location]);
+  }, []);
 
   return (
     <Pressable
@@ -49,41 +48,8 @@ const SkateparkEntry = ({ skatepark, navigation, location }) => {
       }}
     >
       <View style={[styles.entryContainer, gStyles.shadow]}>
-        <View style={styles.titleContainer}>
-          <Text style={styles.entryName}>{skatepark.name}</Text>
-          <View style={[styles.entryRatingContainer, gStyles.shadow]}>
-            {averageRating ? (
-              <Text style={styles.entryRatingText}>{averageRating} ⭐</Text>
-            ) : (
-              <Text style={styles.entryRatingText}>No ratings</Text>
-            )}
-          </View>
-        </View>
-        <View style={styles.entryDirectionsContainer}>
-          {location === null ? (
-            <Text style={styles.entryDirectionsText}>
-              Location service unavailable
-            </Text>
-          ) : durations === undefined ? (
-            <Text style={styles.entryDirectionsText}>
-              Calculating directions...
-            </Text>
-          ) : (
-            durations.map((duration, index) => {
-              const colors = ['#009E7B', '#009288', '#008690', '#007994'];
-              const icons = ['walking', 'bicycle', 'bus', 'car'];
-              return (
-                <DirectionsMethod
-                  key={index}
-                  icon={icons[index]}
-                  color={colors[index]}
-                  duration={duration.text}
-                  index={index}
-                />
-              );
-            })
-          )}
-        </View>
+        <EntryHeader skatepark={skatepark} />
+        <EntryDirections skatepark={skatepark} location={location} />
 
         <Image
           style={styles.entryImage}

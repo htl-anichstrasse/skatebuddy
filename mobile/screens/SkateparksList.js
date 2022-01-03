@@ -1,11 +1,12 @@
 // librarys
-import React, { useState, useEffect } from 'react';
-import { Text, View, ScrollView, RefreshControl } from 'react-native';
+import React, { useState, useEffect, useReducer } from 'react';
+import { Text, View, FlatList, RefreshControl } from 'react-native';
 
 // components
 import SkateparksListSettings from '../components/Skateparks/SkateparksListSettings';
 import SkateparkEntry from '../components/Skateparks/SkateparkEntry';
 
+import Button from '../components/common/Button';
 import LoadingCircle from '../components/common/LoadingCircle';
 import LocationError from '../components/Skateparks/LocationError';
 import LocationLoading from '../components/Skateparks/LocationLoading';
@@ -17,6 +18,24 @@ import styles from '../styles/SkateparksStyles';
 import useFetch from '../hooks/useFetch';
 import useLocation from '../hooks/useLocation';
 
+const initialState = {
+  sortBy: '',
+  sortDirection: 'asc',
+};
+
+const translateMethod = method => {
+  switch (method) {
+    case 'walking':
+      return 0;
+    case 'bicycling':
+      return 1;
+    case 'transit':
+      return 2;
+    case 'driving':
+      return 3;
+  }
+};
+
 const SkateparksList = ({ navigation }) => {
   const {
     data: skateparks,
@@ -24,8 +43,42 @@ const SkateparksList = ({ navigation }) => {
     error,
     changeData: setSkateparks,
   } = useFetch('skateparks');
-  const [refreshing, setRefreshing] = useState(false);
   const { location, locError, locLoading, getLocation } = useLocation();
+
+  const reducer = (state, action) => {
+    let index;
+
+    switch (action.type) {
+      case 'SORT_ASC':
+        index = translateMethod(action.method);
+        setSkateparks(
+          skateparks.sort(
+            (a, b) => a.durations[index].value - b.durations[index].value,
+          ),
+        );
+        return {
+          ...state,
+          sortBy: action.method,
+          sortDirection: 'asc',
+        };
+      case 'SORT_DESC':
+        index = translateMethod(action.method);
+        setSkateparks(
+          skateparks.sort(
+            (a, b) => b.durations[index].value - a.durations[index].value,
+          ),
+        );
+        return {
+          ...state,
+          sortBy: action.method,
+          sortDirection: 'desc',
+        };
+      default:
+        return state;
+    }
+  };
+
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
     getLocation();
@@ -42,27 +95,28 @@ const SkateparksList = ({ navigation }) => {
       {error && <Text>Error!</Text>}
       {skateparks && (
         <>
-          <ScrollView
-            refreshControl={
-              <RefreshControl
-                refreshing={refreshing}
-                onRefresh={() => {
-                  setRefreshing(true);
-                  setRefreshing(false);
-                }}
-              />
-            }
-          >
-            <SkateparksListSettings />
-            {skateparks.map(skatepark => (
-              <SkateparkEntry
-                key={skatepark.skateparkId}
-                location={location}
-                skatepark={skatepark}
-                navigation={navigation}
-              />
-            ))}
-          </ScrollView>
+          <Button
+            title="Log skateparks"
+            onPress={() => {
+              console.log(skateparks);
+            }}
+          />
+          <SkateparksListSettings state={state} dispatch={dispatch} />
+          <FlatList
+            data={skateparks}
+            extraData={state}
+            renderItem={({ item }) => {
+              return (
+                <SkateparkEntry
+                  skatepark={item}
+                  navigation={navigation}
+                  location={location}
+                />
+              );
+            }}
+            keyExtractor={item => item.skateparkId}
+            // TODO refreshControl={}
+          />
         </>
       )}
     </View>

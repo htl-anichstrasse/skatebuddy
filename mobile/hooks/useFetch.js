@@ -23,6 +23,12 @@ const useFetch = (url, id) => {
             longitude: 11.447938,
             address: 'Innsbruck Hallenbad O-Dorf, 6063 Innsbruck',
             busStop: 'Innsbruck Hallenbad O-Dorf',
+            durations: [
+              { text: '1 hour 2 mins', value: 3707 },
+              { text: '17 mins', value: 1023 },
+              { text: '31 mins', value: 1860 },
+              { text: '14 mins', value: 834 },
+            ],
           },
           {
             skateparkId: 2,
@@ -31,6 +37,12 @@ const useFetch = (url, id) => {
             longitude: 11.4075082,
             address: 'Olympiastraße 33, 6020 Innsbruck',
             busStop: 'Innsbruck Olympiaworld',
+            durations: [
+              { text: '27 mins', value: 1598 },
+              { text: '8 mins', value: 464 },
+              { text: '21 mins', value: 1286 },
+              { text: '10 mins', value: 607 },
+            ],
           },
           {
             skateparkId: 3,
@@ -39,6 +51,26 @@ const useFetch = (url, id) => {
             longitude: 11.35585,
             address: 'Hans-Flöckinger-Promenade, 6020 Innsbruck',
             busStop: 'Innsbruck Uni-Sportstätten',
+            durations: [
+              { text: '38 mins', value: 2290 },
+              { text: '12 mins', value: 713 },
+              { text: '22 mins', value: 1331 },
+              { text: '11 mins', value: 648 },
+            ],
+          },
+          {
+            skateparkId: 4,
+            name: 'Skatepark Lohbach',
+            latitude: 47.267529,
+            longitude: 11.343937,
+            address: 'Viktor-Franz-Hess-Straße, 6020 Innsbruck',
+            busStop: 'Innsbruck Luis-Zuegg-Straße',
+            durations: [
+              { text: '38 mins', value: 2290 },
+              { text: '12 mins', value: 713 },
+              { text: '22 mins', value: 1331 },
+              { text: '11 mins', value: 648 },
+            ],
           },
         ]);
       }

@@ -13,7 +13,7 @@ const BottomTabsNavigator = () => {
   return (
     <Tab.Navigator
       backBehavior="initialRoute"
-      initialRouteName="Profile"
+      initialRouteName="Skateparks"
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;

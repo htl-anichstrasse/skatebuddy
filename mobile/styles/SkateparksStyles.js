@@ -24,6 +24,11 @@ const SkateparksStyles = StyleSheet.create({
   settingsMethodText: {
     textAlign: 'center',
   },
+  settingsMethodTextContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+  },
   entryContainer: {
     borderRadius: 10,
     marginVertical: 5,

@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 
 import Button from '../components/common/Button';
 
 const RenderPerson = ({ person }) => {
+  person = person ?? { name: 'Name', age: 'Age', number: 'Number' };
+
   return (
     <View style={styles.row}>
       <Text>{person.name}</Text>
@@ -13,8 +15,57 @@ const RenderPerson = ({ person }) => {
   );
 };
 
-const SortingTest = () => {
-  const [people, setPeople] = useState([
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'SORT_BY_NAME_ASC':
+      return {
+        ...state,
+        sortBy: 'name',
+        sortDirection: 'asc',
+        people: state.people.sort((a, b) => a.name.localeCompare(b.name)),
+      };
+    case 'SORT_BY_NAME_DESC':
+      return {
+        ...state,
+        sortBy: 'name',
+        sortDirection: 'desc',
+        people: state.people.sort((a, b) => b.name.localeCompare(a.name)),
+      };
+    case 'SORT_BY_AGE_ASC':
+      return {
+        ...state,
+        sortBy: 'age',
+        sortDirection: 'asc',
+        people: state.people.sort((a, b) => a.age - b.age),
+      };
+    case 'SORT_BY_AGE_DESC':
+      return {
+        ...state,
+        sortBy: 'age',
+        sortDirection: 'desc',
+        people: state.people.sort((a, b) => b.age - a.age),
+      };
+    case 'SORT_BY_NUMBER_ASC':
+      return {
+        ...state,
+        sortBy: 'number',
+        sortDirection: 'asc',
+        people: state.people.sort((a, b) => a.number - b.number),
+      };
+    case 'SORT_BY_NUMBER_DESC':
+      return {
+        ...state,
+        sortBy: 'number',
+        sortDirection: 'desc',
+        people: state.people.sort((a, b) => b.number - a.number),
+      };
+    default:
+      return state;
+  }
+};
+
+const initialState = {
+  people: [
     {
       id: 1,
       name: 'Alpha',
@@ -45,61 +96,56 @@ const SortingTest = () => {
       age: 18,
       number: 11,
     },
-  ]);
+  ],
+  sortBy: 'name',
+  sortDirection: 'asc',
+};
+
+const SortingTest = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <>
       <Button
         title="Sort by name"
         onPress={() => {
-          setPeople(
-            people.sort((a, b) => {
-              if (a.name < b.name) {
-                return -1;
-              }
-              if (a.name > b.name) {
-                return 1;
-              }
-              return 0;
-            }),
-          );
-        }}
-      />
-      <Button
-        title="Sort by age"
-        onPress={() => {
-          setPeople(
-            people.sort((a, b) => {
-              if (a.age < b.age) {
-                return -1;
-              }
-              if (a.age > b.age) {
-                return 1;
-              }
-              return 0;
-            }),
-          );
-        }}
-      />
-      <Button
-        title="Sort by number"
-        onPress={() => {
-          setPeople(
-            people.sort((a, b) => {
-              if (a.number < b.number) {
-                return -1;
-              }
-              if (a.number > b.number) {
-                return 1;
-              }
-              return 0;
-            }),
-          );
+          if (state.sortBy == 'name' && state.sortDirection === 'asc') {
+            dispatch({ type: 'SORT_BY_NAME_DESC' });
+          } else {
+            dispatch({ type: 'SORT_BY_NAME_ASC' });
+          }
         }}
       />
 
+      <Button
+        title="Sort by Age"
+        onPress={() => {
+          if (state.sortBy == 'age' && state.sortDirection === 'asc') {
+            dispatch({ type: 'SORT_BY_AGE_DESC' });
+          } else {
+            dispatch({ type: 'SORT_BY_AGE_ASC' });
+          }
+        }}
+      />
+
+      <Button
+        title="Sort by number"
+        onPress={() => {
+          if (state.sortBy == 'number' && state.sortDirection === 'asc') {
+            dispatch({ type: 'SORT_BY_NUMBER_DESC' });
+          } else {
+            dispatch({ type: 'SORT_BY_NUMBER_ASC' });
+          }
+        }}
+      />
+
+      <Text>
+        {state.sortBy} {state.sortDirection}
+      </Text>
+      <RenderPerson />
+
       <FlatList
-        data={people}
+        data={state.people}
         renderItem={({ item }) => <RenderPerson person={item} />}
         keyExtractor={item => item.id.toString()}
       />
@@ -117,62 +163,3 @@ const styles = StyleSheet.create({
 });
 
 export default SortingTest;
-
-/*
-
-
-  const [doSortByName, setDoSortByName] = useState(true);
-  const [doSortByAge, setDoSortByAge] = useState(false);
-  const [doSortByNumber, setDoSortByNumber] = useState(false);
-
-  const sortByAge = (a, b) => a.age - b.age;
-  const sortByName = (a, b) => a.name.localeCompare(b.name);
-  const sortByNumber = (a, b) => a.number - b.number;
-
-  return (
-    <View>
-      <Button
-        title="Sort by Name"
-        onPress={() => {
-          setDoSortByName(true);
-          setDoSortByAge(false);
-          setDoSortByNumber(false);
-        }}
-      />
-      <Button
-        title="Sort by Age"
-        onPress={() => {
-          setDoSortByName(false);
-          setDoSortByAge(true);
-          setDoSortByNumber(false);
-        }}
-      />
-      <Button
-        title="Sort by Number"
-        onPress={() => {
-          setDoSortByName(false);
-          setDoSortByAge(false);
-          setDoSortByNumber(true);
-        }}
-      />
-      <View style={styles.row}>
-        <Text>Name</Text>
-        <Text>Age</Text>
-        <Text>Number</Text>
-      </View>
-      {doSortByName
-        ? people
-            .sort(sortByName)
-            .map(person => <RenderPerson key={person.id} person={person} />)
-        : doSortByAge
-        ? people
-            .sort(sortByAge)
-            .map(person => <RenderPerson key={person.id} person={person} />)
-        : doSortByNumber
-        ? people
-            .sort(sortByNumber)
-            .map(person => <RenderPerson key={person.id} person={person} />)
-        : null}
-
-        
-*/
