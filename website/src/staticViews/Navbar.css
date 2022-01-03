@@ -8,10 +8,6 @@
   padding: 10px;
 }
 
-.createAccount {
-  float: right;
-}
-
 .login {
   float: right;
   margin-right: 1%;
@@ -20,4 +16,34 @@
 
 .home {
   margin-right: 1%;
+}
+
+.dropdown {
+  float: right;
+  margin: 0;
+  margin-left: 2vh;
+  margin-right: 1vh;
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 10vh;
+  box-shadow: 0px 8px 5px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.createAccount {
+  float: right;
+}
+
+.Logout {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

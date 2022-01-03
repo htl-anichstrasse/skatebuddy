@@ -15,6 +15,7 @@
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
     "react-slideshow-image": "^3.6.0",
+    "react-token-auth": "^2.3.8",
     "web-vitals": "^1.1.2",
     "yup": "^0.32.11"
   },
@@ -42,5 +43,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2"
   }
 }
