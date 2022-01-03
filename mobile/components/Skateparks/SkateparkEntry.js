@@ -1,11 +1,18 @@
-import React, { useEffect } from 'react';
-import { View, Text, Pressable, Image, Dimensions } from 'react-native';
+// librarys
+import React, { useState, useEffect } from 'react';
+import { View, Text, Pressable, Image } from 'react-native';
+
+// components
+import DirectionsMethod from './DirectionsMethod';
 import Button from '../common/Button';
 
+// hooks
 import useFetch from '../../hooks/useFetch';
 import useDirections from '../../hooks/useDirections';
 
+// styles
 import styles from '../../styles/SkateparksStyles';
+import gStyles from '../../styles/GlobalStyles';
 import { skateparksImages } from '../../styles/Images';
 
 const calculateAvgRating = reviews => {
@@ -16,7 +23,7 @@ const calculateAvgRating = reviews => {
   return Math.round((total / reviews.length + Number.EPSILON) * 10) / 10;
 };
 
-const SkateparkEntry = ({ skatepark, navigation, location, distanceMode }) => {
+const SkateparkEntry = ({ skatepark, navigation, location }) => {
   const {
     data: reviews,
     isLoading,
@@ -29,10 +36,10 @@ const SkateparkEntry = ({ skatepark, navigation, location, distanceMode }) => {
     averageRating = calculateAvgRating(reviews);
   }
 
+  const { durations, getDurations } = useDirections(location, skatepark);
+
   useEffect(() => {
-    if (location) {
-      useDirections(location, skatepark);
-    }
+    getDurations();
   }, [location]);
 
   return (
@@ -41,13 +48,40 @@ const SkateparkEntry = ({ skatepark, navigation, location, distanceMode }) => {
         navigation.navigate('SkateparkDetails', { skatepark: skatepark });
       }}
     >
-      <View style={[styles.entryContainer, styles.shadow]}>
+      <View style={[styles.entryContainer, gStyles.shadow]}>
         <View style={styles.titleContainer}>
           <Text style={styles.entryName}>{skatepark.name}</Text>
-          {averageRating ? (
-            <Text style={styles.entryRating}>{averageRating} ⭐</Text>
+          <View style={[styles.entryRatingContainer, gStyles.shadow]}>
+            {averageRating ? (
+              <Text style={styles.entryRatingText}>{averageRating} ⭐</Text>
+            ) : (
+              <Text style={styles.entryRatingText}>No ratings</Text>
+            )}
+          </View>
+        </View>
+        <View style={styles.entryDirectionsContainer}>
+          {location === null ? (
+            <Text style={styles.entryDirectionsText}>
+              Location service unavailable
+            </Text>
+          ) : durations === undefined ? (
+            <Text style={styles.entryDirectionsText}>
+              Calculating directions...
+            </Text>
           ) : (
-            <Text style={styles.entryRating}>No ratings</Text>
+            durations.map((duration, index) => {
+              const colors = ['#009E7B', '#009288', '#008690', '#007994'];
+              const icons = ['walking', 'bicycle', 'bus', 'car'];
+              return (
+                <DirectionsMethod
+                  key={index}
+                  icon={icons[index]}
+                  color={colors[index]}
+                  duration={duration.text}
+                  index={index}
+                />
+              );
+            })
           )}
         </View>
 

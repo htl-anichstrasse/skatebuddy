@@ -29,7 +29,7 @@ Sync Project with Gradle Files
 
 ![Screenshot_1640606849](https://user-images.githubusercontent.com/38164738/147470610-57c31948-92ce-4b7b-9240-fb39e508a528.png)
 
-![Screenshot_1640606860](https://user-images.githubusercontent.com/38164738/147470617-c2a12000-801a-4dc0-ac1d-bbb3a98f4fa3.png)
+![Screenshot_1640634222](https://user-images.githubusercontent.com/38164738/147502693-cb7b619b-7933-4424-9ec4-9bc98ec77ee3.png)
 
 ![Screenshot_1640606865](https://user-images.githubusercontent.com/38164738/147470624-2c36e4e8-3bed-4734-b031-910b6c227772.png)
 

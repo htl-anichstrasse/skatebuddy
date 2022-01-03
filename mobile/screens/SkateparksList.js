@@ -1,21 +1,30 @@
+// librarys
 import React, { useState, useEffect } from 'react';
 import { Text, View, ScrollView, RefreshControl } from 'react-native';
 
+// components
 import SkateparksListSettings from '../components/Skateparks/SkateparksListSettings';
 import SkateparkEntry from '../components/Skateparks/SkateparkEntry';
+
 import LoadingCircle from '../components/common/LoadingCircle';
 import LocationError from '../components/Skateparks/LocationError';
-
-import styles from '../styles/SkateparksStyles';
-
-import useFetch from '../hooks/useFetch';
-import useLocation from '../hooks/useLocation';
 import LocationLoading from '../components/Skateparks/LocationLoading';
 
-const SkateparksList = ({ navigation }) => {
-  const { data: skateparks, isLoading, error } = useFetch('skateparks');
-  const [refreshing, setRefreshing] = useState(false);
+// styles
+import styles from '../styles/SkateparksStyles';
 
+// hooks
+import useFetch from '../hooks/useFetch';
+import useLocation from '../hooks/useLocation';
+
+const SkateparksList = ({ navigation }) => {
+  const {
+    data: skateparks,
+    isLoading,
+    error,
+    changeData: setSkateparks,
+  } = useFetch('skateparks');
+  const [refreshing, setRefreshing] = useState(false);
   const { location, locError, locLoading, getLocation } = useLocation();
 
   useEffect(() => {
@@ -33,7 +42,6 @@ const SkateparksList = ({ navigation }) => {
       {error && <Text>Error!</Text>}
       {skateparks && (
         <>
-          <SkateparksListSettings />
           <ScrollView
             refreshControl={
               <RefreshControl
@@ -45,10 +53,11 @@ const SkateparksList = ({ navigation }) => {
               />
             }
           >
+            <SkateparksListSettings />
             {skateparks.map(skatepark => (
               <SkateparkEntry
-                location={location}
                 key={skatepark.skateparkId}
+                location={location}
                 skatepark={skatepark}
                 navigation={navigation}
               />
