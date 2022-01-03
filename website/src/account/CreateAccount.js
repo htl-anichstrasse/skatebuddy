@@ -28,15 +28,15 @@ const CreateAccount = (id) => {
     const { register, handleSubmit, reset, formState} = useForm(formOptions);
     const {errors } = formState;
 
-    const onSubmit = (e) => {
+    const onSubmit = () => {
 
-            const blog = { name, email, password, createdAt}
+            const account = { name, email, password, createdAt}
 
             fetch('http://localhost:8000/users', {
                 
                 method: 'POST',
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(blog)
+                body: JSON.stringify(account)
             }).then(() => {
                 navigate("/LogIn")
                 
@@ -45,7 +45,7 @@ const CreateAccount = (id) => {
 
     return(
         <div className="create">
-            <h2>Ertselle einen Account:</h2>
+            <h2>Ertsellen einen Account:</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="field">
                     <label>Name</label><br/>
@@ -80,7 +80,7 @@ const CreateAccount = (id) => {
                             />
                             <div className="invalid-feedback">{errors.confirmPassword?.message}</div>
                 </div>
-                <button>Account erstellen</button>
+                <button type="submit">Account erstellen</button>
                 <button type="button" onClick={() => reset()} className="reset">Zurücksetzen</button>
             </form>
         </div>
