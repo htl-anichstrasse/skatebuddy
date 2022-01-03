@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-import { Text, View, Dimensions, ScrollView } from 'react-native';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import React, { useState, useRef } from 'react';
+import { Text, View, Dimensions } from 'react-native';
 
-import SkateparkMarkers from '../components/Map/SkateparkMarkers';
 import Button from '../components/common/Button';
 import LoadingCircle from '../components/common/LoadingCircle';
 import Map from '../components/Map/Map';
@@ -18,11 +16,11 @@ styles.mapContainer = {
 
 const MapScreen = () => {
   const { data: skateparks, isLoading, error } = useFetch('skateparks');
-  const [ref, setRef] = useState(null);
+  const mapRef = useRef(null);
 
   const onCalloutPress = () => {
-    ref.getCamera().then(camera => {
-      ref.animateCamera({
+    mapRef.current.getCamera().then(camera => {
+      mapRef.current.animateCamera({
         ...camera,
         zoom: 17,
       });
@@ -36,22 +34,22 @@ const MapScreen = () => {
       {skateparks && (
         <>
           <Map
-            setRef={setRef}
+            mapRef={mapRef}
             skateparks={skateparks}
             onCalloutPress={onCalloutPress}
           />
           <Button
             title="Reset map"
             onPress={() => {
-              ref.animateCamera({
+              mapRef.current.animateCamera({
                 center: {
-                  latitude: 47.265,
-                  longitude: 11.42,
+                  latitude: 47.27,
+                  longitude: 11.4,
                 },
                 altitude: 1000,
                 pitch: 0,
                 heading: 0,
-                zoom: 12,
+                zoom: 11,
               });
             }}
           />

@@ -95,12 +95,16 @@ const SkateparksList = ({ navigation }) => {
       {error && <Text>Error!</Text>}
       {skateparks && (
         <>
-          <Button
+          {/* // * use this button to log the durations and save them in useFetch to avoid API call
+              // TODO CACHING
+           <Button
             title="Log skateparks"
             onPress={() => {
-              console.log(skateparks);
+              skateparks.forEach(skatepark => {
+                console.log(skatepark.durations);
+              });
             }}
-          />
+          /> */}
           <SkateparksListSettings state={state} dispatch={dispatch} />
           <FlatList
             data={skateparks}
