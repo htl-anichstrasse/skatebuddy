@@ -1,13 +1,14 @@
 import { StyleSheet } from 'react-native';
 
+import colors from './Colors';
+
 const SkateparksStyles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: colors.background,
   },
   settingsContainer: {
-    borderStyle: 'solid',
-    borderColor: '#000',
-    borderWidth: 1,
+    backgroundColor: colors.background,
   },
   settingsText: {
     textAlign: 'center',
@@ -43,7 +44,7 @@ const SkateparksStyles = StyleSheet.create({
     marginBottom: 5,
   },
   entryName: {
-    color: '#000',
+    color: colors.text,
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 5,
@@ -62,7 +63,7 @@ const SkateparksStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    borderColor: '#ccc',
+    borderColor: colors.gray1,
     borderWidth: 1,
     borderStyle: 'solid',
     borderRadius: 10,
@@ -75,14 +76,14 @@ const SkateparksStyles = StyleSheet.create({
     alignItems: 'center',
   },
   entryDirectionsMethodContainerBorder: {
-    borderRightColor: '#ccc',
+    borderRightColor: colors.gray1,
     borderRightWidth: 1,
     borderStyle: 'solid',
   },
   entryDirectionsMethodText: {
     fontSize: 12,
     paddingRight: 5,
-    color: '#000',
+    color: colors.text,
   },
   entryDirectionsIcon: {},
   entryImage: {

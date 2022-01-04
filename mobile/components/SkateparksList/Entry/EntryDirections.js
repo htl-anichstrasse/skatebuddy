@@ -10,6 +10,7 @@ import DirectionsMethod from './DirectionsMethod';
 
 // styles
 import styles from '../../../styles/SkateparksStyles';
+import cols from '../../../styles/Colors';
 
 const EntryDirections = ({ skatepark, location }) => {
   // write a function to rerender the component every second
@@ -36,7 +37,12 @@ const EntryDirections = ({ skatepark, location }) => {
         <Text style={styles.entryDirectionsText}>{error}</Text>
       ) : (
         skatepark.durations.map((duration, index) => {
-          const colors = ['#009E7B', '#009288', '#008690', '#007994'];
+          const colors = [
+            cols.pGradient[1],
+            cols.pGradient[2],
+            cols.pGradient[3],
+            cols.pGradient[4],
+          ];
           const icons = ['walking', 'bicycle', 'bus', 'car'];
           return (
             <DirectionsMethod
