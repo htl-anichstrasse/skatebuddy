@@ -9,7 +9,7 @@ import DirectionsMethod from './DirectionsMethod';
 // ? hooks
 
 // styles
-import styles from '../../styles/SkateparksStyles';
+import styles from '../../../styles/SkateparksStyles';
 
 const EntryDirections = ({ skatepark, location }) => {
   // write a function to rerender the component every second

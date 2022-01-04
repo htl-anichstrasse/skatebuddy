@@ -4,9 +4,9 @@ import { View, Text, Dimensions, ScrollView } from 'react-native';
 import LoadingCircle from '../components/common/LoadingCircle';
 import Button from '../components/common/Button';
 
-import AdditionalInfo from '../components/Skateparks/SkateparkDetails/InfoReviews/AdditionalInfo';
-import Reviews from '../components/Skateparks/SkateparkDetails/InfoReviews/Reviews';
-import Obstacles from '../components/Skateparks/SkateparkDetails/Obstacles/Obstacles';
+import AdditionalInfo from '../components/SkateparkDetails/InfoReviews/AdditionalInfo';
+import Reviews from '../components/SkateparkDetails/InfoReviews/Reviews';
+import Obstacles from '../components/SkateparkDetails/Obstacles/Obstacles';
 
 import useFetch from '../hooks/useFetch';
 

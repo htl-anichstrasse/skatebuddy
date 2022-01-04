@@ -3,13 +3,13 @@ import React, { useState, useEffect, useReducer } from 'react';
 import { Text, View, FlatList, RefreshControl } from 'react-native';
 
 // components
-import SkateparksListSettings from '../components/Skateparks/SkateparksListSettings';
-import SkateparkEntry from '../components/Skateparks/SkateparkEntry';
+import SkateparkEntry from '../components/SkateparksList/Entry/SkateparkEntry';
+import SkateparksListSettings from '../components/SkateparksList/SkateparksListSettings';
+import LocationError from '../components/SkateparksList/LocationError';
+import LocationLoading from '../components/SkateparksList/LocationLoading';
 
 import Button from '../components/common/Button';
 import LoadingCircle from '../components/common/LoadingCircle';
-import LocationError from '../components/Skateparks/LocationError';
-import LocationLoading from '../components/Skateparks/LocationLoading';
 
 // styles
 import styles from '../styles/SkateparksStyles';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import styles from '../../styles/SkateparksStyles';
-import gStyles from '../../styles/GlobalStyles';
+import styles from '../../../styles/SkateparksStyles';
+import gStyles from '../../../styles/GlobalStyles';
 
 const EntryHeader = ({ skatepark }) => {
   return (

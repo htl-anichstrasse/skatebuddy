@@ -3,18 +3,18 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, Pressable, Image } from 'react-native';
 
 // components
-import Button from '../common/Button';
+import Button from '../../common/Button';
 import EntryHeader from './EntryHeader';
 import EntryDirections from './EntryDirections';
 
 // hooks
-import useFetch from '../../hooks/useFetch';
-import useDirections from '../../hooks/useDirections';
+import useFetch from '../../../hooks/useFetch';
+import useDirections from '../../../hooks/useDirections';
 
 // styles
-import styles from '../../styles/SkateparksStyles';
-import gStyles from '../../styles/GlobalStyles';
-import { skateparksImages } from '../../styles/Images';
+import styles from '../../../styles/SkateparksStyles';
+import gStyles from '../../../styles/GlobalStyles';
+import { skateparksImages } from '../../../styles/Images';
 
 const calculateAvgRating = reviews => {
   let total = 0;

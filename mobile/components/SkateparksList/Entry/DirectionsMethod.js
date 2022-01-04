@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-import styles from '../../styles/SkateparksStyles';
+import styles from '../../../styles/SkateparksStyles';
 
 const DirectionsMethod = ({ icon, duration, color, index }) => {
   // TODO remove this ugly hack

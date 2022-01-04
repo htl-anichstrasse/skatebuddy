@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { View, Text, FlatList } from 'react-native';
 
 import Review from './Review';
-import Button from '../../../common/Button';
+import Button from '../../common/Button';
 import AddReviewModal from './AddReviewModal';
 
-import styles from '../../../../styles/ReviewsStyles';
+import styles from '../../../styles/ReviewsStyles';
 
 const Reviews = ({ reviews, newReview }) => {
   const [modalVisible, setModalVisible] = useState(false);
