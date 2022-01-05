@@ -1,7 +1,11 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 import styles from '../../../styles/SkateparksStyles';
 import gStyles from '../../../styles/GlobalStyles';
+import colors from '../../../styles/Colors';
 
 const EntryHeader = ({ skatepark }) => {
   return (
@@ -9,9 +13,17 @@ const EntryHeader = ({ skatepark }) => {
       <Text style={styles.entryName}>{skatepark.name}</Text>
       <View style={[styles.entryRatingContainer, gStyles.shadow]}>
         {skatepark.averageRating ? (
-          <Text style={styles.entryRatingText}>
-            {skatepark.averageRating} ⭐
-          </Text>
+          <>
+            <Text style={styles.entryRatingText}>
+              {skatepark.averageRating}
+            </Text>
+            <MaterialCommunityIcons
+              name="star"
+              size={20}
+              color="white"
+              style={{ marginLeft: 5 }}
+            />
+          </>
         ) : (
           <Text style={styles.entryRatingText}>No ratings</Text>
         )}
