@@ -1,0 +1,16 @@
+.login-review {
+  text-align: center;
+}
+
+.review-login-button {
+  color: black;
+  background-color: white;
+  font-size: 25px;
+  margin-top: 0;
+}
+
+.review-login-button:hover {
+  color: white;
+  background-color: darkgray;
+  cursor: pointer;
+}

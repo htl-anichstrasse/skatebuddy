@@ -11,7 +11,7 @@ const ParkList = ({ skateparks }) => {
               <Link to={`/skateparks/${skatepark.skateparkId}`}>
                 <div className="ParkLink">
                   <h2>{skatepark.name}</h2>
-                  <div class="slideshow-container">
+                  <div className="slideshow-container">
                     <img
                       src={
                         require('./images/' + skatepark.name + '/1.jpg').default

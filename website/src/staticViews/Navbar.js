@@ -3,7 +3,6 @@ import './Navbar.css';
 
 const Navbar = () => {
 const token = sessionStorage.getItem('token');
-console.log(token)
 
 const LogOut = () => {
 

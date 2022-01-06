@@ -5,12 +5,12 @@ const ReviewList = ({ reviews }) => {
   return (
     <div className="review-list">
       {reviews.map(review => (
-        <div className="park-content" key={review.skateparkId}>
+        <div className="review-content" key={review.skateparkId}>
           <h4>{review.title}</h4>
           <UserName id={review.userId} className="username"></UserName>
           <div id="rating" className="rating">
             <h5>Bewertung: {review.rating}</h5>
-          </div>
+          </div><br/>
           <p>{review.content}</p>
         </div>
       ))}

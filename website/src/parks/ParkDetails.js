@@ -6,7 +6,8 @@ import GoogleMapReact from 'google-map-react';
 import React, { useState } from 'react';
 import Reviews from '../reviews/Reviews';
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+
+const Park = ({ text }) => <div>{text}</div>;
 
 const ParkDetails = () => {
   const { id } = useParams();
@@ -63,7 +64,7 @@ const ParkDetails = () => {
               bootstrapURLKeys={{ key: Keys }} //API-Key
               defaultCenter={defaultProps.center}
               defaultZoom={defaultProps.zoom}>
-              <AnyReactComponent
+              <Park
                 lat={park[0].latitude}
                 lng={park[0].longitude}
                 text="My Marker"

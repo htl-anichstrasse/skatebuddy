@@ -11,6 +11,11 @@ h5 {
   margin-bottom: 0;
 }
 
-.review-list {
-  min-height: 100%;
+.review-content {
+  display: block;
+  max-width: 170vh;
+  box-shadow: inset 0 0 1em white, 0 0 1em black;
+  background-color: white;
+  margin-right: auto;
+  margin-left: auto;
 }

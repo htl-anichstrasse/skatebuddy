@@ -1,12 +1,15 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import './CreateReviews.css'
 
 const Create = (id) => {
     const [skateparkId] = id.skateparkId;
     const [title, setTitle] = useState('');
-    const [userId] = "1";
+    const userId = 1;
     const [rating, setRating] = useState('');
     const [content, setContent] = useState('');
-
+    const token = sessionStorage.getItem('token');
+    const navigate = useNavigate();
     const handleSubmit = (e) => {
         const blog = { userId, skateparkId, rating, title, content }
 
@@ -15,12 +18,26 @@ const Create = (id) => {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(blog)
         }).then(() => {
-            console.log('gute');
         })
     }
 
+    const LogIn = () => {
+        navigate("/LogIn");
+        window.location.reload(false);
+      }
+
     return(
-        <div className="create">
+        <>
+        {!token &&<>
+        <div className="login-review">
+        <h1 className="review-login">Login to be able to write a review</h1>
+        <button className="review-login-button" onClick={LogIn}>Login</button>
+        </div>
+        </>
+        }
+
+        {token && 
+            <div className="create">
             <h2>Schreibe deine eigene Review:</h2>
             <form onSubmit={handleSubmit}>
                 <input
@@ -55,6 +72,8 @@ const Create = (id) => {
                 <button>Review senden</button>
             </form>
         </div>
+        }
+        </>
     )
 }
 
