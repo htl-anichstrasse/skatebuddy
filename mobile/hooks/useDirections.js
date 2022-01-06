@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
 
 import secrets from './secrets.json';
-import walking from './directionsRequests/walking.json';
-import bicycling from './directionsRequests/bicycling.json';
-import transit from './directionsRequests/transit.json';
-import driving from './directionsRequests/driving.json';
 
 const useDirections = (location, skatepark) => {
-  const [durations, setDurations] = useState([]);
   const methods = ['walking', 'bicycling', 'transit', 'driving'];
 
   const buildUrl = method => {
@@ -36,21 +31,16 @@ const useDirections = (location, skatepark) => {
   };
 
   const getDurations = async () => {
+    // * Using presaved durations in useFetch.js to avoid API call
     // if (location != null) {
     //   const durations = await Promise.all(
     //     methods.map(method => fetchDuration(method)),
     //   );
-    //   setDurations(durations);
+    //   skatepark.durations = durations;
     // }
-    // * Using presaved json files to avoid hitting the API
-    const wDur = walking.routes[0].legs[0].duration;
-    const bDur = bicycling.routes[0].legs[0].duration;
-    const tDur = transit.routes[0].legs[0].duration;
-    const dDur = driving.routes[0].legs[0].duration;
-    setDurations([wDur, bDur, tDur, dDur]);
   };
 
-  return { durations, getDurations };
+  return { getDurations };
 };
 
 export default useDirections;

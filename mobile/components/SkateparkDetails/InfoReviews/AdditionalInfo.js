@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import styles from '../../../../styles/SkateparkDetailsStyles';
+import styles from '../../../styles/SkateparkDetailsStyles';
 
 const AdditionalInfo = ({ skatepark }) => {
   return (

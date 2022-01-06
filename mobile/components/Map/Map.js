@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import SkateparkMarkers from './SkateparkMarkers';
+import Button from '../common/Button';
 
 import mapStyles from '../../styles/MapStyles';
 
-const Map = ({ skateparks, setRef, onCalloutPress }) => {
+const Map = ({ skateparks, mapRef, onCalloutPress }) => {
   const camera = {
     center: {
-      latitude: 47.265,
-      longitude: 11.42,
+      latitude: 47.27,
+      longitude: 11.4,
     },
     altitude: 1000,
     pitch: 0,
     heading: 0,
-    zoom: 12,
+    zoom: 11,
   };
 
   return (
@@ -22,7 +23,7 @@ const Map = ({ skateparks, setRef, onCalloutPress }) => {
       showsUserLocation={true}
       provider={PROVIDER_GOOGLE}
       style={mapStyles.map}
-      ref={ref => setRef(ref)}
+      ref={mapRef}
       initialCamera={camera}
       showsPointsOfInterest={false}
       showsCompass={false}
@@ -32,6 +33,7 @@ const Map = ({ skateparks, setRef, onCalloutPress }) => {
       pitchEnabled={false}
       // events
       onCalloutPress={onCalloutPress}
+      onRegionChangeComplete={() => {}}
     >
       <SkateparkMarkers skateparks={skateparks} />
     </MapView>

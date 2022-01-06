@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text, Modal, ScrollView } from 'react-native';
 
 import AddReviewForm from './AddReviewForm';
-import Button from '../../../../components/common/Button';
+import Button from '../../common/Button';
 
-import styles from '../../../../styles/SkateparkDetailsStyles';
+import styles from '../../../styles/SkateparkDetailsStyles';
 
 const AddReviewModal = ({ modalVisible, setModalVisible, newReview }) => {
   return (

@@ -6,8 +6,6 @@ import * as Keychain from 'react-native-keychain';
 // components
 import Button from '../components/common/Button';
 
-import SortingTest from '../components/SortingTest';
-
 // styles
 import styles from '../styles/ProfileStyles';
 
@@ -31,7 +29,6 @@ const ProfileScreen = () => {
           });
         }}
       />
-      <SortingTest />
     </View>
   );
 };

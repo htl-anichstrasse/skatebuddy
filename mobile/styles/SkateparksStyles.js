@@ -1,13 +1,14 @@
 import { StyleSheet } from 'react-native';
 
+import colors from './Colors';
+
 const SkateparksStyles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: colors.background,
   },
   settingsContainer: {
-    borderStyle: 'solid',
-    borderColor: '#000',
-    borderWidth: 1,
+    backgroundColor: colors.background,
   },
   settingsText: {
     textAlign: 'center',
@@ -24,6 +25,11 @@ const SkateparksStyles = StyleSheet.create({
   settingsMethodText: {
     textAlign: 'center',
   },
+  settingsMethodTextContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+  },
   entryContainer: {
     borderRadius: 10,
     marginVertical: 5,
@@ -38,13 +44,17 @@ const SkateparksStyles = StyleSheet.create({
     marginBottom: 5,
   },
   entryName: {
-    color: '#000',
+    // * Legendary
+    paddingTop: 1,
+    color: colors.text,
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 5,
   },
   entryRatingContainer: {
+    flexDirection: 'row',
     padding: 5,
+    paddingHorizontal: 7,
     backgroundColor: '#00A86B',
     borderRadius: 10,
   },
@@ -55,12 +65,12 @@ const SkateparksStyles = StyleSheet.create({
   },
   entryDirectionsContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    borderColor: '#ccc',
-    borderWidth: 1,
-    borderStyle: 'solid',
-    borderRadius: 10,
+    // borderColor: colors.gray1,
+    // borderWidth: 1,
+    // borderStyle: 'solid',
+    // borderRadius: 10,
     marginBottom: 5,
   },
   entryDirectionsMethodContainer: {
@@ -70,21 +80,21 @@ const SkateparksStyles = StyleSheet.create({
     alignItems: 'center',
   },
   entryDirectionsMethodContainerBorder: {
-    borderRightColor: '#ccc',
-    borderRightWidth: 1,
-    borderStyle: 'solid',
+    // borderRightColor: colors.gray1,
+    // borderRightWidth: 1,
+    // borderStyle: 'solid',
   },
   entryDirectionsMethodText: {
     fontSize: 12,
     paddingRight: 5,
-    color: '#000',
+    color: colors.text,
   },
   entryDirectionsIcon: {},
   entryImage: {
     flex: 1,
     width: '100%',
     height: null,
-    borderRadius: 10,
+    borderRadius: 5,
     aspectRatio: 16 / 8,
   },
 });

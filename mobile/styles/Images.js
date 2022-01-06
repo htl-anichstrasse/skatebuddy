@@ -8,4 +8,7 @@ export const skateparksImages = {
   3: {
     main: require('../data/skatepark_pictures/3-usi/main.jpg'),
   },
+  4: {
+    main: require('../data/skatepark_pictures/4-lohbach/main.jpg'),
+  },
 };
