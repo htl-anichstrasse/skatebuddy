@@ -56,8 +56,12 @@ router.post('/register', async (req, res, next) => {
             req.body.email,
             req.body.profilePictureId,
         );
-        var ok = await User.alreadyExists(con, user.name, user.email);
-        if (!ok) {
+        var alreadyExists = await User.alreadyExists(
+            con,
+            user.name,
+            user.email,
+        );
+        if (!alreadyExists) {
             token = User.generateToken(user);
             await User.insertValue(con, user);
             res.send({ success: true, token: token });

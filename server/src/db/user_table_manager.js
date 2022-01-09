@@ -1,24 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
-/*User.alreadyExists = (con, name, email) => {
-    con.query(
-        'Select * from users where Name = ? AND Email ? ',
-        [name, email],
-        (err, result) => {
-            if (err) {
-                console.log(err);
-            } else if (!result) {
-                console.log(result);
-                return false;
-            } else if (result) {
-                console.log(result);
-                return true;
-            }
-        },
-    );
-};
-*/
 User.alreadyExists = (con, name, email) => {
     return new Promise((resolve, reject) => {
         con.query(
