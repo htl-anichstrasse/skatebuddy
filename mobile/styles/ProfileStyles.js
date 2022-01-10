@@ -1,7 +1,18 @@
 import { StyleSheet } from 'react-native';
+import colors from './Colors';
 
 const ProfileStyles = StyleSheet.create({
-  table: {},
+  container: {
+    flex: 1,
+    backgroundColor: colors.background,
+  },
+  regularText: {
+    fontSize: 25,
+  },
+  customFontText: {
+    fontFamily: 'Poppins-Regular',
+    fontSize: 25,
+  },
 });
 
 export default ProfileStyles;
