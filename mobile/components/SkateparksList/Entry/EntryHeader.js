@@ -11,6 +11,7 @@ const EntryHeader = ({ skatepark }) => {
   return (
     <View style={styles.titleContainer}>
       <Text style={styles.entryName}>{skatepark.name}</Text>
+
       <View style={[styles.entryRatingContainer, gStyles.shadow]}>
         {skatepark.averageRating ? (
           <>

@@ -18,7 +18,9 @@ const ProfileScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text>Signed in</Text>
+      <Text style={styles.regularText}>ABCDEFGHabcdefgh</Text>
+      <Text style={styles.customFontText}>ABCDEFGHabcdefgh</Text>
+
       <Button title="signout" onPress={signOut}></Button>
       <Button
         title="Print auth state"

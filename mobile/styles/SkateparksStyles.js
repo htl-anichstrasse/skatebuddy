@@ -40,28 +40,27 @@ const SkateparksStyles = StyleSheet.create({
   titleContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 5,
+    alignItems: 'flex-end',
+    marginBottom: 10,
   },
   entryName: {
     // * Legendary
-    paddingTop: 1,
     color: colors.text,
     fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 5,
+    fontFamily: 'Poppins-Bold',
   },
   entryRatingContainer: {
+    alignItems: 'center',
     flexDirection: 'row',
-    padding: 5,
-    paddingHorizontal: 7,
-    backgroundColor: '#00A86B',
+    backgroundColor: colors.primary,
+    paddingHorizontal: 5,
     borderRadius: 10,
   },
   entryRatingText: {
-    fontWeight: 'normal',
-    textAlign: 'center',
     color: '#fff',
+    paddingTop: 4,
+    fontSize: 16,
+    fontFamily: 'Poppins-Regular',
   },
   entryDirectionsContainer: {
     flexDirection: 'row',
@@ -85,6 +84,7 @@ const SkateparksStyles = StyleSheet.create({
     // borderStyle: 'solid',
   },
   entryDirectionsMethodText: {
+    fontFamily: 'Poppins-Regular',
     fontSize: 12,
     paddingRight: 5,
     color: colors.text,
