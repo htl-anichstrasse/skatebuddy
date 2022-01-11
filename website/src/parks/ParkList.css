@@ -27,4 +27,9 @@ h2 {
 
 .ParkLink {
   text-decoration: none;
+  color: black;
+}
+
+.slideshow-container {
+  min-height: 25vh;
 }

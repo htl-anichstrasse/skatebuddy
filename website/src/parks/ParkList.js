@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import './ParkList.css';
+import Slideshow from './SlideShows';
+
 
 const ParkList = ({ skateparks }) => {
   return (
@@ -8,21 +10,15 @@ const ParkList = ({ skateparks }) => {
         <div className="park-preview" key={skatepark.skateparkId}>
           <div className="list">
             <div className="park-box">
-              <Link to={`/skateparks/${skatepark.skateparkId}`}>
-                <div className="ParkLink">
+              <Link to={`/skateparks/${skatepark.skateparkId}`} className='ParkLink'>
                   <h2>{skatepark.name}</h2>
+                </Link>
                   <div className="slideshow-container">
-                    <img
-                      src={
-                        require('./images/' + skatepark.name + '/1.jpg').default
-                      }
-                      alt="Preview pic"
-                      className="preview_pic"
-                    />
+                    <Slideshow></Slideshow>
                   </div>
+                  <Link to={`/skateparks/${skatepark.skateparkId}`} className='ParkLink'>
                   <p>Klicken Sie die Box für mehr Details</p>
-                </div>
-              </Link>
+                  </Link>
             </div>
           </div>
         </div>

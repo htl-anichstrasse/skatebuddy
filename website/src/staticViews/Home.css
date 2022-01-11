@@ -1,1 +1,23 @@
+.logo {
+  width: 30vw;
+}
 
+.welcome {
+  text-align: center;
+  margin-top: auto;
+  min-height: 60vh;
+}
+
+.left {
+  float: left;
+  width: 30%;
+  margin-left: 2%;
+  margin-top: 25px;
+}
+
+.right {
+  float: right;
+  width: 30%;
+  margin-right: 2%;
+  margin-top: 25px;
+}

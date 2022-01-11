@@ -13,13 +13,12 @@ const LogOut = () => {
   return (
     <nav className="navbar">
       <div className="nav">
-        <Link to="/" className='home'>
+        <Link to="/" className='home-nav'>
           Home
         </Link>
         <Link to="/parks" className='parks'>
           Parks
         </Link>
-
         <Link to="/CreateAccount" className='createAccount'>
           Account Erstellen
         </Link>

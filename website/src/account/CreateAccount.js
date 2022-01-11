@@ -45,14 +45,13 @@ const CreateAccount = (id) => {
 
     return(
         <div className="create">
-            <h2>Ertsellen einen Account:</h2>
+            <h2>Ertsellen Sie einen Account:</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="field">
                     <label>Name</label><br/>
                     <input
                         type="text"
                         required
-                        placeholder="Max"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     /><br/>

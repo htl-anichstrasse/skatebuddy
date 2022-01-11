@@ -4,13 +4,44 @@
   z-index: 1;
 }
 
-header {
+.Header {
   text-align: center;
+  font-size: 50px;
+  height: 10vh;
 }
 
 footer {
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  border-top: 4px solid darkgrey;
+  margin: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 4px solid darkgray;
+}
+
+.footer-wrap {
+  text-align: center;
+}
+
+.top-button {
+  margin-top: 0;
+  background-color: darkgray;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.Back-to-home {
+  text-decoration: none;
+  color: black;
+}
+
+.Content {
+  background-color: lightgray;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }

@@ -6,28 +6,37 @@ import ParkDetails from './parks/ParkDetails';
 import LogIn from './account/LogIn';
 import CreateAccount from './account/CreateAccount';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import useToken from './hooks/useToken';
 
 function App() {
   
   const {setToken} = useToken();
 
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
   return (
     <Router>
       <div className="App">
         <div className="Header">
-          <header>header</header>
+          <header>
+            <Link to="/" className='Back-to-home'>
+              Skatebubatz
+            </Link>
+          </header>
         </div>
           <div className="Navbar">
             <Navbar />
           </div>
-
           <div className="Content">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/parks" element={<Parks />} />
               <Route path="/skateparks/:id" element={<ParkDetails />} />
-              <Route path="/LogIN" element={<LogIn setToken={setToken}/>}/>
+              <Route path="/LogIn" element={<LogIn setToken={setToken}/>}/>
               <Route path="/CreateAccount" element={<CreateAccount/>}/>
             </Routes>
           </div>
@@ -35,7 +44,22 @@ function App() {
         </div>
         <div className="footer">
           <footer>
-            <h2>Hey</h2>
+          <div className="footer-wrap">
+          <button onClick={topFunction} id="myBtn" title="Go to top" className="top-button">Top</button>
+                <div className="footer-top">
+                  <p>Haben Sie fragen können Sie uns unter einer der folgende Emails erreichen</p>
+                    <div className="frame-default">
+                        <div className="footer-address">
+                              <span itemProp="name">Alexander Bertoni</span> | <a href="mailto:abertoni@tsn.at" title="SchulEmail - E-Mail"><span itemProp="email">abertoni@tsn.com</span></a><br/>
+                              <span itemProp="name">Philipp Schuler</span> | <a href="mailto:pschuler@tsn.at" title="SchulEmail - E-Mail"><span itemProp="email">pschuler@tsn.com</span></a><br/>
+                              <span itemProp="name">Maximilian Neuner</span> | <a href="mailto:maximilineuner@tsn.at" title="SchulEmail - E-Mail"><span itemProp="email">maximilineuner@tsn.com</span></a><br/>
+                            </div>
+                        </div>
+                        <div className="footer-bottom">
+                            <div className="frame-default"><p>Vielen Dank, dass Sie sich für Skatebubatz entschieden haben</p></div>
+                        </div>
+                    </div>
+                </div>
           </footer>
         </div>
     </Router>
