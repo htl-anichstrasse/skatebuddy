@@ -1,8 +1,8 @@
 FROM node:alpine
 
 WORKDIR /home/app/
-COPY src .
-COPY package.json .
+COPY server/src .
+COPY server/package.json .
 
 RUN npm i
 
