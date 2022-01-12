@@ -27,6 +27,29 @@ Skatepark.getById = (con, id) => {
         );
     });
 };
+
+Skatepark.getAllPicturesFromPark = (con, id) => {
+    return new Promise((resolve, reject) => {
+        con.query(
+            `select skatepark_pictures.PictureID 
+            from skatepark_pictures 
+            INNER JOIN skateparks ON skatepark_pictures.SkateparkID = skateparks.SkateparkID 
+            where skateparks.SkateparkID = ?;`,
+            [id],
+            (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                var pictures = [];
+                for (let i = 0; i < result.length; i++) {
+                    pictures[i] = result[i].PictureID;
+                }
+                var result = Object.assign(result);
+                return resolve(pictures);
+            },
+        );
+    });
+};
 Skatepark.insertValue = (con, skatepark) => {
     return new Promise((resolve, reject) => {
         con.query(

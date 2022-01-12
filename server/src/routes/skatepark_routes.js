@@ -16,8 +16,15 @@ router.get('/skateparks', async (req, res, next) => {
 
 router.get('/skateparks/:id', async (req, res, next) => {
     try {
-        let results = await Skatepark.getById(con, req.params.id);
-        res.json(results);
+        let parks = await Skatepark.getById(con, req.params.id);
+        let pictures = await Skatepark.getAllPicturesFromPark(
+            con,
+            req.params.id,
+        );
+        var result = Object.assign(parks, pictures);
+        //Adi is gay
+        //res.json(results);
+        res.json(result);
     } catch (e) {
         console.log(e);
         res.sendStatus(500);
