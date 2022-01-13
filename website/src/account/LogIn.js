@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from "react-router-dom";
 
-async function loginUser(credentials) {
+async function loginUser(information) {
  return fetch('http://localhost:8080/login', {
    method: 'POST',
    headers: {
      'Content-Type': 'application/json'
    },
-   body: JSON.stringify(credentials)
+   body: JSON.stringify(information)
  })
    .then(data => data.json())
 }
@@ -23,7 +23,7 @@ export default function LogIn({ setToken }) {
     e.preventDefault();
     const token = await loginUser({
       username,
-      password
+       password
     });
     setToken(token);
     navigate("/");

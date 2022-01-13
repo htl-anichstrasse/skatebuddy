@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
-const token = sessionStorage.getItem('token');
+const token = localStorage.getItem('token');
 
 const LogOut = () => {
 
-  sessionStorage.removeItem('token');
+  localStorage.removeItem('token');
   window.location.reload(false);
 }
 
