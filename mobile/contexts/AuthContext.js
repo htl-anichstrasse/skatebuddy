@@ -1,7 +1,8 @@
+// libraries
 import React, { useContext, useMemo, useReducer } from 'react';
-
 import * as Keychain from 'react-native-keychain';
 
+// hooks
 const AuthContext = React.createContext();
 const AuthContextState = React.createContext();
 

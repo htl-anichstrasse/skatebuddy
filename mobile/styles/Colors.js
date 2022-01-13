@@ -9,9 +9,12 @@ const colors = {
 
   gray1: '#ccc',
   gray2: '#777',
+
   text: '#1D1D35',
   error: '#A30B2E',
+  info: '#FFA01B',
   background: '#f5f5f5',
+  white: '#fff',
 };
 
 export default colors;

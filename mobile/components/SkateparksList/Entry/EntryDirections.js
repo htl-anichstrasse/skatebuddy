@@ -1,12 +1,12 @@
 // librarys
 import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 
 // components
+import Text from '../../common/Text';
 import DirectionsMethod from './DirectionsMethod';
 
 // hooks
-// ? hooks
 
 // styles
 import styles from '../../../styles/SkateparksStyles';
@@ -30,11 +30,11 @@ const EntryDirections = ({ skatepark, location }) => {
   return (
     <View style={styles.entryDirectionsContainer}>
       {location === null ? (
-        <Text style={styles.entryDirectionsText}>
+        <Text style={styles.entryDirectionsMethodText}>
           Location service unavailable
         </Text>
       ) : skatepark.durations === undefined ? (
-        <Text style={styles.entryDirectionsText}>{error}</Text>
+        <Text style={styles.entryDirectionsMethodText}>{error}</Text>
       ) : (
         skatepark.durations.map((duration, index) => {
           const colors = [
@@ -50,7 +50,6 @@ const EntryDirections = ({ skatepark, location }) => {
               icon={icons[index]}
               color={colors[index]}
               duration={duration}
-              index={index}
             />
           );
         })

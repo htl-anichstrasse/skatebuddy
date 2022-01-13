@@ -1,7 +1,14 @@
+// libraries
 import React from 'react';
-import { View, Text, Pressable } from 'react-native';
+import { View, Pressable } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+// components
+import Text from '../common/Text';
+
+// hooks
+
+// styles
 import styles from '../../styles/LoginSignupStyles';
 import gStyles from '../../styles/GlobalStyles';
 

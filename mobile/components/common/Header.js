@@ -1,5 +1,13 @@
+// libraries
 import React from 'react';
-import { View, Text, DevSettings, Pressable } from 'react-native';
+import { View, DevSettings, Pressable } from 'react-native';
+
+// components
+import Text from './Text';
+
+// hooks
+
+// styles
 import styles from '../../styles/HeaderStyles';
 
 const Header = ({ title }) => {

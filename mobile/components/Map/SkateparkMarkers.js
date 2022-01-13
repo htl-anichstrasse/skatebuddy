@@ -1,8 +1,6 @@
 import React from 'react';
 import MapView from 'react-native-maps';
 
-// marker colors: red (default)
-
 const SkateparkMarkers = ({ skateparks }) => {
   return skateparks.map(skatepark => (
     <MapView.Marker

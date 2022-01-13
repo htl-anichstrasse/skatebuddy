@@ -1,6 +1,11 @@
+// libraries
 import React from 'react';
-import { View, Text, Pressable } from 'react-native';
+import { View, Pressable } from 'react-native';
 
+// components
+import Text from './Text';
+
+// styles
 import styles from '../../styles/ButtonStyles';
 
 const Button = ({ title, onPress }) => {

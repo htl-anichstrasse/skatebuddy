@@ -1,10 +1,16 @@
+// libraries
 import React, { useState } from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 
-import Review from './Review';
+// components
+import Text from '../../common/Text';
 import Button from '../../common/Button';
 import AddReviewModal from './AddReviewModal';
+import Review from './Review';
 
+// hooks
+
+// styles
 import styles from '../../../styles/ReviewsStyles';
 
 const Reviews = ({ reviews, newReview }) => {

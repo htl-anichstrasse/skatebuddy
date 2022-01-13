@@ -1,9 +1,10 @@
 // librarys
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import * as Keychain from 'react-native-keychain';
 
 // components
+import Text from '../components/common/Text';
 import Button from '../components/common/Button';
 
 // styles

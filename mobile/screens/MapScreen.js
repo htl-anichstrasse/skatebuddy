@@ -1,12 +1,17 @@
-import React, { useState, useRef } from 'react';
-import { Text, View, Dimensions } from 'react-native';
+// libraries
+import React, { useRef } from 'react';
+import { View, Dimensions } from 'react-native';
 
+// components
+import Text from '../components/common/Text';
 import Button from '../components/common/Button';
 import LoadingCircle from '../components/common/LoadingCircle';
 import Map from '../components/Map/Map';
 
+// hooks
 import useFetch from '../hooks/useFetch';
 
+// styles
 import styles from '../styles/MapStyles';
 
 styles.mapContainer = {

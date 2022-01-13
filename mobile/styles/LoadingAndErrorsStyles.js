@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+import colors from './Colors';
+
 const LoadingAndErrorsStyles = StyleSheet.create({
   loadingCircle: {
     paddingTop: 100,
@@ -9,18 +11,18 @@ const LoadingAndErrorsStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     margin: 10,
-    backgroundColor: '#F47174',
+    backgroundColor: colors.error,
     borderRadius: 5,
   },
   locationErrorText: {
     fontSize: 15,
-    color: '#fff',
+    color: colors.white,
   },
   locationLoading: {
     margin: 10,
     padding: 10,
     borderRadius: 5,
-    backgroundColor: '#F5DF4D',
+    backgroundColor: colors.info,
     flexDirection: 'row',
     justifyContent: 'center',
   },

@@ -1,7 +1,9 @@
 // librarys
 import React from 'react';
-import { View, Text, Pressable, Settings } from 'react-native';
+import { View } from 'react-native';
 
+// components
+import Text from '../common/Text';
 import SettingsMethod from './SettingsMethod';
 
 // styles
