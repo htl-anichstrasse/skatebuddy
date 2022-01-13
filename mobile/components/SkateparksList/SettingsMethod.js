@@ -1,6 +1,10 @@
+// libraries
 import React from 'react';
-import { View, Text, Pressable } from 'react-native';
+import { View, Pressable } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+
+// components
+import Text from '../common/Text';
 
 import styles from '../../styles/SkateparksStyles';
 

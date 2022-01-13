@@ -1,6 +1,9 @@
 // libraries
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+
+// components
+import Text from '../common/Text';
 
 // styles
 import styles from '../../styles/LoginSignupStyles';

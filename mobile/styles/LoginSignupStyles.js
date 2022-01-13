@@ -15,7 +15,6 @@ const LoginSignupStyles = StyleSheet.create({
   headerText: {
     fontSize: 30,
     fontWeight: 'bold',
-    color: colors.text,
   },
   headerTextColor: {
     fontSize: 30,
@@ -24,7 +23,6 @@ const LoginSignupStyles = StyleSheet.create({
   },
   inputLabel: {
     fontSize: 16,
-    color: colors.text,
     marginHorizontal: 20,
     marginTop: 40,
   },
@@ -73,7 +71,6 @@ const LoginSignupStyles = StyleSheet.create({
   signUpLinkText: {
     padding: 20,
     paddingRight: 5,
-    color: colors.text,
   },
   signUpLink: {
     padding: 20,

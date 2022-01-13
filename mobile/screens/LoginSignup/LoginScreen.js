@@ -1,11 +1,12 @@
 // libraries
 import React from 'react';
-import { Text, View, Pressable, Keyboard } from 'react-native';
+import { View, Pressable, Keyboard } from 'react-native';
 import * as Keychain from 'react-native-keychain';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 
 // components
+import Text from '../../components/common/Text';
 import LoginScreenHeader from '../../components/LoginSignup/Header';
 import TextInput from '../../components/LoginSignup/TextInput';
 import LoginButton from '../../components/LoginSignup/LoginButton';
@@ -103,20 +104,6 @@ const LoginScreen = ({ navigation }) => {
           </Pressable>
         </View>
       </Pressable>
-
-      {/* <Button
-        title="Sign in"
-        onPress={() => signIn({ username: email, password })}
-      />
-      <Button
-        title="Print auth state"
-        onPress={() => {
-          console.log(state);
-          Keychain.getInternetCredentials('jwt').then(creds => {
-            console.log(creds);
-          });
-        }}
-      /> */}
     </View>
   );
 };

@@ -1,16 +1,25 @@
 import { StyleSheet } from 'react-native';
+import colors from './Colors';
 
 const GlobalStyles = StyleSheet.create({
-  splashScreen: {
+  splashScreenContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
+  logoContainer: {
+    height: 400,
+    width: 400,
+  },
+  splashScreenTextContainer: {
+    flexDirection: 'row',
+  },
   splashScreenText: {
     fontSize: 50,
-    color: '#000',
-    position: 'absolute',
-    bottom: 100,
+  },
+  splashScreenTextColor: {
+    fontSize: 50,
+    color: colors.primary,
   },
   shadow: {
     shadowColor: '#000',
