@@ -18,7 +18,6 @@ const CreateAccount = (id) => {
         password: yup.string()
             .required('Passwort muss angegeben sein'),
         confirmPassword: yup.string()
-            .required('Confirm Password is required')
             .oneOf([yup.ref('password')], 'Passwörter stimmen nicht überein')
 
     });
