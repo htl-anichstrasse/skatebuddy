@@ -8,8 +8,12 @@ import Reviews from '../reviews/Reviews';
 
 
 const Park = ({ text }) => <div>{text}</div>;
+const User = ({ text }) => <div>{text}</div>;
 
 const ParkDetails = () => {
+
+  const [UserLangitude, setUserLangitude] = useState(null);
+  const [UserLongitude, setUserLongitude] = useState(null);
   const { id } = useParams();
   const {
     data: park,
@@ -42,13 +46,18 @@ const ParkDetails = () => {
       setKeys(text);
     });
 
+    navigator.geolocation.getCurrentPosition(function(position) {
+      setUserLangitude(position.coords.latitude);
+      setUserLongitude(position.coords.longitude);
+  });
+
   return (
     <div className="park-details">
       {isPending && picIsPending && <div>Loading...</div>}
       {error && <div>{error}</div>}
       {picError && <di>{picError}</di>}
-      {park && Keys && picture && (
-        <>
+      {park && Keys && picture &&(
+        <div>
           <h2 className="ParkName">{park[0].name}</h2>
 
           <div
@@ -69,14 +78,19 @@ const ParkDetails = () => {
                 lng={park[0].longitude}
                 text="My Marker"
               />
+              {UserLangitude && <User 
+                lat={UserLangitude}
+                lng={UserLongitude}
+                text="User"
+              />}
             </GoogleMapReact>
+            </div>
           </div>
+          )}
           <div className="Reviews">
             <Reviews id={id}></Reviews>
           </div>
-        </>
-      )}
-    </div>
+        </div>
   );
 };
 

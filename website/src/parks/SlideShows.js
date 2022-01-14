@@ -15,7 +15,7 @@ const slideImages = [
 const Slideshow = () => {
     return (
       <div className="slide-container">
-        <Slide autoplay={false}>
+        <Slide autoplay={false} transitionDuration={420}>
          {slideImages.map((slideImage, index)=> (
             <div className="each-slide" key={index}>
               <div style={{'backgroundImage': `url(${slideImage.url})`}} className='bg'>

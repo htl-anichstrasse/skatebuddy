@@ -12,7 +12,7 @@ const LogOut = () => {
 
   return (
     <nav className="navbar">
-      <div className="nav">
+      <div className="navi">
         <Link to="/" className='home-nav'>
           Home
         </Link>

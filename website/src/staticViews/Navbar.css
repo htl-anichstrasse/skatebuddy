@@ -4,9 +4,10 @@
   background-color: white;
   height: 5vh;
   font-size: large;
+  z-index: 1000;
 }
 
-.nav {
+.navi {
   padding: 10px;
 }
 
