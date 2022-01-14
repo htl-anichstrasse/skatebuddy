@@ -1,22 +1,21 @@
 // librarys
 import React, { useState, useEffect, useReducer } from 'react';
-import { Text, View, FlatList, RefreshControl } from 'react-native';
+import { View, FlatList, RefreshControl } from 'react-native';
 
 // components
+import Text from '../components/common/Text';
 import SkateparkEntry from '../components/SkateparksList/Entry/SkateparkEntry';
 import SkateparksListSettings from '../components/SkateparksList/SkateparksListSettings';
 import LocationError from '../components/SkateparksList/LocationError';
 import LocationLoading from '../components/SkateparksList/LocationLoading';
-
-import Button from '../components/common/Button';
 import LoadingCircle from '../components/common/LoadingCircle';
-
-// styles
-import styles from '../styles/SkateparksStyles';
 
 // hooks
 import useFetch from '../hooks/useFetch';
 import useLocation from '../hooks/useLocation';
+
+// styles
+import styles from '../styles/SkateparksStyles';
 
 const initialState = {
   sortBy: '',

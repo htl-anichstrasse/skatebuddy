@@ -1,8 +1,14 @@
+// libraries
 import React from 'react';
-import { View, Text } from 'react-native';
-
+import { View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
+// components
+import Text from '../../common/Text';
+
+// hooks
+
+// styles
 import styles from '../../../styles/SkateparksStyles';
 import gStyles from '../../../styles/GlobalStyles';
 import colors from '../../../styles/Colors';

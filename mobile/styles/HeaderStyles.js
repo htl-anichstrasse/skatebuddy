@@ -12,7 +12,6 @@ const HeaderStyles = StyleSheet.create({
   title: {
     fontSize: 30,
     fontWeight: 'bold',
-    color: '#000',
     textAlign: 'left',
   },
   reload: {

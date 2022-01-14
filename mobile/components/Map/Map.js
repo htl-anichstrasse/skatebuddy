@@ -1,8 +1,13 @@
-import React, { useRef } from 'react';
+// libraries
+import React from 'react';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import SkateparkMarkers from './SkateparkMarkers';
-import Button from '../common/Button';
 
+// components
+import SkateparkMarkers from './SkateparkMarkers';
+
+// hooks
+
+// styles
 import mapStyles from '../../styles/MapStyles';
 
 const Map = ({ skateparks, mapRef, onCalloutPress }) => {

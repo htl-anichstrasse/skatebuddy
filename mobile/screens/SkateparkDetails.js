@@ -1,15 +1,19 @@
+// libraries
 import React, { useState } from 'react';
-import { View, Text, Dimensions, ScrollView } from 'react-native';
+import { View, Dimensions, ScrollView } from 'react-native';
 
+// components
+import Text from '../components/common/Text';
 import LoadingCircle from '../components/common/LoadingCircle';
 import Button from '../components/common/Button';
-
 import AdditionalInfo from '../components/SkateparkDetails/InfoReviews/AdditionalInfo';
 import Reviews from '../components/SkateparkDetails/InfoReviews/Reviews';
 import Obstacles from '../components/SkateparkDetails/Obstacles/Obstacles';
 
+// hooks
 import useFetch from '../hooks/useFetch';
 
+// styles
 import styles from '../styles/SkateparkDetailsStyles';
 
 styles.column = {

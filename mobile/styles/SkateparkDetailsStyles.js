@@ -8,7 +8,6 @@ const SkateparkDetailsStyles = StyleSheet.create({
     padding: 10,
     textAlign: 'center',
     fontSize: 25,
-    color: '#000',
     borderColor: '#ddd',
     borderBottomWidth: 1,
     borderStyle: 'solid',

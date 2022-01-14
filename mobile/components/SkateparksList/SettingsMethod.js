@@ -6,6 +6,9 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 // components
 import Text from '../common/Text';
 
+// hooks
+
+// styles
 import styles from '../../styles/SkateparksStyles';
 
 const SettingsMethod = ({ method, state, dispatch }) => {

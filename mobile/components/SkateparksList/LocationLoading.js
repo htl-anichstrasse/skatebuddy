@@ -1,5 +1,11 @@
+// libraries
 import React from 'react';
-import { View, Text, ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator } from 'react-native';
+
+// components
+import Text from '../common/Text';
+
+// styles
 import styles from '../../styles/LoadingAndErrorsStyles';
 
 const LocationLoading = () => {

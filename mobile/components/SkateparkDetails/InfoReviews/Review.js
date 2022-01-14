@@ -1,6 +1,13 @@
+// libraries
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 
+// components
+import Text from '../../common/Text';
+
+// hooks
+
+// styles
 import styles from '../../../styles/ReviewsStyles';
 
 const Review = ({ review }) => {

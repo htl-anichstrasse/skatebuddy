@@ -27,7 +27,7 @@ const LoginSignupStyles = StyleSheet.create({
     marginTop: 40,
   },
   inputContainer: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.white,
     marginHorizontal: 20,
     flexDirection: 'row',
     alignItems: 'center',
@@ -60,7 +60,7 @@ const LoginSignupStyles = StyleSheet.create({
     width: '30%',
   },
   loginButtonText: {
-    color: '#fff',
+    color: colors.white,
     fontSize: 18,
     fontWeight: 'bold',
   },

@@ -1,9 +1,8 @@
 // librarys
 import React, { useState, useEffect } from 'react';
-import { View, Text, Pressable, Image } from 'react-native';
+import { View, Pressable, Image } from 'react-native';
 
 // components
-import Button from '../../common/Button';
 import EntryHeader from './EntryHeader';
 import EntryDirections from './EntryDirections';
 

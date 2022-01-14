@@ -20,7 +20,7 @@ const SkateparksStyles = StyleSheet.create({
     width: '25%',
     borderStyle: 'solid',
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: colors.gray1,
   },
   settingsMethodText: {
     textAlign: 'center',
@@ -34,19 +34,16 @@ const SkateparksStyles = StyleSheet.create({
     borderRadius: 10,
     marginVertical: 5,
     marginHorizontal: 10,
-    backgroundColor: '#fff',
+    backgroundColor: colors.white,
     padding: 10,
   },
   titleContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'flex-end',
-    marginBottom: 10,
+    alignItems: 'flex-start',
   },
   entryName: {
-    // * Legendary
-    color: colors.text,
-    fontSize: 18,
+    fontSize: 24,
     fontFamily: 'Poppins-Bold',
   },
   entryRatingContainer: {
@@ -57,19 +54,14 @@ const SkateparksStyles = StyleSheet.create({
     borderRadius: 10,
   },
   entryRatingText: {
-    color: '#fff',
+    color: colors.white,
     paddingTop: 4,
     fontSize: 16,
-    fontFamily: 'Poppins-Regular',
   },
   entryDirectionsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    // borderColor: colors.gray1,
-    // borderWidth: 1,
-    // borderStyle: 'solid',
-    // borderRadius: 10,
     marginBottom: 5,
   },
   entryDirectionsMethodContainer: {
@@ -78,18 +70,10 @@ const SkateparksStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  entryDirectionsMethodContainerBorder: {
-    // borderRightColor: colors.gray1,
-    // borderRightWidth: 1,
-    // borderStyle: 'solid',
-  },
   entryDirectionsMethodText: {
-    fontFamily: 'Poppins-Regular',
     fontSize: 12,
     paddingRight: 5,
-    color: colors.text,
   },
-  entryDirectionsIcon: {},
   entryImage: {
     flex: 1,
     width: '100%',

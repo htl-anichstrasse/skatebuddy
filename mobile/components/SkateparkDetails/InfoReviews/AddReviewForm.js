@@ -1,12 +1,17 @@
+// libraries
 import React, { useState } from 'react';
-import { View, Text, TextInput } from 'react-native';
-
+import { View, TextInput } from 'react-native';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import Slider from '@react-native-community/slider';
 
+// components
+import Text from '../../common/Text';
 import Button from '../../common/Button';
 
+// hooks
+
+// styles
 import styles from '../../../styles/SkateparkDetailsStyles';
 
 const reviewSchema = yup.object({
