@@ -8,28 +8,45 @@ const SkateparksStyles = StyleSheet.create({
     backgroundColor: colors.background,
   },
   settingsContainer: {
-    backgroundColor: colors.background,
-  },
-  settingsText: {
-    textAlign: 'center',
-  },
-  settingsMethods: {
     flexDirection: 'row',
   },
-  settingsMethod: {
-    width: '25%',
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: colors.gray1,
-  },
-  settingsMethodText: {
-    textAlign: 'center',
-  },
-  settingsMethodTextContainer: {
+  searchBarContainer: {
+    flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
     alignItems: 'center',
+    backgroundColor: colors.gray1,
+    margin: 10,
+    borderRadius: 10,
   },
+  searchBarInput: {
+    padding: 0,
+    color: colors.text,
+    flex: 1,
+  },
+  sortBoxContainer: {
+    backgroundColor: colors.gray1,
+    borderRadius: 10,
+    margin: 10,
+    paddingHorizontal: 10,
+    marginLeft: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  sortModalContainer: {
+    flex: 1,
+  },
+  sortModalOpacity: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+  },
+  sortModalContent: {
+    backgroundColor: colors.background,
+    padding: 20,
+  },
+  sortModalCloseContainer: {
+    alignSelf: 'center',
+  },
+  sortModalClose: { padding: 10, paddingHorizontal: 50 },
   entryContainer: {
     borderRadius: 10,
     marginVertical: 5,

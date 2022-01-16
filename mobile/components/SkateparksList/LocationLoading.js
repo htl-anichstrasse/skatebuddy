@@ -10,8 +10,10 @@ import styles from '../../styles/LoadingAndErrorsStyles';
 
 const LocationLoading = () => {
   return (
-    <View style={styles.locationLoading}>
-      <Text style={styles.locationLoadingText}>Location service pending</Text>
+    <View
+      style={[styles.locationInfoContainer, styles.locationLoadingContainer]}
+    >
+      <Text style={styles.locationInfoText}>Location service pending</Text>
       <ActivityIndicator />
     </View>
   );
