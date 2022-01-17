@@ -4,17 +4,24 @@ import { View } from 'react-native';
 
 // components
 import Text from '../common/Text';
-import SettingsMethod from './SettingsMethod';
 import SearchBar from './SearchBar';
 import SortBox from './SortBox';
 
 // styles
 import styles from '../../styles/SkateparksStyles';
 
-const SkateparksListSettings = ({ state, dispatch }) => {
+const SkateparksListSettings = ({
+  state,
+  dispatch,
+  searchString,
+  setSearchString,
+}) => {
   return (
     <View style={styles.settingsContainer}>
-      <SearchBar />
+      <SearchBar
+        searchString={searchString}
+        setSearchString={setSearchString}
+      />
       <SortBox state={state} dispatch={dispatch} />
       {/* <Text style={styles.settingsText}>Sort by Duration</Text>
       <View style={styles.settingsMethods}>

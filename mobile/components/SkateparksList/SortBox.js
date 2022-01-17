@@ -11,7 +11,7 @@ import SortModal from './SortModal';
 // styles
 import styles from '@styles/SkateparksStyles';
 
-const SortBox = () => {
+const SortBox = ({ state, dispatch }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -26,6 +26,8 @@ const SortBox = () => {
       <SortModal
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
+        state={state}
+        dispatch={dispatch}
       />
     </Pressable>
   );

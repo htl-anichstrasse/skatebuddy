@@ -35,7 +35,7 @@ const BottomTabsNavigator = () => {
               iconName = focused ? 'map-search' : 'map-search-outline';
               break;
             case 'Profile':
-              iconName = focused ? 'shield-account' : 'shield-account-outline';
+              iconName = focused ? 'account-circle' : 'account-circle-outline';
               break;
             default:
               iconName = 'react';

@@ -4,13 +4,14 @@ import { Modal, View, Pressable } from 'react-native';
 
 // components
 import Text from '@components/common/Text';
+import SortMethod from './SortMethod';
 
 // hooks
 
 // styles
 import styles from '@styles/SkateparksStyles';
 
-const SortModal = ({ modalVisible, setModalVisible }) => {
+const SortModal = ({ modalVisible, setModalVisible, state, dispatch }) => {
   return (
     <>
       <Modal visible={modalVisible} transparent={true}>
@@ -28,7 +29,15 @@ const SortModal = ({ modalVisible, setModalVisible }) => {
         <View style={styles.sortModalContainer}>
           <View style={styles.sortModalContainer} />
           <View style={styles.sortModalContent}>
-            <Text>Sort</Text>
+            <Text>Sort by</Text>
+            <SortMethod method={'walking'} state={state} dispatch={dispatch} />
+            <SortMethod
+              method={'bicycling'}
+              state={state}
+              dispatch={dispatch}
+            />
+            <SortMethod method={'transit'} state={state} dispatch={dispatch} />
+            <SortMethod method={'driving'} state={state} dispatch={dispatch} />
 
             <View style={styles.sortModalCloseContainer}>
               <Pressable

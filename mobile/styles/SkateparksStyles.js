@@ -27,7 +27,7 @@ const SkateparksStyles = StyleSheet.create({
     backgroundColor: colors.gray1,
     borderRadius: 10,
     margin: 10,
-    paddingHorizontal: 10,
+    paddingHorizontal: 15,
     marginLeft: 0,
     alignItems: 'center',
     justifyContent: 'center',
@@ -47,6 +47,13 @@ const SkateparksStyles = StyleSheet.create({
     alignSelf: 'center',
   },
   sortModalClose: { padding: 10, paddingHorizontal: 50 },
+  sortMethodContainer: {
+    flexDirection: 'row',
+    paddingVertical: 5,
+  },
+  sortMethodText: {
+    paddingLeft: 10,
+  },
   entryContainer: {
     borderRadius: 10,
     marginVertical: 5,
