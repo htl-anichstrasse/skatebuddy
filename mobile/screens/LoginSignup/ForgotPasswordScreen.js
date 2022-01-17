@@ -1,19 +1,93 @@
 // libraries
 import React from 'react';
-import { View } from 'react-native';
+import { View, Pressable, Keyboard } from 'react-native';
+import { Formik } from 'formik';
+import * as yup from 'yup';
 
 // components
 import Text from '../../components/common/Text';
+import Header from '../../components/LoginSignup/Header';
+import TextInput from '../../components/LoginSignup/TextInput';
+import SendButton from '../../components/LoginSignup/SendButton';
 
 // hooks
-// styles
+import {
+  useAuthContext,
+  useAuthContextState,
+} from '../../contexts/AuthContext';
 
-const ForgotPasswordScreen = () => {
+// styles
+import styles from '../../styles/LoginSignupStyles';
+
+const reviewSchema = yup.object({
+  email: yup.string().required('Email leer').email('Ungültige Email-Adresse'),
+});
+
+const LoginScreen = ({ navigation }) => {
+  const state = useAuthContextState();
+  const { forgotPassword } = useAuthContext();
+
   return (
-    <View>
-      <Text>ForgotPassword</Text>
+    <View style={styles.container}>
+      <Pressable onPress={() => Keyboard.dismiss()} style={styles.container}>
+        <Header text="Passwort" color="Zurücksetzen" />
+
+        <Formik
+          initialValues={{ email: '' }}
+          validationSchema={reviewSchema}
+          onSubmit={(values, actions) => {
+            actions.resetForm();
+            forgotPassword({ email: values.email });
+          }}
+        >
+          {({
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            values,
+            touched,
+            errors,
+          }) => (
+            <>
+              <Text style={styles.inputLabel}>Email-Adresse</Text>
+              <TextInput
+                name="email"
+                icon="email"
+                autoComplete="email"
+                value={values.email}
+                onChangeText={handleChange('email')}
+                onBlur={handleBlur('email')}
+                touched={touched.email}
+                errors={errors.email}
+                //
+                keyboardType={'email-address'}
+              />
+
+              <Text style={styles.errorText}>
+                {touched.email && errors.email}{' '}
+              </Text>
+
+              <SendButton
+                text="Link senden"
+                handleSubmit={handleSubmit}
+                icon="email-send-outline"
+              />
+            </>
+          )}
+        </Formik>
+        <View style={styles.linkContainer}>
+          <Text>Du weißt bereits dein Passwort?</Text>
+          <Pressable
+            onPress={() => {
+              navigation.navigate('Login');
+            }}
+          >
+            <Text style={styles.link}>Melde dich an</Text>
+          </Pressable>
+        </View>
+      </Pressable>
     </View>
   );
 };
 
-export default ForgotPasswordScreen;
+export default LoginScreen;

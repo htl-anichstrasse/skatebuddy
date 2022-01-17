@@ -1,13 +1,12 @@
 // libraries
 import React from 'react';
 import { View, Pressable, Keyboard } from 'react-native';
-import * as Keychain from 'react-native-keychain';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 
 // components
 import Text from '../../components/common/Text';
-import LoginScreenHeader from '../../components/LoginSignup/Header';
+import Header from '../../components/LoginSignup/Header';
 import TextInput from '../../components/LoginSignup/TextInput';
 import SendButton from '../../components/LoginSignup/SendButton';
 
@@ -21,11 +20,8 @@ import {
 import styles from '../../styles/LoginSignupStyles';
 
 const reviewSchema = yup.object({
-  email: yup
-    .string()
-    .required('Email-Feld leer')
-    .email('Ungültige Email-Adresse'),
-  password: yup.string().required('Passwort-Feld leer'),
+  email: yup.string().required('Email leer').email('Ungültige Email-Adresse'),
+  password: yup.string().required('Passwort leer'),
 });
 
 const LoginScreen = ({ navigation }) => {
@@ -35,14 +31,14 @@ const LoginScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Pressable onPress={() => Keyboard.dismiss()} style={styles.container}>
-        <LoginScreenHeader />
+        <Header text="Skate" color="Buddy" />
 
         <Formik
           initialValues={{ email: '', password: '' }}
           validationSchema={reviewSchema}
           onSubmit={(values, actions) => {
             actions.resetForm();
-            signIn({ username: values.email, password: values.password });
+            signIn({ email: values.email, password: values.password });
           }}
         >
           {({
@@ -89,33 +85,33 @@ const LoginScreen = ({ navigation }) => {
                 {touched.password && errors.password}{' '}
               </Text>
 
-              <View style={styles.signUpLinkContainer}>
-                <Text style={styles.signUpLinkText}>Passwort vergessen?</Text>
+              <View style={styles.linkContainer}>
+                <Text>Passwort vergessen?</Text>
                 <Pressable
                   onPress={() => {
                     navigation.navigate('ForgotPassword');
                   }}
                 >
-                  <Text style={styles.forgotPasswordLink}>Zurücksetzen</Text>
+                  <Text style={styles.link}>Zurücksetzen</Text>
                 </Pressable>
               </View>
 
               <SendButton
-                text="Login"
+                text="Anmelden"
                 handleSubmit={handleSubmit}
-                icon="log-in-outline"
+                icon="location-enter"
               />
             </>
           )}
         </Formik>
-        <View style={styles.signUpLinkContainer}>
-          <Text style={styles.signUpLinkText}>Du hast kein Konto?</Text>
+        <View style={styles.linkContainer}>
+          <Text>Du hast kein Konto?</Text>
           <Pressable
             onPress={() => {
               navigation.navigate('Signup');
             }}
           >
-            <Text style={styles.signUpLink}>Registrieren</Text>
+            <Text style={styles.link}>Registrieren</Text>
           </Pressable>
         </View>
       </Pressable>

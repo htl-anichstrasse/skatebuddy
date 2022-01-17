@@ -1,7 +1,7 @@
 // libraries
 import React from 'react';
 import { View, Pressable } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 // components
 import Text from '../common/Text';
@@ -19,9 +19,9 @@ const SendButton = ({ handleSubmit, text, icon }) => {
       style={[styles.loginButtonContainer, gStyles.shadow]}
     >
       <Text style={styles.loginButtonText}>{text}</Text>
-      <Ionicons
+      <MaterialCommunityIcons
         name={icon}
-        size={text == 'Login' ? 24 : 20}
+        size={24}
         color={styles.loginButtonText.color}
       />
     </Pressable>

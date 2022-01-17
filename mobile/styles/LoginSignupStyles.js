@@ -8,8 +8,7 @@ const LoginSignupStyles = StyleSheet.create({
   },
   headerContainer: {
     alignSelf: 'center',
-    marginTop: 40,
-    marginBottom: 40,
+    marginVertical: 20,
     flexDirection: 'row',
   },
   headerText: {
@@ -67,18 +66,15 @@ const LoginSignupStyles = StyleSheet.create({
   },
   loginButtonText: {
     color: colors.white,
+    marginRight: 5,
     fontSize: 18,
     fontWeight: 'bold',
   },
-  signUpLinkContainer: {
+  linkContainer: {
     flexDirection: 'row',
     alignSelf: 'center',
   },
-  signUpLink: {
-    paddingLeft: 5,
-    color: colors.pGradient[5],
-  },
-  forgotPasswordLink: {
+  link: {
     paddingLeft: 5,
     color: colors.pGradient[5],
   },

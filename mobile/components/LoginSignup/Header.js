@@ -8,11 +8,11 @@ import Text from '../common/Text';
 // styles
 import styles from '../../styles/LoginSignupStyles';
 
-const Header = () => {
+const Header = ({ text, color }) => {
   return (
     <View style={styles.headerContainer}>
-      <Text style={styles.headerText}>Skate</Text>
-      <Text style={styles.headerTextColor}>Buddy</Text>
+      <Text style={styles.headerText}>{text}</Text>
+      <Text style={styles.headerTextColor}>{color}</Text>
     </View>
   );
 };
