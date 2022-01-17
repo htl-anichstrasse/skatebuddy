@@ -44,7 +44,7 @@ const SearchBar = ({ searchString, setSearchString }) => {
       {searchString != '' && (
         <Pressable
           onPress={() => {
-            setSearchText('');
+            setSearchString('');
             inputRef.current.blur();
           }}
         >

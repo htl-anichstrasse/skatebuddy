@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <View style={styles.headerContainer}>
       <Text style={styles.headerText}>Skate</Text>
-      <Text style={styles.headerTextColor}>Bubatz</Text>
+      <Text style={styles.headerTextColor}>Buddy</Text>
     </View>
   );
 };

@@ -9,7 +9,7 @@ const LoginSignupStyles = StyleSheet.create({
   headerContainer: {
     alignSelf: 'center',
     marginTop: 40,
-    marginBottom: 20,
+    marginBottom: 40,
     flexDirection: 'row',
   },
   headerText: {
@@ -23,8 +23,8 @@ const LoginSignupStyles = StyleSheet.create({
   },
   inputLabel: {
     fontSize: 16,
+    marginTop: 10,
     marginHorizontal: 20,
-    marginTop: 40,
   },
   inputContainer: {
     backgroundColor: colors.white,
@@ -45,19 +45,25 @@ const LoginSignupStyles = StyleSheet.create({
     borderBottomColor: colors.error,
   },
   input: {
+    color: colors.text,
     flex: 1,
     fontSize: 18,
+  },
+  errorText: {
+    marginHorizontal: 20,
+    color: colors.error,
   },
   loginButtonContainer: {
     flexDirection: 'row',
     borderRadius: 25,
     backgroundColor: colors.primary,
     padding: 10,
+    paddingHorizontal: 20,
+    marginVertical: 20,
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
     height: 50,
-    width: '30%',
   },
   loginButtonText: {
     color: colors.white,
@@ -68,14 +74,13 @@ const LoginSignupStyles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'center',
   },
-  signUpLinkText: {
-    padding: 20,
-    paddingRight: 5,
-  },
   signUpLink: {
-    padding: 20,
-    paddingLeft: 0,
-    color: colors.primary,
+    paddingLeft: 5,
+    color: colors.pGradient[5],
+  },
+  forgotPasswordLink: {
+    paddingLeft: 5,
+    color: colors.pGradient[5],
   },
 });
 

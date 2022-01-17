@@ -47,7 +47,7 @@ const AuthProvider = ({ children }) => {
       restoreToken: async userToken => {
         setTimeout(() => {
           dispatch({ type: 'RESTORE_TOKEN', token: userToken });
-        }, 1000);
+        }, 500);
       },
       signIn: async data => {
         // In a production app, we need to send some data (usually username, password) to server and get a token

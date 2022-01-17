@@ -9,7 +9,7 @@ import * as yup from 'yup';
 import Text from '../../components/common/Text';
 import LoginScreenHeader from '../../components/LoginSignup/Header';
 import TextInput from '../../components/LoginSignup/TextInput';
-import LoginButton from '../../components/LoginSignup/LoginButton';
+import SendButton from '../../components/LoginSignup/SendButton';
 
 // hooks
 import {
@@ -21,8 +21,11 @@ import {
 import styles from '../../styles/LoginSignupStyles';
 
 const reviewSchema = yup.object({
-  email: yup.string().required().email(),
-  password: yup.string().required().min(8),
+  email: yup
+    .string()
+    .required('Email-Feld leer')
+    .email('Ungültige Email-Adresse'),
+  password: yup.string().required('Passwort-Feld leer'),
 });
 
 const LoginScreen = ({ navigation }) => {
@@ -51,7 +54,7 @@ const LoginScreen = ({ navigation }) => {
             errors,
           }) => (
             <>
-              <Text style={styles.inputLabel}>Email</Text>
+              <Text style={styles.inputLabel}>Email-Adresse</Text>
               <TextInput
                 name="email"
                 icon="email"
@@ -65,7 +68,11 @@ const LoginScreen = ({ navigation }) => {
                 keyboardType={'email-address'}
               />
 
-              <Text style={styles.inputLabel}>Password</Text>
+              <Text style={styles.errorText}>
+                {touched.email && errors.email}{' '}
+              </Text>
+
+              <Text style={styles.inputLabel}>Passwort</Text>
               <TextInput
                 name="password"
                 icon="lock"
@@ -78,29 +85,37 @@ const LoginScreen = ({ navigation }) => {
                 //
                 secureTextEntry={true}
               />
+              <Text style={styles.errorText}>
+                {touched.password && errors.password}{' '}
+              </Text>
+
               <View style={styles.signUpLinkContainer}>
-                <Text style={styles.signUpLinkText}>Forgot password?</Text>
+                <Text style={styles.signUpLinkText}>Passwort vergessen?</Text>
                 <Pressable
                   onPress={() => {
                     navigation.navigate('ForgotPassword');
                   }}
                 >
-                  <Text style={styles.signUpLink}>Recover here</Text>
+                  <Text style={styles.forgotPasswordLink}>Zurücksetzen</Text>
                 </Pressable>
               </View>
 
-              <LoginButton handleSubmit={handleSubmit} />
+              <SendButton
+                text="Login"
+                handleSubmit={handleSubmit}
+                icon="log-in-outline"
+              />
             </>
           )}
         </Formik>
         <View style={styles.signUpLinkContainer}>
-          <Text style={styles.signUpLinkText}>Don't have an account? </Text>
+          <Text style={styles.signUpLinkText}>Du hast kein Konto?</Text>
           <Pressable
             onPress={() => {
               navigation.navigate('Signup');
             }}
           >
-            <Text style={styles.signUpLink}>Sign-up here</Text>
+            <Text style={styles.signUpLink}>Registrieren</Text>
           </Pressable>
         </View>
       </Pressable>
