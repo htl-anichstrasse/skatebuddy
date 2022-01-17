@@ -32,11 +32,9 @@ const Reviews = ({ reviews, newReview }) => {
       <View style={styles.container}>
         <Text style={styles.headerText}>Anzahl Reviews: {reviews.length}</Text>
         <View style={styles.reviewsContainer}>
-          <FlatList
-            data={reviews}
-            renderItem={({ item }) => <Review review={item} />}
-            keyExtractor={item => item.reviewId}
-          />
+          {reviews.map(review => (
+            <Review key={review.reviewId} review={review} />
+          ))}
         </View>
       </View>
     </>

@@ -45,25 +45,11 @@ const SkateparkDetails = ({ navigation, route }) => {
       <Text style={styles.title}>{skatepark.name}</Text>
 
       <View style={styles.horizontalScroll}>
-        <ScrollView
-          ref={ref => {
-            setHScrollRef(ref);
-          }}
-          horizontal={true}
-          pagingEnabled={true}
-        >
+        <ScrollView>
           <View style={styles.column}>
             <AdditionalInfo skatepark={skatepark} />
 
-            <Button
-              title="To Obstacles"
-              onPress={() => {
-                hScrollRef.scrollTo({
-                  x: Dimensions.get('window').width,
-                  animated: true,
-                });
-              }}
-            />
+            <Obstacles />
 
             {isLoading && <LoadingCircle />}
             {error && <Text>Error!</Text>}
@@ -74,9 +60,6 @@ const SkateparkDetails = ({ navigation, route }) => {
                 newReview={newReview}
               />
             )}
-          </View>
-          <View style={styles.column}>
-            <Obstacles />
           </View>
         </ScrollView>
       </View>
