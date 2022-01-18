@@ -11,6 +11,23 @@ const GlobalStyles = StyleSheet.create({
     height: 400,
     width: 400,
   },
+  buttonContainer: {
+    flexDirection: 'row',
+    borderRadius: 25,
+    backgroundColor: colors.primary,
+    padding: 10,
+    paddingHorizontal: 20,
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 50,
+  },
+  buttonText: {
+    color: colors.white,
+    marginRight: 5,
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
   splashScreenTextContainer: {
     flexDirection: 'row',
   },

@@ -21,8 +21,32 @@ Skatepark.getById = (con, id) => {
                     return reject(err);
                 }
                 return resolve(
-                    new Skatepark(result[0].Name, result[0].Lon, result[0].Lat),
+                    new Skatepark(
+                        result[0].Name,
+                        result[0].Lon,
+                        result[0].Lat,
+                        result[0].Address,
+                        result[0].Busstop,
+                    ),
                 );
+            },
+        );
+    });
+};
+
+Skatepark.getAllObstaclesFromPark = (con, id) => {
+    return new Promise((resolve, reject) => {
+        con.query(
+            `Select skaterpark_obstacle_connector.ObstacleID 
+            from skaterpark_obstacle_connector 
+            INNER JOIN skateparks ON skaterpark_obstacle_connector.SkateparkID = skateparks.SkateparkID 
+            where skateparks.SkateparkID = ?;`,
+            [id],
+            (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                return resolve(result);
             },
         );
     });
@@ -50,11 +74,36 @@ Skatepark.getAllPicturesFromPark = (con, id) => {
         );
     });
 };
+
+Skatepark.getAvgRating = (con, id) => {
+    return new Promise((resolve, reject) => {
+        con.query(
+            `Select avg(reviews.rating)
+            as rating
+            from reviews 
+            INNER JOIN skateparks ON reviews.SkateparkID = skateparks.SkateparkID 
+            where skateparks.SkateparkID = ?;`,
+            [id],
+            (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                return resolve(result[0].rating);
+            },
+        );
+    });
+};
 Skatepark.insertValue = (con, skatepark) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'Insert into skateparks(Name, Lon, Lat) values (?, ?, ?)',
-            [skatepark.name, skatepark.lon, skatepark.lat],
+            'Insert into skateparks(Name, Lon, Lat, Address, Busstop) values (?, ?, ?, ?, ?)',
+            [
+                skatepark.name,
+                skatepark.lon,
+                skatepark.lat,
+                skatepark.address,
+                skatepark.busstop,
+            ],
             (err, result) => {
                 if (err) {
                     return reject(err);

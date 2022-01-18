@@ -1,15 +1,14 @@
 // libraries
 import React from 'react';
 import { View, Pressable, Keyboard } from 'react-native';
-import * as Keychain from 'react-native-keychain';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 
 // components
 import Text from '../../components/common/Text';
-import LoginScreenHeader from '../../components/LoginSignup/Header';
+import Button from '../../components/common/Button';
+import Header from '../../components/LoginSignup/Header';
 import TextInput from '../../components/LoginSignup/TextInput';
-import LoginButton from '../../components/LoginSignup/LoginButton';
 
 // hooks
 import {
@@ -21,8 +20,8 @@ import {
 import styles from '../../styles/LoginSignupStyles';
 
 const reviewSchema = yup.object({
-  email: yup.string().required().email(),
-  password: yup.string().required().min(8),
+  email: yup.string().required('Email leer').email('Ungültige Email-Adresse'),
+  password: yup.string().required('Passwort leer'),
 });
 
 const LoginScreen = ({ navigation }) => {
@@ -32,14 +31,14 @@ const LoginScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Pressable onPress={() => Keyboard.dismiss()} style={styles.container}>
-        <LoginScreenHeader />
+        <Header text="Skate" color="Buddy" />
 
         <Formik
           initialValues={{ email: '', password: '' }}
           validationSchema={reviewSchema}
           onSubmit={(values, actions) => {
             actions.resetForm();
-            signIn({ username: values.email, password: values.password });
+            signIn({ email: values.email, password: values.password });
           }}
         >
           {({
@@ -51,7 +50,7 @@ const LoginScreen = ({ navigation }) => {
             errors,
           }) => (
             <>
-              <Text style={styles.inputLabel}>Email</Text>
+              <Text style={styles.inputLabel}>Email-Adresse</Text>
               <TextInput
                 name="email"
                 icon="email"
@@ -65,7 +64,11 @@ const LoginScreen = ({ navigation }) => {
                 keyboardType={'email-address'}
               />
 
-              <Text style={styles.inputLabel}>Password</Text>
+              <Text style={styles.errorText}>
+                {touched.email && errors.email}{' '}
+              </Text>
+
+              <Text style={styles.inputLabel}>Passwort</Text>
               <TextInput
                 name="password"
                 icon="lock"
@@ -78,29 +81,39 @@ const LoginScreen = ({ navigation }) => {
                 //
                 secureTextEntry={true}
               />
-              <View style={styles.signUpLinkContainer}>
-                <Text style={styles.signUpLinkText}>Forgot password?</Text>
+              <Text style={styles.errorText}>
+                {touched.password && errors.password}{' '}
+              </Text>
+
+              <View style={styles.linkContainer}>
+                <Text>Passwort vergessen?</Text>
                 <Pressable
                   onPress={() => {
                     navigation.navigate('ForgotPassword');
                   }}
                 >
-                  <Text style={styles.signUpLink}>Recover here</Text>
+                  <Text style={styles.link}>Zurücksetzen</Text>
                 </Pressable>
               </View>
 
-              <LoginButton handleSubmit={handleSubmit} />
+              <Button
+                title="Anmelden"
+                onPress={handleSubmit}
+                icon="location-enter"
+                iconType="mci"
+                style={styles.button}
+              />
             </>
           )}
         </Formik>
-        <View style={styles.signUpLinkContainer}>
-          <Text style={styles.signUpLinkText}>Don't have an account? </Text>
+        <View style={styles.linkContainer}>
+          <Text>Du hast kein Konto?</Text>
           <Pressable
             onPress={() => {
               navigation.navigate('Signup');
             }}
           >
-            <Text style={styles.signUpLink}>Sign-up here</Text>
+            <Text style={styles.link}>Registrieren</Text>
           </Pressable>
         </View>
       </Pressable>

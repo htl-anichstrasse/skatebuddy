@@ -78,6 +78,7 @@ const SkateparksList = ({ navigation }) => {
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [searchString, setSearchString] = useState('');
 
   useEffect(() => {
     getLocation();
@@ -104,9 +105,17 @@ const SkateparksList = ({ navigation }) => {
               });
             }}
           /> */}
-          <SkateparksListSettings state={state} dispatch={dispatch} />
+          <SkateparksListSettings
+            state={state}
+            dispatch={dispatch}
+            searchString={searchString}
+            setSearchString={setSearchString}
+          />
           <FlatList
-            data={skateparks}
+            data={skateparks.filter(skatepark => {
+              const name = skatepark.name.toLowerCase();
+              return name.includes(searchString.toLowerCase());
+            })}
             extraData={state}
             renderItem={({ item }) => {
               return (

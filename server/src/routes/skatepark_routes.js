@@ -16,15 +16,29 @@ router.get('/skateparks', async (req, res, next) => {
 
 router.get('/skateparks/:id', async (req, res, next) => {
     try {
-        let parks = await Skatepark.getById(con, req.params.id);
+        let skatepark = await Skatepark.getById(con, req.params.id);
+        let rating = await Skatepark.getAvgRating(con, req.params.id);
+        let obstacles = await Skatepark.getAllObstaclesFromPark(
+            con,
+            req.params.id,
+        );
+        skatepark.rating = rating;
+        obstacles = JSON.parse(JSON.stringify(obstacles));
+        skatepark.obstacleIds = obstacles;
+        res.json(skatepark);
+    } catch (e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+});
+
+router.get('/skateparkpictures/:id', async (req, res, next) => {
+    try {
         let pictures = await Skatepark.getAllPicturesFromPark(
             con,
             req.params.id,
         );
-        var result = Object.assign(parks, pictures);
-        //Adi is gay
-        //res.json(results);
-        res.json(result);
+        res.json(pictures);
     } catch (e) {
         console.log(e);
         res.sendStatus(500);
@@ -37,6 +51,8 @@ router.post('/skateparks', async (req, res, next) => {
             req.body.name,
             req.body.lon,
             req.body.lat,
+            req.body.address,
+            req.body.busstop,
         );
         await Skatepark.insertValue(con, skatepark);
         res.send({ success: true, message: 'Succsessfully inserted' });

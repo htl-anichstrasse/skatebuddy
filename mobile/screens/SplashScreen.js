@@ -17,7 +17,7 @@ const SplashScreen = () => {
       </View>
       <View style={styles.splashScreenTextContainer}>
         <Text style={styles.splashScreenText}>Skate</Text>
-        <Text style={styles.splashScreenTextColor}>Bubatz</Text>
+        <Text style={styles.splashScreenTextColor}>Buddy</Text>
       </View>
     </View>
   );

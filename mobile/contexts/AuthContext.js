@@ -47,7 +47,7 @@ const AuthProvider = ({ children }) => {
       restoreToken: async userToken => {
         setTimeout(() => {
           dispatch({ type: 'RESTORE_TOKEN', token: userToken });
-        }, 1000);
+        }, 500);
       },
       signIn: async data => {
         // In a production app, we need to send some data (usually username, password) to server and get a token
@@ -57,7 +57,7 @@ const AuthProvider = ({ children }) => {
 
         const token = '#+dummy-auth-token12';
 
-        await Keychain.setInternetCredentials('jwt', data.username, token);
+        await Keychain.setInternetCredentials('jwt', data.email, token);
         dispatch({ type: 'SIGN_IN', token: token });
       },
       signOut: async () => {
@@ -69,8 +69,11 @@ const AuthProvider = ({ children }) => {
         // We will also need to handle errors if sign up failed
         // After getting token, we need to persist the token using `SecureStore` or any other encrypted storage
         // In the example, we'll use a dummy token
-
+        console.log(data);
         dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' });
+      },
+      forgotPassword: async data => {
+        console.log(data.email);
       },
     }),
     [],

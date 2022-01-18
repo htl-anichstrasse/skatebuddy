@@ -84,8 +84,8 @@ router.post('/login', async (req, res) => {
         }
 
         const user = await User.getByEmail(con, email);
-
-        if (user && (await bcrypt.compare(password, user.PasswordHash))) {
+        console.log(user);
+        if (user && (await bcrypt.compare(password, user.passwordHash))) {
             // Create token
             token = User.generateToken(user);
             res.send({ success: true, token: token });

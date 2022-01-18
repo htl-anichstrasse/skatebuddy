@@ -6,13 +6,6 @@ const ProfileStyles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.background,
   },
-  regularText: {
-    fontSize: 25,
-  },
-  customFontText: {
-    fontFamily: 'Poppins-Regular',
-    fontSize: 25,
-  },
 });
 
 export default ProfileStyles;
