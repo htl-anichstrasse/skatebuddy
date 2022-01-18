@@ -22,11 +22,11 @@ Skatepark.getById = (con, id) => {
                 }
                 return resolve(
                     new Skatepark(
-                        result[0].name,
-                        result[0].lon,
-                        result[0].lat,
-                        result[0].address,
-                        result[0].busstop,
+                        result[0].Name,
+                        result[0].Lon,
+                        result[0].Lat,
+                        result[0].Address,
+                        result[0].Busstop,
                     ),
                 );
             },
@@ -70,6 +70,25 @@ Skatepark.getAllPicturesFromPark = (con, id) => {
                 }
                 var result = Object.assign(result);
                 return resolve(pictures);
+            },
+        );
+    });
+};
+
+Skatepark.getAvgRating = (con, id) => {
+    return new Promise((resolve, reject) => {
+        con.query(
+            `Select avg(reviews.rating)
+            as rating
+            from reviews 
+            INNER JOIN skateparks ON reviews.SkateparkID = skateparks.SkateparkID 
+            where skateparks.SkateparkID = ?;`,
+            [id],
+            (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                return resolve(result[0].rating);
             },
         );
     });

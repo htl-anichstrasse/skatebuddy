@@ -16,13 +16,16 @@ router.get('/skateparks', async (req, res, next) => {
 
 router.get('/skateparks/:id', async (req, res, next) => {
     try {
-        let parks = await Skatepark.getById(con, req.params.id);
+        let skatepark = await Skatepark.getById(con, req.params.id);
+        let rating = await Skatepark.getAvgRating(con, req.params.id);
         let obstacles = await Skatepark.getAllObstaclesFromPark(
             con,
             req.params.id,
         );
+        skatepark.rating = rating;
         obstacles = JSON.parse(JSON.stringify(obstacles));
-        res.json(parks);
+        skatepark.obstacleIds = obstacles;
+        res.json(skatepark);
     } catch (e) {
         console.log(e);
         res.sendStatus(500);
