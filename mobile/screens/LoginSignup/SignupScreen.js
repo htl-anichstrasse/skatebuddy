@@ -6,9 +6,9 @@ import * as yup from 'yup';
 
 // components
 import Text from '../../components/common/Text';
+import Button from '../../components/common/Button';
 import Header from '../../components/LoginSignup/Header';
 import TextInput from '../../components/LoginSignup/TextInput';
-import SignupButton from '../../components/LoginSignup/SendButton';
 
 // hooks
 import {
@@ -136,10 +136,12 @@ const SignupScreen = ({ navigation }) => {
                   {touched.confirmPassword && errors.confirmPassword}{' '}
                 </Text>
 
-                <SignupButton
-                  text="Registrieren "
-                  handleSubmit={handleSubmit}
+                <Button
+                  title="Registrieren "
+                  onPress={handleSubmit}
                   icon="account-group"
+                  iconType="mci"
+                  style={styles.button}
                 />
 
                 <View style={styles.linkContainer}>

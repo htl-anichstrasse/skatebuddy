@@ -24,7 +24,7 @@ const CreateAccount = (id) => {
 
     const formOptions = { resolver: yupResolver(validationSchema)}
 
-    const { register, handleSubmit, reset, formState} = useForm(formOptions);
+    const { register, handleSubmit, formState} = useForm(formOptions);
     const {errors } = formState;
 
     const onSubmit = () => {
@@ -43,7 +43,8 @@ const CreateAccount = (id) => {
     }
 
     return(
-        <div className="create">
+        <div className="register-form">
+            <div className="register-in-box">
             <h2>Ertsellen Sie einen Account:</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="field">
@@ -79,8 +80,8 @@ const CreateAccount = (id) => {
                             <div className="invalid-feedback">{errors.confirmPassword?.message}</div>
                 </div>
                 <button type="submit">Account erstellen</button>
-                <button type="button" onClick={() => reset()} className="reset">Zurücksetzen</button>
             </form>
+            </div>
         </div>
     )
 }

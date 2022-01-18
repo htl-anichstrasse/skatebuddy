@@ -27,6 +27,13 @@
       "password": "Manuel",
       "createdAt": "25-12-2021",
       "id": 4
+    },
+    {
+      "name": "Okan",
+      "email": "Okan@Gugulu.com",
+      "password": "Hallo",
+      "createdAt": "18-1-2022",
+      "id": 5
     }
   ],
   "skateparks": [

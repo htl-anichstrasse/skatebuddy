@@ -19,11 +19,20 @@ const ProfileScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.regularText}>ABCDEFGHabcdefgh</Text>
-      <Text style={styles.customFontText}>ABCDEFGHabcdefgh</Text>
-
-      <Button title="signout" onPress={signOut}></Button>
       <Button
+        title="Abmelden"
+        onPress={signOut}
+        icon="location-exit"
+        iconType="mci"
+      />
+    </View>
+  );
+};
+
+export default ProfileScreen;
+
+{
+  /* <Button
         title="Print auth state"
         onPress={() => {
           console.log('AuthContextState: ', state);
@@ -31,9 +40,5 @@ const ProfileScreen = () => {
             console.log('Keychain: ', creds);
           });
         }}
-      />
-    </View>
-  );
-};
-
-export default ProfileScreen;
+      /> */
+}
