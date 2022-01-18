@@ -10,8 +10,8 @@ const obstacleRouter = require('./routes/obstacle_routes');
 const skateparkRouter = require('./routes/skatepark_routes');
 const skateparkPicRouter = require('./routes/skatepark_picture_routes');
 const reviewRouter = require('./routes/review_routes');
-
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 const port = 3000;
