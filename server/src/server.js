@@ -33,5 +33,6 @@ app.use('/api', skateparkPicRouter);
 app.use('/api', reviewRouter);
 
 app.listen(port, () => {
-    console.log(`app listening at http://localhost:${port}`);
+    console.log(`app listening at https://skate-buddy.josholaus.com/api/skateparks
+    `);
 });

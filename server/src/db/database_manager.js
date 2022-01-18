@@ -8,5 +8,14 @@ const con = mysql.createPool({
     port: process.env.DB_PORT,
     database: process.env.DB_DATABASE,
 });
-
+/*
+const con = mysql.createPool({
+    connectionLimit: 10,
+    host: 'localhost',
+    user: 'root',
+    password: 'hurensohn',
+    port: 3306,
+    database: 'skater_app',
+});
+*/
 module.exports = con;

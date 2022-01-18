@@ -28,6 +28,24 @@ Skatepark.getById = (con, id) => {
     });
 };
 
+Skatepark.getAllObstaclesFromPark = (con, id) => {
+    return new Promise((resolve, reject) => {
+        con.query(
+            `Select skaterpark_obstacle_connector.ObstacleID 
+            from skaterpark_obstacle_connector 
+            INNER JOIN skateparks ON skaterpark_obstacle_connector.SkateparkID = skateparks.SkateparkID 
+            where skateparks.SkateparkID = ?;`,
+            [id],
+            (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                return resolve(result);
+            },
+        );
+    });
+};
+
 Skatepark.getAllPicturesFromPark = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
@@ -53,8 +71,14 @@ Skatepark.getAllPicturesFromPark = (con, id) => {
 Skatepark.insertValue = (con, skatepark) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'Insert into skateparks(Name, Lon, Lat) values (?, ?, ?)',
-            [skatepark.name, skatepark.lon, skatepark.lat],
+            'Insert into skateparks(Name, Lon, Lat, Address, Busstop) values (?, ?, ?, ?, ?)',
+            [
+                skatepark.name,
+                skatepark.lon,
+                skatepark.lat,
+                skatepark.address,
+                skatepark.busstop,
+            ],
             (err, result) => {
                 if (err) {
                     return reject(err);
