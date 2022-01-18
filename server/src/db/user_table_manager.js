@@ -4,7 +4,7 @@ const User = require('../models/user');
 User.alreadyExists = (con, name, email) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'Select * from users where Name = ? AND email = ?',
+            'Select * from users where Name = ? OR Email = ?',
             [name, email],
             (err, result) => {
                 if (err) {
@@ -89,6 +89,20 @@ User.insertValue = (con, user) => {
     });
 };
 
+User.updateProfilePictureId = (con, id, picId) => {
+    return new Promise((resolve, reject) => {
+        con.query(
+            'UPDATE Users set ProfilePictureID = ? WHERE UserId = ?;',
+            [id, picId],
+            (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                resolve(result[0]);
+            },
+        );
+    });
+};
 User.update = (con, column, newValue, id) => {
     return new Promise((resolve, reject) => {
         con.query(
