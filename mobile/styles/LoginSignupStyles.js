@@ -52,23 +52,8 @@ const LoginSignupStyles = StyleSheet.create({
     marginHorizontal: 20,
     color: colors.error,
   },
-  loginButtonContainer: {
-    flexDirection: 'row',
-    borderRadius: 25,
-    backgroundColor: colors.primary,
-    padding: 10,
-    paddingHorizontal: 20,
+  button: {
     marginVertical: 20,
-    alignSelf: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: 50,
-  },
-  loginButtonText: {
-    color: colors.white,
-    marginRight: 5,
-    fontSize: 18,
-    fontWeight: 'bold',
   },
   linkContainer: {
     flexDirection: 'row',

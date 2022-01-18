@@ -6,9 +6,9 @@ import * as yup from 'yup';
 
 // components
 import Text from '../../components/common/Text';
+import Button from '../../components/common/Button';
 import Header from '../../components/LoginSignup/Header';
 import TextInput from '../../components/LoginSignup/TextInput';
-import SendButton from '../../components/LoginSignup/SendButton';
 
 // hooks
 import {
@@ -96,10 +96,12 @@ const LoginScreen = ({ navigation }) => {
                 </Pressable>
               </View>
 
-              <SendButton
-                text="Anmelden"
-                handleSubmit={handleSubmit}
+              <Button
+                title="Anmelden"
+                onPress={handleSubmit}
                 icon="location-enter"
+                iconType="mci"
+                style={styles.button}
               />
             </>
           )}

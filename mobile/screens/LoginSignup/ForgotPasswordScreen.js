@@ -6,9 +6,9 @@ import * as yup from 'yup';
 
 // components
 import Text from '../../components/common/Text';
+import Button from '../../components/common/Button';
 import Header from '../../components/LoginSignup/Header';
 import TextInput from '../../components/LoginSignup/TextInput';
-import SendButton from '../../components/LoginSignup/SendButton';
 
 // hooks
 import {
@@ -67,10 +67,12 @@ const LoginScreen = ({ navigation }) => {
                 {touched.email && errors.email}{' '}
               </Text>
 
-              <SendButton
-                text="Link senden"
-                handleSubmit={handleSubmit}
+              <Button
+                title="Link senden"
+                onPress={handleSubmit}
                 icon="email-send-outline"
+                iconType="mci"
+                style={styles.button}
               />
             </>
           )}
