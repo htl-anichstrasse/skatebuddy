@@ -31,7 +31,7 @@ app.use('/api', skateparkRouter);
 app.use('/api', obstacleRouter);
 app.use('/api', skateparkPicRouter);
 app.use('/api', reviewRouter);
-app.use(cors({ origin: '*' }));
+app.use(cors());
 
 app.use((req, res, next) => {
     res.header('Access-Controll-Allow-Origin', '*');
