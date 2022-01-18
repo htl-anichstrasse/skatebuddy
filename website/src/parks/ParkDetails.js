@@ -1,91 +1,27 @@
 import './ParkDetails.css';
 import { useParams } from 'react-router-dom';
 import useFetch from '../hooks/UseFetch';
-import raw from './Key.txt';
-import GoogleMapReact from 'google-map-react';
-import React, { useState } from 'react';
 import Reviews from '../reviews/Reviews';
-
-
-const Park = ({ text }) => <div>{text}</div>;
-const User = ({ text }) => <div>{text}</div>;
+import Map from './Map';
 
 const ParkDetails = () => {
 
-  const [UserLangitude, setUserLangitude] = useState(null);
-  const [UserLongitude, setUserLongitude] = useState(null);
   const { id } = useParams();
   const {
     data: park,
     isPending,
     error,
-  } = useFetch('http://localhost:8000/skateparks?skateparkId=' + id);
-  const {
-    data: picture,
-    picIsPending,
-    picError,
-  } = useFetch('http://localhost:8000/skatepark_pictures?skateparkId=' + id);
-  const [Keys, setKeys] = useState(null);
-
-  const defaultProps = {
-    center: {
-      lat: 47.2683,
-      lng: 11.3933,
-    },
-    zoom: 11,
-  };
-
-  const options = {
-    minZoom: 9,
-    maxZoom: 20,
-  };
-
-  fetch(raw)
-    .then(r => r.text())
-    .then(text => {
-      setKeys(text);
-    });
-
-    navigator.geolocation.getCurrentPosition(function(position) {
-      setUserLangitude(position.coords.latitude);
-      setUserLongitude(position.coords.longitude);
-  });
+  } = useFetch('http://localhost:8000/skateparks?skateparkid=' + id);
 
   return (
     <div className="park-details">
-      {isPending && picIsPending && <div>Loading...</div>}
+      {isPending && <div>Loading...</div>}
       {error && <div>{error}</div>}
-      {picError && <di>{picError}</di>}
-      {park && Keys && picture &&(
+      {park && (
         <div>
-          <h2 className="ParkName">{park[0].name}</h2>
-
-          <div
-            className="map"
-            style={{
-              height: '55vh',
-              width: '80%',
-              marginRight: 'auto',
-              marginLeft: 'auto'
-            }}>
-            <GoogleMapReact
-              options={options}
-              bootstrapURLKeys={{ key: Keys }} //API-Key
-              defaultCenter={defaultProps.center}
-              defaultZoom={defaultProps.zoom}>
-              <Park
-                lat={park[0].latitude}
-                lng={park[0].longitude}
-                text="My Marker"
-              />
-              {UserLangitude && <User 
-                lat={UserLangitude}
-                lng={UserLongitude}
-                text="User"
-              />}
-            </GoogleMapReact>
-            </div>
-          </div>
+          <h2 className="ParkName">{park[0].Name}</h2>
+          <Map park={park}></Map>
+        </div>
           )}
           <div className="Reviews">
             <Reviews id={id}></Reviews>

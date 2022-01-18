@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from "react-router-dom";
+import './LogIn.css';
 
 async function loginUser(information) {
  return fetch('http://localhost:8080/login', {
@@ -31,21 +32,23 @@ export default function LogIn({ setToken }) {
   }
 
   return(
-    <div className="login-wrapper">
-      <h1>Please Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <p>Username</p>
-          <input type="text" onChange={e => setUserName(e.target.value)} />
-        </label>
-        <label>
-          <p>Password</p>
-          <input type="password" onChange={e => setPassword(e.target.value)} />
-        </label>
-        <div>
-          <button type="submit">Submit</button>
-        </div>
-      </form>
+    <div className="login-form">
+      <div className="login-in-box">
+        <h1>Log In</h1>
+        <form onSubmit={handleSubmit}>
+          <label>
+            <p className='input-header'>Username</p>
+            <input className="input" type="text" onChange={e => setUserName(e.target.value)} />
+          </label>
+          <label>
+            <p className='input-header'>Password</p>
+            <input className="input" type="password" onChange={e => setPassword(e.target.value)} />
+          </label>
+          <div>
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
     </div>
   )
 }

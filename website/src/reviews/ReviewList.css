@@ -1,5 +1,6 @@
 h4 {
   margin-bottom: -20px;
+  padding-top: 10px;
 }
 
 h5 {
@@ -18,4 +19,14 @@ h5 {
   background-color: white;
   margin-right: auto;
   margin-left: auto;
+  margin-top: 4vh;
+}
+
+.reviews-in-box {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.bottom-text {
+  padding-bottom: 10px;
 }
