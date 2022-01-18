@@ -21,7 +21,13 @@ Skatepark.getById = (con, id) => {
                     return reject(err);
                 }
                 return resolve(
-                    new Skatepark(result[0].Name, result[0].Lon, result[0].Lat),
+                    new Skatepark(
+                        result[0].name,
+                        result[0].lon,
+                        result[0].lat,
+                        result[0].address,
+                        result[0].busstop,
+                    ),
                 );
             },
         );
