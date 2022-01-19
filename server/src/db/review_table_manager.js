@@ -14,21 +14,23 @@ Review.selectAll = (con) => {
 Review.getById = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'Select * from reviews where reviewId = ?',
+            'Select * from reviews where SkateparkID = ?',
             [id],
             (err, result) => {
                 if (err) {
                     return reject(err);
                 }
-                return resolve(
-                    new Review(
-                        result[0].SkareparkID,
-                        result[0].UserID,
-                        result[0].Rating,
-                        result[0].Title,
-                        result[0].Content,
-                    ),
-                );
+                let reviews = [];
+                for (let i = 0; i < result.length; i++) {
+                    reviews[i] = new Review(
+                        result[i].SkateparkID,
+                        result[i].UserID,
+                        result[i].Rating,
+                        result[i].Title,
+                        result[i].Content,
+                    );
+                }
+                return resolve(reviews);
             },
         );
     });

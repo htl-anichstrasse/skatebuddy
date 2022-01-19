@@ -47,15 +47,9 @@ router.get('/users/:id', async (req, res, next) => {
 //Register
 router.post('/register', async (req, res, next) => {
     const password = req.body.password;
-    console.log(password);
     const encryptedPassword = await bcrypt.hash(password, saltRounds);
     try {
-        const user = new User(
-            req.body.name,
-            encryptedPassword,
-            req.body.email,
-            req.body.profilePictureId,
-        );
+        const user = new User(req.body.name, encryptedPassword, req.body.email);
         var alreadyExists = await User.alreadyExists(
             con,
             user.name,
@@ -68,6 +62,20 @@ router.post('/register', async (req, res, next) => {
         } else {
             res.send({ success: false, message: 'User already exists!' });
         }
+    } catch (e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+});
+
+router.put('/register/:id', async (req, res, next) => {
+    const x = {
+        column: req.body.column,
+        newValue: req.body.newValue,
+    };
+    try {
+        await User.update(con, x.column, x.newValue, req.params.id);
+        res.send({ success: true, message: 'Succssessfully updated' });
     } catch (e) {
         console.log(e);
         res.sendStatus(500);
