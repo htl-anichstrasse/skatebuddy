@@ -14,7 +14,7 @@ Review.selectAll = (con) => {
 Review.getById = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'Select * from reviews where reviewId = ?',
+            'Select * from reviews where SkateparkId = ?',
             [id],
             (err, result) => {
                 if (err) {
@@ -22,7 +22,7 @@ Review.getById = (con, id) => {
                 }
                 return resolve(
                     new Review(
-                        result[0].SkareparkID,
+                        result[0].SkateparkID,
                         result[0].UserID,
                         result[0].Rating,
                         result[0].Title,
