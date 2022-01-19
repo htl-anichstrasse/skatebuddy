@@ -9,11 +9,11 @@ const UserName = ({ id }) => {
 
   return (
     <>
-      {isPending && <div>Loading...</div>}
+      {isPending && <div className='loading'>Loading...</div>}
       {error && <div>{error}</div>}
       {user && (
         <div className="UserName">
-          <p>{user[0].name}</p>
+          <p>{id}</p>
         </div>
       )}
     </>

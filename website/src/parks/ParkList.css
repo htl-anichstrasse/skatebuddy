@@ -34,3 +34,8 @@ h2 {
 .slideshow-container {
   min-height: 25vh;
 }
+
+.average-rating {
+  text-align: right;
+  margin-right: 2vh;
+}
