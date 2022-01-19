@@ -1,4 +1,4 @@
-import './Obstacles.css'
+import './ObstacleList.css'
 import GetObstacles from './GetObstacles';
 
 const ObstacleList = ({ObstaclesIds}) => {
@@ -6,9 +6,7 @@ const ObstacleList = ({ObstaclesIds}) => {
     return (
         <div className="obstacles">
            {ObstaclesIds.map(ObstaclesId=> (
-            <div>
               <GetObstacles id={ObstaclesId.ObstacleID}></GetObstacles>
-            </div>
            ))} 
         </div>
       )

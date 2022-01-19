@@ -1,4 +1,5 @@
 import useFetch from '../../hooks/UseFetch'
+import './GetObstacles.css'
 
 const GetObstacles = (id) => {
 
@@ -23,7 +24,13 @@ const GetObstacles = (id) => {
                 </div>}
             {obstacle &&
             <div className='single-obstacle'>
-                <p>{obstacle.description}</p>
+                <div className="dropdown-obstacles">
+                    <span className='obstacle-pic'><img src="https://www.skatedeluxe.com/blog/wp-content/uploads/2015/06/obstacle-bank.jpg" alt="pic" className='obstacle-pic'></img></span>
+                        <div className="dropdown-content-obstacles">
+                            <p className="description">{obstacle.description}</p>
+                            <p className='Oname'>Schwierigkeit: {obstacle.difficulty}</p>
+                        </div>
+                </div>
             </div>
             }
       </div>

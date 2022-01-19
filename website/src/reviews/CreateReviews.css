@@ -1,4 +1,8 @@
 .login-review {
+  display: block;
+  max-width: 80vw;
+  margin-right: auto;
+  margin-left: auto;
   text-align: center;
 }
 

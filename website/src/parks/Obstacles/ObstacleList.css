@@ -1,0 +1,11 @@
+.obstacles {
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  display: block;
+  max-width: 80vw;
+  box-shadow: inset 0 0 1em white, 0 0 1em black;
+  background-color: white;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}

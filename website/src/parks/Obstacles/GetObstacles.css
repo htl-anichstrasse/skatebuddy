@@ -1,0 +1,28 @@
+.obstacle {
+  display: inline-block;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+.dropdown-content-obstacles {
+  display: none;
+  position: absolute;
+  box-shadow: inset 0 0 1em white, 0 0 1em black;
+  background-color: white;
+  min-width: 10vh;
+  z-index: 1;
+}
+
+.dropdown-obstacles:hover .dropdown-content-obstacles {
+  display: block;
+  padding-right: 1vh;
+  padding-left: 1vh;
+}
+
+.obstacle-pic {
+  max-height: 8vh;
+}
+
+.description {
+  font-weight: 800;
+}
