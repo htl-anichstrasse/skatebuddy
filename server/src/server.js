@@ -43,6 +43,6 @@ app.use((req, res, next) => {
 });
 
 app.listen(port, () => {
-    console.log(`app listening at https://skate-buddy.josholaus.com/api/skateparks
+    console.log(`app listening at https://skate-buddy.josholaus.com/api
     `);
 });
