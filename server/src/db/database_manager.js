@@ -1,5 +1,5 @@
 var mysql = require('mysql');
-
+/*
 const con = mysql.createPool({
     connectionLimit: 10,
     host: process.env.DB_HOST,
@@ -17,5 +17,5 @@ const con = mysql.createPool({
     port: 3306,
     database: 'skater_app',
 });
-*/
+
 module.exports = con;
