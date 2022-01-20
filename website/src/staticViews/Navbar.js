@@ -16,23 +16,23 @@ const LogOut = () => {
         <Link to="/" className='home-nav'>
           Home
         </Link>
-        <Link to="/parks" className='parks'>
+        <Link to="/parks" className='parks-nav'>
           Parks
         </Link>
-        <Link to="/CreateAccount" className='createAccount'>
+        <Link to="/CreateAccount" className='createAccount-nav'>
           Account Erstellen
         </Link>
         {token && 
             <div className="dropdown">
               <span>Profile</span>
               <div className="dropdown-content">
-                <button onClick={LogOut} className='Logout'>
+                <button onClick={LogOut} className='Logout-nav'>
                   LogOut
                 </button>
               </div>
             </div>
         }
-        {!token && <Link to="/LogIn" className='login'>
+        {!token && <Link to="/LogIn" className='login-nav'>
           Login
         </Link>}
       </div>

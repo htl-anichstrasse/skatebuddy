@@ -2,23 +2,51 @@
   border-top: 4px solid darkgray;
   border-bottom: 4px solid darkgray;
   background-color: white;
-  height: 5vh;
+  height: 10vh;
   font-size: large;
   z-index: 1000;
 }
 
 .navi {
-  padding: 10px;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
-.login {
+.login-nav {
   float: right;
+  text-decoration: none;
+}
+
+.createAccount-nav {
+  float: right;
+  text-decoration: none;
   margin-right: 1%;
   margin-left: 1%;
 }
 
 .home-nav {
+  margin-left: 1%;
   margin-right: 1%;
+  box-sizing: content-box;
+  padding-top: 2.5vh;
+  padding-bottom: 2.5vh;
+  padding-left: 2.5vh;
+  padding-right: 2.5vh;
+  border: 5px solid darkgray;
+  text-decoration: none;
+}
+
+.parks-nav {
+  box-sizing: content-box;
+  padding-top: 2.5vh;
+  padding-bottom: 2.5vh;
+  padding-left: 2.5vh;
+  padding-right: 2.5vh;
+  border: 5px solid darkgray;
+  text-decoration: none;
 }
 
 .dropdown {
@@ -42,11 +70,7 @@
   display: block;
 }
 
-.createAccount {
-  float: right;
-}
-
-.Logout {
+.Logout-nav {
   margin-top: 10px;
   margin-bottom: 10px;
 }
