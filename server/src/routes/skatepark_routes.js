@@ -7,6 +7,14 @@ const con = require('../db/database_manager');
 router.get('/skateparks', async (req, res, next) => {
     try {
         let results = await Skatepark.selectAll(con);
+        console.log(results);
+        for (let i = 0; i < results.length; i++) {
+            results[i].rating = await Skatepark.getAvgRating(
+                con,
+                results[i].id,
+            );
+        }
+        console.log(results);
         res.json(results);
     } catch (e) {
         console.log(e);

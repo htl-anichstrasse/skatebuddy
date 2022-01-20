@@ -39,7 +39,6 @@ User.getById = (con, id) => {
                 if (err) {
                     return reject(err);
                 }
-                console.log(result);
                 return resolve(
                     new User(
                         result[0].Name,
