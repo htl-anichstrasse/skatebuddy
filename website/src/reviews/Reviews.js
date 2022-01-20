@@ -1,23 +1,22 @@
-import { useState, useEffect } from 'react';
+import useFetch from '../hooks/UseFetch';
 import ReviewList from './ReviewList';
-import Create from './CreateReviews'
+import Create from './CreateReviews';
 
 const Reviews = (id) => {
-  const [reviews, setReviews] = useState(null);
-  useEffect(() => {
-    fetch('https://skate-buddy.josholaus.com/api/reviews/' + id.id)
-      .then(res => {
-        return res.json();
-      })
-      .then(data => {
-        setReviews(data);
-      });
-  }, [id]);
+
+  const {
+    data: reviews,
+    isPending,
+    error,
+  } = useFetch('https://skate-buddy.josholaus.com/api/reviews/' + id.id);
 
   return (
     <div className="Reviews">
-      {console.log(reviews)}
       <Create skateparkId={id.id}></Create>
+      {isPending && <>
+      <h1>Loading...</h1>
+      </>}
+      {error && <div>{error}</div>}
       {reviews && <ReviewList reviews={reviews}></ReviewList>}
     </div>
   );

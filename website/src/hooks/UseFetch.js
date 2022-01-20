@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Error from '../staticViews/Error'
 
 const useFetch = url => {
   const [data, setData] = useState(null);
@@ -28,7 +29,7 @@ const useFetch = url => {
             console.log('fetch aborted');
           } else {
             setIsPending(false);
-            setError(err.message);
+            setError(<Error></Error>);
           }
         });
     });

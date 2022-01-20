@@ -27,7 +27,7 @@ const GetObstacles = (id) => {
                 <div className="dropdown-obstacles">
                     <span className='obstacle-pic'><img src="https://www.skatedeluxe.com/blog/wp-content/uploads/2015/06/obstacle-bank.jpg" alt="pic" className='obstacle-pic'></img></span>
                         <div className="dropdown-content-obstacles">
-                            <p className="description">{obstacle.description}</p>
+                            <h5 className="description">{obstacle.description}</h5>
                             <p className='Oname'>Schwierigkeit: {obstacle.difficulty}</p>
                         </div>
                 </div>
