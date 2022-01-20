@@ -18,23 +18,23 @@
 .login-nav {
   float: right;
   text-decoration: none;
+  box-sizing: content-box;
 }
 
 .createAccount-nav {
   float: right;
   text-decoration: none;
-  margin-right: 1%;
-  margin-left: 1%;
+  margin-left: 2vw;
+  margin-right: 2vw;
 }
 
 .home-nav {
-  margin-left: 1%;
-  margin-right: 1%;
-  box-sizing: content-box;
+  margin-left: 1vw;
+  margin-right: 1vw;
   padding-top: 2.5vh;
   padding-bottom: 2.5vh;
-  padding-left: 2.5vh;
-  padding-right: 2.5vh;
+  padding-left: 1vw;
+  padding-right: 1vw;
   border: 5px solid darkgray;
   text-decoration: none;
 }
@@ -43,8 +43,8 @@
   box-sizing: content-box;
   padding-top: 2.5vh;
   padding-bottom: 2.5vh;
-  padding-left: 2.5vh;
-  padding-right: 2.5vh;
+  padding-left: 1vw;
+  padding-right: 1vw;
   border: 5px solid darkgray;
   text-decoration: none;
 }
