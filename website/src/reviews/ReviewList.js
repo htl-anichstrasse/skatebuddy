@@ -1,7 +1,7 @@
 import './ReviewList.css';
 import UserName from './UserName.js';
 
-const ReviewList = ({ reviews }) => {
+const ReviewList = ( {reviews} ) => {
   return (
     <div className="review-list">
       {reviews.map(review => (

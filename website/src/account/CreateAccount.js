@@ -50,6 +50,7 @@ const CreateAccount = (id) => {
                 <div className="field">
                     <label>Name</label><br/>
                     <input
+                        className='inputRegi'
                         type="text"
                         required
                         value={name}
@@ -59,6 +60,7 @@ const CreateAccount = (id) => {
                 <div className="field">
                     <label>Email</label><br/>
                     <input
+                        className='inputRegi'
                         type="email"
                         required
                         value={email}
@@ -74,7 +76,7 @@ const CreateAccount = (id) => {
                         <div className="invalid-feedback">{errors.password?.message}</div>
                 </div>
                 <div className="field">
-                <label>Passwort bestätigen</label><br/>
+                <label className='inputRegi'>Passwort bestätigen</label><br/>
                             <input name="confirmPassword" type="password" {...register('confirmPassword')} className={`form-control ${errors.confirmPassword ? 'is-invalid' : ''}`}
                             />
                             <div className="invalid-feedback">{errors.confirmPassword?.message}</div>

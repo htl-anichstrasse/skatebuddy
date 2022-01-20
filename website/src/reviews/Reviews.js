@@ -5,7 +5,7 @@ import Create from './CreateReviews'
 const Reviews = (id) => {
   const [reviews, setReviews] = useState(null);
   useEffect(() => {
-    fetch('http://localhost:8000/reviews?skateparkId=' + id.id)
+    fetch('https://skate-buddy.josholaus.com/api/reviews/' + id.id)
       .then(res => {
         return res.json();
       })
@@ -16,6 +16,7 @@ const Reviews = (id) => {
 
   return (
     <div className="Reviews">
+      {console.log(reviews)}
       <Create skateparkId={id.id}></Create>
       {reviews && <ReviewList reviews={reviews}></ReviewList>}
     </div>
