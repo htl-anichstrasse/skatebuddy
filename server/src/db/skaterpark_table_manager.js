@@ -6,7 +6,18 @@ Skatepark.selectAll = (con) => {
             if (err) {
                 return reject(err);
             }
-            return resolve(result);
+            let skateparks = [];
+            for (i = 0; i < result.length; i++) {
+                skateparks[i] = new Skatepark(
+                    result[i].SkateparkID,
+                    result[i].Name,
+                    result[i].Lon,
+                    result[i].Lat,
+                    result[i].Address,
+                    result[i].Busstop,
+                );
+            }
+            return resolve(skateparks);
         });
     });
 };
@@ -22,6 +33,7 @@ Skatepark.getById = (con, id) => {
                 }
                 return resolve(
                     new Skatepark(
+                        result[0].SkateparkID,
                         result[0].Name,
                         result[0].Lon,
                         result[0].Lat,
