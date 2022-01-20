@@ -12,8 +12,9 @@ const UserName = ({ id }) => {
       {isPending && <div className='loading'>Loading...</div>}
       {error && <div>{error}</div>}
       {user && (
+        
         <div className="UserName">
-          <p>{id}</p>
+          <p>1</p>
         </div>
       )}
     </>
