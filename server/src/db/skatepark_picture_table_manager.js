@@ -6,7 +6,14 @@ SkateparkPictures.selectAll = (con) => {
             if (err) {
                 return reject(err);
             }
-            return resolve(result);
+            let skateparkpics = [];
+            for (i = 0; i < result.length; i++) {
+                skateparkpics[i] = new SkateparkPictures(
+                    result[i].SkateparkID,
+                    result[i].PictureID,
+                );
+            }
+            return resolve(skateparkpics);
         });
     });
 };

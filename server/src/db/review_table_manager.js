@@ -6,7 +6,18 @@ Review.selectAll = (con) => {
             if (err) {
                 return reject(err);
             }
-            resolve(result);
+            let reviews = [];
+            for (let i = 0; i < result.length; i++) {
+                reviews[i] = new Review(
+                    result[i].ReviewID,
+                    result[i].SkateparkID,
+                    result[i].UserID,
+                    result[i].Rating,
+                    result[i].Title,
+                    result[i].Content,
+                );
+            }
+            return resolve(reviews);
         });
     });
 };
@@ -23,6 +34,7 @@ Review.getById = (con, id) => {
                 let reviews = [];
                 for (let i = 0; i < result.length; i++) {
                     reviews[i] = new Review(
+                        result[i].ReviewID,
                         result[i].SkateparkID,
                         result[i].UserID,
                         result[i].Rating,

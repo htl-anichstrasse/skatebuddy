@@ -25,7 +25,17 @@ User.selectAll = (con) => {
             if (err) {
                 return reject(err);
             }
-            return resolve(result);
+            let users = [];
+            for (let i = 0; i < result.length; i++) {
+                users[i] = new User(
+                    result[0].UserID,
+                    result[0].Name,
+                    result[0].PasswordHash,
+                    result[0].Email,
+                    result[0].ProfilePictureID,
+                );
+            }
+            return resolve(users);
         });
     });
 };
@@ -41,6 +51,7 @@ User.getById = (con, id) => {
                 }
                 return resolve(
                     new User(
+                        result[0].UserID,
                         result[0].Name,
                         result[0].PasswordHash,
                         result[0].Email,
@@ -63,6 +74,7 @@ User.getByEmail = (con, email) => {
                 }
                 return resolve(
                     new User(
+                        result[0].UserID,
                         result[0].Name,
                         result[0].PasswordHash,
                         result[0].Email,
