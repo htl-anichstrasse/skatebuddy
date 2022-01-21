@@ -13,6 +13,10 @@ router.get('/skateparks', async (req, res, next) => {
                 con,
                 results[i].id,
             );
+            results[i].obstacles = await Skatepark.getAllObstaclesFromPark(
+                con,
+                results[i].id,
+            );
         }
         console.log(results);
         res.json(results);
@@ -32,7 +36,7 @@ router.get('/skateparks/:id', async (req, res, next) => {
         );
         skatepark.rating = rating;
         obstacles = JSON.parse(JSON.stringify(obstacles));
-        skatepark.obstacleIds = obstacles;
+        skatepark.obstacles = obstacles;
         res.json(skatepark);
     } catch (e) {
         console.log(e);

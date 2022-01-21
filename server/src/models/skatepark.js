@@ -1,5 +1,5 @@
 class Skatepark {
-    constructor(id, name, lon, lat, address, busstop, rating, obstacleIds) {
+    constructor(id, name, lon, lat, address, busstop, rating, obstacles) {
         this.id = id;
         this.name = name;
         this.lon = lon;
@@ -7,7 +7,7 @@ class Skatepark {
         this.address = address;
         this.busstop = busstop;
         this.rating = rating;
-        this.obstacleIds = obstacleIds;
+        this.obstacles = obstacles;
     }
 }
 

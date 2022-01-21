@@ -1,7 +1,8 @@
 class Review {
-    constructor(parkId, userId, rating, title, content) {
-        this.parkId = parkId;
-        this.userId = userId;
+    constructor(id, parkid, userid, rating, title, content) {
+        this.id = id;
+        this.parkid = parkid;
+        this.userid = userid;
         this.rating = rating;
         this.title = title;
         this.content = content;

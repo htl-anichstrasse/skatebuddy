@@ -6,7 +6,15 @@ Obstacle.selectAll = (con) => {
             if (err) {
                 return reject(err);
             }
-            return resolve(result);
+            let obstacles = [];
+            for (let i = 0; i < result.length; i++) {
+                obstacles[i] = new Obstacle(
+                    result[i].ObstacleID,
+                    result[i].Description,
+                    result[i].Difficulty,
+                );
+            }
+            return resolve(obstacles);
         });
     });
 };
@@ -21,7 +29,11 @@ Obstacle.getById = (con, id) => {
                     return reject(err);
                 }
                 return resolve(
-                    new Obstacle(result[0].Description, result[0].Difficulty),
+                    new Obstacle(
+                        result[0].ObstacleID,
+                        result[0].Description,
+                        result[0].Difficulty,
+                    ),
                 );
             },
         );
