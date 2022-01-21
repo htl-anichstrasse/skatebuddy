@@ -1,10 +1,11 @@
 import GoogleMapReact from 'google-map-react';
 import React, { useState } from 'react';
 import raw from '../Key.txt';
+import Marker from './Marker.tsx';
 
 
-const Park = ({ text }) => <div>{text}</div>;
-const User = ({ text }) => <div>{text}</div>;
+// const Park = ({ text }) => <div>{text}</div>;
+//const User = ({ text }) => <div>{text}</div>;
 
 
 const Map = (park) => {
@@ -13,17 +14,23 @@ const Map = (park) => {
   const [UserLongitude, setUserLongitude] = useState(null);
   const [Keys, setKeys] = useState(null);
 
+  const options = (maps) => {
+    return {
+      minZoom: 9,
+      maxZoom: 20,
+      disableDefaultUI: true,
+      mapTypeControl: true,
+      streetViewControl: true,
+      styles: [{ featureType: 'poi', elementType: 'labels', stylers: [{ visibility: 'on' }] }],
+    };
+  };
+
   const defaultProps = {
     center: {
       lat: 47.2683,
       lng: 11.3933,
     },
     zoom: 11,
-  };
-
-  const options = {
-    minZoom: 9,
-    maxZoom: 20,
   };
 
   fetch(raw)
@@ -51,16 +58,20 @@ const Map = (park) => {
         bootstrapURLKeys={{ key: Keys }} //API-Key
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}>
-        <Park
+        <Marker
           lat={park.park.lat}
           lng={park.park.lon}
           text="My Marker"
+          color="red"
         />
-        {UserLangitude && <User
+
+        {UserLangitude && <Marker
           lat={UserLangitude}
           lng={UserLongitude}
           text="User"
-        />}
+          color = "blue"
+        />
+        }
       </GoogleMapReact>}
     </div>
   )

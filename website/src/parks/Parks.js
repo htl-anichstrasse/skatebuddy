@@ -15,7 +15,8 @@ const Parks = () => {
         <h1>  Loading... </h1>
         </div>}
       {error && <div>{error}</div>}
-      {skateparks && <ParkList skateparks={skateparks} title="All Parks" />}
+      {skateparks &&
+      <ParkList skateparks={skateparks} title="All Parks" />}
     </div>
   );
 };
