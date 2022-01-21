@@ -5,8 +5,8 @@ const ObstacleList = ({ObstaclesIds}) => {
 
     return (
         <div className="obstacles">
-           {ObstaclesIds.map(ObstaclesId=> (
-              <GetObstacles id={ObstaclesId.ObstacleID}></GetObstacles>
+           {ObstaclesIds.map(obstaclesId=> (
+              <GetObstacles id={obstaclesId.obstacleid}></GetObstacles>
            ))} 
         </div>
       )
