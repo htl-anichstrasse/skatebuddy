@@ -1,6 +1,6 @@
 class Obstacle {
-    constructor(id, description, difficulty) {
-        this.id = id;
+    constructor(obstacleId, description, difficulty) {
+        this.obstacleId = obstacleId;
         this.description = description;
         this.difficulty = difficulty;
     }

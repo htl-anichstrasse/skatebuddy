@@ -1,9 +1,18 @@
 class Skatepark {
-    constructor(id, name, lon, lat, address, busstop, rating, obstacles) {
-        this.id = id;
+    constructor(
+        skateparkId,
+        name,
+        longitude,
+        latitude,
+        address,
+        busstop,
+        rating,
+        obstacles,
+    ) {
+        this.skateparkId = skateparkId;
         this.name = name;
-        this.lon = lon;
-        this.lat = lat;
+        this.longitude = longitude;
+        this.latitude = latitude;
         this.address = address;
         this.busstop = busstop;
         this.rating = rating;
