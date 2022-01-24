@@ -1,8 +1,8 @@
 class Review {
-    constructor(reviewId, skateparkId, userid, rating, title, content) {
+    constructor(reviewId, skateparkId, userId, rating, title, content) {
         this.reviewId = reviewId;
         this.skateparkId = skateparkId;
-        this.userid = userid;
+        this.userId = userId;
         this.rating = rating;
         this.title = title;
         this.content = content;
