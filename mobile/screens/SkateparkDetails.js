@@ -11,7 +11,7 @@ import Reviews from '../components/SkateparkDetails/InfoReviews/Reviews';
 import Obstacles from '../components/SkateparkDetails/Obstacles/Obstacles';
 
 // hooks
-import useFetch from '../hooks/useFetch';
+import useFetch from '../hooks/useFetchApi';
 
 // styles
 import styles from '../styles/SkateparkDetailsStyles';
@@ -29,7 +29,8 @@ const SkateparkDetails = ({ navigation, route }) => {
     isLoading,
     error,
     changeData: setReviews,
-  } = useFetch('reviews', skatepark.skateparkId);
+    // ! skatepark.skateparkId
+  } = useFetch("https://skate-buddy.josholaus.com/api/reviews/" + skatepark.id);
 
   const newReview = review => {
     setReviews(prevReviews => {
@@ -37,8 +38,6 @@ const SkateparkDetails = ({ navigation, route }) => {
       return [review, ...prevReviews];
     });
   };
-
-  const [hScrollRef, setHScrollRef] = useState(null);
 
   return (
     <View style={styles.container}>
@@ -52,7 +51,7 @@ const SkateparkDetails = ({ navigation, route }) => {
             <Obstacles />
 
             {isLoading && <LoadingCircle />}
-            {error && <Text>Error!</Text>}
+            {error && <Text>{error}</Text>}
             {reviews && (
               <Reviews
                 reviews={reviews}

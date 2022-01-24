@@ -19,10 +19,10 @@ const EntryHeader = ({ skatepark }) => {
       <Text style={styles.entryName}>{skatepark.name}</Text>
 
       <View style={[styles.entryRatingContainer, gStyles.shadow]}>
-        {skatepark.averageRating ? (
+        {skatepark.rating ? (
           <>
             <Text style={styles.entryRatingText}>
-              {skatepark.averageRating}
+              {skatepark.rating}
             </Text>
             <MaterialCommunityIcons
               name="star"

@@ -11,7 +11,7 @@ import LocationLoading from '../components/SkateparksList/LocationLoading';
 import LoadingCircle from '../components/common/LoadingCircle';
 
 // hooks
-import useFetch from '../hooks/useFetch';
+import useFetch from '../hooks/useFetchApi';
 import useLocation from '../hooks/useLocation';
 
 // styles
@@ -41,7 +41,7 @@ const SkateparksList = ({ navigation }) => {
     isLoading,
     error,
     changeData: setSkateparks,
-  } = useFetch('skateparks');
+  } = useFetch('https://skate-buddy.josholaus.com/api/skateparks');
   const { location, locError, locLoading, getLocation } = useLocation();
 
   const reducer = (state, action) => {
@@ -126,7 +126,8 @@ const SkateparksList = ({ navigation }) => {
                 />
               );
             }}
-            keyExtractor={item => item.skateparkId}
+            // ! item.skateparkId
+            keyExtractor={item => item.id}
             // TODO refreshControl={}
           />
         </>

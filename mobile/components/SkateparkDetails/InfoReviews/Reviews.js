@@ -33,7 +33,8 @@ const Reviews = ({ reviews, newReview }) => {
         <Text style={styles.headerText}>Anzahl Reviews: {reviews.length}</Text>
         <View style={styles.reviewsContainer}>
           {reviews.map(review => (
-            <Review key={review.reviewId} review={review} />
+            // ! review.reviewId
+            <Review key={review.id} review={review} />
           ))}
         </View>
       </View>
