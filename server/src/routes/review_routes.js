@@ -27,6 +27,7 @@ router.get('/reviews/:id', async (req, res, next) => {
 router.post('/reviews', async (req, res, next) => {
     try {
         const review = new Review(
+            null,
             req.body.parkid,
             req.body.userid,
             req.body.rating,

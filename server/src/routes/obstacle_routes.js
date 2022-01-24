@@ -28,6 +28,7 @@ router.get('/obstacles/:id', async (req, res, next) => {
 router.post('/obstacles', async (req, res, next) => {
     try {
         const obstacle = new Obstacles(
+            null,
             req.body.description,
             req.body.difficulty,
         );

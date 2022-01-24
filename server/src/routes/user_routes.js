@@ -49,7 +49,12 @@ router.post('/register', async (req, res, next) => {
     const password = req.body.password;
     const encryptedPassword = await bcrypt.hash(password, saltRounds);
     try {
-        const user = new User(req.body.name, encryptedPassword, req.body.email);
+        const user = new User(
+            null,
+            req.body.name,
+            encryptedPassword,
+            req.body.email,
+        );
         var alreadyExists = await User.alreadyExists(
             con,
             user.name,

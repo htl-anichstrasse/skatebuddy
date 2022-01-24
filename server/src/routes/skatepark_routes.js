@@ -60,6 +60,7 @@ router.get('/skateparkpictures/:id', async (req, res, next) => {
 router.post('/skateparks', async (req, res, next) => {
     try {
         const skatepark = new Skatepark(
+            null,
             req.body.name,
             req.body.lon,
             req.body.lat,
