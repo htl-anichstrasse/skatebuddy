@@ -60,7 +60,6 @@ router.post('/register', async (req, res, next) => {
             user.name,
             user.email,
         );
-        console.log(user);
         if (!alreadyExists) {
             token = User.generateToken(user);
             await User.insertValue(con, user);
@@ -99,7 +98,7 @@ router.post('/login', async (req, res) => {
 
         const user = await User.getByEmail(con, email);
         console.log(user);
-        if (user && (await bcrypt.compare(password, user.passwordHash))) {
+        if (user && (await bcrypt.compare(password, user.passwordhash))) {
             // Create token
             token = User.generateToken(user);
             res.send({ success: true, token: token });
