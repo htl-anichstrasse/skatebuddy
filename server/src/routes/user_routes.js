@@ -105,7 +105,7 @@ router.post('/login', async (req, res) => {
         }
     } catch (e) {
         console.log(e);
-        res.sendStatus(401);
+        res.sendStatus(500);
     }
 });
 
