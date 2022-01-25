@@ -29,8 +29,9 @@ const SkateparkDetails = ({ navigation, route }) => {
     isLoading,
     error,
     changeData: setReviews,
-    // ! skatepark.skateparkId
-  } = useFetch("https://skate-buddy.josholaus.com/api/reviews/" + skatepark.id);
+  } = useFetch(
+    'https://skate-buddy.josholaus.com/api/reviews/' + skatepark.skateparkId,
+  );
 
   const newReview = review => {
     setReviews(prevReviews => {

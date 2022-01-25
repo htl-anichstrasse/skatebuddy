@@ -33,8 +33,7 @@ const SkateparkEntry = ({ skatepark, navigation, location }) => {
 
         <Image
           style={styles.entryImage}
-          // ! skatepark.skateparkId
-          source={skateparksImages[skatepark.id].main}
+          source={skateparksImages[skatepark.skateparkId].main}
         />
       </View>
     </Pressable>

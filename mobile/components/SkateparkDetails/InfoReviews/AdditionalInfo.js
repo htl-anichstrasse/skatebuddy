@@ -12,8 +12,7 @@ const AdditionalInfo = ({ skatepark }) => {
   return (
     <>
       <Text style={styles.textCenter}>
-        {/*//! skatepark.latitude, skatepark.longitude */}
-        {skatepark.lat}° N {skatepark.lon}° W
+        {skatepark.latitude}° N, {skatepark.longitude}° W
       </Text>
 
       {skatepark.address ? (

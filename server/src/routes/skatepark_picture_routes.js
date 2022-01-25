@@ -28,7 +28,7 @@ router.post('/skateparkpictures', async (req, res, next) => {
     try {
         const skateparkpic = new Skateparkpic(req.body.parkId, req.body.picId);
         await Skateparkpic.insertValue(con, skateparkpic);
-        res.send({ success: true, message: 'Succsessfully inserted' });
+        res.send({ success: true, message: 'Successfully inserted' });
     } catch (e) {
         console.log(e);
         res.sendStatus(500);
@@ -38,7 +38,7 @@ router.post('/skateparkpictures', async (req, res, next) => {
 router.delete('/skateparkpictures/:id', async (req, res, next) => {
     try {
         await Skateparkpic.deleteValue(con, req.params.id);
-        res.send({ success: true, message: 'Succssessfully deleted' });
+        res.send({ success: true, message: 'Successfully deleted' });
     } catch (e) {
         console.log(e);
         res.sendStatus(500);
@@ -52,7 +52,7 @@ router.put('/skateparkpictures/:id', async (req, res, next) => {
     };
     try {
         await Skateparkpic.update(con, x.column, x.newValue, req.params.id);
-        res.send({ success: true, message: 'Succssessfully updated' });
+        res.send({ success: true, message: 'Successfully updated' });
     } catch (e) {
         console.log(e);
         res.sendStatus(500);

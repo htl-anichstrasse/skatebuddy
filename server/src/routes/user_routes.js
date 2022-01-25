@@ -80,7 +80,7 @@ router.put('/register/:id', async (req, res, next) => {
     };
     try {
         await User.update(con, x.column, x.newValue, req.params.id);
-        res.send({ success: true, message: 'Succssessfully updated' });
+        res.send({ success: true, message: 'Successfully updated' });
     } catch (e) {
         console.log(e);
         res.sendStatus(500);
@@ -105,7 +105,7 @@ router.post('/login', async (req, res) => {
         }
     } catch (e) {
         console.log(e);
-        res.sendStatus(500);
+        res.sendStatus(401);
     }
 });
 
@@ -126,7 +126,7 @@ router.post('/users/validate', async (req, res) => {
 router.delete('/users/:id', async (req, res, next) => {
     try {
         await User.deleteValue(con, req.params.id);
-        res.send({ success: true, message: 'Succssessfully deleted' });
+        res.send({ success: true, message: 'Successfully deleted' });
     } catch (e) {
         console.log(e);
         res.sendStatus(500);
@@ -140,7 +140,7 @@ router.put('/users/:id', async (req, res, next) => {
     };
     try {
         await User.update(con, x.column, x.newValue, req.params.id);
-        res.send({ success: true, message: 'Succssessfully updated' });
+        res.send({ success: true, message: 'Successfully updated' });
     } catch (e) {
         console.log(e);
         res.sendStatus(500);

@@ -50,15 +50,21 @@ const AuthProvider = ({ children }) => {
         }, 500);
       },
       signIn: async data => {
-        // In a production app, we need to send some data (usually username, password) to server and get a token
-        // We will also need to handle errors if sign in failed
-        // After getting token, we need to persist the token using `SecureStore` or any other encrypted storage
-        // In the example, we'll use a dummy token
+        // post request to https://skate-buddy.josholaus.com/api/login
+        const res = await fetch('https://skate-buddy.josholaus.com/api/login', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+        console.log(await res.json());
 
-        const token = '#+dummy-auth-token12';
+        // const token = '#+dummy-auth-token12';
 
-        await Keychain.setInternetCredentials('jwt', data.email, token);
-        dispatch({ type: 'SIGN_IN', token: token });
+        // await Keychain.setInternetCredentials('jwt', data.email, token);
+        // dispatch({ type: 'SIGN_IN', token: token });
       },
       signOut: async () => {
         await Keychain.resetInternetCredentials('jwt');
@@ -70,7 +76,7 @@ const AuthProvider = ({ children }) => {
         // After getting token, we need to persist the token using `SecureStore` or any other encrypted storage
         // In the example, we'll use a dummy token
         console.log(data);
-        dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' });
+        // dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' });
       },
       forgotPassword: async data => {
         console.log(data.email);

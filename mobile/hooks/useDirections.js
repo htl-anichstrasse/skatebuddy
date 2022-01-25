@@ -11,9 +11,7 @@ const useDirections = (location, skatepark) => {
     url += ',';
     url += location.coords.longitude.toString();
     url += '&destination=';
-    // ! location.latitude
-    // ! location.longitude
-    url += skatepark.lat.toString() + ',' + skatepark.lon.toString();
+    url += skatepark.latitude.toString() + ',' + skatepark.longitude.toString();
     url += '&mode=';
     url += method;
     url += '&key=';
