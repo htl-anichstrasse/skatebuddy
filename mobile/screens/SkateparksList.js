@@ -126,8 +126,7 @@ const SkateparksList = ({ navigation }) => {
                 />
               );
             }}
-            // ! item.skateparkId
-            keyExtractor={item => item.id}
+            keyExtractor={item => item.skateparkId}
             // TODO refreshControl={}
           />
         </>
