@@ -90,7 +90,7 @@ User.insertValue = (con, user) => {
     return new Promise((resolve, reject) => {
         con.query(
             'Insert into users(Name, PasswordHash, Email, ProfilePictureID) values (?, ?, ?, ?)',
-            [user.name, user.passwordHash, user.email, user.profilePictureId],
+            [user.name, user.passwordhash, user.email, user.profilePictureId],
             (err, result) => {
                 if (err) {
                     return reject(err);

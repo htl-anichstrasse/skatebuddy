@@ -60,6 +60,7 @@ router.post('/register', async (req, res, next) => {
             user.name,
             user.email,
         );
+        console.log(user);
         if (!alreadyExists) {
             token = User.generateToken(user);
             await User.insertValue(con, user);
