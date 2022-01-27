@@ -3,10 +3,10 @@ import React from 'react';
 import { View } from 'react-native';
 
 // components
-import Text from '../../common/Text';
+import Text from '../common/Text';
 
 // styles
-import styles from '../../../styles/SkateparkDetailsStyles';
+import styles from '@styles/SkateparkDetailsStyles';
 
 const AdditionalInfo = ({ skatepark }) => {
   return (

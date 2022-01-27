@@ -6,12 +6,13 @@ import { View, Dimensions, ScrollView } from 'react-native';
 import Text from '../components/common/Text';
 import LoadingCircle from '../components/common/LoadingCircle';
 import Button from '../components/common/Button';
-import AdditionalInfo from '../components/SkateparkDetails/InfoReviews/AdditionalInfo';
-import Reviews from '../components/SkateparkDetails/InfoReviews/Reviews';
-import Obstacles from '../components/SkateparkDetails/Obstacles/Obstacles';
+import AdditionalInfo from '../components/SkateparkDetails/AdditionalInfo';
+import Reviews from '../components/SkateparkDetails/Reviews';
+import Obstacles from '../components/SkateparkDetails/Obstacles';
+import SkateparkDetailsHeader from '../components/SkateparkDetails/SkateparkDetailsHeader';
 
 // hooks
-import useFetch from '../hooks/useFetchApi';
+import useFetch from '../hooks/useFetch';
 
 // styles
 import styles from '../styles/SkateparkDetailsStyles';
@@ -25,9 +26,17 @@ const SkateparkDetails = ({ navigation, route }) => {
   const skatepark = route.params.skatepark;
 
   const {
+    data: obstacles,
+    isLoading: isObstaclesLoading,
+    error: obstaclesError,
+  } = useFetch(
+    'https://skate-buddy.josholaus.com/api/obstacles/' + skatepark.skateparkId,
+  );
+
+  const {
     data: reviews,
-    isLoading,
-    error,
+    isLoading: isReviewsLoading,
+    error: reviewsError,
     changeData: setReviews,
   } = useFetch(
     'https://skate-buddy.josholaus.com/api/reviews/' + skatepark.skateparkId,
@@ -42,17 +51,19 @@ const SkateparkDetails = ({ navigation, route }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{skatepark.name}</Text>
+      <SkateparkDetailsHeader skatepark={skatepark} navigation={navigation} />
 
       <View style={styles.horizontalScroll}>
         <ScrollView>
           <View style={styles.column}>
             <AdditionalInfo skatepark={skatepark} />
 
-            <Obstacles />
+            {/* {isObstaclesLoading && <LoadingCircle />}
+            {obstaclesError && <Text>Oida {obstaclesError}</Text>}
+            {obstacles && <Obstacles obstacles={obstacles} />} */}
 
-            {isLoading && <LoadingCircle />}
-            {error && <Text>{error}</Text>}
+            {isReviewsLoading && <LoadingCircle />}
+            {reviewsError && <Text>{reviewsError}</Text>}
             {reviews && (
               <Reviews
                 reviews={reviews}

@@ -59,8 +59,8 @@ const Map = (park) => {
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}>
         <Marker
-          lat={park.park.lat}
-          lng={park.park.lon}
+          lat={park.park.latitude}
+          lng={park.park.longitude}
           text="My Marker"
           color="red"
         />

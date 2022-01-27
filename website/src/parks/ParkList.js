@@ -8,17 +8,17 @@ const ParkList = ({ skateparks }) => {
   return (
     <div className="park-list">
       {skateparks.map(skatepark => (
-        <div className="park-preview" key={skatepark.id}>
+        <div className="park-preview" key={skatepark.skateparkId}>
           <div className="list">
             <div className="park-box">
-              <Link to={`/skateparks/${skatepark.id}`} className='ParkLink'>
+              <Link to={`/skateparks/${skatepark.skateparkId}`} className='ParkLink'>
                   <h2>{skatepark.name}</h2>
-                {/*  <p className='average-rating'>3,42</p> */}
+                  <p className='average-rating'>{skatepark.rating}</p>
                 </Link>
                   <div className="slideshow-container">
                     <Slideshow></Slideshow>
                   </div>
-                  <Link to={`/skateparks/${skatepark.id}`} className='ParkLink'>
+                  <Link to={`/skateparks/${skatepark.skateparkId}`} className='ParkLink'>
                   <p>Klicken Sie die Box für mehr Details</p>
                   </Link>
             </div>

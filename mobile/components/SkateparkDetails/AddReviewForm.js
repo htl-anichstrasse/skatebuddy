@@ -6,13 +6,13 @@ import * as yup from 'yup';
 import Slider from '@react-native-community/slider';
 
 // components
-import Text from '../../common/Text';
-import Button from '../../common/Button';
+import Text from '../common/Text';
+import Button from '../common/Button';
 
 // hooks
 
 // styles
-import styles from '../../../styles/SkateparkDetailsStyles';
+import styles from '@styles/SkateparkDetailsStyles';
 
 const reviewSchema = yup.object({
   title: yup.string().required().min(4),

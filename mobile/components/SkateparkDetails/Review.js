@@ -3,12 +3,12 @@ import React from 'react';
 import { View } from 'react-native';
 
 // components
-import Text from '../../common/Text';
+import Text from '../common/Text';
 
 // hooks
 
 // styles
-import styles from '../../../styles/ReviewsStyles';
+import styles from '@styles/ReviewsStyles';
 
 const Review = ({ review }) => {
   return (

@@ -3,15 +3,15 @@ import React, { useState } from 'react';
 import { View, FlatList } from 'react-native';
 
 // components
-import Text from '../../common/Text';
-import Button from '../../common/Button';
+import Text from '../common/Text';
+import Button from '../common/Button';
 import AddReviewModal from './AddReviewModal';
 import Review from './Review';
 
 // hooks
 
 // styles
-import styles from '../../../styles/ReviewsStyles';
+import styles from '@styles/ReviewsStyles';
 
 const Reviews = ({ reviews, newReview }) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -30,13 +30,20 @@ const Reviews = ({ reviews, newReview }) => {
         }}
       />
       <View style={styles.container}>
-        <Text style={styles.headerText}>Anzahl Reviews: {reviews.length}</Text>
-        <View style={styles.reviewsContainer}>
-          {reviews.map(review => (
-            // ! review.reviewId
-            <Review key={review.id} review={review} />
-          ))}
-        </View>
+        {reviews.length > 0 ? (
+          <>
+            <Text style={styles.headerText}>
+              Anzahl Reviews: {reviews.length}
+            </Text>
+            <View style={styles.reviewsContainer}>
+              {reviews.map(review => (
+                <Review key={review.reviewId} review={review} />
+              ))}
+            </View>
+          </>
+        ) : (
+          <Text style={styles.noReviewsText}>No reviews yet</Text>
+        )}
       </View>
     </>
   );
