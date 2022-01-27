@@ -8,14 +8,13 @@ const Stack = createNativeStackNavigator();
 
 const SkateparksStack = () => {
   return (
-    <Stack.Navigator initialRouteName="SkateparksList">
-      <Stack.Screen
-        name="SkateparksList"
-        component={SkateparksList}
-        options={{
-          headerShown: false,
-        }}
-      />
+    <Stack.Navigator
+      initialRouteName="SkateparksList"
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="SkateparksList" component={SkateparksList} />
       <Stack.Screen name="SkateparkDetails" component={SkateparkDetails} />
     </Stack.Navigator>
   );

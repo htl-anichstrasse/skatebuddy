@@ -1,20 +1,28 @@
 import { StyleSheet } from 'react-native';
+import colors from './Colors';
 
 const SkateparkDetailsStyles = StyleSheet.create({
   flex: {
     flex: 1,
   },
-  title: {
-    padding: 10,
-    textAlign: 'center',
-    fontSize: 25,
-    borderColor: '#ddd',
-    borderBottomWidth: 1,
-    borderStyle: 'solid',
-  },
-  titleContainer: {
+  headerContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    width: '100%',
+    backgroundColor: colors.white,
+    borderBottomColor: colors.gray1,
+    borderBottomWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  headerIcon: {
+    position: 'absolute',
+    left: 10,
+    padding: 10,
+  },
+  headerText: {
+    paddingTop: 15,
+    paddingBottom: 8,
+    fontSize: 25,
   },
   container: {
     alignItems: 'center',

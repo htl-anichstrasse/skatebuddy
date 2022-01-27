@@ -11,7 +11,7 @@ import LocationLoading from '../components/SkateparksList/LocationLoading';
 import LoadingCircle from '../components/common/LoadingCircle';
 
 // hooks
-import useFetch from '../hooks/useFetchApi';
+import useFetch from '../hooks/useFetch';
 import useLocation from '../hooks/useLocation';
 
 // styles

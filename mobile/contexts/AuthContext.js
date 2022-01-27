@@ -51,20 +51,22 @@ const AuthProvider = ({ children }) => {
       },
       signIn: async data => {
         // post request to https://skate-buddy.josholaus.com/api/login
-        const res = await fetch('https://skate-buddy.josholaus.com/api/login', {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        });
-        console.log(await res.json());
+        // const res = await fetch('https://skate-buddy.josholaus.com/api/login', {
+        //   method: 'POST',
+        //   headers: {
+        //     Accept: 'application/json',
+        //     'Content-Type': 'application/json',
+        //   },
+        //   body: JSON.stringify(data),
+        // });
+        // if (res.status === 200) {
+        //   console.log(await res.json());
+        // }
 
-        // const token = '#+dummy-auth-token12';
+        const token = '#+dummy-auth-token12';
 
-        // await Keychain.setInternetCredentials('jwt', data.email, token);
-        // dispatch({ type: 'SIGN_IN', token: token });
+        await Keychain.setInternetCredentials('jwt', data.email, token);
+        dispatch({ type: 'SIGN_IN', token: token });
       },
       signOut: async () => {
         await Keychain.resetInternetCredentials('jwt');

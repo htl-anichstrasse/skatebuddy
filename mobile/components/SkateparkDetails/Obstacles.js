@@ -3,7 +3,7 @@ import React from 'react';
 import { View } from 'react-native';
 
 // components
-import Text from '../../common/Text';
+import Text from '@components/common/Text';
 
 const Obstacles = () => {
   return (

@@ -20,7 +20,11 @@ styles.mapContainer = {
 };
 
 const MapScreen = () => {
-  const { data: skateparks, isLoading, error } = useFetch('skateparks');
+  const {
+    data: skateparks,
+    isLoading,
+    error,
+  } = useFetch('https://skate-buddy.josholaus.com/api/skateparks');
   const mapRef = useRef(null);
 
   const onCalloutPress = () => {
