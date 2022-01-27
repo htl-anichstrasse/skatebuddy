@@ -44,6 +44,21 @@ router.get('/users/:id', async (req, res, next) => {
     }
 });
 
+router.get('/users/check/email', async (req, res, next) => {
+    const email = req.body.email;
+    try {
+        let results = await User.getByEmail(con, email);
+        if (results != null) {
+            res.send({ exists: true });
+        } else {
+            res.send({ exists: false });
+        }
+    } catch (e) {
+        console.log(e);
+        res.sendStatus();
+    }
+});
+
 //Register
 router.post('/register', async (req, res, next) => {
     const password = req.body.password;

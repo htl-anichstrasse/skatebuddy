@@ -49,15 +49,19 @@ User.getById = (con, id) => {
                 if (err) {
                     return reject(err);
                 }
-                return resolve(
-                    new User(
-                        result[0].UserID,
-                        result[0].Name,
-                        result[0].PasswordHash,
-                        result[0].Email,
-                        result[0].ProfilePictureID,
-                    ),
-                );
+                try {
+                    return resolve(
+                        new User(
+                            result[0].UserID,
+                            result[0].Name,
+                            result[0].PasswordHash,
+                            result[0].Email,
+                            result[0].ProfilePictureID,
+                        ),
+                    );
+                } catch (error) {
+                    return resolve(null);
+                }
             },
         );
     });
@@ -72,15 +76,19 @@ User.getByEmail = (con, email) => {
                 if (err) {
                     return reject(err);
                 }
-                return resolve(
-                    new User(
-                        result[0].UserID,
-                        result[0].Name,
-                        result[0].PasswordHash,
-                        result[0].Email,
-                        result[0].ProfilePictureID,
-                    ),
-                );
+                try {
+                    return resolve(
+                        new User(
+                            result[0].UserID,
+                            result[0].Name,
+                            result[0].PasswordHash,
+                            result[0].Email,
+                            result[0].ProfilePictureID,
+                        ),
+                    );
+                } catch (error) {
+                    return resolve(null);
+                }
             },
         );
     });
