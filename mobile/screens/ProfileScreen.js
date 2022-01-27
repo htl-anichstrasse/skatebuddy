@@ -66,21 +66,15 @@ const ProfileScreen = () => {
           icon="location-exit"
           iconType="mci"
         />
+        <Button
+          title="Print auth state"
+          onPress={() => {
+            console.log('AuthContextState: ', state);
+          }}
+        />
       </ScrollView>
     </View>
   );
 };
 
 export default ProfileScreen;
-
-{
-  /* <Button
-        title="Print auth state"
-        onPress={() => {
-          console.log('AuthContextState: ', state);
-          Keychain.getInternetCredentials('jwt').then(creds => {
-            console.log('Keychain: ', creds);
-          });
-        }}
-      /> */
-}

@@ -7,20 +7,13 @@ import EntryHeader from './EntryHeader';
 import EntryDirections from './EntryDirections';
 
 // hooks
-import useDirections from '../../../hooks/useDirections';
 
 // styles
 import styles from '../../../styles/SkateparksStyles';
 import gStyles from '../../../styles/GlobalStyles';
 import { skateparksImages } from '../../../styles/Images';
 
-const SkateparkEntry = ({ skatepark, navigation, location }) => {
-  const { getDurations } = useDirections(location, skatepark);
-
-  useEffect(() => {
-    getDurations();
-  }, []);
-
+const SkateparkEntry = ({ skatepark, navigation, location, refresh }) => {
   return (
     <Pressable
       onPress={() => {

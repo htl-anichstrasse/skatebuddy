@@ -84,6 +84,9 @@ const SkateparksList = ({ navigation }) => {
     getLocation();
   }, []);
 
+  const [refreshing, setRefreshing] = useState(false);
+  const [refreshCounter, setRefreshCounter] = useState(0);
+
   return (
     <View style={styles.container}>
       {locError && (
@@ -93,7 +96,7 @@ const SkateparksList = ({ navigation }) => {
 
       {isLoading && <LoadingCircle />}
       {error && <Text>Error!</Text>}
-      {skateparks && (
+      {!locLoading && skateparks && (
         <>
           {/* // * use this button to log the durations and save them in useFetch to avoid API call
               // TODO CACHING
@@ -123,11 +126,23 @@ const SkateparksList = ({ navigation }) => {
                   skatepark={item}
                   navigation={navigation}
                   location={location}
+                  refresh={refreshCounter}
                 />
               );
             }}
             keyExtractor={item => item.skateparkId}
             // TODO refreshControl={}
+            refreshControl={
+              <RefreshControl
+                refreshing={refreshing}
+                onRefresh={() => {
+                  setRefreshing(true);
+                  getLocation();
+                  setRefreshCounter(rc => rc + 1);
+                  setRefreshing(false);
+                }}
+              />
+            }
           />
         </>
       )}

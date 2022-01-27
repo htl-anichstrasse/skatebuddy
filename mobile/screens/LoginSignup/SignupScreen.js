@@ -53,7 +53,6 @@ const SignupScreen = ({ navigation }) => {
             }}
             validationSchema={reviewSchema}
             onSubmit={(values, actions) => {
-              actions.resetForm();
               signUp({
                 name: values.name,
                 email: values.email,

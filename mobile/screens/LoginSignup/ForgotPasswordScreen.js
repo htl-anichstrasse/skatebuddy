@@ -36,7 +36,6 @@ const LoginScreen = ({ navigation }) => {
           initialValues={{ email: '' }}
           validationSchema={reviewSchema}
           onSubmit={(values, actions) => {
-            actions.resetForm();
             forgotPassword({ email: values.email });
           }}
         >

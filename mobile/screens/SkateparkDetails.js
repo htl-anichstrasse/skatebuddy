@@ -25,13 +25,13 @@ styles.column = {
 const SkateparkDetails = ({ navigation, route }) => {
   const skatepark = route.params.skatepark;
 
-  const {
-    data: obstacles,
-    isLoading: isObstaclesLoading,
-    error: obstaclesError,
-  } = useFetch(
-    'https://skate-buddy.josholaus.com/api/obstacles/' + skatepark.skateparkId,
-  );
+  // const {
+  //   data: obstacles,
+  //   isLoading: isObstaclesLoading,
+  //   error: obstaclesError,
+  // } = useFetch(
+  //   'https://skate-buddy.josholaus.com/api/obstacles/' + skatepark.skateparkId,
+  // );
 
   const {
     data: reviews,

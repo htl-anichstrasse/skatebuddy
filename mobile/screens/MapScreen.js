@@ -27,26 +27,13 @@ const MapScreen = () => {
   } = useFetch('https://skate-buddy.josholaus.com/api/skateparks');
   const mapRef = useRef(null);
 
-  const onCalloutPress = () => {
-    mapRef.current.getCamera().then(camera => {
-      mapRef.current.animateCamera({
-        ...camera,
-        zoom: 17,
-      });
-    });
-  };
-
   return (
     <View style={styles.container}>
       {isLoading && <LoadingCircle />}
       {error && <Text style={styles.error}>Error {error}</Text>}
       {skateparks && (
         <>
-          <Map
-            mapRef={mapRef}
-            skateparks={skateparks}
-            onCalloutPress={onCalloutPress}
-          />
+          <Map mapRef={mapRef} skateparks={skateparks} />
           <Button
             title="Reset map"
             onPress={() => {
