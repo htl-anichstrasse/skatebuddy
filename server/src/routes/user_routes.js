@@ -44,7 +44,7 @@ router.get('/users/:id', async (req, res, next) => {
     }
 });
 
-router.post('/users/check/email', async (req, res, next) => {
+router.post('/check/email', async (req, res, next) => {
     const email = req.body.email;
     try {
         let results = await User.getByEmail(con, email);
