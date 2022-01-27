@@ -160,4 +160,17 @@ User.generateToken = (user) =>
         { expiresIn: '135d' },
     );
 
+User.decodingJWT = (token) => {
+    console.log('decoding JWT token');
+    if (token !== null || token !== undefined) {
+        const base64String = token.split('.')[1];
+        const decodedValue = JSON.parse(
+            Buffer.from(base64String, 'base64').toString('ascii'),
+        );
+        console.log(decodedValue);
+        return decodedValue;
+    }
+    return null;
+};
+
 module.exports = User;
