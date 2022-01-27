@@ -77,7 +77,6 @@ router.post('/register', async (req, res, next) => {
 router.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
-        console.log(email, password);
         if (!(email, password)) {
             res.sendStatus(400);
         }

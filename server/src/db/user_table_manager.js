@@ -43,7 +43,7 @@ User.selectAll = (con) => {
 User.getById = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'Select * from Users where UserId = ?',
+            'Select * from users where UserId = ?',
             [id],
             (err, result) => {
                 if (err) {
@@ -66,7 +66,7 @@ User.getById = (con, id) => {
 User.getByEmail = (con, email) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'Select * from Users where Email = ?',
+            'Select * from users where Email = ?',
             [email],
             (err, result) => {
                 if (err) {
