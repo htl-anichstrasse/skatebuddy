@@ -73,20 +73,6 @@ router.post('/register', async (req, res, next) => {
     }
 });
 
-router.put('/register/:id', async (req, res, next) => {
-    const x = {
-        column: req.body.column,
-        newValue: req.body.newValue,
-    };
-    try {
-        await User.update(con, x.column, x.newValue, req.params.id);
-        res.send({ success: true, message: 'Successfully updated' });
-    } catch (e) {
-        console.log(e);
-        res.sendStatus(500);
-    }
-});
-
 //login
 router.post('/login', async (req, res) => {
     try {
@@ -97,7 +83,6 @@ router.post('/login', async (req, res) => {
         }
 
         const user = await User.getByEmail(con, email);
-        console.log(user);
         if (user && (await bcrypt.compare(password, user.passwordhash))) {
             // Create token
             token = User.generateToken(user);
@@ -105,7 +90,7 @@ router.post('/login', async (req, res) => {
         }
     } catch (e) {
         console.log(e);
-        res.sendStatus(500);
+        res.sendStatus(401);
     }
 });
 
