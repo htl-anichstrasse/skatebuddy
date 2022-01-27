@@ -129,7 +129,7 @@ Skatepark.insertValue = (con, skatepark) => {
 Skatepark.update = (con, column, newValue, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            `UPDATE Skateparks SET ${column} = ? Where SkateparkID = ? `,
+            `UPDATE skateparks SET ${column} = ? Where SkateparkID = ? `,
             [newValue, id],
             (err, result) => {
                 if (err) {

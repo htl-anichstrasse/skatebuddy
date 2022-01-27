@@ -104,7 +104,7 @@ User.insertValue = (con, user) => {
 User.updateProfilePictureId = (con, id, picId) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'UPDATE Users set ProfilePictureID = ? WHERE UserId = ?;',
+            'UPDATE users set ProfilePictureID = ? WHERE UserId = ?;',
             [id, picId],
             (err, result) => {
                 if (err) {
@@ -118,7 +118,7 @@ User.updateProfilePictureId = (con, id, picId) => {
 User.update = (con, column, newValue, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            `UPDATE Users SET ${column} = ? Where UserId = ? `,
+            `UPDATE users SET ${column} = ? Where UserId = ? `,
             [newValue, parseInt(id)],
             (err, result) => {
                 if (err) {
@@ -133,7 +133,7 @@ User.update = (con, column, newValue, id) => {
 User.deleteValue = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'Delete from Users where Userid = ? ',
+            'Delete from users where Userid = ? ',
             [id],
             (err, result) => {
                 if (err) {
