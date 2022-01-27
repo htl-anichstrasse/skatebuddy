@@ -1,7 +1,7 @@
 class SkateparkPictures {
-    constructor(parkid, picid) {
-        this.parkid = parkid;
-        this.picid = picid;
+    constructor(skateparkId, picId) {
+        this.skateparkId = skateparkId;
+        this.picId = picId;
     }
 }
 

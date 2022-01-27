@@ -32,12 +32,12 @@ const useDirections = (location, skatepark) => {
 
   const getDurations = async () => {
     // * Using presaved durations in useFetch.js to avoid API call
-    // if (location != null) {
-    //   const durations = await Promise.all(
-    //     methods.map(method => fetchDuration(method)),
-    //   );
-    //   skatepark.durations = durations;
-    // }
+    if (location != null) {
+      const durations = await Promise.all(
+        methods.map(method => fetchDuration(method)),
+      );
+      skatepark.durations = durations;
+    }
   };
 
   return { getDurations };

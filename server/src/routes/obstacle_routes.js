@@ -28,11 +28,12 @@ router.get('/obstacles/:id', async (req, res, next) => {
 router.post('/obstacles', async (req, res, next) => {
     try {
         const obstacle = new Obstacles(
+            null,
             req.body.description,
             req.body.difficulty,
         );
         await Obstacles.insertValue(con, obstacle);
-        res.send({ success: true, message: 'Succsessfully inserted' });
+        res.send({ success: true, message: 'Successfully inserted' });
     } catch (e) {
         console.log(e);
         res.sendStatus(500);
@@ -42,7 +43,7 @@ router.post('/obstacles', async (req, res, next) => {
 router.delete('/obstacles/:id', async (req, res, next) => {
     try {
         await Obstacles.deleteValue(con, req.params.id);
-        res.send({ success: true, message: 'Succssessfully deleted' });
+        res.send({ success: true, message: 'Successfully deleted' });
     } catch (e) {
         console.log(e);
         res.sendStatus(500);
@@ -56,7 +57,7 @@ router.put('/obstacles/:id', async (req, res, next) => {
     };
     try {
         await Obstacles.update(con, x.column, x.newValue, req.params.id);
-        res.send({ success: true, message: 'Succssessfully updated' });
+        res.send({ success: true, message: 'Successfully updated' });
     } catch (e) {
         console.log(e);
         res.sendStatus(500);

@@ -28,11 +28,11 @@ User.selectAll = (con) => {
             let users = [];
             for (let i = 0; i < result.length; i++) {
                 users[i] = new User(
-                    result[0].UserID,
-                    result[0].Name,
-                    result[0].PasswordHash,
-                    result[0].Email,
-                    result[0].ProfilePictureID,
+                    result[i].UserID,
+                    result[i].Name,
+                    result[i].PasswordHash,
+                    result[i].Email,
+                    result[i].ProfilePictureID,
                 );
             }
             return resolve(users);
@@ -90,7 +90,7 @@ User.insertValue = (con, user) => {
     return new Promise((resolve, reject) => {
         con.query(
             'Insert into users(Name, PasswordHash, Email, ProfilePictureID) values (?, ?, ?, ?)',
-            [user.name, user.passwordHash, user.email, user.profilePictureId],
+            [user.name, user.passwordhash, user.email, user.profilePictureId],
             (err, result) => {
                 if (err) {
                     return reject(err);

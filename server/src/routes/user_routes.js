@@ -49,7 +49,12 @@ router.post('/register', async (req, res, next) => {
     const password = req.body.password;
     const encryptedPassword = await bcrypt.hash(password, saltRounds);
     try {
-        const user = new User(req.body.name, encryptedPassword, req.body.email);
+        const user = new User(
+            null,
+            req.body.name,
+            encryptedPassword,
+            req.body.email,
+        );
         var alreadyExists = await User.alreadyExists(
             con,
             user.name,
@@ -75,7 +80,7 @@ router.put('/register/:id', async (req, res, next) => {
     };
     try {
         await User.update(con, x.column, x.newValue, req.params.id);
-        res.send({ success: true, message: 'Succssessfully updated' });
+        res.send({ success: true, message: 'Successfully updated' });
     } catch (e) {
         console.log(e);
         res.sendStatus(500);
@@ -93,7 +98,7 @@ router.post('/login', async (req, res) => {
 
         const user = await User.getByEmail(con, email);
         console.log(user);
-        if (user && (await bcrypt.compare(password, user.passwordHash))) {
+        if (user && (await bcrypt.compare(password, user.passwordhash))) {
             // Create token
             token = User.generateToken(user);
             res.send({ success: true, token: token });
@@ -121,7 +126,7 @@ router.post('/users/validate', async (req, res) => {
 router.delete('/users/:id', async (req, res, next) => {
     try {
         await User.deleteValue(con, req.params.id);
-        res.send({ success: true, message: 'Succssessfully deleted' });
+        res.send({ success: true, message: 'Successfully deleted' });
     } catch (e) {
         console.log(e);
         res.sendStatus(500);
@@ -135,7 +140,7 @@ router.put('/users/:id', async (req, res, next) => {
     };
     try {
         await User.update(con, x.column, x.newValue, req.params.id);
-        res.send({ success: true, message: 'Succssessfully updated' });
+        res.send({ success: true, message: 'Successfully updated' });
     } catch (e) {
         console.log(e);
         res.sendStatus(500);

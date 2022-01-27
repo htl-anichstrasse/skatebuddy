@@ -27,6 +27,7 @@ router.get('/reviews/:id', async (req, res, next) => {
 router.post('/reviews', async (req, res, next) => {
     try {
         const review = new Review(
+            null,
             req.body.parkid,
             req.body.userid,
             req.body.rating,
@@ -35,7 +36,7 @@ router.post('/reviews', async (req, res, next) => {
         );
         console.log(review);
         await Review.insertValue(con, review);
-        res.send({ success: true, message: 'Succsessfully inserted' });
+        res.send({ success: true, message: 'Successfully inserted' });
     } catch (e) {
         console.log(e);
         res.sendStatus(500);
@@ -45,7 +46,7 @@ router.post('/reviews', async (req, res, next) => {
 router.delete('/reviews/:id', async (req, res, next) => {
     try {
         await Review.deleteValue(con, req.params.id);
-        res.send({ success: true, message: 'successfully deleted' });
+        res.send({ success: true, message: 'Successfully deleted' });
     } catch (e) {
         console.log(e);
         res.sendStatus(500);
@@ -59,7 +60,7 @@ router.put('/reviews/:id', async (req, res, next) => {
     };
     try {
         await Review.update(con, x.column, x.newValue, req.params.id);
-        res.send({ success: true, message: 'successfully updated' });
+        res.send({ success: true, message: 'Successfully updated' });
     } catch (e) {
         console.log(e);
         res.sendStatus(500);

@@ -12,7 +12,7 @@ const AdditionalInfo = ({ skatepark }) => {
   return (
     <>
       <Text style={styles.textCenter}>
-        {skatepark.latitude}° N {skatepark.longitude}° W
+        {skatepark.latitude}° N, {skatepark.longitude}° W
       </Text>
 
       {skatepark.address ? (
@@ -21,7 +21,7 @@ const AdditionalInfo = ({ skatepark }) => {
         <Text style={styles.textCenter}>No address</Text>
       )}
 
-      <Text style={styles.textCenter}>Haltestelle: {skatepark.busStop}</Text>
+      <Text style={styles.textCenter}>Haltestelle: {skatepark.busstop}</Text>
     </>
   );
 };
