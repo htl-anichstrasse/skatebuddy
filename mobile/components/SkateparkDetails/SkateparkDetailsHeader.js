@@ -10,10 +10,11 @@ import Text from '@components/common/Text';
 
 // styles
 import styles from '@styles/SkateparkDetailsStyles';
+import gStyles from '@styles/GlobalStyles';
 
 const SkateparkDetailsHeader = ({ skatepark, navigation }) => {
   return (
-    <View style={styles.headerContainer}>
+    <View style={[styles.headerContainer, gStyles.shadow]}>
       <Ionicons
         name="return-up-back"
         size={30}

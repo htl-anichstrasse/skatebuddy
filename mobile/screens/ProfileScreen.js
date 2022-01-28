@@ -66,7 +66,7 @@ const ProfileScreen = () => {
           icon="location-exit"
           iconType="mci"
         />
-        <Button
+        {/* <Button
           title="Print auth state"
           onPress={() => {
             console.log('AuthContextState: ', state);
@@ -81,7 +81,7 @@ const ProfileScreen = () => {
             Keychain.resetInternetCredentials('jwt');
             console.log('jwt Keychain resetted');
           }}
-        />
+        /> */}
       </ScrollView>
     </View>
   );

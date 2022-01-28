@@ -9,10 +9,10 @@ const ReviewsStyles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: colors.white,
   },
-  headerTextContainer: {
-    borderBottomColor: colors.gray1,
-    borderBottomWidth: 1,
+  button: {
+    backgroundColor: colors.secondary,
   },
+  headerTextContainer: {},
   headerText: {
     fontSize: 20,
   },
@@ -21,18 +21,26 @@ const ReviewsStyles = StyleSheet.create({
   },
   headerFirstRow: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   starsContainer: {
-    paddingTop: 3,
-    paddingLeft: 10,
     flexDirection: 'row',
   },
   review: {
-    margin: 10,
+    marginTop: 10,
+    paddingHorizontal: 10,
+    paddingTop: 10,
+    borderTopColor: colors.gray1,
+    borderTopWidth: 1,
   },
   reviewsContainer: {
     width: '100%',
   },
+  reviewHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  reviewContent: {},
 });
 
 export default ReviewsStyles;

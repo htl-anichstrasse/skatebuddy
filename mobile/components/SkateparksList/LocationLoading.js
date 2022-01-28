@@ -13,7 +13,7 @@ const LocationLoading = () => {
     <View
       style={[styles.locationInfoContainer, styles.locationLoadingContainer]}
     >
-      <Text style={styles.locationInfoText}>Location service pending</Text>
+      <Text style={styles.locationInfoText}>Standortdienst wird geladen</Text>
       <ActivityIndicator />
     </View>
   );

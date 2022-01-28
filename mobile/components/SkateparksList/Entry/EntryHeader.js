@@ -21,9 +21,7 @@ const EntryHeader = ({ skatepark }) => {
       <View style={[styles.entryRatingContainer, gStyles.shadow]}>
         {skatepark.rating ? (
           <>
-            <Text style={styles.entryRatingText}>
-              {skatepark.rating}
-            </Text>
+            <Text style={styles.entryRatingText}>{skatepark.rating}</Text>
             <MaterialCommunityIcons
               name="star"
               size={20}
@@ -32,7 +30,7 @@ const EntryHeader = ({ skatepark }) => {
             />
           </>
         ) : (
-          <Text style={styles.entryRatingText}>No ratings</Text>
+          <Text style={styles.entryRatingText}>N/A</Text>
         )}
       </View>
     </View>

@@ -1,6 +1,7 @@
 // libraries
 import React from 'react';
 import { View } from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 // components
 import Text from '../common/Text';
@@ -9,15 +10,39 @@ import Text from '../common/Text';
 
 // styles
 import styles from '@styles/ReviewsStyles';
+import colors from '@styles/Colors';
 
 const Review = ({ review }) => {
+  const grayStars = 5 - Math.round(review.rating);
+  const filledStars = Math.round(review.rating);
+
   return (
     <View style={styles.review}>
-      <Text>Review Nr {review.reviewId}</Text>
-      <Text>Von User {review.userId}</Text>
-      <Text>Rating {review.rating}</Text>
-      <Text>Titel {review.title}</Text>
-      <Text>Body {review.content}</Text>
+      <Text style={styles.reviewUser}>Von User {review.userId}</Text>
+      <View style={styles.reviewHeader}>
+        <Text>
+          (#{review.reviewId}) {review.title}
+        </Text>
+        <View style={styles.starsContainer}>
+          {[...Array(filledStars)].map((_, i) => (
+            <MaterialCommunityIcons
+              key={i}
+              name="star"
+              size={20}
+              color={colors.secondary}
+            />
+          ))}
+          {[...Array(grayStars)].map((_, i) => (
+            <MaterialCommunityIcons
+              key={i}
+              name="star-outline"
+              size={20}
+              color={colors.secondary}
+            />
+          ))}
+        </View>
+      </View>
+      <Text style={styles.reviewContent}>{review.content}</Text>
     </View>
   );
 };

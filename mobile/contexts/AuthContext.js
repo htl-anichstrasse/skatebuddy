@@ -91,6 +91,7 @@ const AuthProvider = ({ children }) => {
             description: 'Möglicherweise falsche Email oder Passwort',
             type: 'danger',
             icon: 'auto',
+            duration: 5000,
           });
         }
       },
@@ -127,6 +128,7 @@ const AuthProvider = ({ children }) => {
               'Möglicherweise ist dieser Benutzername oder Email schon in Verwendung',
             type: 'danger',
             icon: 'auto',
+            duration: 5000,
           });
         }
       },

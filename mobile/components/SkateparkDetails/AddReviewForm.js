@@ -1,6 +1,6 @@
 // libraries
 import React, { useState } from 'react';
-import { View, TextInput } from 'react-native';
+import { View } from 'react-native';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import Slider from '@react-native-community/slider';
@@ -8,19 +8,28 @@ import Slider from '@react-native-community/slider';
 // components
 import Text from '../common/Text';
 import Button from '../common/Button';
+import TextInput from '../LoginSignup/TextInput';
 
 // hooks
 
 // styles
 import styles from '@styles/SkateparkDetailsStyles';
+import colors from '@styles/Colors';
 
 const reviewSchema = yup.object({
-  title: yup.string().required().min(4),
-  content: yup.string().required().min(8),
+  title: yup
+    .string()
+    .required('Titel leer')
+    .min(4, 'Der Titel muss mindestens 4 Zeichen lang sein')
+    .max(17, 'Der Titel darf maximal 17 Zeichen lang sein'),
+  content: yup
+    .string()
+    .required('Inhalt leer')
+    .min(8, 'Der Inhalt muss mindestens 8 Zeichen lang sein'),
   rating: yup
     .string()
-    .required()
-    .test('is-num-1-5', 'Rating must be a number between 1 and 5', val => {
+    .required('Bewertung leer')
+    .test('is-num-1-5', 'Bewertung muss zwischen 1 und 5 liegen', val => {
       return val < 6 && val > 0;
     }),
 });
@@ -48,38 +57,44 @@ const AddReviewForm = ({ newReview, setModalVisible }) => {
         errors,
       }) => (
         <>
-          <Text>Title</Text>
+          <Text style={styles.inputLabel}>Titel</Text>
           <TextInput
             name="title"
-            style={styles.input}
+            icon="alpha-t-box"
+            value={values.title}
             onChangeText={handleChange('title')}
             onBlur={handleBlur('title')}
-            value={values.title}
-            placeholder="Review title"
+            touched={touched.title}
+            errors={errors.title}
+            color={colors.secondary}
           />
-          <Text style={styles.errorMessage}>
-            {touched.title && errors.title}
-          </Text>
 
-          <Text>Content</Text>
+          <Text style={styles.errorText}>{touched.title && errors.title} </Text>
+
+          <Text style={styles.inputLabel}>Inhalt</Text>
           <TextInput
-            style={styles.input}
+            name="content"
+            icon="text-box"
+            value={values.content}
             onChangeText={handleChange('content')}
             onBlur={handleBlur('content')}
-            value={values.content}
+            touched={touched.content}
+            errors={errors.content}
+            color={colors.secondary}
+            //
             multiline={true}
             numberOfLines={4}
-            placeholder="Review content"
           />
-          <Text style={styles.errorMessage}>
-            {touched.content && errors.content}
+
+          <Text style={styles.errorText}>
+            {touched.content && errors.content}{' '}
           </Text>
 
-          <Text>Rating</Text>
-          <Text>{values.rating}</Text>
+          <Text style={styles.inputLabel}>Bewertung</Text>
+          <Text style={styles.ratingValue}>{values.rating}</Text>
           <Slider
             step={1}
-            style={{ width: '100%' }}
+            style={styles.ratingSlider}
             minimumValue={1}
             maximumValue={5}
             onSlidingComplete={rating => {
@@ -87,15 +102,23 @@ const AddReviewForm = ({ newReview, setModalVisible }) => {
               setFieldValue('rating', rating.toString());
             }}
             value={parseInt(values.rating)}
-            minimumTrackTintColor="#666"
-            maximumTrackTintColor="#000000"
+            minimumTrackTintColor={colors.secondarySoft}
+            maximumTrackTintColor="#000"
+            thumbTintColor={colors.secondary}
           />
 
           <Text style={styles.errorMessage}>
             {touched.rating && errors.rating}
           </Text>
 
-          <Button onPress={handleSubmit} title="Submit" />
+          <Button
+            onPress={handleSubmit}
+            title="Senden"
+            style={styles.button}
+            icon="send"
+            iconType="ii"
+            iconSize={20}
+          />
         </>
       )}
     </Formik>

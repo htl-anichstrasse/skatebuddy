@@ -42,16 +42,17 @@ const useDirections = (location, skatepark) => {
   };
 
   const getDurations = async () => {
+    setError(null);
+    setIsLoading(true);
     if (location) {
       const durations = await Promise.all(
         methods.map(method => fetchDuration(method)),
       );
       skatepark.durations = durations;
-      setIsLoading(false);
     } else {
-      setError('Location not found');
-      setIsLoading(false);
+      setError('Rechte für Standort nicht erteilt.');
     }
+    setIsLoading(false);
   };
 
   const abortDurations = () => {

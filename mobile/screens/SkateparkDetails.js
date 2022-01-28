@@ -44,7 +44,18 @@ const SkateparkDetails = ({ navigation, route }) => {
 
   const newReview = review => {
     setReviews(prevReviews => {
-      review.reviewId = prevReviews.length + 1;
+      // review.reviewId = prevReviews.length + 1;
+      if (prevReviews.length > 0) {
+        review.reviewId =
+          Math.max.apply(
+            Math,
+            prevReviews.map(o => {
+              return o.reviewId;
+            }),
+          ) + 1;
+      } else {
+        review.reviewId = 1;
+      }
       return [review, ...prevReviews];
     });
   };
@@ -53,28 +64,26 @@ const SkateparkDetails = ({ navigation, route }) => {
     <View style={styles.container}>
       <SkateparkDetailsHeader skatepark={skatepark} navigation={navigation} />
 
-      <View style={styles.horizontalScroll}>
-        <ScrollView>
-          <View style={styles.column}>
-            <AdditionalInfo skatepark={skatepark} />
+      <ScrollView>
+        <View style={styles.column}>
+          <AdditionalInfo skatepark={skatepark} />
 
-            {/* {isObstaclesLoading && <LoadingCircle />}
+          {/* {isObstaclesLoading && <LoadingCircle />}
             {obstaclesError && <Text>Oida {obstaclesError}</Text>}
             {obstacles && <Obstacles obstacles={obstacles} />} */}
 
-            {isReviewsLoading && <LoadingCircle />}
-            {reviewsError && <Text>{reviewsError}</Text>}
-            {reviews && (
-              <Reviews
-                skatepark={skatepark}
-                reviews={reviews}
-                navigation={navigation}
-                newReview={newReview}
-              />
-            )}
-          </View>
-        </ScrollView>
-      </View>
+          {isReviewsLoading && <LoadingCircle />}
+          {reviewsError && <Text>{reviewsError}</Text>}
+          {reviews && (
+            <Reviews
+              skatepark={skatepark}
+              reviews={reviews}
+              navigation={navigation}
+              newReview={newReview}
+            />
+          )}
+        </View>
+      </ScrollView>
     </View>
   );
 };

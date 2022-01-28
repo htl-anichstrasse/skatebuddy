@@ -13,7 +13,13 @@ import styles from '../../../styles/SkateparksStyles';
 import gStyles from '../../../styles/GlobalStyles';
 import { skateparksImages } from '../../../styles/Images';
 
-const SkateparkEntry = ({ skatepark, navigation, location, refresh }) => {
+const SkateparkEntry = ({
+  skatepark,
+  navigation,
+  location,
+  locLoading,
+  locError,
+}) => {
   return (
     <Pressable
       onPress={() => {
@@ -22,7 +28,12 @@ const SkateparkEntry = ({ skatepark, navigation, location, refresh }) => {
     >
       <View style={[styles.entryContainer, gStyles.shadow]}>
         <EntryHeader skatepark={skatepark} />
-        <EntryDirections skatepark={skatepark} location={location} />
+        <EntryDirections
+          skatepark={skatepark}
+          location={location}
+          locLoading={locLoading}
+          locError={locError}
+        />
 
         <Image
           style={styles.entryImage}

@@ -81,7 +81,10 @@ const SkateparksList = ({ navigation }) => {
   const [searchString, setSearchString] = useState('');
 
   useEffect(() => {
-    getLocation();
+    const location = async () => {
+      await getLocation();
+    };
+    location();
   }, []);
 
   const [refreshing, setRefreshing] = useState(false);
@@ -92,11 +95,11 @@ const SkateparksList = ({ navigation }) => {
       {locError && (
         <LocationError getLocation={getLocation} locError={locError} />
       )}
-      {locLoading && <LocationLoading />}
+      {locLoading && locError == null && <LocationLoading />}
 
       {isLoading && <LoadingCircle />}
       {error && <Text>Error!</Text>}
-      {!locLoading && skateparks && (
+      {skateparks && (
         <>
           {/* // * use this button to log the durations and save them in useFetch to avoid API call
               // TODO CACHING
@@ -126,6 +129,8 @@ const SkateparksList = ({ navigation }) => {
                   skatepark={item}
                   navigation={navigation}
                   location={location}
+                  locLoading={locLoading}
+                  locError={locError}
                   refresh={refreshCounter}
                 />
               );
@@ -136,10 +141,12 @@ const SkateparksList = ({ navigation }) => {
               <RefreshControl
                 refreshing={refreshing}
                 onRefresh={() => {
-                  setRefreshing(true);
-                  getLocation();
-                  setRefreshCounter(rc => rc + 1);
-                  setRefreshing(false);
+                  const location = async () => {
+                    setRefreshing(true);
+                    await getLocation();
+                    setRefreshing(false);
+                  };
+                  location();
                 }}
               />
             }

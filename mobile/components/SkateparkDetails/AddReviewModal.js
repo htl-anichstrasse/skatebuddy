@@ -1,6 +1,7 @@
 // libraries
 import React from 'react';
-import { View, Modal, ScrollView } from 'react-native';
+import { View, Modal, ScrollView, Pressable } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 // components
 import Text from '../common/Text';
@@ -11,6 +12,7 @@ import AddReviewForm from './AddReviewForm';
 
 // styles
 import styles from '@styles/SkateparkDetailsStyles';
+import colors from '../../styles/Colors';
 
 const AddReviewModal = ({ modalVisible, setModalVisible, newReview }) => {
   return (
@@ -25,16 +27,20 @@ const AddReviewModal = ({ modalVisible, setModalVisible, newReview }) => {
     >
       <ScrollView>
         <View style={styles.modalContainer}>
-          <Text>New Review</Text>
+          <View style={styles.modalTitle}>
+            <Text style={styles.modalTitleText}>Neue Bewertung</Text>
+            <Pressable
+              onPress={() => setModalVisible(!modalVisible)}
+              style={styles.modalCancelContainer}
+            >
+              <Ionicons name="close" size={30} color={colors.secondary} />
+              <Text style={styles.modalCancelText}>Zurück</Text>
+            </Pressable>
+          </View>
 
           <AddReviewForm
             newReview={newReview}
             setModalVisible={setModalVisible}
-          />
-
-          <Button
-            title="Hide Modal"
-            onPress={() => setModalVisible(!modalVisible)}
           />
         </View>
       </ScrollView>

@@ -3,6 +3,7 @@ import React from 'react';
 import { View, Pressable } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 // components
 import Text from './Text';
@@ -12,7 +13,14 @@ import Text from './Text';
 // styles
 import styles from '@styles/GlobalStyles';
 
-const SendButton = ({ onPress, title, icon, iconType, style }) => {
+const SendButton = ({
+  onPress,
+  title,
+  icon,
+  iconType,
+  style,
+  iconSize = 24,
+}) => {
   return (
     <Pressable
       onPress={onPress}
@@ -22,11 +30,17 @@ const SendButton = ({ onPress, title, icon, iconType, style }) => {
       {icon && iconType == 'mci' ? (
         <MaterialCommunityIcons
           name={icon}
-          size={24}
+          size={iconSize}
           color={styles.buttonText.color}
         />
       ) : icon && iconType == 'ii' ? (
-        <IonIcons name={icon} size={24} color={styles.buttonText.color} />
+        <Ionicons name={icon} size={iconSize} color={styles.buttonText.color} />
+      ) : icon && iconType == 'mi' ? (
+        <MaterialIcons
+          name={icon}
+          size={iconSize}
+          color={styles.buttonText.color}
+        />
       ) : null}
     </Pressable>
   );

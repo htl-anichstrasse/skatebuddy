@@ -13,6 +13,8 @@ import ReviewsHeader from './ReviewsHeader';
 
 // styles
 import styles from '@styles/ReviewsStyles';
+import colors from '@styles/Colors';
+import gStyles from '@styles/GlobalStyles';
 
 const Reviews = ({ reviews, newReview, skatepark }) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -25,12 +27,15 @@ const Reviews = ({ reviews, newReview, skatepark }) => {
         newReview={newReview}
       />
       <Button
-        title="Add Review"
+        title="Bewertung hinzufügen"
         onPress={() => {
           setModalVisible(true);
         }}
+        icon="rate-review"
+        iconType="mi"
+        style={styles.button}
       />
-      <View style={styles.container}>
+      <View style={[styles.container, gStyles.shadow]}>
         {reviews.length > 0 ? (
           <>
             <ReviewsHeader reviews={reviews} rating={skatepark.rating} />
@@ -41,7 +46,7 @@ const Reviews = ({ reviews, newReview, skatepark }) => {
             </View>
           </>
         ) : (
-          <Text style={styles.noReviewsText}>No reviews yet</Text>
+          <Text style={styles.noReviewsText}>Keine Bewertungen</Text>
         )}
       </View>
     </>

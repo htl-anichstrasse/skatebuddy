@@ -26,31 +26,31 @@ const ReviewsHeader = ({ reviews, rating }) => {
                 <MaterialCommunityIcons
                   key={i}
                   name="star"
-                  size={20}
-                  color={colors.primary}
+                  size={25}
+                  color={colors.secondary}
                 />
               ))
             : [...Array(filledStars)].map((_, i) => (
                 <MaterialCommunityIcons
                   key={i}
                   name="star"
-                  size={20}
-                  color={colors.primary}
+                  size={25}
+                  color={colors.secondary}
                 />
               ))}
           {filledStars % 1 !== 0 && (
             <MaterialCommunityIcons
               name="star-half-full"
-              size={20}
-              color={colors.primary}
+              size={25}
+              color={colors.secondary}
             />
           )}
           {[...Array(grayStars)].map((_, i) => (
             <MaterialCommunityIcons
               key={i}
               name="star-outline"
-              size={20}
-              color={colors.primary}
+              size={25}
+              color={colors.secondary}
             />
           ))}
         </View>

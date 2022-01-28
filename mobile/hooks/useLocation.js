@@ -35,11 +35,9 @@ const useLocation = () => {
       );
       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
         setLocError(null);
-        setLocLoading(false);
         return true;
       } else {
-        setLocError('Location permission denied');
-        setLocLoading(false);
+        setLocError('Standortdienst wurde abgelehnt');
         return false;
       }
     } else if (Platform.OS === 'ios') {
@@ -55,9 +53,11 @@ const useLocation = () => {
       Geolocation.getCurrentPosition(
         location => {
           setLocation(location);
+          setLocLoading(false);
         },
         error => {
           setError(error.code + ' ' + error.message);
+          setLocLoading(false);
         },
         { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 },
       );
