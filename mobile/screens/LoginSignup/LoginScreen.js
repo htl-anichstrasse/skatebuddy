@@ -2,6 +2,7 @@
 import React from 'react';
 import { View, Pressable, Keyboard, ScrollView } from 'react-native';
 import { Formik } from 'formik';
+import * as Keychain from 'react-native-keychain';
 import * as yup from 'yup';
 
 // components
@@ -102,6 +103,15 @@ const LoginScreen = ({ navigation }) => {
                   icon="location-enter"
                   iconType="mci"
                   style={styles.button}
+                />
+                <Button
+                  title="Print auth state"
+                  onPress={() => {
+                    console.log('AuthContextState: ', state);
+                    Keychain.getInternetCredentials('jwt').then(creds => {
+                      console.log('Keychain: ', creds);
+                    });
+                  }}
                 />
               </>
             )}

@@ -7,13 +7,14 @@ import Text from '../common/Text';
 import Button from '../common/Button';
 import AddReviewModal from './AddReviewModal';
 import Review from './Review';
+import ReviewsHeader from './ReviewsHeader';
 
 // hooks
 
 // styles
 import styles from '@styles/ReviewsStyles';
 
-const Reviews = ({ reviews, newReview }) => {
+const Reviews = ({ reviews, newReview, skatepark }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -32,9 +33,7 @@ const Reviews = ({ reviews, newReview }) => {
       <View style={styles.container}>
         {reviews.length > 0 ? (
           <>
-            <Text style={styles.headerText}>
-              Anzahl Reviews: {reviews.length}
-            </Text>
+            <ReviewsHeader reviews={reviews} rating={skatepark.rating} />
             <View style={styles.reviewsContainer}>
               {reviews.map(review => (
                 <Review key={review.reviewId} review={review} />

@@ -66,6 +66,7 @@ const SkateparkDetails = ({ navigation, route }) => {
             {reviewsError && <Text>{reviewsError}</Text>}
             {reviews && (
               <Reviews
+                skatepark={skatepark}
                 reviews={reviews}
                 navigation={navigation}
                 newReview={newReview}

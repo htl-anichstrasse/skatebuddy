@@ -70,6 +70,16 @@ const ProfileScreen = () => {
           title="Print auth state"
           onPress={() => {
             console.log('AuthContextState: ', state);
+            Keychain.getInternetCredentials('jwt').then(creds => {
+              console.log('Keychain: ', creds.password);
+            });
+          }}
+        />
+        <Button
+          title="Reset auth state"
+          onPress={() => {
+            Keychain.resetInternetCredentials('jwt');
+            console.log('jwt Keychain resetted');
           }}
         />
       </ScrollView>

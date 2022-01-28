@@ -33,6 +33,7 @@ const AuthProvider = ({ children }) => {
           return {
             ...prevState,
             userToken: null,
+            isLoading: false,
           };
       }
     },
@@ -45,13 +46,27 @@ const AuthProvider = ({ children }) => {
 
   const authContext = useMemo(
     () => ({
-      restoreToken: async userToken => {
-        setTimeout(() => {
-          dispatch({ type: 'RESTORE_TOKEN', token: userToken });
-        }, 500);
+      restoreToken: async token => {
+        const res = await fetch(
+          'https://skate-buddy.josholaus.com/api/users/validate',
+          {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({ token: token }),
+          },
+        );
+
+        if (res.status === 200) {
+          dispatch({ type: 'RESTORE_TOKEN', token: token });
+        } else {
+          dispatch({ type: 'SIGN_OUT' });
+        }
       },
       signIn: async data => {
-        // post request to https://skate-buddy.josholaus.com/api/login
         const res = await fetch('https://skate-buddy.josholaus.com/api/login', {
           method: 'POST',
           headers: {
@@ -78,11 +93,6 @@ const AuthProvider = ({ children }) => {
             icon: 'auto',
           });
         }
-
-        // const token = '#+dummy-auth-token12';
-
-        // await Keychain.setInternetCredentials('jwt', data.email, token);
-        // dispatch({ type: 'SIGN_IN', token: token });
       },
       signOut: async () => {
         await Keychain.resetInternetCredentials('jwt');
@@ -119,13 +129,6 @@ const AuthProvider = ({ children }) => {
             icon: 'auto',
           });
         }
-
-        // In a production app, we need to send user data to server and get a token
-        // We will also need to handle errors if sign up failed
-        // After getting token, we need to persist the token using `SecureStore` or any other encrypted storage
-        // In the example, we'll use a dummy token
-        // console.log(data);
-        // dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' });
       },
       forgotPassword: async data => {
         const res = await fetch(
