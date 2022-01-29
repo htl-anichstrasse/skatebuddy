@@ -53,7 +53,7 @@ Review.insertValue = (con, review) => {
         con.query(
             'Insert into reviews(Skateparkid, UserId, Rating, Title, Content) values (?, ?, ?, ?, ?)',
             [
-                review.parkId,
+                review.skateparkId,
                 review.userId,
                 review.rating,
                 review.title,
