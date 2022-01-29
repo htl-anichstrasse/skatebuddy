@@ -49,7 +49,7 @@ Skatepark.getById = (con, id) => {
 Skatepark.getAllObstaclesFromPark = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            `Select obstacles.ObstacleID, obstacles.Description, obstacles.Difficulty 
+            `Select obstacles.ObstacleID, obstacles.Description
             from ((obstacles inner join skaterpark_obstacle_connector on obstacles.ObstacleID = skaterpark_obstacle_connector.ObstacleID) 
             inner join skateparks on skaterpark_obstacle_connector.SkateparkID = skateparks.SkateparkID) 
             where skateparks.SkateparkID = ?;`,
