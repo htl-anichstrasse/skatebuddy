@@ -101,6 +101,8 @@ router.post('/login', async (req, res) => {
             // Create token
             token = User.generateToken(user);
             res.send({ success: true, token: token });
+        } else {
+            res.send({ success: false });
         }
     } catch (e) {
         console.log(e);
