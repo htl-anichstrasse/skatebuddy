@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
-
 import colors from './Colors';
 
 const ReviewsStyles = StyleSheet.create({
   container: {
+    // borderColor: colors.secondary,
+    // borderWidth: 1,
     margin: 10,
     padding: 10,
     borderRadius: 10,

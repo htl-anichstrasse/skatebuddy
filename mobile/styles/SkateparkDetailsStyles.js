@@ -75,6 +75,8 @@ const SkateparkDetailsStyles = StyleSheet.create({
     backgroundColor: colors.secondary,
   },
   additionalInfosContainer: {
+    // borderColor: colors.secondary,
+    // borderWidth: 1,
     backgroundColor: colors.white,
     padding: 10,
     margin: 10,

@@ -1,8 +1,10 @@
 import { StyleSheet } from 'react-native';
 import colors from '@styles/Colors';
 
-const styles = StyleSheet.create({
+const ObstaclesStyles = StyleSheet.create({
   container: {
+    // borderColor: colors.secondary,
+    // borderWidth: 1,
     backgroundColor: colors.white,
     margin: 10,
     padding: 10,
@@ -23,4 +25,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default styles;
+export default ObstaclesStyles;
