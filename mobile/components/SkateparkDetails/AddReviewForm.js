@@ -4,6 +4,7 @@ import { View } from 'react-native';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import Slider from '@react-native-community/slider';
+import { showMessage } from 'react-native-flash-message';
 
 // components
 import Text from '../common/Text';
@@ -11,6 +12,7 @@ import Button from '../common/Button';
 import TextInput from '../LoginSignup/TextInput';
 
 // hooks
+import { useAuthContextState } from '../../contexts/AuthContext';
 
 // styles
 import styles from '@styles/SkateparkDetailsStyles';
@@ -21,11 +23,14 @@ const reviewSchema = yup.object({
     .string()
     .required('Titel leer')
     .min(4, 'Der Titel muss mindestens 4 Zeichen lang sein')
-    .max(17, 'Der Titel darf maximal 17 Zeichen lang sein'),
+    .max(30, 'Der Titel darf maximal 30 Zeichen lang sein'),
   content: yup
     .string()
-    .required('Inhalt leer')
-    .min(8, 'Der Inhalt muss mindestens 8 Zeichen lang sein'),
+    // .required('Inhalt leer')
+    .min(
+      8,
+      'Wenn du einen Inhalt schreibst, musst du mindestens 8 Zeichen schreiben',
+    ),
   rating: yup
     .string()
     .required('Bewertung leer')
@@ -34,17 +39,54 @@ const reviewSchema = yup.object({
     }),
 });
 
-const AddReviewForm = ({ newReview, setModalVisible }) => {
+const AddReviewForm = ({ newReview, setModalVisible, parkid }) => {
+  const state = useAuthContextState();
+
   return (
     <Formik
       initialValues={{ title: '', content: '', rating: '3' }}
       validationSchema={reviewSchema}
-      onSubmit={(values, actions) => {
-        actions.resetForm();
+      onSubmit={async (values, actions) => {
         //! TODO values.userId = session.getCurrentUser().userId;
-        values.userId = 0;
-        newReview(values);
-        setModalVisible(false);
+        values.userid = 1;
+        values.username = 'maxmustermann';
+
+        values.parkid = parkid;
+        values.rating = parseInt(values.rating);
+
+        const res = await fetch(
+          'https://skate-buddy.josholaus.com/api/reviews',
+          {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json',
+              Authorization: `Bearer ${state.userToken}`,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(values),
+          },
+        );
+        const resJson = await res.json();
+        if (resJson.success) {
+          newReview(values);
+          actions.resetForm();
+          setModalVisible(false);
+
+          showMessage({
+            message: 'Bewertung erfolgreich gespeichert',
+            type: 'success',
+            icon: 'auto',
+          });
+        } else {
+          showMessage({
+            message: 'Bewertung konnte nicht gespeichert werden',
+            description:
+              'Möglicherweise hast du schon eine Bewertung abgegeben',
+            type: 'danger',
+            icon: 'auto',
+            duration: 3000,
+          });
+        }
       }}
     >
       {({
@@ -57,7 +99,7 @@ const AddReviewForm = ({ newReview, setModalVisible }) => {
         errors,
       }) => (
         <>
-          <Text style={styles.inputLabel}>Titel</Text>
+          <Text style={styles.inputLabel}>Titel *</Text>
           <TextInput
             name="title"
             icon="alpha-t-box"
@@ -90,7 +132,7 @@ const AddReviewForm = ({ newReview, setModalVisible }) => {
             {touched.content && errors.content}{' '}
           </Text>
 
-          <Text style={styles.inputLabel}>Bewertung</Text>
+          <Text style={styles.inputLabel}>Bewertung *</Text>
           <Text style={styles.ratingValue}>{values.rating}</Text>
           <Slider
             step={1}

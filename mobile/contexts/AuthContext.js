@@ -1,7 +1,7 @@
 // libraries
 import React, { useContext, useMemo, useReducer } from 'react';
 import * as Keychain from 'react-native-keychain';
-import { showMessage, hideMessage } from 'react-native-flash-message';
+import { showMessage } from 'react-native-flash-message';
 
 // hooks
 const AuthContext = React.createContext();

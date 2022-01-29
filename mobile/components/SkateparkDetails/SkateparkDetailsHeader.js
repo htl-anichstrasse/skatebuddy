@@ -19,7 +19,9 @@ const SkateparkDetailsHeader = ({ skatepark, navigation }) => {
         name="return-up-back"
         size={30}
         color="black"
-        onPress={() => navigation.navigate('SkateparksList')}
+        onPress={() => {
+          navigation.navigate('SkateparksList');
+        }}
         style={styles.headerIcon}
       />
       <Text style={styles.headerText}>{skatepark.name}</Text>

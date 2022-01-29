@@ -23,7 +23,10 @@ const SkateparkEntry = ({
   return (
     <Pressable
       onPress={() => {
-        navigation.navigate('SkateparkDetails', { skatepark: skatepark });
+        navigation.navigate('SkateparkDetails', {
+          skatepark: skatepark,
+          from: 'list',
+        });
       }}
     >
       <View style={[styles.entryContainer, gStyles.shadow]}>

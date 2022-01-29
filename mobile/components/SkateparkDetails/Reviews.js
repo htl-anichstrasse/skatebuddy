@@ -25,6 +25,7 @@ const Reviews = ({ reviews, newReview, skatepark }) => {
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
         newReview={newReview}
+        parkid={skatepark.skateparkId}
       />
       <Button
         title="Bewertung hinzufügen"

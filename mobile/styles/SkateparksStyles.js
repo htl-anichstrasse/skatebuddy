@@ -50,6 +50,7 @@ const SkateparksStyles = StyleSheet.create({
   sortMethodContainer: {
     flexDirection: 'row',
     paddingVertical: 5,
+    alignItems: 'flex-end',
   },
   sortMethodText: {
     paddingLeft: 10,

@@ -29,15 +29,31 @@ const SortModal = ({ modalVisible, setModalVisible, state, dispatch }) => {
         <View style={styles.sortModalContainer}>
           <View style={styles.sortModalContainer} />
           <View style={styles.sortModalContent}>
-            <Text>Sort by</Text>
-            <SortMethod method={'walking'} state={state} dispatch={dispatch} />
+            <Text>Sortieren nach</Text>
             <SortMethod
-              method={'bicycling'}
+              display="Gehen"
+              method="walking"
               state={state}
               dispatch={dispatch}
             />
-            <SortMethod method={'transit'} state={state} dispatch={dispatch} />
-            <SortMethod method={'driving'} state={state} dispatch={dispatch} />
+            <SortMethod
+              display="Fahrrad"
+              method="bicycling"
+              state={state}
+              dispatch={dispatch}
+            />
+            <SortMethod
+              display="Öffis"
+              method="transit"
+              state={state}
+              dispatch={dispatch}
+            />
+            <SortMethod
+              display="Auto"
+              method="driving"
+              state={state}
+              dispatch={dispatch}
+            />
 
             <View style={styles.sortModalCloseContainer}>
               <Pressable
@@ -45,7 +61,7 @@ const SortModal = ({ modalVisible, setModalVisible, state, dispatch }) => {
                   setModalVisible(false);
                 }}
               >
-                <Text style={styles.sortModalClose}>Close</Text>
+                <Text style={styles.sortModalClose}>Zurück</Text>
               </Pressable>
             </View>
           </View>

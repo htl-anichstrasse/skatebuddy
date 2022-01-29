@@ -1,0 +1,11 @@
+POST https://skate-buddy.josholaus.com/api/reviews HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGRkIiwiZW1haWwiOiJkQGQuZGQiLCJpYXQiOjE2NDMzMTM3MTgsImV4cCI6MTY1NDk3NzcxOH0.oYyOMsmUNnHUHWLIASnEyR7nZwuBnKmbsdesPbS4bVk
+content-type: application/json
+
+{
+    "parkid": 1,
+    "userid": 1,
+    "rating": 5,
+    "title": "Great park",
+    "content": "I love this park"
+}

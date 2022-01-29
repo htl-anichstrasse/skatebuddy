@@ -10,7 +10,7 @@ import SkateparkMarkers from './SkateparkMarkers';
 // styles
 import mapStyles from '../../styles/MapStyles';
 
-const Map = ({ skateparks, mapRef }) => {
+const Map = ({ skateparks, mapRef, navigation }) => {
   const camera = {
     center: {
       latitude: 47.27,
@@ -39,7 +39,11 @@ const Map = ({ skateparks, mapRef }) => {
       // events
       onRegionChangeComplete={() => {}}
     >
-      <SkateparkMarkers skateparks={skateparks} mapRef={mapRef} />
+      <SkateparkMarkers
+        skateparks={skateparks}
+        mapRef={mapRef}
+        navigation={navigation}
+      />
     </MapView>
   );
 };

@@ -3,12 +3,12 @@ import React, { useState, useEffect, useReducer } from 'react';
 import { View, FlatList, RefreshControl } from 'react-native';
 
 // components
-import Text from '../components/common/Text';
 import SkateparkEntry from '../components/SkateparksList/Entry/SkateparkEntry';
 import SkateparksListSettings from '../components/SkateparksList/SkateparksListSettings';
 import LocationError from '../components/SkateparksList/LocationError';
 import LocationLoading from '../components/SkateparksList/LocationLoading';
 import LoadingCircle from '../components/common/LoadingCircle';
+import Error from '@components/common/Error';
 
 // hooks
 import useFetch from '../hooks/useFetch';
@@ -41,6 +41,7 @@ const SkateparksList = ({ navigation }) => {
     isLoading,
     error,
     changeData: setSkateparks,
+    refreshData,
   } = useFetch('https://skate-buddy.josholaus.com/api/skateparks');
   const { location, locError, locLoading, getLocation } = useLocation();
 
@@ -88,7 +89,6 @@ const SkateparksList = ({ navigation }) => {
   }, []);
 
   const [refreshing, setRefreshing] = useState(false);
-  const [refreshCounter, setRefreshCounter] = useState(0);
 
   return (
     <View style={styles.container}>
@@ -98,7 +98,7 @@ const SkateparksList = ({ navigation }) => {
       {locLoading && locError == null && <LocationLoading />}
 
       {isLoading && <LoadingCircle />}
-      {error && <Text>Error!</Text>}
+      {error && <Error error={error} refresh={refreshData} />}
       {skateparks && (
         <>
           {/* // * use this button to log the durations and save them in useFetch to avoid API call
@@ -131,22 +131,18 @@ const SkateparksList = ({ navigation }) => {
                   location={location}
                   locLoading={locLoading}
                   locError={locError}
-                  refresh={refreshCounter}
                 />
               );
             }}
             keyExtractor={item => item.skateparkId}
-            // TODO refreshControl={}
             refreshControl={
               <RefreshControl
                 refreshing={refreshing}
-                onRefresh={() => {
-                  const location = async () => {
-                    setRefreshing(true);
-                    await getLocation();
-                    setRefreshing(false);
-                  };
-                  location();
+                onRefresh={async () => {
+                  setRefreshing(true);
+                  refreshData();
+                  await getLocation();
+                  setRefreshing(false);
                 }}
               />
             }

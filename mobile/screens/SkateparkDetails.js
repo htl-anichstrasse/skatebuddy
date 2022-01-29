@@ -1,6 +1,6 @@
 // libraries
 import React, { useState } from 'react';
-import { View, Dimensions, ScrollView } from 'react-native';
+import { View, Dimensions, ScrollView, RefreshControl } from 'react-native';
 
 // components
 import Text from '../components/common/Text';
@@ -16,6 +16,7 @@ import useFetch from '../hooks/useFetch';
 
 // styles
 import styles from '../styles/SkateparkDetailsStyles';
+import colors from '../styles/Colors';
 
 styles.column = {
   ...styles.column,
@@ -25,26 +26,20 @@ styles.column = {
 const SkateparkDetails = ({ navigation, route }) => {
   const skatepark = route.params.skatepark;
 
-  // const {
-  //   data: obstacles,
-  //   isLoading: isObstaclesLoading,
-  //   error: obstaclesError,
-  // } = useFetch(
-  //   'https://skate-buddy.josholaus.com/api/obstacles/' + skatepark.skateparkId,
-  // );
-
   const {
     data: reviews,
     isLoading: isReviewsLoading,
     error: reviewsError,
     changeData: setReviews,
+    refreshData,
   } = useFetch(
     'https://skate-buddy.josholaus.com/api/reviews/' + skatepark.skateparkId,
   );
 
+  const [refreshing, setRefreshing] = useState(false);
+
   const newReview = review => {
     setReviews(prevReviews => {
-      // review.reviewId = prevReviews.length + 1;
       if (prevReviews.length > 0) {
         review.reviewId =
           Math.max.apply(
@@ -64,15 +59,24 @@ const SkateparkDetails = ({ navigation, route }) => {
     <View style={styles.container}>
       <SkateparkDetailsHeader skatepark={skatepark} navigation={navigation} />
 
-      <ScrollView>
+      <ScrollView
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={() => {
+              setRefreshing(true);
+              refreshData();
+              setRefreshing(false);
+            }}
+          />
+        }
+      >
         <View style={styles.column}>
           <AdditionalInfo skatepark={skatepark} />
 
-          {/* {isObstaclesLoading && <LoadingCircle />}
-            {obstaclesError && <Text>Oida {obstaclesError}</Text>}
-            {obstacles && <Obstacles obstacles={obstacles} />} */}
+          {skatepark.obstacles && <Obstacles obstacles={skatepark.obstacles} />}
 
-          {isReviewsLoading && <LoadingCircle />}
+          {isReviewsLoading && <LoadingCircle color={colors.secondary} />}
           {reviewsError && <Text>{reviewsError}</Text>}
           {reviews && (
             <Reviews

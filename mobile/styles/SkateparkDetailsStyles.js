@@ -52,7 +52,7 @@ const SkateparkDetailsStyles = StyleSheet.create({
   },
   modalCancelText: {
     paddingTop: 2,
-    paddingLeft: 5,
+    paddingHorizontal: 5,
     color: colors.secondary,
     fontSize: 15,
   },

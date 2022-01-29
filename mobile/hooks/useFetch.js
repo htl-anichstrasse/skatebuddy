@@ -7,14 +7,23 @@ const useFetch = url => {
 
   const changeData = reviews => setData(reviews);
 
+  const [refresher, setRefresher] = useState(false);
+
+  const refreshData = () => {
+    setRefresher(prevRefresher => !prevRefresher);
+  };
+
   useEffect(() => {
+    setData(null);
+    setIsLoading(true);
+    setError(null);
     const abortCont = new AbortController();
 
     fetch(url, { signal: abortCont.signal })
       .then(res => {
         if (!res.ok) {
-          console.log(res);
-          throw Error('Response error');
+          // console.log(JSON.stringify(res));
+          throw Error('HTTP Error: ' + res.status);
         }
         return res.json();
       })
@@ -31,9 +40,9 @@ const useFetch = url => {
       });
 
     return () => abortCont.abort();
-  }, [url]);
+  }, [url, refresher]);
 
-  return { data, isLoading, error, changeData };
+  return { data, isLoading, error, changeData, refreshData };
 };
 
 export default useFetch;

@@ -26,18 +26,27 @@ const useDirections = (location, skatepark) => {
 
   const fetchDuration = async method => {
     const url = buildUrl(method);
-    const response = await fetch(url, { signal: abortCont.signal });
-    const json = await response.json();
 
-    if (json.status === 'OK') {
-      const value = json.routes[0].legs[0].duration.value;
-      const text = json.routes[0].legs[0].duration.text;
+    try {
+      const response = await fetch(url, { signal: abortCont.signal });
+      const json = await response.json();
 
-      return { value, text };
-    } else {
-      setError('Es konnte kein Weg gefunden werden.');
-      setIsLoading(false);
-      return null;
+      if (json.status === 'OK') {
+        const value = json.routes[0].legs[0].duration.value;
+        const text = json.routes[0].legs[0].duration.text;
+
+        return { value, text };
+      } else {
+        setError('Es konnte kein Weg gefunden werden.');
+        setIsLoading(false);
+        return null;
+      }
+    } catch (err) {
+      if (err.name !== 'AbortError') {
+        setError(err.message);
+        setIsLoading(false);
+        return null;
+      }
     }
   };
 

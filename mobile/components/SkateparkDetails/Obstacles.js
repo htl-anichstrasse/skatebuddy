@@ -4,11 +4,28 @@ import { View } from 'react-native';
 
 // components
 import Text from '@components/common/Text';
+import ObstaclesHeader from './ObstaclesHeader';
+import Obstacle from './Obstacle';
 
-const Obstacles = () => {
+// styles
+import styles from '@styles/ObstaclesStyles';
+import gStyles from '@styles/GlobalStyles';
+
+const Obstacles = ({ obstacles }) => {
   return (
-    <View>
-      <Text>Obstacles</Text>
+    <View style={[styles.container, gStyles.shadow]}>
+      {obstacles.length > 0 ? (
+        <>
+          <ObstaclesHeader obstacles={obstacles} />
+          <View style={styles.obstaclesContainer}>
+            {obstacles.map(obstacle => (
+              <Obstacle key={obstacle.ObstacleID} obstacle={obstacle} />
+            ))}
+          </View>
+        </>
+      ) : (
+        <Text style={styles.noObstaclesText}>Keine Hindernisse</Text>
+      )}
     </View>
   );
 };

@@ -3,18 +3,17 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-  },
-  mapContainer: {
-    width: '100%',
   },
   map: {
     ...StyleSheet.absoluteFillObject,
   },
-  error: {
+  calloutTitle: {
     textAlign: 'center',
-    fontSize: 20,
-    color: 'red',
+    fontFamily: 'Poppins-Bold',
+  },
+  calloutDescription: {
+    textAlign: 'center',
+    fontSize: 12,
   },
 });
 

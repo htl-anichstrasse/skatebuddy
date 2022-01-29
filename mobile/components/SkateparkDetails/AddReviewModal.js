@@ -14,7 +14,12 @@ import AddReviewForm from './AddReviewForm';
 import styles from '@styles/SkateparkDetailsStyles';
 import colors from '../../styles/Colors';
 
-const AddReviewModal = ({ modalVisible, setModalVisible, newReview }) => {
+const AddReviewModal = ({
+  modalVisible,
+  setModalVisible,
+  newReview,
+  parkid,
+}) => {
   return (
     <Modal
       hardwareAccelerated={true}
@@ -33,14 +38,15 @@ const AddReviewModal = ({ modalVisible, setModalVisible, newReview }) => {
               onPress={() => setModalVisible(!modalVisible)}
               style={styles.modalCancelContainer}
             >
-              <Ionicons name="close" size={30} color={colors.secondary} />
               <Text style={styles.modalCancelText}>Zurück</Text>
+              <Ionicons name="close" size={30} color={colors.secondary} />
             </Pressable>
           </View>
 
           <AddReviewForm
             newReview={newReview}
             setModalVisible={setModalVisible}
+            parkid={parkid}
           />
         </View>
       </ScrollView>

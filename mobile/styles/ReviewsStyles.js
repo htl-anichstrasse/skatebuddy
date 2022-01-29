@@ -33,6 +33,10 @@ const ReviewsStyles = StyleSheet.create({
     borderTopColor: colors.gray1,
     borderTopWidth: 1,
   },
+  reviewTitle: {
+    fontSize: 16,
+    flex: 1,
+  },
   reviewsContainer: {
     width: '100%',
   },

@@ -18,9 +18,9 @@ const Review = ({ review }) => {
 
   return (
     <View style={styles.review}>
-      <Text style={styles.reviewUser}>Von User {review.userId}</Text>
+      <Text style={styles.reviewUser}>{review.username}</Text>
       <View style={styles.reviewHeader}>
-        <Text>
+        <Text style={styles.reviewTitle}>
           (#{review.reviewId}) {review.title}
         </Text>
         <View style={styles.starsContainer}>

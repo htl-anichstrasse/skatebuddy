@@ -23,13 +23,6 @@ const SkateparksListSettings = ({
         setSearchString={setSearchString}
       />
       <SortBox state={state} dispatch={dispatch} />
-      {/* <Text style={styles.settingsText}>Sort by Duration</Text>
-      <View style={styles.settingsMethods}>
-        <SettingsMethod method="walking" state={state} dispatch={dispatch} />
-        <SettingsMethod method="bicycling" state={state} dispatch={dispatch} />
-        <SettingsMethod method="transit" state={state} dispatch={dispatch} />
-        <SettingsMethod method="driving" state={state} dispatch={dispatch} />
-      </View> */}
     </View>
   );
 };
