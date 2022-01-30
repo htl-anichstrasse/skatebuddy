@@ -49,7 +49,7 @@ Skatepark.getById = (con, id) => {
 Skatepark.getAllObstaclesFromPark = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            `Select obstacles.ObstacleID, obstacles.Description, obstacles.Difficulty 
+            `Select obstacles.ObstacleID, obstacles.Description
             from ((obstacles inner join skaterpark_obstacle_connector on obstacles.ObstacleID = skaterpark_obstacle_connector.ObstacleID) 
             inner join skateparks on skaterpark_obstacle_connector.SkateparkID = skateparks.SkateparkID) 
             where skateparks.SkateparkID = ?;`,
@@ -129,7 +129,7 @@ Skatepark.insertValue = (con, skatepark) => {
 Skatepark.update = (con, column, newValue, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            `UPDATE Skateparks SET ${column} = ? Where SkateparkID = ? `,
+            `UPDATE skateparks SET ${column} = ? Where SkateparkID = ? `,
             [newValue, id],
             (err, result) => {
                 if (err) {

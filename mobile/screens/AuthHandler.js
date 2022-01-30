@@ -13,21 +13,18 @@ const Auth = () => {
 
   useEffect(() => {
     const checkForValidToken = async () => {
-      let userToken = null;
+      let token = null;
 
       try {
         if (await Keychain.hasInternetCredentials('jwt')) {
           const creds = await Keychain.getInternetCredentials('jwt');
-          userToken = creds.password;
+          token = creds.password;
         }
       } catch (e) {
         // Restoring token failed
         console.log(e);
       }
-
-      // TODO After restoring token, we may need to validate it in production apps
-
-      restoreToken(userToken);
+      restoreToken(token);
     };
 
     checkForValidToken();

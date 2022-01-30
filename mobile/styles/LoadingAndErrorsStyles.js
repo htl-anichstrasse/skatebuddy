@@ -27,6 +27,24 @@ const LoadingAndErrorsStyles = StyleSheet.create({
   locationLoadingContainer: {
     backgroundColor: colors.info,
   },
+  errorContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.gray3,
+  },
+  errorText: {
+    fontFamily: 'Poppins-Bold',
+    backgroundColor: colors.error,
+    fontSize: 25,
+    padding: 10,
+    borderRadius: 10,
+    color: colors.white,
+  },
+  errorButton: {
+    marginTop: 10,
+    backgroundColor: colors.error,
+  },
 });
 
 export default LoadingAndErrorsStyles;

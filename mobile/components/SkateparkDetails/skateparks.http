@@ -1,0 +1,2 @@
+GET https://skate-buddy.josholaus.com/api/skateparks HTTP/1.1
+content-type: application/json

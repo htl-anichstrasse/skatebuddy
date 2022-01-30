@@ -22,7 +22,7 @@ const SortBox = ({ state, dispatch }) => {
       }}
       style={styles.sortBoxContainer}
     >
-      <Text>Sort</Text>
+      <Text>Sortieren</Text>
       <SortModal
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}

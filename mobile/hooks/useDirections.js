@@ -3,6 +3,11 @@ import React, { useState } from 'react';
 import secrets from './secrets.json';
 
 const useDirections = (location, skatepark) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const abortCont = new AbortController();
+
   const methods = ['walking', 'bicycling', 'transit', 'driving'];
 
   const buildUrl = method => {
@@ -21,26 +26,49 @@ const useDirections = (location, skatepark) => {
 
   const fetchDuration = async method => {
     const url = buildUrl(method);
-    const response = await fetch(url);
-    const json = await response.json();
 
-    const value = json.routes[0].legs[0].duration.value;
-    const text = json.routes[0].legs[0].duration.text;
+    try {
+      const response = await fetch(url, { signal: abortCont.signal });
+      const json = await response.json();
 
-    return { value, text };
+      if (json.status === 'OK') {
+        const value = json.routes[0].legs[0].duration.value;
+        const text = json.routes[0].legs[0].duration.text;
+
+        return { value, text };
+      } else {
+        setError('Es konnte kein Weg gefunden werden.');
+        setIsLoading(false);
+        return null;
+      }
+    } catch (err) {
+      if (err.name !== 'AbortError') {
+        setError(err.message);
+        setIsLoading(false);
+        return null;
+      }
+    }
   };
 
   const getDurations = async () => {
-    // * Using presaved durations in useFetch.js to avoid API call
-    if (location != null) {
+    setError(null);
+    setIsLoading(true);
+    if (location) {
       const durations = await Promise.all(
         methods.map(method => fetchDuration(method)),
       );
       skatepark.durations = durations;
+    } else {
+      setError('Rechte für Standort nicht erteilt.');
     }
+    setIsLoading(false);
   };
 
-  return { getDurations };
+  const abortDurations = () => {
+    abortCont.abort();
+  };
+
+  return { getDurations, abortDurations, isLoading, error };
 };
 
 export default useDirections;

@@ -5,6 +5,7 @@ import { View, Dimensions } from 'react-native';
 // components
 import Text from '../components/common/Text';
 import Button from '../components/common/Button';
+import Error from '../components/common/Error';
 import LoadingCircle from '../components/common/LoadingCircle';
 import Map from '../components/Map/Map';
 
@@ -19,29 +20,25 @@ styles.mapContainer = {
   height: Dimensions.get('window').width,
 };
 
-const MapScreen = () => {
-  const { data: skateparks, isLoading, error } = useFetch('skateparks');
+const MapScreen = ({ navigation }) => {
+  const {
+    data: skateparks,
+    isLoading,
+    error,
+    refreshData,
+  } = useFetch('https://skate-buddy.josholaus.com/api/skateparks');
   const mapRef = useRef(null);
-
-  const onCalloutPress = () => {
-    mapRef.current.getCamera().then(camera => {
-      mapRef.current.animateCamera({
-        ...camera,
-        zoom: 17,
-      });
-    });
-  };
 
   return (
     <View style={styles.container}>
       {isLoading && <LoadingCircle />}
-      {error && <Text style={styles.error}>Error {error}</Text>}
+      {error && <Error error={error} refresh={refreshData} />}
       {skateparks && (
         <>
           <Map
             mapRef={mapRef}
             skateparks={skateparks}
-            onCalloutPress={onCalloutPress}
+            navigation={navigation}
           />
           <Button
             title="Reset map"

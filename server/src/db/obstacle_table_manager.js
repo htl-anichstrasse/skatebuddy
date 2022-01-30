@@ -11,7 +11,6 @@ Obstacle.selectAll = (con) => {
                 obstacles[i] = new Obstacle(
                     result[i].ObstacleID,
                     result[i].Description,
-                    result[i].Difficulty,
                 );
             }
             return resolve(obstacles);
@@ -29,11 +28,7 @@ Obstacle.getById = (con, id) => {
                     return reject(err);
                 }
                 return resolve(
-                    new Obstacle(
-                        result[0].ObstacleID,
-                        result[0].Description,
-                        result[0].Difficulty,
-                    ),
+                    new Obstacle(result[0].ObstacleID, result[0].Description),
                 );
             },
         );
@@ -42,8 +37,8 @@ Obstacle.getById = (con, id) => {
 Obstacle.insertValue = (con, obstacle) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'Insert into obstacles(Description, Difficulty) values (?, ?)',
-            [obstacle.description, obstacle.difficulty],
+            'Insert into obstacles(Description) values (?)',
+            [obstacle.description],
             (err, result) => {
                 if (err) {
                     return reject(err);

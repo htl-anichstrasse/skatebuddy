@@ -10,6 +10,9 @@ import Text from '../../common/Text';
 import styles from '../../../styles/SkateparksStyles';
 
 const DirectionsMethod = ({ icon, duration, color }) => {
+  if (duration.value > 5400) {
+    duration.text = '> 1,5h';
+  }
   return (
     <View style={styles.entryDirectionsMethodContainer}>
       {/* //* duration.value seconds / duration.text human readable*/}

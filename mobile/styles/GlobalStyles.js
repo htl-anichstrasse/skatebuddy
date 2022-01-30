@@ -2,6 +2,14 @@ import { StyleSheet } from 'react-native';
 import colors from './Colors';
 
 const GlobalStyles = StyleSheet.create({
+  loadingCircleContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loadingCircle: {
+    paddingTop: 100,
+  },
   splashScreenContainer: {
     flex: 1,
     justifyContent: 'center',

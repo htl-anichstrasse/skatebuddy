@@ -14,6 +14,8 @@ import gStyles from '../../../styles/GlobalStyles';
 import colors from '../../../styles/Colors';
 
 const EntryHeader = ({ skatepark }) => {
+  const rating = Math.round((skatepark.rating + Number.EPSILON) * 10) / 10;
+
   return (
     <View style={styles.titleContainer}>
       <Text style={styles.entryName}>{skatepark.name}</Text>
@@ -21,9 +23,7 @@ const EntryHeader = ({ skatepark }) => {
       <View style={[styles.entryRatingContainer, gStyles.shadow]}>
         {skatepark.rating ? (
           <>
-            <Text style={styles.entryRatingText}>
-              {skatepark.rating}
-            </Text>
+            <Text style={styles.entryRatingText}>{rating}</Text>
             <MaterialCommunityIcons
               name="star"
               size={20}
@@ -32,7 +32,7 @@ const EntryHeader = ({ skatepark }) => {
             />
           </>
         ) : (
-          <Text style={styles.entryRatingText}>No ratings</Text>
+          <Text style={styles.entryRatingText}>N/A</Text>
         )}
       </View>
     </View>

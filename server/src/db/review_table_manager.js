@@ -2,30 +2,41 @@ const Review = require('../models/review');
 
 Review.selectAll = (con) => {
     return new Promise((resolve, reject) => {
-        con.query('Select * from reviews', (err, result) => {
-            if (err) {
-                return reject(err);
-            }
-            let reviews = [];
-            for (let i = 0; i < result.length; i++) {
-                reviews[i] = new Review(
-                    result[i].ReviewID,
-                    result[i].SkateparkID,
-                    result[i].UserID,
-                    result[i].Rating,
-                    result[i].Title,
-                    result[i].Content,
-                );
-            }
-            return resolve(reviews);
-        });
+        con.query(
+            `Select reviews.ReviewID, reviews.SkateparkID, reviews.UserID, reviews.Rating, reviews.Title, reviews.Content, users.name as Username 
+            from reviews
+            INNER JOIN users ON reviews.userID = users.userID 
+            order by reviews.ReviewID desc;`,
+            (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                let reviews = [];
+                for (let i = 0; i < result.length; i++) {
+                    reviews[i] = new Review(
+                        result[i].ReviewID,
+                        result[i].SkateparkID,
+                        result[i].UserID,
+                        result[i].Rating,
+                        result[i].Title,
+                        result[i].Content,
+                        result[i].Username,
+                    );
+                }
+                console.log(result);
+                return resolve(reviews);
+            },
+        );
     });
 };
 
 Review.getById = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'Select * from reviews where SkateparkID = ?',
+            `Select reviews.ReviewID, reviews.SkateparkID, reviews.UserID, reviews.Rating, reviews.Title, reviews.Content, users.name as Username 
+            from reviews
+            INNER JOIN users ON reviews.userID = users.userID 
+            where reviews.skateparkId = ? order by reviews.ReviewID desc;`,
             [id],
             (err, result) => {
                 if (err) {
@@ -40,6 +51,7 @@ Review.getById = (con, id) => {
                         result[i].Rating,
                         result[i].Title,
                         result[i].Content,
+                        result[i].Username,
                     );
                 }
                 return resolve(reviews);
@@ -53,7 +65,7 @@ Review.insertValue = (con, review) => {
         con.query(
             'Insert into reviews(Skateparkid, UserId, Rating, Title, Content) values (?, ?, ?, ?, ?)',
             [
-                review.parkId,
+                review.skateparkId,
                 review.userId,
                 review.rating,
                 review.title,

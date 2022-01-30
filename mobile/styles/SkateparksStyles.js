@@ -50,6 +50,7 @@ const SkateparksStyles = StyleSheet.create({
   sortMethodContainer: {
     flexDirection: 'row',
     paddingVertical: 5,
+    alignItems: 'flex-end',
   },
   sortMethodText: {
     paddingLeft: 10,
@@ -88,6 +89,12 @@ const SkateparksStyles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 5,
   },
+  entryDirectionsErrorContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 5,
+  },
   entryDirectionsMethodContainer: {
     padding: 5,
     paddingRight: 10,
@@ -97,6 +104,16 @@ const SkateparksStyles = StyleSheet.create({
   entryDirectionsMethodText: {
     fontSize: 12,
     paddingRight: 5,
+  },
+  entryDirectionsMethodError: {
+    alignSelf: 'center',
+    fontSize: 12,
+    color: colors.error,
+  },
+  entryDirectionsMethodInfo: {
+    alignSelf: 'center',
+    fontSize: 12,
+    color: colors.info,
   },
   entryImage: {
     flex: 1,

@@ -43,21 +43,25 @@ User.selectAll = (con) => {
 User.getById = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'Select * from Users where UserId = ?',
+            'Select * from users where UserId = ?',
             [id],
             (err, result) => {
                 if (err) {
                     return reject(err);
                 }
-                return resolve(
-                    new User(
-                        result[0].UserID,
-                        result[0].Name,
-                        result[0].PasswordHash,
-                        result[0].Email,
-                        result[0].ProfilePictureID,
-                    ),
-                );
+                try {
+                    return resolve(
+                        new User(
+                            result[0].UserID,
+                            result[0].Name,
+                            result[0].PasswordHash,
+                            result[0].Email,
+                            result[0].ProfilePictureID,
+                        ),
+                    );
+                } catch (error) {
+                    return resolve(null);
+                }
             },
         );
     });
@@ -66,21 +70,25 @@ User.getById = (con, id) => {
 User.getByEmail = (con, email) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'Select * from Users where Email = ?',
+            'Select * from users where Email = ?',
             [email],
             (err, result) => {
                 if (err) {
                     return reject(err);
                 }
-                return resolve(
-                    new User(
-                        result[0].UserID,
-                        result[0].Name,
-                        result[0].PasswordHash,
-                        result[0].Email,
-                        result[0].ProfilePictureID,
-                    ),
-                );
+                try {
+                    return resolve(
+                        new User(
+                            result[0].UserID,
+                            result[0].Name,
+                            result[0].PasswordHash,
+                            result[0].Email,
+                            result[0].ProfilePictureID,
+                        ),
+                    );
+                } catch (error) {
+                    return resolve(null);
+                }
             },
         );
     });
@@ -104,7 +112,7 @@ User.insertValue = (con, user) => {
 User.updateProfilePictureId = (con, id, picId) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'UPDATE Users set ProfilePictureID = ? WHERE UserId = ?;',
+            'UPDATE users set ProfilePictureID = ? WHERE UserId = ?;',
             [id, picId],
             (err, result) => {
                 if (err) {
@@ -118,7 +126,7 @@ User.updateProfilePictureId = (con, id, picId) => {
 User.update = (con, column, newValue, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            `UPDATE Users SET ${column} = ? Where UserId = ? `,
+            `UPDATE users SET ${column} = ? Where UserId = ? `,
             [newValue, parseInt(id)],
             (err, result) => {
                 if (err) {
@@ -133,7 +141,7 @@ User.update = (con, column, newValue, id) => {
 User.deleteValue = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'Delete from Users where Userid = ? ',
+            'Delete from users where Userid = ? ',
             [id],
             (err, result) => {
                 if (err) {

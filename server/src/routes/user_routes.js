@@ -44,6 +44,21 @@ router.get('/users/:id', async (req, res, next) => {
     }
 });
 
+router.post('/check/email', async (req, res, next) => {
+    const email = req.body.email;
+    try {
+        let results = await User.getByEmail(con, email);
+        if (results != null) {
+            res.send({ exists: true });
+        } else {
+            res.send({ exists: false });
+        }
+    } catch (e) {
+        console.log(e);
+        res.sendStatus();
+    }
+});
+
 //Register
 router.post('/register', async (req, res, next) => {
     const password = req.body.password;
@@ -73,39 +88,25 @@ router.post('/register', async (req, res, next) => {
     }
 });
 
-router.put('/register/:id', async (req, res, next) => {
-    const x = {
-        column: req.body.column,
-        newValue: req.body.newValue,
-    };
-    try {
-        await User.update(con, x.column, x.newValue, req.params.id);
-        res.send({ success: true, message: 'Successfully updated' });
-    } catch (e) {
-        console.log(e);
-        res.sendStatus(500);
-    }
-});
-
 //login
 router.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
-        console.log(email, password);
         if (!(email, password)) {
             res.sendStatus(400);
         }
 
         const user = await User.getByEmail(con, email);
-        console.log(user);
         if (user && (await bcrypt.compare(password, user.passwordhash))) {
             // Create token
             token = User.generateToken(user);
             res.send({ success: true, token: token });
+        } else {
+            res.send({ success: false });
         }
     } catch (e) {
         console.log(e);
-        res.sendStatus(500);
+        res.sendStatus(401);
     }
 });
 

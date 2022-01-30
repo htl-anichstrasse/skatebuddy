@@ -12,7 +12,7 @@ import Text from '@components/common/Text';
 import colors from '@styles/Colors';
 import styles from '@styles/SkateparksStyles';
 
-const SortMethod = ({ method, state, dispatch }) => {
+const SortMethod = ({ method, state, dispatch, display }) => {
   return (
     <Pressable
       onPress={() => {
@@ -25,13 +25,17 @@ const SortMethod = ({ method, state, dispatch }) => {
       style={styles.sortMethodContainer}
     >
       <MaterialCommunityIcons
-        name={state.sortBy == method ? 'radiobox-marked' : 'radiobox-blank'}
-        size={20}
+        name={
+          state.sortBy == method
+            ? state.sortDirection === 'asc'
+              ? 'chevron-up-circle'
+              : 'chevron-down-circle'
+            : 'circle-outline'
+        }
+        size={25}
         color={state.sortBy == method ? colors.primary : colors.gray1}
       />
-      <Text style={styles.sortMethodText}>
-        {method.charAt(0).toUpperCase() + method.slice(1)}
-      </Text>
+      <Text style={styles.sortMethodText}>{display}</Text>
     </Pressable>
   );
 };

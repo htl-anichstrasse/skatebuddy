@@ -2,6 +2,7 @@
 import React from 'react';
 import { View, Pressable, Keyboard, ScrollView } from 'react-native';
 import { Formik } from 'formik';
+import * as Keychain from 'react-native-keychain';
 import * as yup from 'yup';
 
 // components
@@ -38,7 +39,6 @@ const LoginScreen = ({ navigation }) => {
             initialValues={{ email: '', password: '' }}
             validationSchema={reviewSchema}
             onSubmit={(values, actions) => {
-              actions.resetForm();
               signIn({ email: values.email, password: values.password });
             }}
           >

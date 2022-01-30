@@ -3,15 +3,15 @@ import React, { useState, useEffect, useReducer } from 'react';
 import { View, FlatList, RefreshControl } from 'react-native';
 
 // components
-import Text from '../components/common/Text';
 import SkateparkEntry from '../components/SkateparksList/Entry/SkateparkEntry';
 import SkateparksListSettings from '../components/SkateparksList/SkateparksListSettings';
 import LocationError from '../components/SkateparksList/LocationError';
 import LocationLoading from '../components/SkateparksList/LocationLoading';
 import LoadingCircle from '../components/common/LoadingCircle';
+import Error from '@components/common/Error';
 
 // hooks
-import useFetch from '../hooks/useFetchApi';
+import useFetch from '../hooks/useFetch';
 import useLocation from '../hooks/useLocation';
 
 // styles
@@ -41,6 +41,7 @@ const SkateparksList = ({ navigation }) => {
     isLoading,
     error,
     changeData: setSkateparks,
+    refreshData,
   } = useFetch('https://skate-buddy.josholaus.com/api/skateparks');
   const { location, locError, locLoading, getLocation } = useLocation();
 
@@ -81,18 +82,23 @@ const SkateparksList = ({ navigation }) => {
   const [searchString, setSearchString] = useState('');
 
   useEffect(() => {
-    getLocation();
+    const location = async () => {
+      await getLocation();
+    };
+    location();
   }, []);
+
+  const [refreshing, setRefreshing] = useState(false);
 
   return (
     <View style={styles.container}>
       {locError && (
         <LocationError getLocation={getLocation} locError={locError} />
       )}
-      {locLoading && <LocationLoading />}
+      {locLoading && locError == null && <LocationLoading />}
 
       {isLoading && <LoadingCircle />}
-      {error && <Text>Error!</Text>}
+      {error && <Error error={error} refresh={refreshData} />}
       {skateparks && (
         <>
           {/* // * use this button to log the durations and save them in useFetch to avoid API call
@@ -123,11 +129,23 @@ const SkateparksList = ({ navigation }) => {
                   skatepark={item}
                   navigation={navigation}
                   location={location}
+                  locLoading={locLoading}
+                  locError={locError}
                 />
               );
             }}
             keyExtractor={item => item.skateparkId}
-            // TODO refreshControl={}
+            refreshControl={
+              <RefreshControl
+                refreshing={refreshing}
+                onRefresh={async () => {
+                  setRefreshing(true);
+                  refreshData();
+                  await getLocation();
+                  setRefreshing(false);
+                }}
+              />
+            }
           />
         </>
       )}

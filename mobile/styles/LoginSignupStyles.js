@@ -29,7 +29,7 @@ const LoginSignupStyles = StyleSheet.create({
     backgroundColor: colors.white,
     marginHorizontal: 20,
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     borderBottomWidth: 2,
     borderStyle: 'solid',
     borderRadius: 5,
@@ -47,6 +47,12 @@ const LoginSignupStyles = StyleSheet.create({
     color: colors.text,
     flex: 1,
     fontSize: 18,
+    textAlignVertical: 'top',
+  },
+  inputIcon: {
+    // alignSelf: 'flex-start',
+    padding: 10,
+    paddingVertical: 12,
   },
   errorText: {
     marginHorizontal: 20,
@@ -61,7 +67,7 @@ const LoginSignupStyles = StyleSheet.create({
   },
   link: {
     paddingLeft: 5,
-    color: colors.pGradient[5],
+    color: colors.secondary,
   },
 });
 

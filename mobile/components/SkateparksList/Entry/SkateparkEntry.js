@@ -7,29 +7,36 @@ import EntryHeader from './EntryHeader';
 import EntryDirections from './EntryDirections';
 
 // hooks
-import useDirections from '../../../hooks/useDirections';
 
 // styles
 import styles from '../../../styles/SkateparksStyles';
 import gStyles from '../../../styles/GlobalStyles';
 import { skateparksImages } from '../../../styles/Images';
 
-const SkateparkEntry = ({ skatepark, navigation, location }) => {
-  const { getDurations } = useDirections(location, skatepark);
-
-  useEffect(() => {
-    getDurations();
-  }, []);
-
+const SkateparkEntry = ({
+  skatepark,
+  navigation,
+  location,
+  locLoading,
+  locError,
+}) => {
   return (
     <Pressable
       onPress={() => {
-        navigation.navigate('SkateparkDetails', { skatepark: skatepark });
+        navigation.navigate('SkateparkDetails', {
+          skatepark: skatepark,
+          from: 'list',
+        });
       }}
     >
       <View style={[styles.entryContainer, gStyles.shadow]}>
         <EntryHeader skatepark={skatepark} />
-        <EntryDirections skatepark={skatepark} location={location} />
+        <EntryDirections
+          skatepark={skatepark}
+          location={location}
+          locLoading={locLoading}
+          locError={locError}
+        />
 
         <Image
           style={styles.entryImage}

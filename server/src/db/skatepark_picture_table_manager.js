@@ -47,7 +47,6 @@ SkateparkPictures.insertValue = (con, skateparkpic) => {
                     return reject(err);
                 }
                 return resolve(result[0]);
-                console.log('Succsessfully inserted!');
             },
         );
     });
@@ -56,7 +55,7 @@ SkateparkPictures.insertValue = (con, skateparkpic) => {
 SkateparkPictures.update = (con, column, newValue, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            `UPDATE Skatepark_pictures SET ${column} = ? Where SkateparkID = ? `,
+            `UPDATE skatepark_pictures SET ${column} = ? Where SkateparkID = ? `,
             [newValue, parseInt(id)],
             (err, result) => {
                 if (err) {
@@ -71,7 +70,7 @@ SkateparkPictures.update = (con, column, newValue, id) => {
 SkateparkPictures.deleteValue = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'DELETE FROM Skatepark_pictures WHERE SkateparkID = ?',
+            'DELETE FROM skatepark_pictures WHERE SkateparkID = ?',
             [id],
             (err, result) => {
                 if (err) {

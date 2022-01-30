@@ -1,20 +1,26 @@
 import { StyleSheet } from 'react-native';
+import colors from './Colors';
 
 const SkateparkDetailsStyles = StyleSheet.create({
   flex: {
     flex: 1,
   },
-  title: {
-    padding: 10,
-    textAlign: 'center',
-    fontSize: 25,
-    borderColor: '#ddd',
-    borderBottomWidth: 1,
-    borderStyle: 'solid',
-  },
-  titleContainer: {
+  headerContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    width: '100%',
+    backgroundColor: colors.white,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  headerIcon: {
+    position: 'absolute',
+    left: 10,
+    padding: 10,
+  },
+  headerText: {
+    paddingTop: 15,
+    paddingBottom: 8,
+    fontSize: 25,
   },
   container: {
     alignItems: 'center',
@@ -22,33 +28,66 @@ const SkateparkDetailsStyles = StyleSheet.create({
   },
   modalContainer: {
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: colors.white,
     padding: 20,
     margin: 20,
-    borderColor: '#000',
+    borderColor: colors.gray2,
     borderWidth: 1,
     borderStyle: 'solid',
     borderRadius: 20,
   },
-  input: {
-    width: '100%',
-    borderColor: '#ddd',
-    borderWidth: 1,
-    borderStyle: 'solid',
-    marginBottom: 10,
-  },
-  errorMessage: {
-    color: 'red',
-  },
-  horizontalScroll: {
-    flex: 1,
+  modalTitle: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderBottomColor: colors.gray1,
+    borderBottomWidth: 1,
   },
-  column: {},
-  textCenter: {
+  modalTitleText: {
+    fontSize: 20,
+  },
+  modalCancelContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  modalCancelText: {
+    paddingTop: 2,
+    paddingHorizontal: 5,
+    color: colors.secondary,
+    fontSize: 15,
+  },
+  ratingValue: {
     textAlign: 'center',
   },
+  ratingSlider: {
+    marginHorizontal: 5,
+  },
+  inputLabel: {
+    fontSize: 16,
+    marginTop: 10,
+    marginHorizontal: 20,
+  },
+  errorText: {
+    marginHorizontal: 20,
+    color: colors.error,
+  },
+  button: {
+    backgroundColor: colors.secondary,
+  },
+  additionalInfosContainer: {
+    // borderColor: colors.secondary,
+    // borderWidth: 1,
+    backgroundColor: colors.white,
+    padding: 10,
+    margin: 10,
+    borderRadius: 10,
+  },
+  additionalInfoContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  additionalInfoLabel: {},
+  additionalInfo: {},
 });
 
 export default SkateparkDetailsStyles;

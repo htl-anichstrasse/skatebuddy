@@ -1,0 +1,8 @@
+POST https://skate-buddy.josholaus.com/api/register HTTP/1.1
+content-type: application/json
+
+{
+    "name": "dd",
+    "email": "d@d.d",
+    "password": "oida2"
+}

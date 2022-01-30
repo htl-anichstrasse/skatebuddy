@@ -19,9 +19,24 @@ const TextInputEmail = ({
   autoComplete,
   keyboardType,
   secureTextEntry,
+  color = colors.primary,
+  multiline,
+  numberOfLines,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef(null);
+
+  if (color !== colors.primary) {
+    styles.borderFocused = {
+      ...styles.borderFocused,
+      borderBottomColor: color,
+    };
+  } else {
+    styles.borderFocused = {
+      ...styles.borderFocused,
+      borderBottomColor: colors.primary,
+    };
+  }
 
   return (
     <View
@@ -44,13 +59,9 @@ const TextInputEmail = ({
           name={isFocused ? icon : icon + '-outline'}
           size={24}
           color={
-            isFocused
-              ? colors.primary
-              : touched && errors
-              ? colors.error
-              : colors.gray1
+            isFocused ? color : touched && errors ? colors.error : colors.gray1
           }
-          style={{ padding: 10 }}
+          style={styles.inputIcon}
         />
       </Pressable>
       <TextInput
@@ -66,6 +77,8 @@ const TextInputEmail = ({
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         secureTextEntry={secureTextEntry}
+        multiline={multiline}
+        numberOfLines={numberOfLines}
       />
     </View>
   );

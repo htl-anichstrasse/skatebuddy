@@ -1,20 +1,22 @@
 // libraries
 import React, { useState } from 'react';
-import { View, Dimensions, ScrollView } from 'react-native';
+import { View, Dimensions, ScrollView, RefreshControl } from 'react-native';
 
 // components
 import Text from '../components/common/Text';
 import LoadingCircle from '../components/common/LoadingCircle';
 import Button from '../components/common/Button';
-import AdditionalInfo from '../components/SkateparkDetails/InfoReviews/AdditionalInfo';
-import Reviews from '../components/SkateparkDetails/InfoReviews/Reviews';
-import Obstacles from '../components/SkateparkDetails/Obstacles/Obstacles';
+import AdditionalInfo from '../components/SkateparkDetails/AdditionalInfo';
+import Reviews from '../components/SkateparkDetails/Reviews';
+import Obstacles from '../components/SkateparkDetails/Obstacles';
+import SkateparkDetailsHeader from '../components/SkateparkDetails/SkateparkDetailsHeader';
 
 // hooks
-import useFetch from '../hooks/useFetchApi';
+import useFetch from '../hooks/useFetch';
 
 // styles
 import styles from '../styles/SkateparkDetailsStyles';
+import colors from '../styles/Colors';
 
 styles.column = {
   ...styles.column,
@@ -26,43 +28,66 @@ const SkateparkDetails = ({ navigation, route }) => {
 
   const {
     data: reviews,
-    isLoading,
-    error,
+    isLoading: isReviewsLoading,
+    error: reviewsError,
     changeData: setReviews,
+    refreshData,
   } = useFetch(
     'https://skate-buddy.josholaus.com/api/reviews/' + skatepark.skateparkId,
   );
 
+  const [refreshing, setRefreshing] = useState(false);
+
   const newReview = review => {
     setReviews(prevReviews => {
-      review.reviewId = prevReviews.length + 1;
+      if (prevReviews.length > 0) {
+        review.reviewId =
+          Math.max.apply(
+            Math,
+            prevReviews.map(o => {
+              return o.reviewId;
+            }),
+          ) + 1;
+      } else {
+        review.reviewId = 1;
+      }
       return [review, ...prevReviews];
     });
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{skatepark.name}</Text>
+      <SkateparkDetailsHeader skatepark={skatepark} navigation={navigation} />
 
-      <View style={styles.horizontalScroll}>
-        <ScrollView>
-          <View style={styles.column}>
-            <AdditionalInfo skatepark={skatepark} />
+      <ScrollView
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={() => {
+              setRefreshing(true);
+              refreshData();
+              setRefreshing(false);
+            }}
+          />
+        }
+      >
+        <View style={styles.column}>
+          <AdditionalInfo skatepark={skatepark} />
 
-            <Obstacles />
+          {skatepark.obstacles && <Obstacles obstacles={skatepark.obstacles} />}
 
-            {isLoading && <LoadingCircle />}
-            {error && <Text>{error}</Text>}
-            {reviews && (
-              <Reviews
-                reviews={reviews}
-                navigation={navigation}
-                newReview={newReview}
-              />
-            )}
-          </View>
-        </ScrollView>
-      </View>
+          {isReviewsLoading && <LoadingCircle color={colors.secondary} />}
+          {reviewsError && <Text>{reviewsError}</Text>}
+          {reviews && (
+            <Reviews
+              skatepark={skatepark}
+              reviews={reviews}
+              navigation={navigation}
+              newReview={newReview}
+            />
+          )}
+        </View>
+      </ScrollView>
     </View>
   );
 };

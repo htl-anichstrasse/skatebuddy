@@ -35,7 +35,7 @@ const SearchBar = ({ searchString, setSearchString }) => {
         />
       </Pressable>
       <TextInput
-        placeholder="Search"
+        placeholder="Suche"
         ref={inputRef}
         value={searchString}
         onChangeText={setSearchString}
