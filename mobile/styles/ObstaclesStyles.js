@@ -23,6 +23,15 @@ const ObstaclesStyles = StyleSheet.create({
     width: 50,
     height: 50,
   },
+  skullsContainer: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  obstacleDescription: {
+    fontSize: 16,
+    textAlign: 'center',
+  },
 });
 
 export default ObstaclesStyles;

@@ -17,6 +17,7 @@ import useFetch from '../hooks/useFetch';
 // styles
 import styles from '../styles/SkateparkDetailsStyles';
 import colors from '../styles/Colors';
+import ImageCarousel from '../components/SkateparkDetails/ImageCarousel';
 
 styles.column = {
   ...styles.column,
@@ -73,7 +74,7 @@ const SkateparkDetails = ({ navigation, route }) => {
       >
         <View style={styles.column}>
           <AdditionalInfo skatepark={skatepark} />
-
+          <ImageCarousel />
           {skatepark.obstacles && <Obstacles obstacles={skatepark.obstacles} />}
 
           {isReviewsLoading && <LoadingCircle color={colors.secondary} />}

@@ -12,6 +12,7 @@ const ReviewsStyles = StyleSheet.create({
   },
   button: {
     backgroundColor: colors.secondary,
+    margin: 10,
   },
   headerTextContainer: {},
   headerText: {
