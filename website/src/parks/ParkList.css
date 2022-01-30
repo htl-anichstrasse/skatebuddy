@@ -35,7 +35,21 @@ h2 {
   min-height: 25vh;
 }
 
+.average-rating-width {
+  min-height: 30px;
+  margin-top: -10px;
+}
+
 .average-rating {
-  text-align: right;
   margin-right: 2vh;
+  border-radius: 1vh;
+  float: right;
+  margin: 0px;
+  margin-right: 2vh;
+  border-radius: 2vh;
+  background-color: lightgray;
+  padding-left: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 10px;
 }

@@ -4,6 +4,7 @@ import './Marker.css';
 
 const Marker = (props: any) => {
     const { color, name} = props;
+
     return (
       <div>
         <div

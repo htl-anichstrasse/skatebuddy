@@ -1,5 +1,4 @@
 import './ReviewList.css';
-import UserName from './UserName.js';
 
 const ReviewList = ( {reviews} ) => {
   return (
@@ -7,8 +6,8 @@ const ReviewList = ( {reviews} ) => {
       {reviews.map(review => (
         <div className="review-content" key={review.skateparkId}>
           <div className="reviews-in-box">
-            <h4 className='h4-rating'>{review.title}</h4>
-            <UserName id={review.userId} className="username"></UserName>
+            <h4 className='h4-rating'>{review.reviewId}  {review.title}</h4>
+            <p>{review.username}</p>
             <div id="rating" className="rating">
               <h5 className='h5-rating'>Bewertung: {review.rating}</h5>
             </div><br/>

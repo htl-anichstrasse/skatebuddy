@@ -24,7 +24,7 @@ const ParkDetails = () => {
             <h2 className="ParkName">{park.name}</h2>
             <Map park={park}></Map>
           </div>
-        <Obstacles ObstaclesIds = {park.obstacles}></Obstacles>
+        <Obstacles Obstacles = {park.obstacles}></Obstacles>
         </div>
           )}
           <div className="Reviews">

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import './LogIn.css';
 
 async function loginUser(information) {
- return fetch('http://localhost:8080/login', {
+ return fetch('https://skate-buddy.josholaus.com/api/login', {
    method: 'POST',
    headers: {
      'Content-Type': 'application/json'

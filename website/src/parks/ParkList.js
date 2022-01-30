@@ -3,8 +3,14 @@ import './ParkList.css';
 import Slideshow from './SlideShows';
 //import Times from './Times';
 
+const Round =(skatepParkRating) =>{
+  const rating = Math.round((skatepParkRating + Number.EPSILON) *10) /10;
+
+  return rating
+}
 
 const ParkList = ({ skateparks }) => {
+
   return (
     <div className="park-list">
       {skateparks.map(skatepark => (
@@ -13,7 +19,16 @@ const ParkList = ({ skateparks }) => {
             <div className="park-box">
               <Link to={`/skateparks/${skatepark.skateparkId}`} className='ParkLink'>
                   <h2>{skatepark.name}</h2>
-                  <p className='average-rating'>{skatepark.rating}</p>
+                  {skatepark.rating &&
+                  <div className='average-rating-width'>
+                  <p className='average-rating'>{Round(skatepark.rating)} ⭐</p>
+                  </div>
+                    }
+                  {!skatepark.rating && 
+                  <div className='average-rating-width'>
+                  <p className='average-rating'>No Ratings yet</p>
+                  </div>
+                  }
                 </Link>
                   <div className="slideshow-container">
                     <Slideshow></Slideshow>
