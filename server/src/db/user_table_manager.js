@@ -153,11 +153,23 @@ User.deleteValue = (con, id) => {
     });
 };
 
-User.generateToken = (user) =>
-    jwt.sign(
-        { name: user.name, email: user.email },
+User.generateToken = (user) => {
+    const token = jwt.sign(
+        {
+            userId: user.userId,
+            name: user.name,
+            email: user.email,
+            profilepictureId: user.profilepictureId,
+        },
         process.env.JWT_HASH_SECRET,
         { expiresIn: '135d' },
     );
+    return token;
+};
+
+User.decodeToken = (token) => {
+    const payload = jwt.decode(token);
+    return payload;
+};
 
 module.exports = User;

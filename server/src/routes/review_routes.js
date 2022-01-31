@@ -34,7 +34,6 @@ router.post('/reviews', async (req, res, next) => {
             req.body.title,
             req.body.content,
         );
-        console.log(review);
         await Review.insertValue(con, review);
         res.send({ success: true, message: 'Successfully inserted' });
     } catch (e) {

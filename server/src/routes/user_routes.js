@@ -100,6 +100,7 @@ router.post('/login', async (req, res) => {
         if (user && (await bcrypt.compare(password, user.passwordhash))) {
             // Create token
             token = User.generateToken(user);
+            console.log(token);
             res.send({ success: true, token: token });
         } else {
             res.send({ success: false });
@@ -107,6 +108,21 @@ router.post('/login', async (req, res) => {
     } catch (e) {
         console.log(e);
         res.sendStatus(401);
+    }
+});
+
+router.post('/users/decode', async (req, res) => {
+    const token = req.body.token;
+    if (!token) {
+        res.sendStatus(400);
+        return;
+    }
+    try {
+        const playload = User.decodeToken(token);
+        res.json(playload);
+    } catch (e) {
+        console.log(e);
+        res.send({ message: "Payload couldn't get decoded" });
     }
 });
 
