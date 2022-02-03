@@ -31,16 +31,20 @@ Skatepark.getById = (con, id) => {
                 if (err) {
                     return reject(err);
                 }
-                return resolve(
-                    new Skatepark(
-                        result[0].SkateparkID,
-                        result[0].Name,
-                        result[0].Lon,
-                        result[0].Lat,
-                        result[0].Address,
-                        result[0].Busstop,
-                    ),
-                );
+                try {
+                    return resolve(
+                        new Skatepark(
+                            result[0].SkateparkID,
+                            result[0].Name,
+                            result[0].Lon,
+                            result[0].Lat,
+                            result[0].Address,
+                            result[0].Busstop,
+                        ),
+                    );
+                } catch (e) {
+                    resolve(null);
+                }
             },
         );
     });
@@ -58,6 +62,7 @@ Skatepark.getAllObstaclesFromPark = (con, id) => {
                 if (err) {
                     return reject(err);
                 }
+                console.log(result);
                 return resolve(result);
             },
         );
