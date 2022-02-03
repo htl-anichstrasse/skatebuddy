@@ -52,6 +52,12 @@ const ProfileScreen = () => {
           {state.currentUser && (
             <>
               <View style={styles.detailContainer}>
+                <Text style={styles.label}>UserId: </Text>
+                <Text style={styles.detail}>
+                  {JSON.stringify(state.currentUser.userId)}
+                </Text>
+              </View>
+              <View style={styles.detailContainer}>
                 <Text style={styles.label}>Username: </Text>
                 <Text style={styles.detail}>{state.currentUser.name}</Text>
               </View>
