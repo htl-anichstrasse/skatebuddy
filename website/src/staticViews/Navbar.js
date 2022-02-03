@@ -11,19 +11,15 @@ const LogOut = () => {
 }
 
   return (
-    <nav className="navbar">
-      <div className="navi">
-        <Link to="/" className='home-nav'>
+    <nav className="navi">
+        <Link to="/" className='home-nav' id="nav">
           Home
         </Link>
-        <Link to="/parks" className='parks-nav'>
+        <Link to="/parks" className='parks-nav' id="nav">
           Parks
         </Link>
-        <Link to="/CreateAccount" className='createAccount-nav'>
-          Account Erstellen
-        </Link>
         {token && 
-            <div className="dropdown">
+            <div className="dropdown" id="nav">
               <span>Profile</span>
               <div className="dropdown-content">
                 <button onClick={LogOut} className='Logout-nav'>
@@ -32,10 +28,12 @@ const LogOut = () => {
               </div>
             </div>
         }
-        {!token && <Link to="/LogIn" className='login-nav'>
+        {!token && <Link to="/LogIn" className='login-nav' id="nav">
           Login
         </Link>}
-      </div>
+        <Link to="/CreateAccount" className='createAccount-nav' id="nav">
+          Account Erstellen
+        </Link>
     </nav>
   );
 };

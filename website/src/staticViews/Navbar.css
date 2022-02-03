@@ -1,52 +1,10 @@
-.navbar {
-  border-top: 4px solid darkgray;
-  border-bottom: 4px solid darkgray;
-  background-color: white;
-  height: 10vh;
-  font-size: large;
-  z-index: 1000;
-}
-
 .navi {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-}
-
-.login-nav {
-  float: right;
-  text-decoration: none;
-  box-sizing: content-box;
-}
-
-.createAccount-nav {
-  float: right;
-  text-decoration: none;
-  margin-left: 2vw;
-  margin-right: 2vw;
-}
-
-.home-nav {
-  margin-left: 1vw;
-  margin-right: 1vw;
-  padding-top: 2.5vh;
-  padding-bottom: 2.5vh;
-  padding-left: 1vw;
-  padding-right: 1vw;
-  border: 5px solid darkgray;
-  text-decoration: none;
-}
-
-.parks-nav {
-  box-sizing: content-box;
-  padding-top: 2.5vh;
-  padding-bottom: 2.5vh;
-  padding-left: 1vw;
-  padding-right: 1vw;
-  border: 5px solid darkgray;
-  text-decoration: none;
+  font-size: 2vh;
 }
 
 .dropdown {
@@ -73,4 +31,40 @@
 .Logout-nav {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+nav {
+  text-align: center;
+  width: 100vw;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#nav {
+  flex-grow: 1;
+  padding: 1em;
+  position: relative;
+  font-size: 2vh;
+}
+
+#nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  transform: scaleX(0);
+  background: #333;
+  transition: 0.7s transform cubic-bezier(0.06, 0.9, 0.28, 1);
+}
+
+#nav:hover::after {
+  transform: scaleX(1);
+}
+
+#nav {
+  text-decoration: none;
+  color: inherit;
 }

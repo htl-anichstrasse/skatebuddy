@@ -5,8 +5,8 @@ import Home from './staticViews/Home';
 import ParkDetails from './parks/ParkDetails';
 import LogIn from './account/LogIn';
 import CreateAccount from './account/CreateAccount';
+import AllMap from './parks/map/AllMap';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import useToken from './hooks/useToken';
 
 function App() {
@@ -21,16 +21,13 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <div className="Header">
           <header>
-            <Link to="/" className='Back-to-home'>
-              Skatebubatz
-            </Link>
-          </header>
-        </div>
-          <div className="Navbar">
+          <div className="Header">
+            </div>
+            <div className="Navbar">
             <Navbar />
-          </div>
+            </div>
+          </header>
           <div className="Content">
             <Routes>
               <Route path="/" element={<Home />} />
@@ -38,9 +35,9 @@ function App() {
               <Route path="/skateparks/:id" element={<ParkDetails />} />
               <Route path="/LogIn" element={<LogIn setToken={setToken}/>}/>
               <Route path="/CreateAccount" element={<CreateAccount/>}/>
+              <Route path="/AllMap" element={<AllMap/>}/>
             </Routes>
           </div>
-
         </div>
         <div className="footer">
           <footer>
@@ -56,7 +53,7 @@ function App() {
                             </div>
                         </div>
                         <div className="footer-bottom">
-                            <div className="frame-default"><p>Vielen Dank, dass Sie sich für Skatebubatz entschieden haben</p></div>
+                            <div className="frame-default"><p>Vielen Dank, dass Sie sich für Skatebuddy entschieden haben</p></div>
                         </div>
                     </div>
                 </div>

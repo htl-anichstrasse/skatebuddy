@@ -2,16 +2,20 @@ html {
   scroll-behavior: smooth;
 }
 
-.Navbar {
-  position: sticky;
-  top: 0;
-  z-index: 100000;
-}
-
 .Header {
   text-align: center;
   font-size: 50px;
-  height: 10vh;
+  height: 4vh;
+}
+
+header {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  max-height: 9vh;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+  border-bottom: 4px solid darkgray;
 }
 
 footer {
@@ -46,6 +50,6 @@ footer {
 
 .Content {
   background-color: lightgray;
-  padding-top: 20px;
+  padding-top: 19px;
   padding-bottom: 20px;
 }
