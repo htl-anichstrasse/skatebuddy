@@ -27,7 +27,6 @@ router.get('/users', async (req, res, next) => {
     try {
         let results = await User.selectAll(con);
         res.json(results);
-        console.log(results);
     } catch (e) {
         console.log(e);
         res.sendStatus(500);
@@ -64,7 +63,7 @@ router.post('/register', async (req, res, next) => {
     const password = req.body.password;
     const encryptedPassword = await bcrypt.hash(password, saltRounds);
     try {
-        const user = new User(
+        const temp = new User(
             null,
             req.body.name,
             encryptedPassword,
@@ -72,12 +71,13 @@ router.post('/register', async (req, res, next) => {
         );
         var alreadyExists = await User.alreadyExists(
             con,
-            user.name,
-            user.email,
+            temp.name,
+            temp.email,
         );
         if (!alreadyExists) {
+            await User.insertValue(con, temp);
+            const user = await User.getByEmail(con, temp.email);
             token = User.generateToken(user);
-            await User.insertValue(con, user);
             res.send({ success: true, token: token });
         } else {
             res.send({ success: false, message: 'User already exists!' });
