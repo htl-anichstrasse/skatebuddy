@@ -47,9 +47,8 @@ const AddReviewForm = ({ newReview, setModalVisible, parkid }) => {
       initialValues={{ title: '', content: '', rating: '3' }}
       validationSchema={reviewSchema}
       onSubmit={async (values, actions) => {
-        //! TODO values.userId = session.getCurrentUser().userId;
-        values.userid = 1;
-        values.username = 'maxmustermann';
+        values.userid = state.currentUser.userId;
+        values.username = state.currentUser.name;
 
         values.parkid = parkid;
         values.rating = parseInt(values.rating);
