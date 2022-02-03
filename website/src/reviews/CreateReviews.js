@@ -3,17 +3,17 @@ import { useNavigate } from "react-router-dom";
 import './CreateReviews.css'
 
 const Create = (id) => {
-    const [skateparkId] = id.skateparkId;
+    const [parkid] = id.skateparkId;
     const [title, setTitle] = useState('');
-    const userId = 1;
+    const userid = 1;
     const [rating, setRating] = useState('');
     const [content, setContent] = useState('');
-    const token = sessionStorage.getItem('token');
+    const token = localStorage.getItem('token');
     const navigate = useNavigate();
     const handleSubmit = (e) => {
-        const blog = { userId, skateparkId, rating, title, content }
+        const blog = { parkid, userid, rating, title, content }
 
-        fetch('http://localhost:8000/reviews', {
+        fetch('https://skate-buddy.josholaus.com/api/reviews', {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(blog)
@@ -35,7 +35,6 @@ const Create = (id) => {
         </div>
         </>
         }
-
         {token && 
             <div className="create">
             <h2>Schreibe deine eigene Review:</h2>
@@ -59,7 +58,7 @@ const Create = (id) => {
                 /><br/>
                 <textarea
                     required
-                    placeholder="Review"
+                    placeholder="Content"
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                     cols={50}

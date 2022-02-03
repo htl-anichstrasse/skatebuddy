@@ -10,8 +10,8 @@ const CreateAccount = (id) => {
     const[name,setName] = useState('');
     const[email,setEmail] = useState('');
     const[password, setPassword] = useState('');
-    const today = new Date();
-    const createdAt = `${today.getDate()}-${today.getMonth()+1}-${today.getFullYear()}`;
+    //const today = new Date();
+    //const createdAt = `${today.getDate()}-${today.getMonth()+1}-${today.getFullYear()}`;
     const navigate = useNavigate();
 
     const validationSchema = yup.object().shape({
@@ -29,23 +29,22 @@ const CreateAccount = (id) => {
 
     const onSubmit = () => {
 
-            const account = { name, email, password, createdAt}
+            const account = { name, email, password}
 
-            fetch('http://localhost:8000/users', {
+            fetch('https://skate-buddy.josholaus.com/api/register', {
                 
                 method: 'POST',
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(account)
             }).then(() => {
-                navigate("/LogIn")
-                
+                navigate("/LogIn")  
             })
     }
 
     return(
         <div className="register-form">
             <div className="register-in-box">
-            <h2>Ertsellen Sie einen Account:</h2>
+            <h2>Erstellen Sie einen Account:</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="field">
                     <label>Name</label><br/>

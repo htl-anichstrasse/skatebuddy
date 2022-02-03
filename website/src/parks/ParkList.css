@@ -2,19 +2,20 @@
   text-align: center;
   min-height: 100%;
   background-color: lightgray;
-  padding-top: 20px;
   padding-bottom: 20px;
 }
 
 .park-box {
   display: block;
   margin: 5% auto;
-  max-width: 60vh;
+  max-width: 120vh;
+  border-radius: 2vh;
   box-shadow: inset 0 0 1em white, 0 0 1em black;
   background-color: white;
   margin-top: auto;
   margin-bottom: auto;
   z-index: 1;
+  min-height: 70vh;
 }
 
 .preview_pic {
@@ -22,8 +23,11 @@
 }
 
 h2 {
+  text-align: center;
   margin: none;
   text-decoration: none;
+  font-size: 5vh;
+  margin-bottom: 0;
 }
 
 .ParkLink {
@@ -37,19 +41,16 @@ h2 {
 
 .average-rating-width {
   min-height: 30px;
-  margin-top: -10px;
+  font-size: 2vh;
 }
 
 .average-rating {
-  margin-right: 2vh;
-  border-radius: 1vh;
-  float: right;
-  margin: 0px;
-  margin-right: 2vh;
-  border-radius: 2vh;
-  background-color: lightgray;
-  padding-left: 10px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  padding-right: 10px;
+  text-align: center;
+  font-size: 3vh;
+  margin-bottom: 1vh;
+  margin-top: 0;
+}
+
+.clickBox {
+  font-size: 2.5vh;
 }

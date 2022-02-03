@@ -9,6 +9,7 @@ const Round =(skatepParkRating) =>{
   return rating
 }
 
+
 const ParkList = ({ skateparks }) => {
 
   return (
@@ -34,7 +35,7 @@ const ParkList = ({ skateparks }) => {
                     <Slideshow></Slideshow>
                   </div>
                   <Link to={`/skateparks/${skatepark.skateparkId}`} className='ParkLink'>
-                  <p>Klicken Sie die Box für mehr Details</p>
+                  <p className='clickBox'>Klicken Sie die Box für mehr Details</p>
                   </Link>
             </div>
           </div>

@@ -3,6 +3,7 @@
   display: block;
   margin: 5% auto;
   max-width: 45vh;
+  border-radius: 2vh;
   box-shadow: inset 0 0 1em white, 0 0 1em black;
   background-color: white;
   padding-top: auto;

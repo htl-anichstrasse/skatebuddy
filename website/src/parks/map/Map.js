@@ -61,13 +61,13 @@ const Map = (park) => {
         <Marker
           lat={park.park.latitude}
           lng={park.park.longitude}
-          name="park"
+          name={park.park.name}
           color="red"
         />
         {UserLangitude && <Marker
           lat={UserLangitude}
           lng={UserLongitude}
-          name="Your position"
+          name="Ihre Position"
           color = "blue"
         />
         }
