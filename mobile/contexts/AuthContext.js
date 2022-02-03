@@ -35,6 +35,11 @@ const AuthProvider = ({ children }) => {
             userToken: null,
             isLoading: false,
           };
+        case 'CURRENT_USER':
+          return {
+            ...prevState,
+            currentUser: action.user,
+          };
       }
     },
     {
@@ -61,6 +66,7 @@ const AuthProvider = ({ children }) => {
         );
 
         if (res.status === 200) {
+          authContext.decodeToken(token);
           dispatch({ type: 'RESTORE_TOKEN', token: token });
         } else {
           dispatch({ type: 'SIGN_OUT' });
@@ -75,9 +81,11 @@ const AuthProvider = ({ children }) => {
           },
           body: JSON.stringify(data),
         });
-        if (res.ok) {
-          const resJson = await res.json();
+
+        const resJson = await res.json();
+        if (resJson.success) {
           const { token } = resJson;
+          authContext.decodeToken(token);
           showMessage({
             message: 'Login erfolgreich',
             type: 'success',
@@ -114,6 +122,7 @@ const AuthProvider = ({ children }) => {
         const resJson = await res.json();
         if (resJson.success) {
           const { token } = resJson;
+          authContext.decodeToken(token);
           showMessage({
             message: 'Registrierung erfolgreich',
             type: 'success',
@@ -160,6 +169,28 @@ const AuthProvider = ({ children }) => {
             icon: 'auto',
             duration: 5000,
           });
+        }
+      },
+      decodeToken: async token => {
+        const res = await fetch(
+          'https://skate-buddy.josholaus.com/api/users/decode',
+          {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({ token: token }),
+          },
+        );
+
+        if (res.status === 200) {
+          const resJson = await res.json();
+          console.log(resJson);
+          dispatch({ type: 'CURRENT_USER', user: resJson });
+        } else {
+          dispatch({ type: 'SIGN_OUT' });
         }
       },
     }),

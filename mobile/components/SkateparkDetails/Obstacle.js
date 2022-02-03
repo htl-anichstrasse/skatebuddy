@@ -14,8 +14,7 @@ import colors from '@styles/Colors';
 import { obstaclesIcons } from '../../styles/Images';
 
 const Obstacle = ({ obstacle }) => {
-  //const skulls = obstacle.Difficulty
-  const skulls = 5;
+  const skulls = obstacle.difficulty;
   const graySkulls = 10 - skulls;
 
   return (

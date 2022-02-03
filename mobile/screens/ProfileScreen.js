@@ -1,5 +1,5 @@
 // librarys
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Image, ScrollView, Pressable } from 'react-native';
 import * as Keychain from 'react-native-keychain';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -16,15 +16,13 @@ import colors from '../styles/Colors';
 // hooks / contexts
 import { useAuthContext, useAuthContextState } from '../contexts/AuthContext';
 
-const user = {
-  name: 'test1',
-  email: 'test1@gmail.com',
-  profilePictureId: null,
-};
-
 const ProfileScreen = () => {
-  const { signOut } = useAuthContext();
+  const { decodeToken, signOut } = useAuthContext();
   const state = useAuthContextState();
+
+  useEffect(() => {
+    decodeToken(state.userToken);
+  }, [state.userToken, decodeToken]);
 
   return (
     <View style={styles.container}>
@@ -51,14 +49,24 @@ const ProfileScreen = () => {
               />
             </Pressable> */}
           </View>
-          <View style={styles.detailContainer}>
-            <Text style={styles.label}>Username: </Text>
-            <Text style={styles.detail}>{user.name}</Text>
-          </View>
-          <View style={styles.detailContainer}>
-            <Text style={styles.label}>Email: </Text>
-            <Text style={styles.detail}>{user.email}</Text>
-          </View>
+          {state.currentUser && (
+            <>
+              <View style={styles.detailContainer}>
+                <Text style={styles.label}>UserId: </Text>
+                <Text style={styles.detail}>
+                  {JSON.stringify(state.currentUser.userId)}
+                </Text>
+              </View>
+              <View style={styles.detailContainer}>
+                <Text style={styles.label}>Username: </Text>
+                <Text style={styles.detail}>{state.currentUser.name}</Text>
+              </View>
+              <View style={styles.detailContainer}>
+                <Text style={styles.label}>Email: </Text>
+                <Text style={styles.detail}>{state.currentUser.email}</Text>
+              </View>
+            </>
+          )}
         </View>
         <Button
           title="Abmelden"

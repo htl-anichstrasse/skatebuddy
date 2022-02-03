@@ -1,0 +1,7 @@
+POST https://skate-buddy.josholaus.com/api/users/decode HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJuYW1lIjoiU2ltbWEiLCJlbWFpbCI6IlNAaW1tLmEiLCJwcm9maWxlcGljdHVyZUlkIjpudWxsLCJpYXQiOjE2NDM4OTI0MTUsImV4cCI6MTY1NTU1NjQxNX0.fdfOAiQwdA-27wSgV412LaoVLW70WwqZd31Da6_bL9A
+content-type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJuYW1lIjoiU2ltbWEiLCJlbWFpbCI6IlNAaW1tLmEiLCJwcm9maWxlcGljdHVyZUlkIjpudWxsLCJpYXQiOjE2NDM4OTI0MTUsImV4cCI6MTY1NTU1NjQxNX0.fdfOAiQwdA-27wSgV412LaoVLW70WwqZd31Da6_bL9A"
+}
