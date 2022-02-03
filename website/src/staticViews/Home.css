@@ -1,5 +1,12 @@
+.logodiv {
+  width: 31.5vw;
+  margin-top: 5vh;
+  float: left;
+}
+
 .logo {
-  width: 30vw;
+  text-align: center;
+  width: 80%;
 }
 
 .welcome {
@@ -10,14 +17,35 @@
 
 .left {
   float: left;
-  width: 30%;
+  width: 31vw;
   margin-left: 2%;
-  margin-top: 25px;
+  margin-top: 15vh;
+  border-radius: 2vh;
+  box-shadow: inset 0 0 1em white, 0 0 1em black;
+  background-color: white;
+  text-decoration: none;
+  color: black;
 }
 
-.right {
-  float: right;
-  width: 30%;
-  margin-right: 2%;
-  margin-top: 25px;
+.welcomeHeader {
+  margin: 0;
+}
+
+.welcomeHeader2 {
+  margin: 0;
+}
+
+.AllMapPreview {
+  border: 4px solid darkgrey;
+  margin-bottom: 1vh;
+  width: 11vw;
+}
+
+.allMapHeader {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+.home {
+  min-height: 70vh;
 }
