@@ -21,14 +21,27 @@
   margin-left: 2%;
   margin-top: 15vh;
   border-radius: 2vh;
-  box-shadow: inset 0 0 1em white, 0 0 1em black;
+  box-shadow: inset 0 0 10em lightgray, 0 0 1em black;
   background-color: white;
   text-decoration: none;
   color: black;
+  height: 25vh;
+}
+
+.left-2 {
+  text-align: center;
+}
+
+.buddy {
+  background-color: white;
+  border-radius: 2vh;
+  box-shadow: inset 0 0 10em lightgray, 0 0 20px black;
 }
 
 .welcomeHeader {
   margin: 0;
+  font-size: 6vh;
+  margin-bottom: 3vh;
 }
 
 .welcomeHeader2 {
@@ -42,7 +55,7 @@
 }
 
 .allMapHeader {
-  margin-top: 1vh;
+  margin-top: 2vh;
   margin-bottom: 1vh;
 }
 

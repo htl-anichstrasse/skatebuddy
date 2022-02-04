@@ -5,10 +5,10 @@ import './SlideShows.css'
 
 const slideImages = [
   {
-    url: 'https://www.fomei.com/ew/ew_images/image?EwImage=cf93f7f4-4421-456c-b7a7-c93d9c5d1a28&Filter=31ebf35d-0c3b-492e-b325-c3c536387844',
+    url: 'https://www.visitcalifornia.com/sites/visitcalifornia.com/files/VC_Skateparks_MagdalenaEckeYMCA_Supplied_IMG_5676_RT_1280x640.jpg',
   },
   {
-    url: 'https://boden.objekt.tarkett.de/media/img/M/TH_3917011_3707003_3708011_3912011_3914011_800_800.jpg',
+    url: 'https://www.como.gov/wp-content/uploads/elementor/thumbs/DSCF4782-e1518554322769-1-scaled-p2br1riobzmz7s8p6f7qtodjyc4sii7euehbbenhwg.jpg',
   },
 ];
 

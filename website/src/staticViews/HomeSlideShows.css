@@ -6,9 +6,13 @@
   height: 50vh;
 }
 
-.bg {
-  height: 50vh;
-  background-size: cover;
+#bg-home {
+  height: 30vh;
+}
+
+#slideshow-home {
+  margin-right: 1vw;
+  margin-top: 6vh;
 }
 
 .react-slideshow-container .nav {
