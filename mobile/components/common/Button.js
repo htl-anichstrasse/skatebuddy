@@ -27,6 +27,7 @@ const SendButton = ({
       style={[styles.buttonContainer, styles.shadow, style]}
     >
       <Text style={styles.buttonText}>{title}</Text>
+
       {icon && iconType == 'mci' ? (
         <MaterialCommunityIcons
           name={icon}

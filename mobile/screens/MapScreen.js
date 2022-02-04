@@ -1,6 +1,6 @@
 // libraries
 import React, { useRef } from 'react';
-import { View, Dimensions } from 'react-native';
+import { View, Dimensions, Pressable } from 'react-native';
 
 // components
 import Text from '../components/common/Text';
@@ -8,6 +8,7 @@ import Button from '../components/common/Button';
 import Error from '../components/common/Error';
 import LoadingCircle from '../components/common/LoadingCircle';
 import Map from '../components/Map/Map';
+import CircleButton from '../components/Map/CircleButton';
 
 // hooks
 import useFetch from '../hooks/useFetch';
@@ -40,8 +41,7 @@ const MapScreen = ({ navigation }) => {
             skateparks={skateparks}
             navigation={navigation}
           />
-          <Button
-            title="Reset map"
+          <CircleButton
             onPress={() => {
               mapRef.current.animateCamera({
                 center: {
@@ -51,7 +51,7 @@ const MapScreen = ({ navigation }) => {
                 altitude: 1000,
                 pitch: 0,
                 heading: 0,
-                zoom: 11,
+                zoom: 12,
               });
             }}
           />

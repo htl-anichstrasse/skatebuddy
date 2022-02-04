@@ -10,7 +10,7 @@ const SkateparkDetailsStyles = StyleSheet.create({
     width: '100%',
     backgroundColor: colors.white,
     alignItems: 'center',
-    justifyContent: 'center',
+    height: 60,
   },
   headerIcon: {
     position: 'absolute',
@@ -18,8 +18,9 @@ const SkateparkDetailsStyles = StyleSheet.create({
     padding: 10,
   },
   headerText: {
-    paddingTop: 15,
-    paddingBottom: 8,
+    position: 'absolute',
+    left: 70,
+    paddingTop: 7,
     fontSize: 25,
   },
   container: {

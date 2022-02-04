@@ -1,6 +1,6 @@
 // libraries
 import React from 'react';
-import { View } from 'react-native';
+import { View, Pressable } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 // components
@@ -13,14 +13,22 @@ import styles from '../../../styles/SkateparksStyles';
 import gStyles from '../../../styles/GlobalStyles';
 import colors from '../../../styles/Colors';
 
-const EntryHeader = ({ skatepark }) => {
+const EntryHeader = ({ skatepark, navigation }) => {
   const rating = Math.round((skatepark.rating + Number.EPSILON) * 10) / 10;
 
   return (
     <View style={styles.titleContainer}>
       <Text style={styles.entryName}>{skatepark.name}</Text>
 
-      <View style={[styles.entryRatingContainer, gStyles.shadow]}>
+      <Pressable
+        onPress={() => {
+          navigation.navigate('SkateparkDetails', {
+            skatepark: skatepark,
+            scroll: 'reviews',
+          });
+        }}
+        style={[styles.entryRatingContainer, gStyles.shadow]}
+      >
         {skatepark.rating ? (
           <>
             <Text style={styles.entryRatingText}>{rating}</Text>
@@ -34,7 +42,7 @@ const EntryHeader = ({ skatepark }) => {
         ) : (
           <Text style={styles.entryRatingText}>N/A</Text>
         )}
-      </View>
+      </Pressable>
     </View>
   );
 };

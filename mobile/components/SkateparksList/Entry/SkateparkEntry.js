@@ -25,12 +25,12 @@ const SkateparkEntry = ({
       onPress={() => {
         navigation.navigate('SkateparkDetails', {
           skatepark: skatepark,
-          from: 'list',
+          scroll: null,
         });
       }}
     >
       <View style={[styles.entryContainer, gStyles.shadow]}>
-        <EntryHeader skatepark={skatepark} />
+        <EntryHeader skatepark={skatepark} navigation={navigation} />
         <EntryDirections
           skatepark={skatepark}
           location={location}

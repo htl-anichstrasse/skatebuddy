@@ -10,8 +10,10 @@ import Text from '../../common/Text';
 import styles from '../../../styles/SkateparksStyles';
 
 const DirectionsMethod = ({ icon, duration, color }) => {
-  if (duration && duration.value > 5400) {
-    duration.text = '> 1,5h';
+  if (duration && duration.value >= 3600) {
+    let durationHours = duration.value / 3600;
+    durationHours = Math.round((durationHours + Number.EPSILON) * 10) / 10;
+    duration.text = `${durationHours} hrs`;
   }
 
   return (
