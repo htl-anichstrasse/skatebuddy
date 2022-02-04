@@ -21,6 +21,7 @@ const SkateparkMarkers = ({ skateparks, mapRef, navigation }) => {
         onPress={() => {
           navigation.navigate('SkateparkDetails', {
             skatepark: skatepark,
+            scroll: null,
           });
         }}
       >

@@ -1,6 +1,6 @@
 // libraries
 import React, { useState } from 'react';
-import { View, FlatList } from 'react-native';
+import { View } from 'react-native';
 
 // components
 import Text from '../common/Text';

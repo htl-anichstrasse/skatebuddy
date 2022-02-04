@@ -187,7 +187,6 @@ const AuthProvider = ({ children }) => {
 
         if (res.status === 200) {
           const resJson = await res.json();
-          console.log(resJson);
           dispatch({ type: 'CURRENT_USER', user: resJson });
         } else {
           dispatch({ type: 'SIGN_OUT' });

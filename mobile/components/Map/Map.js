@@ -19,7 +19,7 @@ const Map = ({ skateparks, mapRef, navigation }) => {
     altitude: 1000,
     pitch: 0,
     heading: 0,
-    zoom: 11,
+    zoom: 12,
   };
 
   return (

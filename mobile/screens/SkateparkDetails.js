@@ -1,5 +1,5 @@
 // libraries
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { View, Dimensions, ScrollView, RefreshControl } from 'react-native';
 
 // components
@@ -26,6 +26,10 @@ styles.column = {
 
 const SkateparkDetails = ({ navigation, route }) => {
   const skatepark = route.params.skatepark;
+  const scroll = route.params.scroll;
+
+  const [reviewsY, setReviewsY] = useState(0);
+  const scrollViewRef = useRef(null);
 
   const {
     data: reviews,
@@ -38,6 +42,16 @@ const SkateparkDetails = ({ navigation, route }) => {
   );
 
   const [refreshing, setRefreshing] = useState(false);
+
+  useEffect(() => {
+    if (scroll) {
+      switch (scroll) {
+        case 'reviews':
+          scrollViewRef.current.scrollTo({ y: reviewsY, animated: true });
+          break;
+      }
+    }
+  }, [reviewsY]);
 
   const newReview = review => {
     setReviews(prevReviews => {
@@ -61,6 +75,7 @@ const SkateparkDetails = ({ navigation, route }) => {
       <SkateparkDetailsHeader skatepark={skatepark} navigation={navigation} />
 
       <ScrollView
+        ref={scrollViewRef}
         refreshControl={
           <RefreshControl
             refreshing={refreshing}
@@ -71,6 +86,7 @@ const SkateparkDetails = ({ navigation, route }) => {
             }}
           />
         }
+        decelerationRate={0.99}
       >
         <View style={styles.column}>
           <AdditionalInfo skatepark={skatepark} />
@@ -80,12 +96,20 @@ const SkateparkDetails = ({ navigation, route }) => {
           {isReviewsLoading && <LoadingCircle color={colors.secondary} />}
           {reviewsError && <Text>{reviewsError}</Text>}
           {reviews && (
-            <Reviews
-              skatepark={skatepark}
-              reviews={reviews}
-              navigation={navigation}
-              newReview={newReview}
-            />
+            <View
+              onLayout={event => {
+                const layout = event.nativeEvent.layout;
+                const { y } = layout;
+                setReviewsY(y);
+              }}
+            >
+              <Reviews
+                skatepark={skatepark}
+                reviews={reviews}
+                navigation={navigation}
+                newReview={newReview}
+              />
+            </View>
           )}
         </View>
       </ScrollView>
