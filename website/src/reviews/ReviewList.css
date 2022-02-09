@@ -15,7 +15,7 @@
 .review-content {
   display: block;
   max-width: 80vw;
-  border-radius: 2vh;
+  border-radius: 1.4vh;
   box-shadow: inset 0 0 1em white, 0 0 1em black;
   background-color: white;
   margin-right: auto;
@@ -38,15 +38,6 @@
   list-style-type: none;
 }
 
-.show-more-button {
-  background-color: gray; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
+.showMore {
+  padding-bottom: 5px;
 }

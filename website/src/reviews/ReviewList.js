@@ -1,8 +1,8 @@
 import './ReviewList.css';
-import ShowMore from 'react-show-more-button';
+import ShowMoreText from 'react-show-more-text';
 
 
-const button = <button className='show-more-button'>Show more</button>
+const button = <button className='show-more-button'></button>
 
 const ReviewList = ( {reviews} ) => {
   return (
@@ -15,9 +15,11 @@ const ReviewList = ( {reviews} ) => {
             <div id="rating" className="rating">
               <h5 className='h5-rating'>Bewertung: {review.rating}</h5>
             </div><br/>
-            <ShowMore maxHeight={190} button={button}>
+            <ShowMoreText  lines={2} className="showMore"
+                more="Mehr anzeigen"
+                less="Weniger anzeigen">
             <p className='bottom-text'>{review.content}</p>
-            </ShowMore>
+            </ShowMoreText>
           </div>
         </div>
       ))}
