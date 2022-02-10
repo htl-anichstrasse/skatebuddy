@@ -69,7 +69,7 @@ const SignupScreen = ({ navigation }) => {
               errors,
             }) => (
               <>
-                <Text style={styles.inputLabel}>Name</Text>
+                <Text style={styles.inputLabel}>Benutzername</Text>
                 <TextInput
                   name="name"
                   icon="card-account-details"
