@@ -16,12 +16,17 @@ router.get('/skateparkpictures', async (req, res, next) => {
 
 router.get('/skateparkpictures/:id/:pid', async (req, res, next) => {
     try {
-        let image = await Skateparkpic.readImage(req.params.id, req.params.pid);
-
-        res.set({ 'Content-Type': 'image/jpg' });
-        res.send(image);
+        try {
+            let image = await Skateparkpic.readImage(
+                req.params.id,
+                req.params.pid,
+            );
+            res.set({ 'Content-Type': 'image/jpg' });
+            res.send(image);
+        } catch (error) {
+            res.json(error);
+        }
     } catch (e) {
-        console.log(e);
         res.sendStatus(500);
     }
 });

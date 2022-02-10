@@ -53,12 +53,15 @@ SkateparkPictures.readImage = (skateparkId, picId) => {
             `/park${skateparkId}/skateparkPicture${picId}.JPG`;
         fs.access(path, fs.constants.R_OK, (err) => {
             if (err) {
-                reject(new Error('Image not found'));
+                reject({ success: 'false', message: 'Image not found' });
                 return;
             }
             fs.readFile(path, (err, data) => {
                 if (err) {
-                    reject(err);
+                    reject({
+                        success: 'false',
+                        message: 'Image could not be read',
+                    });
                     return;
                 }
                 resolve(data);
