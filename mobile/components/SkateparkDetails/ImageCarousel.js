@@ -15,7 +15,7 @@ import styles from '@styles/CarouselStyles';
 import colors from '@styles/Colors';
 import gStyles from '@styles/GlobalStyles';
 
-const ImageCarousel = () => {
+const ImageCarousel = ({ pictures }) => {
   const items = [
     {
       name: 'Item 1',
@@ -35,13 +35,21 @@ const ImageCarousel = () => {
   ];
 
   const renderItem = ({ item, index }) => {
+    let url = 'https://skate-buddy.josholaus.com/api/skateparkpictures/';
+    url += item.skateparkId;
+    url += '/';
+    url += item.picId;
+
     return (
       <Image
-        source={require('../../data/skatepark_pictures/1-rum/main.jpg')}
-        style={{
-          flex: 1,
+        source={{
+          uri: url,
           width: Dimensions.get('window').width - 80,
           height: 200,
+        }}
+        //"https://cdn.pixabay.com/photo/2022/01/25/12/58/conifer-6966140_960_720.jpg"
+        style={{
+          flex: 1,
         }}
       />
     );
@@ -57,7 +65,7 @@ const ImageCarousel = () => {
       <CarouselHeader />
       <Carousel
         ref={carouselRef}
-        data={items}
+        data={pictures}
         renderItem={renderItem}
         sliderWidth={Dimensions.get('window').width}
         itemWidth={Dimensions.get('window').width - 80}
@@ -81,7 +89,7 @@ const ImageCarousel = () => {
       />
       {carouselRef.current && (
         <Pagination
-          dotsLength={items.length}
+          dotsLength={pictures.length}
           activeDotIndex={currentIndex}
           carouselRef={carouselRef}
           tappableDots={!autoplayEnabled}

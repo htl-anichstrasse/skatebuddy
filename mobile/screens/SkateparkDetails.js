@@ -90,7 +90,7 @@ const SkateparkDetails = ({ navigation, route }) => {
       >
         <View style={styles.column}>
           <AdditionalInfo skatepark={skatepark} />
-          <ImageCarousel />
+          <ImageCarousel pictures={skatepark.pictureIds} />
           {skatepark.obstacles && <Obstacles obstacles={skatepark.obstacles} />}
 
           {isReviewsLoading && <LoadingCircle color={colors.secondary} />}

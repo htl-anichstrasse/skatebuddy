@@ -31,7 +31,7 @@ const AuthProvider = ({ children }) => {
           };
         case 'SIGN_OUT':
           return {
-            ...prevState,
+            currentUser: null,
             userToken: null,
             isLoading: false,
           };
