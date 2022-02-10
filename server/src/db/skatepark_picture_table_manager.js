@@ -1,6 +1,7 @@
 const SkateparkPictures = require('../models/skatepark_pictures');
 const Image = require('../models/image');
 const fs = require('fs');
+const { resolve } = require('path');
 
 SkateparkPictures.selectAll = (con) => {
     return new Promise((resolve, reject) => {
@@ -32,22 +33,10 @@ SkateparkPictures.getById = (con, id) => {
                 try {
                     let skateparkpics = [];
                     for (i = 0; i < result.length; i++) {
-                        let path = `./src/images/park${result[i].SkateparkID}/skateparkPicture${result[i].PictureID}.PNG`;
-                        console.log(process.cwd());
-                        try {
-                            if (fs.existsSync(path)) {
-                                console.log('if');
-                                skateparkpics[i] = new SkateparkPictures(
-                                    result[i].SkateparkID,
-                                    result[i].PictureID,
-                                );
-                            } else {
-                                console.log('else');
-                            }
-                        } catch (err) {
-                            console.log('__dirname');
-                            continue;
-                        }
+                        skateparkpics[i] = new SkateparkPictures(
+                            result[i].SkateparkID,
+                            result[i].PictureID,
+                        );
                     }
                     return resolve(skateparkpics);
                 } catch (e) {
@@ -55,6 +44,26 @@ SkateparkPictures.getById = (con, id) => {
                 }
             },
         );
+    });
+};
+SkateparkPictures.readImage = (skateparkId, picId) => {
+    return new Promise((resolve, reject) => {
+        let path =
+            process.env.IMAGE_PATH +
+            `/park${skateparkId}/skateparkPicture${picId}.PNG`;
+        fs.access(path, fs.constants.R_OK, (err) => {
+            if (err) {
+                reject(new Error('Image not found'));
+                return;
+            }
+            fs.readFile(path, (err, data) => {
+                if (err) {
+                    reject(err);
+                    return;
+                }
+                resolve(data);
+            });
+        });
     });
 };
 SkateparkPictures.insertValue = (con, skateparkpic) => {

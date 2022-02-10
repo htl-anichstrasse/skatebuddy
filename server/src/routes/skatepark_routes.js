@@ -21,7 +21,7 @@ router.get('/skateparks', async (req, res, next) => {
             );
         }
         for (let i = 0; i < results.length; i++) {
-            results[i].links = await SkateparkPictures.getById(
+            results[i].pictureIds = await SkateparkPictures.getById(
                 con,
                 results[i].skateparkId,
             );

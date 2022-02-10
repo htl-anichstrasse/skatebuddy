@@ -9,7 +9,7 @@ class Skatepark {
         rating,
         obstacles,
         pictures,
-        links,
+        pictureIds,
     ) {
         this.skateparkId = skateparkId;
         this.name = name;
@@ -20,7 +20,7 @@ class Skatepark {
         this.rating = rating;
         this.obstacles = obstacles;
         this.pictures = pictures;
-        this.links = links;
+        this.pictureIds = pictureIds;
     }
 }
 
