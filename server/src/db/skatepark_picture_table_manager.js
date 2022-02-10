@@ -50,7 +50,7 @@ SkateparkPictures.readImage = (skateparkId, picId) => {
     return new Promise((resolve, reject) => {
         let path =
             process.env.IMAGE_PATH +
-            `/park${skateparkId}/skateparkPicture${picId}.PNG`;
+            `/park${skateparkId}/skateparkPicture${picId}.JPG`;
         fs.access(path, fs.constants.R_OK, (err) => {
             if (err) {
                 reject(new Error('Image not found'));
