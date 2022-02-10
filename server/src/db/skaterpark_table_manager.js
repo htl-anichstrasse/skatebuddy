@@ -62,7 +62,6 @@ Skatepark.getAllObstaclesFromPark = (con, id) => {
                 if (err) {
                     return reject(err);
                 }
-                console.log(result);
                 return resolve(result);
             },
         );

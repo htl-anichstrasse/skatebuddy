@@ -3,6 +3,7 @@ const router = express.Router();
 const { json } = require('body-parser');
 const Skatepark = require('../db/skaterpark_table_manager');
 const con = require('../db/database_manager');
+const SkateparkPictures = require('../models/skatepark_pictures');
 
 router.get('/skateparks', async (req, res, next) => {
     try {
@@ -18,6 +19,14 @@ router.get('/skateparks', async (req, res, next) => {
                 con,
                 results[i].skateparkId,
             );
+        }
+        for (let i = 0; i < results.length; i++) {
+            results[i].pictures = await SkateparkPictures.getById(
+                con,
+                results[i].skateparkId,
+            );
+
+            console.log(results[i].pictures);
         }
         res.json(results);
     } catch (e) {

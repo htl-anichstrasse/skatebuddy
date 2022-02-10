@@ -8,6 +8,8 @@ class Skatepark {
         busstop,
         rating,
         obstacles,
+        pictures,
+        links,
     ) {
         this.skateparkId = skateparkId;
         this.name = name;
@@ -17,6 +19,8 @@ class Skatepark {
         this.busstop = busstop;
         this.rating = rating;
         this.obstacles = obstacles;
+        this.pictures = pictures;
+        this.links = links;
     }
 }
 

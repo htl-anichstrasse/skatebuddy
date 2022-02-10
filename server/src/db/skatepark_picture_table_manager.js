@@ -1,4 +1,6 @@
 const SkateparkPictures = require('../models/skatepark_pictures');
+const Image = require('../models/image');
+const fs = require('fs');
 
 SkateparkPictures.selectAll = (con) => {
     return new Promise((resolve, reject) => {
@@ -27,12 +29,18 @@ SkateparkPictures.getById = (con, id) => {
                 if (err) {
                     return reject(err);
                 }
-                return resolve(
-                    new SkateparkPictures(
-                        result[0].SkateparkID,
-                        result[0].PictureID,
-                    ),
-                );
+                try {
+                    let skateparkpics = [];
+                    for (i = 0; i < result.length; i++) {
+                        skateparkpics[i] = new SkateparkPictures(
+                            result[i].SkateparkID,
+                            result[i].PictureID,
+                        );
+                    }
+                    return resolve(skateparkpics);
+                } catch (e) {
+                    return resolve(null);
+                }
             },
         );
     });
@@ -82,4 +90,19 @@ SkateparkPictures.deleteValue = (con, id) => {
     });
 };
 
+SkateparkPictures.checkIfImageExists = (con, skateparkpic) => {
+    return new Promise((resolve, reject) => {
+        const links = [];
+        for (i in skateparkpic) {
+            const img = new Image(
+                skateparkpic.skateparkId,
+                skateparkpic.parkId,
+            );
+            if (fs.existsSync(img.link)) {
+                links.append(img.link);
+            }
+        }
+        return resolve(links);
+    });
+};
 module.exports = SkateparkPictures;
