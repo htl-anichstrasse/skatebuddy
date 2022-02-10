@@ -32,10 +32,22 @@ SkateparkPictures.getById = (con, id) => {
                 try {
                     let skateparkpics = [];
                     for (i = 0; i < result.length; i++) {
-                        skateparkpics[i] = new SkateparkPictures(
-                            result[i].SkateparkID,
-                            result[i].PictureID,
-                        );
+                        let path = `./src/images/park${result[i].SkateparkID}/skateparkPicture${result[i].PictureID}.PNG`;
+                        console.log(process.cwd());
+                        try {
+                            if (fs.existsSync(path)) {
+                                console.log('if');
+                                skateparkpics[i] = new SkateparkPictures(
+                                    result[i].SkateparkID,
+                                    result[i].PictureID,
+                                );
+                            } else {
+                                console.log('else');
+                            }
+                        } catch (err) {
+                            console.log('__dirname');
+                            continue;
+                        }
                     }
                     return resolve(skateparkpics);
                 } catch (e) {

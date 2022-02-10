@@ -1,7 +1,6 @@
 class SkateparkPictures {
     constructor(skateparkId, picId) {
-        this.skateparkId = skateparkId;
-        this.picId = picId;
+        this.link = `../images/park${skateparkId}/skateparkPicture${picId}.jpg`;
     }
 }
 
