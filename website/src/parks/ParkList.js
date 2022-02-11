@@ -32,7 +32,7 @@ const ParkList = ({ skateparks }) => {
                   }
                 </Link>
                   <div className="slideshow-container">
-                    <Slideshow></Slideshow>
+                    <Slideshow parkpics ={skatepark.pictureIds}></Slideshow>
                   </div>
                   <Link to={`/skateparks/${skatepark.skateparkId}`} className='ParkLink'>
                   <p className='clickBox'>Klicken Sie die Box für mehr Details</p>

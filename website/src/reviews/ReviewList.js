@@ -1,9 +1,6 @@
 import './ReviewList.css';
 import ShowMoreText from 'react-show-more-text';
 
-
-const button = <button className='show-more-button'></button>
-
 const ReviewList = ( {reviews} ) => {
   return (
     <div className="review-list">
