@@ -49,8 +49,10 @@ const AddReviewForm = ({ newReview, setModalVisible, parkid }) => {
       onSubmit={async (values, actions) => {
         values.userid = state.currentUser.userId;
         values.username = state.currentUser.name;
-
         values.parkid = parkid;
+
+        values.title = values.title.trim();
+        values.content = values.content.trim();
         values.rating = parseInt(values.rating);
 
         const res = await fetch(

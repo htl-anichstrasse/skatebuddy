@@ -47,6 +47,9 @@ const ReviewsStyles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   reviewContent: {},
+  readMore: {
+    color: colors.secondary,
+  },
 });
 
 export default ReviewsStyles;

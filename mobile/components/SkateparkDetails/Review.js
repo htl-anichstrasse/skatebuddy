@@ -1,6 +1,6 @@
 // libraries
-import React from 'react';
-import { View } from 'react-native';
+import React, { useState } from 'react';
+import { View, Pressable } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 // components
@@ -13,6 +13,14 @@ import styles from '@styles/ReviewsStyles';
 import colors from '@styles/Colors';
 
 const Review = ({ review }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleExpanded = () => {
+    setIsExpanded(prevIsExpanded => {
+      return !prevIsExpanded;
+    });
+  };
+
   const grayStars = 5 - Math.round(review.rating);
   const filledStars = Math.round(review.rating);
 
@@ -42,7 +50,25 @@ const Review = ({ review }) => {
           ))}
         </View>
       </View>
-      <Text style={styles.reviewContent}>{review.content}</Text>
+      {review.content.length <= 200 ? (
+        <Text style={styles.reviewContent}>{review.content}</Text>
+      ) : review.content.length > 200 && isExpanded ? (
+        <>
+          <Text style={styles.reviewContent}>{review.content}</Text>
+          <Pressable onPress={toggleExpanded}>
+            <Text style={styles.readMore}>Weniger anzeigen</Text>
+          </Pressable>
+        </>
+      ) : (
+        <>
+          <Text style={styles.reviewContent}>
+            {review.content.substring(0, 140)}...
+          </Text>
+          <Pressable onPress={toggleExpanded}>
+            <Text style={styles.readMore}>Mehr anzeigen</Text>
+          </Pressable>
+        </>
+      )}
     </View>
   );
 };

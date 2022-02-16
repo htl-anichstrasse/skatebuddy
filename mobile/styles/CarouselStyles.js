@@ -49,7 +49,10 @@ const CarouselStyles = StyleSheet.create({
     top: 125,
     left: 20,
   },
-  paginationContainer: {},
+  paginationContainer: {
+    paddingVertical: 0,
+    height: 30,
+  },
   dotContainer: {},
 });
 
