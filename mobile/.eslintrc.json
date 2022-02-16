@@ -20,6 +20,7 @@
       2,
       { "namedComponents": "arrow-function" }
     ],
+    "react/no-array-index-key": ["warn"],
 
     // prevent eslint to complain about the "styles" variable being used before it was defined
     "no-use-before-define": ["error", { "variables": false }],

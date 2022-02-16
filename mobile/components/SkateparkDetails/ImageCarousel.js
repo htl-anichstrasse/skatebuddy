@@ -1,6 +1,6 @@
 // libraries
 import React, { useState, useRef } from 'react';
-import { View, Dimensions, Pressable, Image, StyleSheet } from 'react-native';
+import { View, Dimensions, Pressable, Image } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -16,7 +16,7 @@ import colors from '@styles/Colors';
 import gStyles from '@styles/GlobalStyles';
 
 const ImageCarousel = ({ pictures }) => {
-  const renderItem = ({ item, index }) => {
+  const renderItem = ({ item }) => {
     let url = 'https://skate-buddy.josholaus.com/api/skateparkpictures/';
     url += item.skateparkId;
     url += '/';
@@ -37,7 +37,7 @@ const ImageCarousel = ({ pictures }) => {
   };
 
   const carouselRef = useRef(null);
-  const [autoplayEnabled, setAutoplayEnabled] = useState(true);
+  const autoplayEnabled = true;
   const [lastSnap, setLastSnap] = useState(Date.now());
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -53,7 +53,7 @@ const ImageCarousel = ({ pictures }) => {
         //
         slideStyle={styles.carouselItemContainer}
         //
-        loop={true}
+        loop
         loopClonesPerSide={2}
         //
         scrollEnabled={false}

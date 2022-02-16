@@ -12,21 +12,19 @@ import Text from '@components/common/Text';
 import styles from '@styles/SkateparkDetailsStyles';
 import gStyles from '@styles/GlobalStyles';
 
-const SkateparkDetailsHeader = ({ skatepark, navigation }) => {
-  return (
-    <View style={[styles.headerContainer, gStyles.shadow]}>
-      <Ionicons
-        name="return-up-back"
-        size={30}
-        color="black"
-        onPress={() => {
-          navigation.navigate('SkateparksList');
-        }}
-        style={styles.headerIcon}
-      />
-      <Text style={styles.headerText}>{skatepark.name}</Text>
-    </View>
-  );
-};
+const SkateparkDetailsHeader = ({ skatepark, navigation }) => (
+  <View style={[styles.headerContainer, gStyles.shadow]}>
+    <Ionicons
+      name="return-up-back"
+      size={30}
+      color="black"
+      onPress={() => {
+        navigation.navigate('SkateparksList');
+      }}
+      style={styles.headerIcon}
+    />
+    <Text style={styles.headerText}>{skatepark.name}</Text>
+  </View>
+);
 
 export default SkateparkDetailsHeader;

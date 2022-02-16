@@ -16,9 +16,7 @@ const Review = ({ review }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleExpanded = () => {
-    setIsExpanded(prevIsExpanded => {
-      return !prevIsExpanded;
-    });
+    setIsExpanded(prevIsExpanded => !prevIsExpanded);
   };
 
   const grayStars = 5 - Math.round(review.rating);
@@ -50,22 +48,24 @@ const Review = ({ review }) => {
           ))}
         </View>
       </View>
-      {review.content.length <= 200 ? (
+      {review.content.length <= 200 && (
         <Text style={styles.reviewContent}>{review.content}</Text>
-      ) : review.content.length > 200 && isExpanded ? (
-        <>
-          <Text style={styles.reviewContent}>{review.content}</Text>
-          <Pressable onPress={toggleExpanded}>
-            <Text style={styles.readMore}>Weniger anzeigen</Text>
-          </Pressable>
-        </>
-      ) : (
+      )}
+      {review.content.length > 200 && !isExpanded && (
         <>
           <Text style={styles.reviewContent}>
             {review.content.substring(0, 140)}...
           </Text>
           <Pressable onPress={toggleExpanded}>
             <Text style={styles.readMore}>Mehr anzeigen</Text>
+          </Pressable>
+        </>
+      )}
+      {review.content.length > 200 && isExpanded && (
+        <>
+          <Text style={styles.reviewContent}>{review.content}</Text>
+          <Pressable onPress={toggleExpanded}>
+            <Text style={styles.readMore}>Weniger anzeigen</Text>
           </Pressable>
         </>
       )}

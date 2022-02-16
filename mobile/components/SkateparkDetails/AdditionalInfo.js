@@ -23,7 +23,7 @@ const AdditionalInfo = ({ skatepark }) => {
         <Text style={styles.additionalInfo}>{street}</Text>
       </View>
       <View style={styles.additionalInfoContainer}>
-        <Text style={styles.additionalInfoLabel}></Text>
+        <Text style={styles.additionalInfoLabel} />
         <Text style={styles.additionalInfo}>{city}</Text>
       </View>
       <View style={styles.additionalInfoContainer}>

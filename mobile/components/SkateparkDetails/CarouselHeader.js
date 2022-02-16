@@ -10,12 +10,10 @@ import Text from '@components/common/Text';
 // styles
 import styles from '@styles/CarouselStyles';
 
-const CarouselHeader = () => {
-  return (
-    <View style={styles.headerContainer}>
-      <Text style={styles.headerText}>Bilder</Text>
-    </View>
-  );
-};
+const CarouselHeader = () => (
+  <View style={styles.headerContainer}>
+    <Text style={styles.headerText}>Bilder</Text>
+  </View>
+);
 
 export default CarouselHeader;

@@ -1,5 +1,5 @@
 // libraries
-import React, { useEffect } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
@@ -18,7 +18,7 @@ const DirectionsMethod = ({ icon, duration, color }) => {
 
   return (
     <View style={styles.entryDirectionsMethodContainer}>
-      {/* //* duration.value seconds / duration.text human readable*/}
+      {/* //* duration.value seconds / duration.text human readable */}
       <Text style={styles.entryDirectionsMethodText}>
         {duration && duration.text}
       </Text>
