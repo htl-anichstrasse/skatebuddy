@@ -28,7 +28,7 @@ const EntryDirections = ({ skatepark, location, locLoading, locError }) => {
     return () => {
       abortDurations();
     };
-  }, []);
+  }, [location]);
 
   const icons = ['walking', 'bicycle', 'bus', 'car'];
 
