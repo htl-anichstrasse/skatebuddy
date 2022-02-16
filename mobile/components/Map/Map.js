@@ -25,7 +25,7 @@ const Map = ({ skateparks, mapRef, navigation }) => {
   return (
     <MapView
       // props
-      showsUserLocation={true}
+      showsUserLocation
       provider={PROVIDER_GOOGLE}
       style={mapStyles.map}
       ref={mapRef}

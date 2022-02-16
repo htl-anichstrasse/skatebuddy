@@ -26,6 +26,19 @@ const TextInputEmail = ({
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef(null);
 
+  const [currentColor, setCurrentColor] = useState(colors.gray1);
+
+  const handleFocus = () => {
+    setIsFocused(true);
+    setCurrentColor(color);
+  };
+
+  const handleBlur = e => {
+    onBlur(e);
+    setIsFocused(false);
+    setCurrentColor(touched && errors ? colors.error : colors.gray1);
+  };
+
   if (color !== colors.primary) {
     styles.borderFocused = {
       ...styles.borderFocused,
@@ -42,11 +55,8 @@ const TextInputEmail = ({
     <View
       style={[
         styles.inputContainer,
-        isFocused
-          ? styles.borderFocused
-          : touched && errors
-          ? styles.borderError
-          : styles.border,
+        isFocused && styles.borderFocused,
+        !isFocused && touched && errors ? styles.borderError : styles.border,
         gStyles.shadow,
       ]}
     >
@@ -56,11 +66,9 @@ const TextInputEmail = ({
         }}
       >
         <MaterialCommunityIcons
-          name={isFocused ? icon : icon + '-outline'}
+          name={isFocused ? icon : `${icon}-outline`}
           size={24}
-          color={
-            isFocused ? color : touched && errors ? colors.error : colors.gray1
-          }
+          color={currentColor}
           style={styles.inputIcon}
         />
       </Pressable>
@@ -68,14 +76,13 @@ const TextInputEmail = ({
         ref={inputRef}
         value={value}
         onChangeText={onChangeText}
-        onBlur={onBlur}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         name={name}
         autoComplete={autoComplete}
         keyboardType={keyboardType}
         autoCorrect={false}
         style={styles.input}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
         secureTextEntry={secureTextEntry}
         multiline={multiline}
         numberOfLines={numberOfLines}
