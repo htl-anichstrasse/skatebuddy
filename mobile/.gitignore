@@ -1,5 +1,8 @@
 Notes.txt
 hooks/secrets.json
+.vscode/.react/debuggerWorker.js
+.vscode/.react/index.bundle
+.vscode/.react/index.map
 
 # OSX
 #

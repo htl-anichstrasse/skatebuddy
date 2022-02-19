@@ -1,6 +1,5 @@
 // libraries
-import React, { useState } from 'react';
-import { View } from 'react-native';
+import React from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import Slider from '@react-native-community/slider';
@@ -34,9 +33,11 @@ const reviewSchema = yup.object({
   rating: yup
     .string()
     .required('Bewertung leer')
-    .test('is-num-1-5', 'Bewertung muss zwischen 1 und 5 liegen', val => {
-      return val < 6 && val > 0;
-    }),
+    .test(
+      'is-num-1-5',
+      'Bewertung muss zwischen 1 und 5 liegen',
+      val => val < 6 && val > 0,
+    ),
 });
 
 const AddReviewForm = ({ newReview, setModalVisible, parkid }) => {
@@ -47,11 +48,14 @@ const AddReviewForm = ({ newReview, setModalVisible, parkid }) => {
       initialValues={{ title: '', content: '', rating: '3' }}
       validationSchema={reviewSchema}
       onSubmit={async (values, actions) => {
-        values.userid = state.currentUser.userId;
-        values.username = state.currentUser.name;
-
-        values.parkid = parkid;
-        values.rating = parseInt(values.rating);
+        const review = {
+          userid: state.currentUser.userId,
+          username: state.currentUser.name,
+          parkid,
+          title: values.title.trim(),
+          content: values.content.trim(),
+          rating: parseInt(values.rating, 10),
+        };
 
         const res = await fetch(
           'https://skate-buddy.josholaus.com/api/reviews',
@@ -62,12 +66,12 @@ const AddReviewForm = ({ newReview, setModalVisible, parkid }) => {
               Authorization: `Bearer ${state.userToken}`,
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify(values),
+            body: JSON.stringify(review),
           },
         );
         const resJson = await res.json();
         if (resJson.success) {
-          newReview(values);
+          newReview(review);
           actions.resetForm();
           setModalVisible(false);
 
@@ -123,7 +127,7 @@ const AddReviewForm = ({ newReview, setModalVisible, parkid }) => {
             errors={errors.content}
             color={colors.secondary}
             //
-            multiline={true}
+            multiline
             numberOfLines={4}
           />
 
@@ -139,10 +143,9 @@ const AddReviewForm = ({ newReview, setModalVisible, parkid }) => {
             minimumValue={1}
             maximumValue={5}
             onSlidingComplete={rating => {
-              touched.rating = true;
               setFieldValue('rating', rating.toString());
             }}
-            value={parseInt(values.rating)}
+            value={parseInt(values.rating, 10)}
             minimumTrackTintColor={colors.secondarySoft}
             maximumTrackTintColor="#000"
             thumbTintColor={colors.secondary}

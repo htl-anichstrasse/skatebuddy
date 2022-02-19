@@ -13,7 +13,6 @@ import ReviewsHeader from './ReviewsHeader';
 
 // styles
 import styles from '@styles/ReviewsStyles';
-import colors from '@styles/Colors';
 import gStyles from '@styles/GlobalStyles';
 
 const Reviews = ({ reviews, newReview, skatepark }) => {

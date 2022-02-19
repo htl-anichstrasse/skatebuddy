@@ -1,10 +1,9 @@
 // librarys
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { View } from 'react-native';
 
 // components
 import Text from '../../common/Text';
-import Button from '../../common/Button';
 import DirectionsMethod from './DirectionsMethod';
 
 // hooks
@@ -50,16 +49,14 @@ const EntryDirections = ({ skatepark, location, locLoading, locError }) => {
       </View>
       <View style={styles.entryDirectionsContainer}>
         {skatepark.durations !== undefined &&
-          skatepark.durations.map((duration, index) => {
-            return (
-              <DirectionsMethod
-                key={index}
-                icon={icons[index]}
-                color={cols.pGradient[index + 1]}
-                duration={duration}
-              />
-            );
-          })}
+          skatepark.durations.map((duration, index) => (
+            <DirectionsMethod
+              key={index}
+              icon={icons[index]}
+              color={cols.pGradient[index + 1]}
+              duration={duration}
+            />
+          ))}
       </View>
     </>
   );

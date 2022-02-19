@@ -1,6 +1,6 @@
 // libraries
 import React, { useState, useRef } from 'react';
-import { View, Dimensions, Pressable, Image, StyleSheet } from 'react-native';
+import { View, Dimensions, Pressable, Image } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -16,25 +16,7 @@ import colors from '@styles/Colors';
 import gStyles from '@styles/GlobalStyles';
 
 const ImageCarousel = ({ pictures }) => {
-  const items = [
-    {
-      name: 'Item 1',
-    },
-    {
-      name: 'Item 2',
-    },
-    {
-      name: 'Item 3',
-    },
-    {
-      name: 'Item 4',
-    },
-    {
-      name: 'Item 5',
-    },
-  ];
-
-  const renderItem = ({ item, index }) => {
+  const renderItem = ({ item }) => {
     let url = 'https://skate-buddy.josholaus.com/api/skateparkpictures/';
     url += item.skateparkId;
     url += '/';
@@ -47,7 +29,6 @@ const ImageCarousel = ({ pictures }) => {
           width: Dimensions.get('window').width - 80,
           height: 200,
         }}
-        //"https://cdn.pixabay.com/photo/2022/01/25/12/58/conifer-6966140_960_720.jpg"
         style={{
           flex: 1,
         }}
@@ -56,7 +37,7 @@ const ImageCarousel = ({ pictures }) => {
   };
 
   const carouselRef = useRef(null);
-  const [autoplayEnabled, setAutoplayEnabled] = useState(false);
+  const autoplayEnabled = true;
   const [lastSnap, setLastSnap] = useState(Date.now());
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -72,7 +53,7 @@ const ImageCarousel = ({ pictures }) => {
         //
         slideStyle={styles.carouselItemContainer}
         //
-        loop={true}
+        loop
         loopClonesPerSide={2}
         //
         scrollEnabled={false}
@@ -102,7 +83,7 @@ const ImageCarousel = ({ pictures }) => {
         />
       )}
 
-      <Pressable
+      {/* <Pressable
         style={[styles.autoplayButton, gStyles.shadow]}
         onPress={() => {
           if (autoplayEnabled) {
@@ -119,42 +100,38 @@ const ImageCarousel = ({ pictures }) => {
           size={30}
           color={autoplayEnabled ? colors.primary : colors.error}
         />
-      </Pressable>
+      </Pressable> */}
 
-      {!autoplayEnabled && (
-        <>
-          <Pressable
-            style={[styles.nextButton, gStyles.shadow]}
-            onPress={() => {
-              if (Date.now() - lastSnap > 300) {
-                carouselRef.current.snapToNext();
-                setLastSnap(Date.now());
-              }
-            }}
-          >
-            <MaterialCommunityIcons
-              name="chevron-right"
-              size={50}
-              color={colors.secondary}
-            />
-          </Pressable>
-          <Pressable
-            style={[styles.prevButton, gStyles.shadow]}
-            onPress={() => {
-              if (Date.now() - lastSnap > 300) {
-                carouselRef.current.snapToPrev();
-                setLastSnap(Date.now());
-              }
-            }}
-          >
-            <MaterialCommunityIcons
-              name="chevron-left"
-              size={50}
-              color={colors.secondary}
-            />
-          </Pressable>
-        </>
-      )}
+      <Pressable
+        style={[styles.nextButton, gStyles.shadow]}
+        onPress={() => {
+          if (Date.now() - lastSnap > 300) {
+            carouselRef.current.snapToNext();
+            setLastSnap(Date.now());
+          }
+        }}
+      >
+        <MaterialCommunityIcons
+          name="chevron-right"
+          size={50}
+          color={colors.secondary}
+        />
+      </Pressable>
+      <Pressable
+        style={[styles.prevButton, gStyles.shadow]}
+        onPress={() => {
+          if (Date.now() - lastSnap > 300) {
+            carouselRef.current.snapToPrev();
+            setLastSnap(Date.now());
+          }
+        }}
+      >
+        <MaterialCommunityIcons
+          name="chevron-left"
+          size={50}
+          color={colors.secondary}
+        />
+      </Pressable>
     </View>
   );
 };
