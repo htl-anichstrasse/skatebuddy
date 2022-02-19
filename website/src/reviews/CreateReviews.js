@@ -5,10 +5,10 @@ import './CreateReviews.css'
 const Create = (id) => {
     const [parkid] = id.skateparkId;
     const [title, setTitle] = useState('');
+    const token = JSON.parse(localStorage.getItem('user'));
     const userid = 1;
     const [rating, setRating] = useState('');
     const [content, setContent] = useState('');
-    const token = localStorage.getItem('token');
     const navigate = useNavigate();
     const handleSubmit = (e) => {
         const blog = { parkid, userid, rating, title, content }

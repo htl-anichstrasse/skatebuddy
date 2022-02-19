@@ -1,34 +1,29 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { useNavigate } from "react-router-dom";
+import AuthService from './Auth/auth-service';
 import './LogIn.css';
 
-async function loginUser(information) {
- return fetch('https://skate-buddy.josholaus.com/api/login', {
-   method: 'POST',
-   headers: {
-     'Content-Type': 'application/json'
-   },
-   body: JSON.stringify(information)
- })
-   .then(data => data.json())
-}
 
 export default function LogIn({ setToken }) {
-  const [username, setUserName] = useState();
+  const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate();
 
 
   const handleSubmit = async e => {
-    e.preventDefault();
-    const token = await loginUser({
-      username,
-       password
-    });
-    setToken(token);
-    navigate("/");
-    window.location.reload(false);
+    AuthService.login(email, password).then(
+      () => {
+        if(JSON.parse(localStorage.getItem("user")).success){
+          navigate("/");
+          window.location.reload(true);
+        }else{
+          console.log("Ne")
+        }
+      },
+      error => {
+        console.log("Nope")
+      }
+    );
   }
 
   return(
@@ -37,8 +32,8 @@ export default function LogIn({ setToken }) {
         <h1>Log In</h1>
         <form onSubmit={handleSubmit}>
           <label>
-            <p className='input-header'>Username</p>
-            <input className="input" type="text" onChange={e => setUserName(e.target.value)} />
+            <p className='input-header'>Email</p>
+            <input className="input" type="Email" onChange={e => setEmail(e.target.value)} />
           </label>
           <label>
             <p className='input-header'>Password</p>
@@ -52,7 +47,3 @@ export default function LogIn({ setToken }) {
     </div>
   )
 }
-
-LogIn.propTypes = {
-  setToken: PropTypes.func.isRequired
-};

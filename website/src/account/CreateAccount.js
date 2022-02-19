@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useNavigate } from "react-router-dom";
+import AuthService from "./Auth/auth-service"
 import './CreateAccount.css'
 
 const CreateAccount = (id) => {
@@ -37,7 +38,15 @@ const CreateAccount = (id) => {
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(account)
             }).then(() => {
-                navigate("/LogIn")  
+                AuthService.login(email, password).then(
+                    () => {
+                        navigate("/");
+                        window.location.reload(false);
+                    },
+                    error => {
+                      console.log("Nope")
+                    }
+                  );
             })
     }
 

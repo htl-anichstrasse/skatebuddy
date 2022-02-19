@@ -5,7 +5,6 @@ import './SlideShows.css'
 
 
 const Slideshow = (parkpics) => {
-  console.log(parkpics.parkpics)
     return (
       <div className="slide-container">
         <Slide autoplay={false} transitionDuration={420}>
