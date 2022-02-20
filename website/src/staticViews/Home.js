@@ -2,9 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css'
 import HomeSlideshow from './HomeSlideshow'
+import authService from '../account/Auth/auth-service';
 
 
 const Home = () => {
+  if(localStorage.getItem("user")){
+    authService.decodeToken(JSON.parse(localStorage.getItem("user")).token)
+  }
+
   return(
   <div className="home">
     <div className="welcome">
