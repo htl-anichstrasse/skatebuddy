@@ -1,15 +1,21 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import authService from "../account/Auth/auth-service";
 import './CreateReviews.css'
+
 
 const Create = (id) => {
     const [parkid] = id.skateparkId;
     const [title, setTitle] = useState('');
-    const token = JSON.parse(localStorage.getItem('user'));
+    const token = JSON.parse(localStorage.getItem('user')).token;
     const userid = 1;
+    const user = authService.decodeToken(token)
+    console.log(user)
     const [rating, setRating] = useState('');
     const [content, setContent] = useState('');
     const navigate = useNavigate();
+    
+
     const handleSubmit = (e) => {
         const blog = { parkid, userid, rating, title, content }
 

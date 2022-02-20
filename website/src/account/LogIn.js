@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
 import AuthService from './Auth/auth-service';
 import './LogIn.css';
+import { useNavigate } from "react-router-dom";
 
 
-export default function LogIn({ setToken }) {
+export default function LogIn() {
   const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [password, setPassword] = useState();    
   const navigate = useNavigate();
 
 
   const handleSubmit = async e => {
+    e.preventDefault()
     AuthService.login(email, password).then(
       () => {
         if(JSON.parse(localStorage.getItem("user")).success){
