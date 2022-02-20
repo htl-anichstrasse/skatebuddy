@@ -36,6 +36,7 @@ const Map = ({ skateparks, mapRef, navigation }) => {
       minZoomLevel={8}
       rotateEnabled={false}
       pitchEnabled={false}
+      mapType="satellite"
       // events
       onRegionChangeComplete={() => {}}
     >
