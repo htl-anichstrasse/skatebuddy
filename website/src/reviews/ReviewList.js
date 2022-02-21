@@ -3,6 +3,8 @@ import ShowMoreText from 'react-show-more-text';
 import { useState } from 'react';
 import StarRating from 'react-star-ratings';
 
+
+
 const ReviewList = ( {reviews} ) => {
 
   const [showMore, setShowMore] = useState(false);
@@ -10,6 +12,16 @@ const ReviewList = ( {reviews} ) => {
 
   if(reviews.length<10){
     length = false;
+  }
+  
+  const DeleteReview = value => async e =>{
+    e.preventDefault();
+    await fetch(
+      "https://skate-buddy.josholaus.com/api/reviews/"+value,{
+        method:'DELETE'
+      }
+    )
+    window.location.reload(true);
   }
 
   return (
@@ -32,6 +44,9 @@ const ReviewList = ( {reviews} ) => {
                 less="Weniger anzeigen">
             <p className='bottom-text'>{review.content}</p>
             </ShowMoreText>
+            {review.userId === JSON.parse(sessionStorage.getItem("data")).userId && 
+              <button onClick={DeleteReview(review.reviewId)} className="delete-review">Löschen</button>
+            }
           </div>
         </div>
       ))}
@@ -53,13 +68,14 @@ const ReviewList = ( {reviews} ) => {
                less="Weniger anzeigen">
            <p className='bottom-text'>{review.content}</p>
            </ShowMoreText>
+           <button onClick={DeleteReview(review.reviewId)} className="delete-review">Löschen</button>
          </div>
        </div>
       ))}
 
       {!showMore && length &&
         <div className="middleButton">
-          <button type="button" className="top-button-reviews" onClick={() => setShowMore(true)}>Mehr Reviews</button>
+          <button type="button" className="showMore-button-reviews" onClick={() => setShowMore(true)}>Mehr Reviews</button>
         </div>
       }
     </div>

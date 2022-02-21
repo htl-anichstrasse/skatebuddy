@@ -9,6 +9,7 @@ const Create = (id) => {
     const [title, setTitle] = useState('');
     const [rating, setRating] = useState(0);
     const [content, setContent] = useState('');
+    const [isPending, setIsPening] = useState(false);
     let userid = "";
 
     if(sessionStorage.getItem("data")){
@@ -20,6 +21,8 @@ const Create = (id) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const blog = { parkid, userid, rating, title, content }
+
+        setIsPening(true)
 
         fetch('https://skate-buddy.josholaus.com/api/reviews', {
             method: 'POST',
@@ -71,6 +74,7 @@ const Create = (id) => {
                                 name="select-rating" 
                                 starRatedColor="darkred"
                                 starHoverColor="red"
+                                starEmptyColor="white"
                             />
                             </div>
                             <textarea
@@ -86,7 +90,8 @@ const Create = (id) => {
                                 }
                             /><br/>
                         </div>
-                        <button className="send-review">Review senden</button>
+                        {!isPending && <button className="send-review">Review senden</button>}
+                        {isPending && <button className="send-review" disabled>Lädt...</button>}
                     </form>
         </div>
         }
