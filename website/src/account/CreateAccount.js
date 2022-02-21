@@ -54,7 +54,7 @@ const CreateAccount = (id) => {
     return(
         <div className="register-form">
             <div className="register-in-box">
-            <h1>Erstellen Sie einen Account:</h1>
+            <h1>Erstellen Sie einen Account</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="field">
                     <label>Name</label><br/>

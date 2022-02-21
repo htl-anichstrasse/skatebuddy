@@ -49,8 +49,7 @@ footer {
 }
 
 .Content {
-  background: no-repeat
-    url('https://www.hblw-saalfelden.at/wp-content/uploads/template/wallpaper-grau-schimmernd.jpg');
+  background: no-repeat url('./wallpaper.jpg');
   background-size: cover;
   padding-top: 19px;
   padding-bottom: 20px;

@@ -8,6 +8,11 @@ export default function LogIn() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();    
   const navigate = useNavigate();
+  const [passwordShown, setPasswordShown] = useState(false);
+
+  const togglePassword = () =>{
+    setPasswordShown(!passwordShown)
+}
 
 
   const handleSubmit = async e => {
@@ -38,7 +43,8 @@ export default function LogIn() {
           </label>
           <label>
             <p className='input-header'>Password</p>
-            <input className="input" type="password" onChange={e => setPassword(e.target.value)} />
+            <input className="input" type={passwordShown ? "text" : "password"} onChange={e => setPassword(e.target.value)} />
+            <button type="button" onClick={togglePassword} className="toggle-button"></button>
           </label>
           <div>
             <button type="submit" className='login-button'>Submit</button>
