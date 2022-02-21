@@ -6,10 +6,10 @@
     <img src=".github/logo.svg" alt="Logo" width="100" height="100">
   </a>
 
-  <h3 align="center">Project Name</h3>
+  <h3 align="center">SkateBuddy</h3>
 
   <p align="center">
-    Enter a short description for the project here
+    A convenient companion for skaters to find new parks and shops.
     <br/>
     <a href="https://github.com/htl-anichstrasse/template/releases">Releases</a>
     ·
