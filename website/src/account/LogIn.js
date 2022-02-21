@@ -9,6 +9,7 @@ export default function LogIn() {
   const [password, setPassword] = useState();    
   const navigate = useNavigate();
   const [passwordShown, setPasswordShown] = useState(false);
+  const [wrongData, setWrongData] = useState(false);
 
   const togglePassword = () =>{
     setPasswordShown(!passwordShown)
@@ -23,12 +24,9 @@ export default function LogIn() {
           navigate("/");
           window.location.reload(true);
         }else{
-          console.log("Ne")
+          setWrongData(true)
         }
       },
-      error => {
-        console.log("Nope")
-      }
     );
   }
 
@@ -42,11 +40,14 @@ export default function LogIn() {
             <input className="input" type="Email" onChange={e => setEmail(e.target.value)} />
           </label>
           <label>
-            <p className='input-header'>Password</p>
+            <p className='input-header'>Passwort</p>
             <input className="input" type={passwordShown ? "text" : "password"} onChange={e => setPassword(e.target.value)} />
             <button type="button" onClick={togglePassword} className="toggle-button"></button>
           </label>
           <div>
+            {wrongData &&
+            <p className='wrong-login'>Email und Passwort stimmen nicht überein</p>
+            }
             <button type="submit" className='login-button'>Submit</button>
           </div>
         </form>

@@ -17,7 +17,7 @@
 }
 
 .input-header {
-  margin-top: 0px;
+  margin-top: 20px;
   margin-bottom: 2px;
 }
 
@@ -53,4 +53,9 @@
   background: no-repeat url('./eye.png');
   background-size: cover;
   cursor: pointer;
+}
+
+.wrong-login {
+  margin-bottom: 0;
+  color: red;
 }
