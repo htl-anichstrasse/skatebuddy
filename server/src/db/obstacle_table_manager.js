@@ -44,7 +44,6 @@ Obstacle.insertValue = (con, obstacle) => {
                     return reject(err);
                 }
                 return resolve(result[0]);
-                console.log('Succsessfully inserted!');
             },
         );
     });

@@ -23,7 +23,6 @@ Review.selectAll = (con) => {
                         result[i].Username,
                     );
                 }
-                console.log(result);
                 return resolve(reviews);
             },
         );

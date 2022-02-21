@@ -65,4 +65,17 @@ router.put('/skateparkpictures/:id', async (req, res, next) => {
         res.sendStatus(500);
     }
 });
+
+router.get('/skateparkpictures/:id', async (req, res, next) => {
+    try {
+        let pictures = await Skatepark.getAllPicturesFromPark(
+            con,
+            req.params.id,
+        );
+        res.json(pictures);
+    } catch (e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+});
 module.exports = router;
