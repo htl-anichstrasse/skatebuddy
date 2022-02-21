@@ -32,6 +32,7 @@ const Create = (id) => {
     const LogIn = e => {
         e.preventDefault();
         navigate("/LogIn");
+
       }
 
     return(

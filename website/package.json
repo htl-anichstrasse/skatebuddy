@@ -19,7 +19,9 @@
     "react-show-more-button": "^1.0.0",
     "react-show-more-text": "^1.5.2",
     "react-slideshow-image": "^3.6.0",
+    "react-star-ratings": "^2.3.0",
     "react-token-auth": "^2.3.8",
+    "star-rating": "^0.0.1",
     "web-vitals": "^1.1.2",
     "yup": "^0.32.11"
   },

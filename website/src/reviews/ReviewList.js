@@ -1,6 +1,7 @@
 import './ReviewList.css';
 import ShowMoreText from 'react-show-more-text';
 import { useState } from 'react';
+import StarRating from 'react-star-ratings';
 
 const ReviewList = ( {reviews} ) => {
 
@@ -16,12 +17,17 @@ const ReviewList = ( {reviews} ) => {
       {reviews.slice(0,10).map(review => (
           <div className="review-content" key={review.skateparkId}>
           <div className="reviews-in-box">
-            <h4 className='h4-rating'>{review.reviewId}  {review.title}</h4>
-            <p>{review.username}</p>
+            <h3 className='h3-rating'>{review.title}</h3>
+            <p className='review-username'>{review.username}</p>
             <div id="rating" className="rating">
-              <h5 className='h5-rating'>Bewertung: {review.rating}</h5>
-            </div><br/>
-            <ShowMoreText  lines={2} className="showMore"
+              <StarRating
+              rating={review.rating}
+              starRatedColor="darkred"
+              starSpacing="1px"
+              starDimension="22px"
+              />
+            </div>
+            <ShowMoreText  lines={1} className="showMore"
                 more="Mehr anzeigen"
                 less="Weniger anzeigen">
             <p className='bottom-text'>{review.content}</p>
@@ -30,25 +36,30 @@ const ReviewList = ( {reviews} ) => {
         </div>
       ))}
       {showMore && reviews.slice(10).map(review => (
-          <div className="review-content" key={review.skateparkId}>
-          <div className="reviews-in-box">
-            <h4 className='h4-rating'>{review.reviewId}  {review.title}</h4>
-            <p>{review.username}</p>
-            <div id="rating" className="rating">
-              <h5 className='h5-rating'>Bewertung: {review.rating}</h5>
-            </div><br/>
-            <ShowMoreText  lines={2} className="showMore"
-                more="Mehr anzeigen"
-                less="Weniger anzeigen">
-            <p className='bottom-text'>{review.content}</p>
-            </ShowMoreText>
-          </div>
-        </div>
+         <div className="review-content" key={review.skateparkId}>
+         <div className="reviews-in-box">
+           <h3 className='h3-rating'>{review.title}</h3>
+           <p className='review-username'>{review.username}</p>
+           <div id="rating" className="rating">
+             <StarRating
+             rating={review.rating}
+             starRatedColor="darkred"
+             starSpacing="1px"
+             starDimension="30px"
+             />
+           </div>
+           <ShowMoreText  lines={2} className="showMore"
+               more="Mehr anzeigen"
+               less="Weniger anzeigen">
+           <p className='bottom-text'>{review.content}</p>
+           </ShowMoreText>
+         </div>
+       </div>
       ))}
 
       {!showMore && length &&
         <div className="middleButton">
-          <button type="button" className="top-button" id="Load-More" onClick={() => setShowMore(true)}>Mehr Reviews</button>
+          <button type="button" className="top-button-reviews" onClick={() => setShowMore(true)}>Mehr Reviews</button>
         </div>
       }
     </div>
