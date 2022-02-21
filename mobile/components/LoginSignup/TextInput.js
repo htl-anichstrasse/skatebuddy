@@ -1,5 +1,5 @@
 // libraries
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { View, TextInput, Pressable } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -51,15 +51,23 @@ const TextInputEmail = ({
     };
   }
 
+  const focusedStyle = [
+    styles.inputContainer,
+    styles.borderFocused,
+    gStyles.shadow,
+  ];
+  const unfocusedStyle = useRef(null);
+
+  useEffect(() => {
+    unfocusedStyle.current = [
+      styles.inputContainer,
+      touched && errors ? styles.borderError : styles.border,
+      gStyles.shadow,
+    ];
+  }, [touched, errors]);
+
   return (
-    <View
-      style={[
-        styles.inputContainer,
-        isFocused && styles.borderFocused,
-        !isFocused && touched && errors ? styles.borderError : styles.border,
-        gStyles.shadow,
-      ]}
-    >
+    <View style={isFocused ? focusedStyle : unfocusedStyle.current}>
       <Pressable
         onPress={() => {
           inputRef.current.focus();
