@@ -18,7 +18,6 @@ router.get('/obstacles/:id', async (req, res, next) => {
     try {
         let results = await Obstacles.getById(con, req.params.id);
         res.json(results);
-        console.log(results);
     } catch (e) {
         console.log(e);
         res.sendStatus();

@@ -16,15 +16,6 @@ const cors = require('cors');
 const app = express();
 const port = 3000;
 
-/*
-app.use(bodyParser.json()),
-    use('/api', userRouter),
-    use('/api', skateparkRouter),
-    use('/api', obstacleRouter),
-    use('/api', skateparkPicRouter),
-    use('/api', reviewRouter);
-*/
-
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/api', userRouter);

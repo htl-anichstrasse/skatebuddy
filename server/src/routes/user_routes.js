@@ -95,12 +95,10 @@ router.post('/login', async (req, res) => {
         if (!(email, password)) {
             res.sendStatus(400);
         }
-
         const user = await User.getByEmail(con, email);
         if (user && (await bcrypt.compare(password, user.passwordhash))) {
             // Create token
             token = User.generateToken(user);
-            console.log(token);
             res.send({ success: true, token: token });
         } else {
             res.send({ success: false });
@@ -122,7 +120,7 @@ router.post('/users/decode', async (req, res) => {
         res.json(playload);
     } catch (e) {
         console.log(e);
-        res.send({ message: "Payload couldn't get decoded" });
+        res.send({ success: false, message: "Payload couldn't get decoded" });
     }
 });
 
