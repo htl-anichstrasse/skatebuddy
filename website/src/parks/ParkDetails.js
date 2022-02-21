@@ -21,7 +21,7 @@ const ParkDetails = () => {
       {park && (
         <div>
           <div>
-            <h2 className="ParkName">{park.name}</h2>
+            <h2 className="ParkName"><font color="darkred" className="parkname-details">{park.name}</font></h2>
             <Map park={park}></Map>
           </div>
         <Obstacles Obstacles = {park.obstacles}></Obstacles>

@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import './CreateReviews.css'
+import './CreateReviews.css';
+import StarRating from 'react-star-ratings';
 
 
 const Create = (id) => {
     const [parkid] = id.skateparkId;
     const [title, setTitle] = useState('');
-    const [rating, setRating] = useState('');
+    const [rating, setRating] = useState(0);
     const [content, setContent] = useState('');
     let userid = "";
 
@@ -35,53 +36,61 @@ const Create = (id) => {
 
       }
 
+    const RatingChange = (newRating, name) => {
+        setRating(newRating)
+        console.log(rating)
+    }
+
     return(
-        <>
+        <div className="create-review">
         {!sessionStorage.getItem("data") &&<>
         <div className="login-review">
-        <h1 className="review-login">Login to be able to write a review</h1>
+        <h1 className="review-login"><font color="darkred" className="review-login-border">Logge dich ein um eine Review zu schreiben</font></h1>
         <button className="review-login-button" onClick={LogIn}>Login</button>
         </div>
         </>
         }
         {sessionStorage.getItem("data") && 
             <div className="create">
-                <h2>Schreibe deine eigene Review:</h2>
+                <h2 className="own-review-header"><font color="darkred" className="own-review">Schreibe deine eigene Review</font></h2>
                     <form onSubmit={handleSubmit}>
                         <input
+                            className="review-title"
                             type="text"
                             required
                             placeholder="Review Titel"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                         /> <br/>
-                        User: {JSON.parse(sessionStorage.getItem("data")).name}<br/>
-                        <label>Bewertung:</label>
-                        <input
-                            type="number"
-                            required
-                            min="0"
-                            max="5"
-                            value={rating}
-                            onChange={(e) => setRating(e.target.value)}
-                        /><br/>
-                        <textarea
-                            required
-                            placeholder="Content"
-                            value={content}
-                            onChange={(e) => setContent(e.target.value)}
-                            cols={50}
-                            rows={5}
-                            style={{
-                                resize: 'none'
-                            }
-                            }
-                        /><br/>
-                        <button>Review senden</button>
+                        <div className="createRating">
+                            <p className="create-review-user">{JSON.parse(sessionStorage.getItem("data")).name}</p><br/>
+                            <div className="create-stars">
+                                <StarRating
+                                rating={rating}
+                                changeRating={RatingChange}
+                                name="select-rating" 
+                                starRatedColor="darkred"
+                                starHoverColor="red"
+                            />
+                            </div>
+                            <textarea
+                                className="review-desc"
+                                placeholder="Content"
+                                value={content}
+                                onChange={(e) => setContent(e.target.value)}
+                                cols={80}
+                                rows={5}
+                                style={{
+                                    resize: 'none',
+                                }
+                                }
+                            /><br/>
+                        </div>
+                        <button className="send-review">Review senden</button>
                     </form>
         </div>
         }
-        </>
+        </div>
     )
 }
 
