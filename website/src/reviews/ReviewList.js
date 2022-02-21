@@ -44,8 +44,12 @@ const ReviewList = ( {reviews} ) => {
                 less="Weniger anzeigen">
             <p className='bottom-text'>{review.content}</p>
             </ShowMoreText>
-            {review.userId === JSON.parse(sessionStorage.getItem("data")).userId && 
+            {sessionStorage.getItem("data") && 
+            <>
+              {review.userId === JSON.parse(sessionStorage.getItem("data")).userId && 
               <button onClick={DeleteReview(review.reviewId)} className="delete-review">Löschen</button>
+              }
+            </>
             }
           </div>
         </div>
@@ -68,7 +72,13 @@ const ReviewList = ( {reviews} ) => {
                less="Weniger anzeigen">
            <p className='bottom-text'>{review.content}</p>
            </ShowMoreText>
-           <button onClick={DeleteReview(review.reviewId)} className="delete-review">Löschen</button>
+           {sessionStorage.getItem("data") && 
+            <>
+              {review.userId === JSON.parse(sessionStorage.getItem("data")).userId && 
+              <button onClick={DeleteReview(review.reviewId)} className="delete-review">Löschen</button>
+              }
+            </>
+            }
          </div>
        </div>
       ))}
