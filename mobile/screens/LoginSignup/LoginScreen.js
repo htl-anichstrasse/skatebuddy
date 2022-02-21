@@ -2,20 +2,16 @@
 import React from 'react';
 import { View, Pressable, Keyboard, ScrollView } from 'react-native';
 import { Formik } from 'formik';
-import * as Keychain from 'react-native-keychain';
 import * as yup from 'yup';
 
 // components
 import Text from '../../components/common/Text';
 import Button from '../../components/common/Button';
+import TextInput from '../../components/common/TextInput';
 import Header from '../../components/LoginSignup/Header';
-import TextInput from '../../components/LoginSignup/TextInput';
 
 // hooks
-import {
-  useAuthContext,
-  useAuthContextState,
-} from '../../contexts/AuthContext';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 // styles
 import styles from '../../styles/LoginSignupStyles';
@@ -26,7 +22,6 @@ const reviewSchema = yup.object({
 });
 
 const LoginScreen = ({ navigation }) => {
-  const state = useAuthContextState();
   const { signIn } = useAuthContext();
 
   return (
@@ -38,7 +33,7 @@ const LoginScreen = ({ navigation }) => {
           <Formik
             initialValues={{ email: '', password: '' }}
             validationSchema={reviewSchema}
-            onSubmit={(values, actions) => {
+            onSubmit={values => {
               signIn({ email: values.email, password: values.password });
             }}
           >
@@ -62,7 +57,7 @@ const LoginScreen = ({ navigation }) => {
                   touched={touched.email}
                   errors={errors.email}
                   //
-                  keyboardType={'email-address'}
+                  keyboardType="email-address"
                 />
 
                 <Text style={styles.errorText}>
@@ -80,7 +75,7 @@ const LoginScreen = ({ navigation }) => {
                   touched={touched.password}
                   errors={errors.password}
                   //
-                  secureTextEntry={true}
+                  secureTextEntry
                 />
                 <Text style={styles.errorText}>
                   {touched.password && errors.password}{' '}

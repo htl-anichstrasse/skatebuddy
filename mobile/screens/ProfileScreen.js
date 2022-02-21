@@ -1,8 +1,6 @@
 // librarys
 import React, { useEffect } from 'react';
-import { View, Image, ScrollView, Pressable } from 'react-native';
-import * as Keychain from 'react-native-keychain';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { View, Image, ScrollView } from 'react-native';
 
 // components
 import Text from '../components/common/Text';
@@ -11,7 +9,6 @@ import Button from '../components/common/Button';
 // styles
 import styles from '../styles/ProfileStyles';
 import gStyles from '../styles/GlobalStyles';
-import colors from '../styles/Colors';
 
 // hooks / contexts
 import { useAuthContext, useAuthContextState } from '../contexts/AuthContext';

@@ -10,16 +10,14 @@ import { View, ActivityIndicator } from 'react-native';
 import styles from '../../styles/GlobalStyles';
 import colors from '../../styles/Colors';
 
-const LoadingCircle = ({ color = colors.primary }) => {
-  return (
-    <View style={styles.loadingCircleContainer}>
-      <ActivityIndicator
-        style={styles.loadingCircle}
-        size={'large'}
-        color={color}
-      />
-    </View>
-  );
-};
+const LoadingCircle = ({ color = colors.primary }) => (
+  <View style={styles.loadingCircleContainer}>
+    <ActivityIndicator
+      style={styles.loadingCircle}
+      size="large"
+      color={color}
+    />
+  </View>
+);
 
 export default LoadingCircle;

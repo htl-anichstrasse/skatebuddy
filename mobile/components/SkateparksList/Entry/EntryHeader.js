@@ -11,7 +11,6 @@ import Text from '../../common/Text';
 // styles
 import styles from '../../../styles/SkateparksStyles';
 import gStyles from '../../../styles/GlobalStyles';
-import colors from '../../../styles/Colors';
 
 const EntryHeader = ({ skatepark, navigation }) => {
   const rating = Math.round((skatepark.rating + Number.EPSILON) * 10) / 10;
@@ -23,7 +22,7 @@ const EntryHeader = ({ skatepark, navigation }) => {
       <Pressable
         onPress={() => {
           navigation.navigate('SkateparkDetails', {
-            skatepark: skatepark,
+            skatepark,
             scroll: 'reviews',
           });
         }}

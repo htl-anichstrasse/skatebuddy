@@ -1,10 +1,9 @@
 // libraries
 import React, { useRef } from 'react';
-import { View, Dimensions, Pressable } from 'react-native';
+import { View, Dimensions } from 'react-native';
 
 // components
 import Text from '../components/common/Text';
-import Button from '../components/common/Button';
 import Error from '../components/common/Error';
 import LoadingCircle from '../components/common/LoadingCircle';
 import Map from '../components/Map/Map';

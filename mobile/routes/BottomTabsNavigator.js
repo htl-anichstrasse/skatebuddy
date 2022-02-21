@@ -14,38 +14,41 @@ import Colors from '../styles/Colors';
 const Tab = createBottomTabNavigator();
 
 const BottomTabsNavigator = () => {
+  const tabBarIcons = (route, focused, color) => {
+    let iconName;
+
+    switch (route.name) {
+      case 'Home':
+        iconName = 'home';
+        break;
+      case 'Skateparks':
+        iconName = 'map-marker-radius';
+        break;
+      case 'Map':
+        iconName = 'map-search';
+        break;
+      case 'Profile':
+        iconName = 'account-circle';
+        break;
+      default:
+        iconName = 'alert-circle';
+        break;
+    }
+
+    if (!focused) {
+      iconName += '-outline';
+    }
+
+    return <MaterialCommunityIcons name={iconName} size={30} color={color} />;
+  };
+
   return (
     <Tab.Navigator
       backBehavior="initialRoute"
       initialRouteName="Skateparks"
       screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
-          let iconName;
-
-          switch (route.name) {
-            case 'Home':
-              iconName = focused ? 'home' : 'home-outline';
-              break;
-            case 'Skateparks':
-              iconName = focused
-                ? 'map-marker-radius'
-                : 'map-marker-radius-outline';
-              break;
-            case 'Map':
-              iconName = focused ? 'map-search' : 'map-search-outline';
-              break;
-            case 'Profile':
-              iconName = focused ? 'account-circle' : 'account-circle-outline';
-              break;
-            default:
-              iconName = 'react';
-          }
-
-          return (
-            <MaterialCommunityIcons name={iconName} size={30} color={color} />
-          );
-        },
-        tabBarActiveTintColor: Colors.primary, // Jade
+        tabBarIcon: ({ focused, color }) => tabBarIcons(route, focused, color),
+        tabBarActiveTintColor: Colors.primary,
         tabBarInactiveTintColor: Colors.gray2,
         tabBarActiveBackgroundColor: Colors.primarySoft,
         tabBarShowLabel: false,

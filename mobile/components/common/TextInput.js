@@ -56,7 +56,12 @@ const TextInputEmail = ({
     styles.borderFocused,
     gStyles.shadow,
   ];
-  const unfocusedStyle = useRef(null);
+
+  const unfocusedStyle = useRef([
+    styles.inputContainer,
+    styles.border,
+    gStyles.shadow,
+  ]);
 
   useEffect(() => {
     unfocusedStyle.current = [

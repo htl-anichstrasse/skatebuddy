@@ -1,5 +1,5 @@
 // libraries
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Platform, PermissionsAndroid } from 'react-native';
 import Geolocation from 'react-native-geolocation-service';
 
@@ -18,14 +18,11 @@ const useLocation = () => {
         setLocError(null);
         setLocLoading(false);
         return true;
-      } else {
-        // setLocError('Location permission denied');
-        return false;
       }
     } else if (Platform.OS === 'ios') {
       // TODO Implement iOS permission check
-      return false;
     }
+    return false;
   };
 
   const requestPermission = async () => {
@@ -36,14 +33,12 @@ const useLocation = () => {
       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
         setLocError(null);
         return true;
-      } else {
-        setLocError('Standortdienst wurde abgelehnt');
-        return false;
       }
     } else if (Platform.OS === 'ios') {
       // TODO: Implement iOS permission request
-      return false;
     }
+    setLocError('Standortdienst wurde abgelehnt');
+    return false;
   };
 
   const getLocation = async () => {
@@ -51,12 +46,12 @@ const useLocation = () => {
     setLocError(null);
     if ((await checkPermission()) || (await requestPermission())) {
       Geolocation.getCurrentPosition(
-        location => {
-          setLocation(location);
+        geolocation => {
+          setLocation(geolocation);
           setLocLoading(false);
         },
         error => {
-          setError(error.code + ' ' + error.message);
+          setLocError(`${error.code} ${error.message}`);
           setLocLoading(false);
         },
         { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 },

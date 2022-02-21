@@ -32,6 +32,8 @@ const translateMethod = method => {
       return 2;
     case 'driving':
       return 3;
+    default:
+      return -1;
   }
 };
 
@@ -82,10 +84,10 @@ const SkateparksList = ({ navigation }) => {
   const [searchString, setSearchString] = useState('');
 
   useEffect(() => {
-    const location = async () => {
+    const fetchLocation = async () => {
       await getLocation();
     };
-    location();
+    fetchLocation();
   }, []);
 
   const [refreshing, setRefreshing] = useState(false);
@@ -123,17 +125,15 @@ const SkateparksList = ({ navigation }) => {
               return name.includes(searchString.toLowerCase());
             })}
             extraData={state}
-            renderItem={({ item }) => {
-              return (
-                <SkateparkEntry
-                  skatepark={item}
-                  navigation={navigation}
-                  location={location}
-                  locLoading={locLoading}
-                  locError={locError}
-                />
-              );
-            }}
+            renderItem={({ item }) => (
+              <SkateparkEntry
+                skatepark={item}
+                navigation={navigation}
+                location={location}
+                locLoading={locLoading}
+                locError={locError}
+              />
+            )}
             keyExtractor={item => item.skateparkId}
             refreshControl={
               <RefreshControl

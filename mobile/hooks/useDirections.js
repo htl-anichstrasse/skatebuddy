@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import secrets from './secrets.json';
 
@@ -16,7 +16,9 @@ const useDirections = (location, skatepark) => {
     url += ',';
     url += location.coords.longitude.toString();
     url += '&destination=';
-    url += skatepark.latitude.toString() + ',' + skatepark.longitude.toString();
+    url += skatepark.latitude.toString();
+    url += ',';
+    url += skatepark.longitude.toString();
     url += '&mode=';
     url += method;
     url += '&key=';
@@ -32,22 +34,21 @@ const useDirections = (location, skatepark) => {
       const json = await response.json();
 
       if (json.status === 'OK') {
-        const value = json.routes[0].legs[0].duration.value;
-        const text = json.routes[0].legs[0].duration.text;
+        const { value } = json.routes[0].legs[0].duration;
+        const { text } = json.routes[0].legs[0].duration;
 
         return { value, text };
-      } else {
-        setError('Es konnte kein Weg gefunden werden.');
-        setIsLoading(false);
-        return null;
       }
+
+      setError('Es konnte kein Weg gefunden werden.');
+      setIsLoading(false);
     } catch (err) {
       if (err.name !== 'AbortError') {
         setError(err.message);
         setIsLoading(false);
-        return null;
       }
     }
+    return null;
   };
 
   const getDurations = async () => {

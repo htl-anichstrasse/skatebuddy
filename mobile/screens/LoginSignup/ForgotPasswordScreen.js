@@ -7,14 +7,11 @@ import * as yup from 'yup';
 // components
 import Text from '../../components/common/Text';
 import Button from '../../components/common/Button';
+import TextInput from '../../components/common/TextInput';
 import Header from '../../components/LoginSignup/Header';
-import TextInput from '../../components/LoginSignup/TextInput';
 
 // hooks
-import {
-  useAuthContext,
-  useAuthContextState,
-} from '../../contexts/AuthContext';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 // styles
 import styles from '../../styles/LoginSignupStyles';
@@ -24,7 +21,6 @@ const reviewSchema = yup.object({
 });
 
 const LoginScreen = ({ navigation }) => {
-  const state = useAuthContextState();
   const { forgotPassword } = useAuthContext();
 
   return (
@@ -35,7 +31,7 @@ const LoginScreen = ({ navigation }) => {
         <Formik
           initialValues={{ email: '' }}
           validationSchema={reviewSchema}
-          onSubmit={(values, actions) => {
+          onSubmit={values => {
             forgotPassword({ email: values.email });
           }}
         >
@@ -59,7 +55,7 @@ const LoginScreen = ({ navigation }) => {
                 touched={touched.email}
                 errors={errors.email}
                 //
-                keyboardType={'email-address'}
+                keyboardType="email-address"
               />
 
               <Text style={styles.errorText}>

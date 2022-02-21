@@ -1,5 +1,5 @@
 // librarys
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { View, Pressable, Image } from 'react-native';
 
 // components
@@ -19,32 +19,30 @@ const SkateparkEntry = ({
   location,
   locLoading,
   locError,
-}) => {
-  return (
-    <Pressable
-      onPress={() => {
-        navigation.navigate('SkateparkDetails', {
-          skatepark: skatepark,
-          scroll: null,
-        });
-      }}
-    >
-      <View style={[styles.entryContainer, gStyles.shadow]}>
-        <EntryHeader skatepark={skatepark} navigation={navigation} />
-        <EntryDirections
-          skatepark={skatepark}
-          location={location}
-          locLoading={locLoading}
-          locError={locError}
-        />
+}) => (
+  <Pressable
+    onPress={() => {
+      navigation.navigate('SkateparkDetails', {
+        skatepark,
+        scroll: null,
+      });
+    }}
+  >
+    <View style={[styles.entryContainer, gStyles.shadow]}>
+      <EntryHeader skatepark={skatepark} navigation={navigation} />
+      <EntryDirections
+        skatepark={skatepark}
+        location={location}
+        locLoading={locLoading}
+        locError={locError}
+      />
 
-        <Image
-          style={styles.entryImage}
-          source={skateparksImages[skatepark.skateparkId].main}
-        />
-      </View>
-    </Pressable>
-  );
-};
+      <Image
+        style={styles.entryImage}
+        source={skateparksImages[skatepark.skateparkId].main}
+      />
+    </View>
+  </Pressable>
+);
 
 export default SkateparkEntry;

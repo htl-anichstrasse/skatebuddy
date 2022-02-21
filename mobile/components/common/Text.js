@@ -7,11 +7,9 @@ import { Text, StyleSheet } from 'react-native';
 // styles
 import colors from '../../styles/Colors';
 
-const CustomText = props => {
-  return (
-    <Text style={[styles.defaultStyle, props.style]}>{props.children}</Text>
-  );
-};
+const CustomText = ({ style, children }) => (
+  <Text style={[styles.defaultStyle, style]}>{children}</Text>
+);
 
 const styles = StyleSheet.create({
   defaultStyle: {

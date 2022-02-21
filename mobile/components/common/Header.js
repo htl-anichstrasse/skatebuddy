@@ -10,15 +10,13 @@ import Text from './Text';
 // styles
 import styles from '../../styles/HeaderStyles';
 
-const Header = ({ title }) => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>{title}</Text>
-      <Pressable onPress={() => DevSettings.reload()}>
-        <Text style={styles.reload}>Reload</Text>
-      </Pressable>
-    </View>
-  );
-};
+const Header = ({ title }) => (
+  <View style={styles.container}>
+    <Text style={styles.title}>{title}</Text>
+    <Pressable onPress={() => DevSettings.reload()}>
+      <Text style={styles.reload}>Reload</Text>
+    </Pressable>
+  </View>
+);
 
 export default Header;

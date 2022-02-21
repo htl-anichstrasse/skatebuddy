@@ -8,7 +8,7 @@ import { showMessage } from 'react-native-flash-message';
 // components
 import Text from '../common/Text';
 import Button from '../common/Button';
-import TextInput from '../LoginSignup/TextInput';
+import TextInput from '../common/TextInput';
 
 // hooks
 import { useAuthContextState } from '../../contexts/AuthContext';
