@@ -17,7 +17,7 @@ const HomeSlideshow = () => {
       <>
       {skateparks &&
         <div className="slide-container" id="slideshow-home">
-        <Slide autoplay={true} transitionDuration={1000} infinite={true} arrows={false} duration={5000}>
+        <Slide autoplay={true} transitionDuration={1000} infinite={true} arrows={false} duration={3000}>
          {skateparks.map(park=> (
             <Link to={`/skateparks/${park+1}`}>
               <div className="each-slide" key={park} id="each-slide-home">

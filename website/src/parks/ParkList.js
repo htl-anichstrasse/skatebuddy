@@ -1,14 +1,8 @@
 import { Link } from 'react-router-dom';
 import './ParkList.css';
 import Slideshow from './SlideShows';
+import StarRating from 'react-star-ratings'
 //import Times from './Times';
-
-const Round =(skatepParkRating) =>{
-  const rating = Math.round((skatepParkRating + Number.EPSILON) *10) /10;
-
-  return rating
-}
-
 
 const ParkList = ({ skateparks }) => {
 
@@ -22,7 +16,12 @@ const ParkList = ({ skateparks }) => {
                   <h2>{skatepark.name}</h2>
                   {skatepark.rating &&
                   <div className='average-rating-width'>
-                  <p className='average-rating'>{Round(skatepark.rating)} ⭐</p>
+                  <StarRating
+                    rating={skatepark.rating}
+                    starRatedColor="darkred"
+                    starSpacing="4px"
+                    starDimension="30px"
+                  />
                   </div>
                     }
                   {!skatepark.rating && 
