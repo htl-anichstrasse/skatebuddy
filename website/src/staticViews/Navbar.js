@@ -15,16 +15,9 @@ const Navbar = () => {
           Parks
         </Link>
         {token && 
-        <>
-            <div className="dropdown" id="nav">
-              <span>Profile</span>
-              <div className="dropdown-content">
-                <button onClick={AuthService.logout} className='Logout-nav'>
-                  LogOut
-                </button>
-              </div>
-            </div>
-          </>
+        <Link to="/Profile" className='pofile-nav' id="nav">
+          Profile
+        </Link>
         }
         {!token &&
         <>

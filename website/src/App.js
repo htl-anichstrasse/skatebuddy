@@ -7,11 +7,14 @@ import LogIn from './account/LogIn';
 import CreateAccount from './account/CreateAccount';
 import AllMap from './parks/map/AllMap';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import useToken from './hooks/useToken';
+import Profile from './account/Profile';
+import AuthService from './account/Auth/auth-service';
 
 function App() {
-  
-  const {setToken} = useToken();
+
+  if(localStorage.getItem("user")){
+    AuthService.decodeToken(JSON.parse(localStorage.getItem("user")).token)
+  }
 
   function topFunction() {
     document.body.scrollTop = 0;
@@ -33,9 +36,10 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/parks" element={<Parks />} />
               <Route path="/skateparks/:id" element={<ParkDetails />} />
-              <Route path="/LogIn" element={<LogIn setToken={setToken}/>}/>
+              <Route path="/LogIn" element={<LogIn />}/>
               <Route path="/CreateAccount" element={<CreateAccount/>}/>
               <Route path="/AllMap" element={<AllMap/>}/>
+              <Route path="/Profile" element={<Profile/>}/>
             </Routes>
           </div>
         </div>

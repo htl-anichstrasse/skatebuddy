@@ -29,9 +29,9 @@ const Create = (id) => {
         })
     }
 
-    const LogIn = () => {
+    const LogIn = e => {
+        e.preventDefault();
         navigate("/LogIn");
-        window.location.reload(false);
       }
 
     return(

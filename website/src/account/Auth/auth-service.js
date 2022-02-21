@@ -16,16 +16,17 @@ class AuthService {
       });
   }
   logout() {
+
     localStorage.removeItem("user");
-    window.location.reload(true);
+    sessionStorage.removeItem("data")
+
   }
   getCurrentUser() {
     return JSON.parse(localStorage.getItem('user'));
   }
 
-  async decodeToken(token){
-    let da = "";
-    await fetch(
+  decodeToken(token){
+    fetch(
       'https://skate-buddy.josholaus.com/api/users/decode',
       {
         method: 'POST',
@@ -39,10 +40,8 @@ class AuthService {
     ).then(function(response){
       return response.json();
     }).then(function(data) {
-      console.log(data)
-      da=data
-      })
-      return da
+      sessionStorage.setItem("data", JSON.stringify(data))      
+    })
     }
   }
 
