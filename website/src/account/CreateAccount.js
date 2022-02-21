@@ -17,7 +17,8 @@ const CreateAccount = (id) => {
 
     const validationSchema = yup.object().shape({
         password: yup.string()
-            .required('Passwort muss angegeben sein'),
+            .required('Passwort muss angegeben sein')
+            .min(7, "Muss mehr als sechs Zeichen beinhalten"),
         confirmPassword: yup.string()
             .oneOf([yup.ref('password')], 'Passwörter stimmen nicht überein')
 
@@ -53,7 +54,7 @@ const CreateAccount = (id) => {
     return(
         <div className="register-form">
             <div className="register-in-box">
-            <h2>Erstellen Sie einen Account:</h2>
+            <h1>Erstellen Sie einen Account:</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="field">
                     <label>Name</label><br/>
@@ -89,7 +90,7 @@ const CreateAccount = (id) => {
                             />
                             <div className="invalid-feedback">{errors.confirmPassword?.message}</div>
                 </div>
-                <button type="submit">Account erstellen</button>
+                <button type="submit" className='create-account-button'>Account erstellen</button>
             </form>
             </div>
         </div>

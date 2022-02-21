@@ -13,8 +13,10 @@
 .review-login-border {
   background-color: white;
   border-radius: 2vh;
-  padding-right: 10px;
-  padding-left: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   box-shadow: inset 0 0 10em #eaeaea, 0 0 20px black;
 }
 

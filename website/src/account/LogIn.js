@@ -30,7 +30,7 @@ export default function LogIn() {
   return(
     <div className="login-form">
       <div className="login-in-box">
-        <h1>Log In</h1>
+        <h1 className='log-in-header'>Log In</h1>
         <form onSubmit={handleSubmit}>
           <label>
             <p className='input-header'>Email</p>
@@ -41,7 +41,7 @@ export default function LogIn() {
             <input className="input" type="password" onChange={e => setPassword(e.target.value)} />
           </label>
           <div>
-            <button type="submit">Submit</button>
+            <button type="submit" className='login-button'>Submit</button>
           </div>
         </form>
       </div>

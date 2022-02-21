@@ -64,3 +64,19 @@ label {
 .form-control {
   font-size: 20px;
 }
+
+.create-account-button {
+  margin-top: 0;
+  background-color: darkgray;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
