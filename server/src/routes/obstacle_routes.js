@@ -62,4 +62,18 @@ router.put('/obstacles/:id', async (req, res, next) => {
         res.sendStatus(500);
     }
 });
+
+router.get('/obstaclepictures/:id', async (req, res, next) => {
+    try {
+        try {
+            let image = await Obstacles.readObstacleImage(req.params.id);
+            res.set({ 'Content-Type': 'image/png' });
+            res.send(image);
+        } catch (error) {
+            res.json(error);
+        }
+    } catch (e) {
+        res.sendStatus(500);
+    }
+});
 module.exports = router;

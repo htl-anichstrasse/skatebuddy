@@ -1,4 +1,7 @@
 const Obstacle = require('../models/obstacle');
+const Image = require('../models/image');
+const fs = require('fs');
+const { resolve } = require('path');
 
 Obstacle.selectAll = (con) => {
     return new Promise((resolve, reject) => {
@@ -79,4 +82,28 @@ Obstacle.deleteValue = (con, id) => {
     });
 };
 
+Obstacle.readObstacleImage = (obstacleId) => {
+    return new Promise((resolve, reject) => {
+        let path =
+            process.env.IMAGE_PATH +
+            `/obstacles/obstaclePicture${obstacleId}.PNG`;
+        console.log(path);
+        fs.access(path, fs.constants.R_OK, (err) => {
+            if (err) {
+                reject({ success: 'false', message: 'Image not found' });
+                return;
+            }
+            fs.readFile(path, (err, data) => {
+                if (err) {
+                    reject({
+                        success: 'false',
+                        message: 'Image could not be read',
+                    });
+                    return;
+                }
+                resolve(data);
+            });
+        });
+    });
+};
 module.exports = Obstacle;
