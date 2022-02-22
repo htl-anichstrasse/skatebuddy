@@ -1,12 +1,14 @@
 import { StyleSheet } from 'react-native';
 import colors from './Colors';
 
-const pfpSize = 100;
+const pfpSize = 150;
 
 const ProfileStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   userDetailsContainer: {
     backgroundColor: colors.white,
@@ -27,6 +29,14 @@ const ProfileStyles = StyleSheet.create({
     width: pfpSize,
     height: pfpSize,
     borderRadius: pfpSize / 2,
+  },
+  label: {
+    fontSize: 20,
+  },
+  detail: {
+    paddingLeft: 10,
+    alignSelf: 'flex-end',
+    fontSize: 18,
   },
   editProfileLink: {
     alignSelf: 'flex-start',
