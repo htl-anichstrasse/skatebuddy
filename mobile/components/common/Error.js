@@ -11,21 +11,19 @@ import Button from '@components/common/Button';
 // styles
 import leStyles from '@styles/LoadingAndErrorsStyles';
 
-const Error = ({ error, refresh }) => {
-  return (
-    <View style={leStyles.errorContainer}>
-      <Text style={leStyles.errorText}>{error}</Text>
-      <Button
-        title="Retry"
-        icon="refresh"
-        iconType="ii"
-        style={leStyles.errorButton}
-        onPress={() => {
-          refresh();
-        }}
-      />
-    </View>
-  );
-};
+const Error = ({ error, refresh }) => (
+  <View style={leStyles.errorContainer}>
+    <Text style={leStyles.errorText}>{error}</Text>
+    <Button
+      title="Retry"
+      icon="refresh"
+      iconType="ii"
+      style={leStyles.errorButton}
+      onPress={() => {
+        refresh();
+      }}
+    />
+  </View>
+);
 
 export default Error;

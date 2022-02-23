@@ -8,15 +8,11 @@ import Text from '../common/Text';
 // styles
 import styles from '../../styles/LoadingAndErrorsStyles';
 
-const LocationLoading = () => {
-  return (
-    <View
-      style={[styles.locationInfoContainer, styles.locationLoadingContainer]}
-    >
-      <Text style={styles.locationInfoText}>Standortdienst wird geladen</Text>
-      <ActivityIndicator />
-    </View>
-  );
-};
+const LocationLoading = () => (
+  <View style={[styles.locationInfoContainer, styles.locationLoadingContainer]}>
+    <Text style={styles.locationInfoText}>Standortdienst wird geladen</Text>
+    <ActivityIndicator />
+  </View>
+);
 
 export default LocationLoading;

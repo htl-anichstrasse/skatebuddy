@@ -5,7 +5,6 @@ import { View, Dimensions, ScrollView, RefreshControl } from 'react-native';
 // components
 import Text from '../components/common/Text';
 import LoadingCircle from '../components/common/LoadingCircle';
-import Button from '../components/common/Button';
 import AdditionalInfo from '../components/SkateparkDetails/AdditionalInfo';
 import Reviews from '../components/SkateparkDetails/Reviews';
 import Obstacles from '../components/SkateparkDetails/Obstacles';
@@ -25,8 +24,8 @@ styles.column = {
 };
 
 const SkateparkDetails = ({ navigation, route }) => {
-  const skatepark = route.params.skatepark;
-  const scroll = route.params.scroll;
+  const { skatepark } = route.params;
+  const { scroll } = route.params;
 
   const [reviewsY, setReviewsY] = useState(0);
   const scrollViewRef = useRef(null);
@@ -38,7 +37,7 @@ const SkateparkDetails = ({ navigation, route }) => {
     changeData: setReviews,
     refreshData,
   } = useFetch(
-    'https://skate-buddy.josholaus.com/api/reviews/' + skatepark.skateparkId,
+    `https://skate-buddy.josholaus.com/api/reviews/${skatepark.skateparkId}`,
   );
 
   const [refreshing, setRefreshing] = useState(false);
@@ -49,20 +48,16 @@ const SkateparkDetails = ({ navigation, route }) => {
         case 'reviews':
           scrollViewRef.current.scrollTo({ y: reviewsY, animated: true });
           break;
+        default:
+          break;
       }
     }
-  }, [reviewsY]);
+  }, [reviewsY, scroll]);
 
   const newReview = review => {
     setReviews(prevReviews => {
       if (prevReviews.length > 0) {
-        review.reviewId =
-          Math.max.apply(
-            Math,
-            prevReviews.map(o => {
-              return o.reviewId;
-            }),
-          ) + 1;
+        review.reviewId = Math.max(...prevReviews.map(r => r.reviewId)) + 1;
       } else {
         review.reviewId = 1;
       }
@@ -98,7 +93,7 @@ const SkateparkDetails = ({ navigation, route }) => {
           {reviews && (
             <View
               onLayout={event => {
-                const layout = event.nativeEvent.layout;
+                const { layout } = event.nativeEvent;
                 const { y } = layout;
                 setReviewsY(y);
               }}

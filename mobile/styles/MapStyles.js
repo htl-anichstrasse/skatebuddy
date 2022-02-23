@@ -17,10 +17,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 12,
   },
+  circleButtonPositioner: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
   circleButtonContainer: {
-    position: 'absolute',
-    bottom: 20,
-    right: 20,
+    margin: 10,
     width: 60,
     height: 60,
     borderRadius: 60,

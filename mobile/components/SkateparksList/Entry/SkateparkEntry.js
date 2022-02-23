@@ -1,6 +1,6 @@
 // librarys
-import React, { useState, useEffect } from 'react';
-import { View, Pressable, Image } from 'react-native';
+import React from 'react';
+import { View, Pressable, Image, Dimensions } from 'react-native';
 
 // components
 import EntryHeader from './EntryHeader';
@@ -11,7 +11,6 @@ import EntryDirections from './EntryDirections';
 // styles
 import styles from '../../../styles/SkateparksStyles';
 import gStyles from '../../../styles/GlobalStyles';
-import { skateparksImages } from '../../../styles/Images';
 
 const SkateparkEntry = ({
   skatepark,
@@ -20,11 +19,16 @@ const SkateparkEntry = ({
   locLoading,
   locError,
 }) => {
+  let url = 'https://skate-buddy.josholaus.com/api/skateparkpictures/';
+  url += skatepark.pictureIds[0].skateparkId;
+  url += '/';
+  url += skatepark.pictureIds[0].picId;
+
   return (
     <Pressable
       onPress={() => {
         navigation.navigate('SkateparkDetails', {
-          skatepark: skatepark,
+          skatepark,
           scroll: null,
         });
       }}
@@ -38,9 +42,28 @@ const SkateparkEntry = ({
           locError={locError}
         />
 
+        {/* 
+
+    return (
+      <Image
+        source={{
+          uri: url,
+          width: Dimensions.get('window').width - 80,
+          height: 200,
+        }}
+        style={{
+          flex: 1,
+        }}
+      />
+    );
+  }; */}
         <Image
+          source={{
+            uri: url,
+            width: Dimensions.get('window').width - 40,
+            height: (Dimensions.get('window').width - 40) * (9 / 16),
+          }}
           style={styles.entryImage}
-          source={skateparksImages[skatepark.skateparkId].main}
         />
       </View>
     </Pressable>

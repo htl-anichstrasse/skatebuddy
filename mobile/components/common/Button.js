@@ -1,6 +1,6 @@
 // libraries
 import React from 'react';
-import { View, Pressable } from 'react-native';
+import { Pressable } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -20,31 +20,31 @@ const SendButton = ({
   iconType,
   style,
   iconSize = 24,
-}) => {
-  return (
-    <Pressable
-      onPress={onPress}
-      style={[styles.buttonContainer, styles.shadow, style]}
-    >
-      <Text style={styles.buttonText}>{title}</Text>
+}) => (
+  <Pressable
+    onPress={onPress}
+    style={[styles.buttonContainer, styles.shadow, style]}
+  >
+    <Text style={styles.buttonText}>{title}</Text>
 
-      {icon && iconType == 'mci' ? (
-        <MaterialCommunityIcons
-          name={icon}
-          size={iconSize}
-          color={styles.buttonText.color}
-        />
-      ) : icon && iconType == 'ii' ? (
-        <Ionicons name={icon} size={iconSize} color={styles.buttonText.color} />
-      ) : icon && iconType == 'mi' ? (
-        <MaterialIcons
-          name={icon}
-          size={iconSize}
-          color={styles.buttonText.color}
-        />
-      ) : null}
-    </Pressable>
-  );
-};
+    {icon && iconType === 'mci' && (
+      <MaterialCommunityIcons
+        name={icon}
+        size={iconSize}
+        color={styles.buttonText.color}
+      />
+    )}
+    {icon && iconType === 'mi' && (
+      <MaterialIcons
+        name={icon}
+        size={iconSize}
+        color={styles.buttonText.color}
+      />
+    )}
+    {icon && iconType === 'ii' && (
+      <Ionicons name={icon} size={iconSize} color={styles.buttonText.color} />
+    )}
+  </Pressable>
+);
 
 export default SendButton;

@@ -1,6 +1,6 @@
 // libraries
 import React from 'react';
-import { Pressable } from 'react-native';
+import { View, Pressable } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 // components
@@ -14,16 +14,18 @@ import gStyles from '@styles/GlobalStyles';
 import colors from '@styles/Colors';
 
 const CircleButton = ({ onPress }) => (
-  <Pressable
-    onPress={onPress}
-    style={[styles.circleButtonContainer, gStyles.shadow]}
-  >
-    <MaterialCommunityIcons
-      name="home-map-marker"
-      color={colors.white}
-      size={45}
-    />
-  </Pressable>
+  <View style={styles.circleButtonPositioner}>
+    <Pressable
+      onPress={onPress}
+      style={[styles.circleButtonContainer, gStyles.shadow]}
+    >
+      <MaterialCommunityIcons
+        name="home-map-marker"
+        color={colors.white}
+        size={45}
+      />
+    </Pressable>
+  </View>
 );
 
 export default CircleButton;

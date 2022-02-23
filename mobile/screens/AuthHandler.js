@@ -22,25 +22,22 @@ const Auth = () => {
         }
       } catch (e) {
         // Restoring token failed
-        console.log(e);
       }
       restoreToken(token);
     };
 
     checkForValidToken();
-  }, []);
+  }, [restoreToken]);
 
-  return (
-    <>
-      {state.isLoading ? (
-        <SplashScreen />
-      ) : state.userToken == null ? (
-        <LoginSignupStack />
-      ) : (
-        <BottomTabsNavigator />
-      )}
-    </>
-  );
+  if (state.isLoading) {
+    return <SplashScreen />;
+  }
+
+  if (state.userToken == null) {
+    return <LoginSignupStack />;
+  }
+
+  return <BottomTabsNavigator />;
 };
 
 export default Auth;

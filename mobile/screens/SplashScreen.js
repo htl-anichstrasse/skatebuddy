@@ -9,18 +9,16 @@ import Logo from '../components/common/Logo';
 // styles
 import styles from '../styles/GlobalStyles';
 
-const SplashScreen = () => {
-  return (
-    <View style={styles.splashScreenContainer}>
-      <View style={styles.logoContainer}>
-        <Logo />
-      </View>
-      <View style={styles.splashScreenTextContainer}>
-        <Text style={styles.splashScreenText}>Skate</Text>
-        <Text style={styles.splashScreenTextColor}>Buddy</Text>
-      </View>
+const SplashScreen = () => (
+  <View style={styles.splashScreenContainer}>
+    <View style={styles.logoContainer}>
+      <Logo />
     </View>
-  );
-};
+    <View style={styles.splashScreenTextContainer}>
+      <Text style={styles.splashScreenText}>Skate</Text>
+      <Text style={styles.splashScreenTextColor}>Buddy</Text>
+    </View>
+  </View>
+);
 
 export default SplashScreen;

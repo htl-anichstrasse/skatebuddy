@@ -68,7 +68,7 @@ const SkateparksStyles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   entryName: {
-    fontSize: 24,
+    fontSize: 22,
     fontFamily: 'Poppins-Bold',
   },
   entryRatingContainer: {

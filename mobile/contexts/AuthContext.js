@@ -7,13 +7,9 @@ import { showMessage } from 'react-native-flash-message';
 const AuthContext = React.createContext();
 const AuthContextState = React.createContext();
 
-const useAuthContext = () => {
-  return useContext(AuthContext);
-};
+const useAuthContext = () => useContext(AuthContext);
 
-const useAuthContextState = () => {
-  return useContext(AuthContextState);
-};
+const useAuthContextState = () => useContext(AuthContextState);
 
 const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(
@@ -40,6 +36,9 @@ const AuthProvider = ({ children }) => {
             ...prevState,
             currentUser: action.user,
           };
+        default: {
+          return prevState;
+        }
       }
     },
     {
@@ -61,13 +60,13 @@ const AuthProvider = ({ children }) => {
               'Content-Type': 'application/json',
               Authorization: `Bearer ${token}`,
             },
-            body: JSON.stringify({ token: token }),
+            body: JSON.stringify({ token }),
           },
         );
 
         if (res.status === 200) {
           authContext.decodeToken(token);
-          dispatch({ type: 'RESTORE_TOKEN', token: token });
+          dispatch({ type: 'RESTORE_TOKEN', token });
         } else {
           dispatch({ type: 'SIGN_OUT' });
         }
@@ -181,7 +180,7 @@ const AuthProvider = ({ children }) => {
               'Content-Type': 'application/json',
               Authorization: `Bearer ${token}`,
             },
-            body: JSON.stringify({ token: token }),
+            body: JSON.stringify({ token }),
           },
         );
 

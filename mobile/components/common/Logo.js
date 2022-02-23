@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Svg, { G, Path, Ellipse } from 'react-native-svg';
 
-const SvgComponent = props => (
+const Logo = () => (
   <Svg
     viewBox="0 0 11434 10575"
     xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,6 @@ const SvgComponent = props => (
       strokeLinejoin: 'round',
       strokeMiterlimit: 1.5,
     }}
-    {...props}
   >
     <G transform="scale(8.33333)">
       <Path
@@ -453,4 +452,4 @@ const SvgComponent = props => (
   </Svg>
 );
 
-export default SvgComponent;
+export default Logo;

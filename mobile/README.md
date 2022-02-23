@@ -1,58 +1,33 @@
 # Installation
 
+## Clone the repository and install dependencies
+
 ```
+git clone https://github.com/htl-anichstrasse/skater-app.git
 cd mobile
 npm install
 ```
 
-Open ./android in Android Studio
+## Provide Google Maps API key
 
-Edit Gradle Scripts > local.properties
+1. Get an API key from the Google Cloud Platform and activate Maps SDK for Android
+2. Open mobile/android/ in Android Studio
+3. Edit Gradle Scripts > local.properties => add MAPS_API_KEY variable and insert your API key
 
 ```
-## This file must *NOT* be checked into Version Control Systems,
-# as it contains information specific to your local configuration.
-#
-# Location of the SDK. This is only used by Gradle.
-# For customization when using a Version Control System, please read the
-# header note.
-#Fri Dec 10 13:47:13 CET 2021
+...
 sdk.dir=C\:\\Users\\user\\AppData\\Local\\Android\\Sdk
 MAPS_API_KEY=AIzaS...by1c_8
 ```
 
-Get this API Key from the Google Cloud Platform and activate Maps SDK for Android
+## Build and run
+1. Sync your project with the Gradle Files
+2. Start Metro bundler and run
 
-Sync Project with Gradle Files
+```
+npm start
+npm run android
+```
 
-![Screenshot_1640606837](https://user-images.githubusercontent.com/38164738/147470600-e3b3c6f7-ec3d-4da4-9e86-b6b46f80e6c8.png)
+Alternatively, you can run the app through Android Studio.
 
-![Screenshot_1640606849](https://user-images.githubusercontent.com/38164738/147470610-57c31948-92ce-4b7b-9240-fb39e508a528.png)
-
-![Screenshot_1640634222](https://user-images.githubusercontent.com/38164738/147502693-cb7b619b-7933-4424-9ec4-9bc98ec77ee3.png)
-
-![Screenshot_1640606865](https://user-images.githubusercontent.com/38164738/147470624-2c36e4e8-3bed-4734-b031-910b6c227772.png)
-
-![Screenshot_1640606887](https://user-images.githubusercontent.com/38164738/147470634-2ea38732-e1c8-4db9-b4a3-1e15e116fee8.png)
-
-![Screenshot_1640606892](https://user-images.githubusercontent.com/38164738/147470642-0d05e054-fb02-458c-8410-a5610738f740.png)
-
-![Screenshot_1640606922](https://user-images.githubusercontent.com/38164738/147470646-5eab9253-d0d6-43a6-b5b3-a71699e4b098.png)
-
-# Aktueller Status:
-
-## UI
-
-- [x] Tab Navigator mit vier Screens
-- [x] Stack Navigator für SkateparksList zu SkateparkDetails
-
-## Skateparks
-
-- [x] In Liste anzeigen
-- [x] Details anzeigen
-- [x] Auf Karte anzeigen
-
-## Karte
-
-- [x] Google Maps Platform Api Key
-- [x] Mit react-native-maps vertraut gemacht

@@ -1,4 +1,3 @@
-import { getBackgroundColor } from 'react-native/Libraries/LogBox/UI/LogBoxStyle';
 import { StyleSheet } from 'react-native';
 
 const HomeStyles = StyleSheet.create({

@@ -1,5 +1,5 @@
 // libraries
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import { View, TextInput, Pressable } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -41,7 +41,7 @@ const SearchBar = ({ searchString, setSearchString }) => {
         onChangeText={setSearchString}
         style={styles.searchBarInput}
       />
-      {searchString != '' && (
+      {searchString !== '' && (
         <Pressable
           onPress={() => {
             setSearchString('');

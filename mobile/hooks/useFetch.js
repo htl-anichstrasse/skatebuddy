@@ -23,13 +23,14 @@ const useFetch = url => {
       .then(res => {
         if (!res.ok) {
           // console.log(JSON.stringify(res));
-          throw Error('HTTP Error: ' + res.status);
+
+          throw Error(`HTTP Error: + ${res.status}`);
         }
         return res.json();
       })
-      .then(data => {
+      .then(json => {
         setError(null);
-        setData(data);
+        setData(json);
         setIsLoading(false);
       })
       .catch(err => {

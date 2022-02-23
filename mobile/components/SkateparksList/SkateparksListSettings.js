@@ -15,16 +15,11 @@ const SkateparksListSettings = ({
   dispatch,
   searchString,
   setSearchString,
-}) => {
-  return (
-    <View style={styles.settingsContainer}>
-      <SearchBar
-        searchString={searchString}
-        setSearchString={setSearchString}
-      />
-      <SortBox state={state} dispatch={dispatch} />
-    </View>
-  );
-};
+}) => (
+  <View style={styles.settingsContainer}>
+    <SearchBar searchString={searchString} setSearchString={setSearchString} />
+    <SortBox state={state} dispatch={dispatch} />
+  </View>
+);
 
 export default SkateparksListSettings;

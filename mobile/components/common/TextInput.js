@@ -25,7 +25,7 @@ const TextInputEmail = ({
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef(null);
-
+  const [showPassword, setShowPassword] = useState(false);
   const [currentColor, setCurrentColor] = useState(colors.gray1);
 
   const handleFocus = () => {
@@ -56,7 +56,12 @@ const TextInputEmail = ({
     styles.borderFocused,
     gStyles.shadow,
   ];
-  const unfocusedStyle = useRef(null);
+
+  const unfocusedStyle = useRef([
+    styles.inputContainer,
+    styles.border,
+    gStyles.shadow,
+  ]);
 
   useEffect(() => {
     unfocusedStyle.current = [
@@ -91,10 +96,24 @@ const TextInputEmail = ({
         keyboardType={keyboardType}
         autoCorrect={false}
         style={styles.input}
-        secureTextEntry={secureTextEntry}
+        secureTextEntry={secureTextEntry && !showPassword}
         multiline={multiline}
         numberOfLines={numberOfLines}
       />
+      {(name === 'password' || name === 'confirmPassword') && (
+        <Pressable
+          onPress={() => {
+            setShowPassword(!showPassword);
+          }}
+        >
+          <MaterialCommunityIcons
+            name={showPassword ? 'eye' : 'eye-off'}
+            size={24}
+            color={currentColor}
+            style={styles.inputIcon}
+          />
+        </Pressable>
+      )}
     </View>
   );
 };
