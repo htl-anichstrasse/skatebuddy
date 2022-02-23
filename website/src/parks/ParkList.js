@@ -8,6 +8,11 @@ const ParkList = ({ skateparks }) => {
 
   return (
     <div className="park-list">
+      <div className="add-parks">
+        <Link to="/AddPark" className='park-add-link'>
+          Add a Park
+        </Link>
+      </div>
       {skateparks.map(skatepark => (
         <div className="park-preview" key={skatepark.skateparkId}>
           <div className="list">

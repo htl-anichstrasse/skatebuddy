@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import AuthService from './Auth/auth-service';
+import { Link } from 'react-router-dom';
 import './LogIn.css';
 import { useNavigate } from "react-router-dom";
 
@@ -51,6 +52,7 @@ export default function LogIn() {
             <button type="submit" className='login-button'>Submit</button>
           </div>
         </form>
+        <p className='no-account'>Noch keinen Account? Erstelle einen <Link to="/createAccount">hier.</Link></p>
       </div>
     </div>
   )

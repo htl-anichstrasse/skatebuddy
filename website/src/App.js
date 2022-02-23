@@ -9,6 +9,7 @@ import AllMap from './parks/map/AllMap';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Profile from './account/Profile';
 import AuthService from './account/Auth/auth-service';
+import AddPark from './parks/AddPark.js'
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
               <Route path="/CreateAccount" element={<CreateAccount/>}/>
               <Route path="/AllMap" element={<AllMap/>}/>
               <Route path="/Profile" element={<Profile/>}/>
+              <Route path="/AddPark" element={<AddPark/>}/>
             </Routes>
           </div>
         </div>
