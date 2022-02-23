@@ -1,5 +1,7 @@
 .inputPark {
   font-size: 20px;
+  width: 30vw;
+  max-width: 50%;
 }
 
 .add-park-button {
@@ -23,18 +25,24 @@
   width: 50%;
 }
 
+.long-input {
+  width: 50%;
+  float: right;
+}
+
 .coordinates {
   margin-top: 20px;
+  margin-bottom: 80px;
 }
 
 .iput-header {
   font-size: 25px;
   margin-bottom: 10px;
-  margin-top: 0;
 }
 
 .obstacles-input {
+  margin-top: 10px;
+  margin-left: 30%;
   text-align: left;
-  margin-top: 20px;
-  margin-left: 20px;
+  max-height: 2vh;
 }

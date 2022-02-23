@@ -9,7 +9,7 @@ const Create = (id) => {
     const [title, setTitle] = useState('');
     const [rating, setRating] = useState(0);
     const [content, setContent] = useState('');
-    const [isPending, setIsPening] = useState(false);
+    const [isPending, setIsPending] = useState(false);
     let userid = "";
 
     if(sessionStorage.getItem("data")){
@@ -22,7 +22,7 @@ const Create = (id) => {
         e.preventDefault();
         const blog = { parkid, userid, rating, title, content }
 
-        setIsPening(true)
+        setIsPending(true)
 
         fetch('https://skate-buddy.josholaus.com/api/reviews', {
             method: 'POST',

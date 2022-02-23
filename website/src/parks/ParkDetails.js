@@ -21,6 +21,7 @@ const ParkDetails = () => {
       {park && (
         <div>
           <div>
+            {console.log(park)}
             <h2 className="ParkName"><font color="darkred" className="parkname-details">{park.name}</font></h2>
             <Map park={park}></Map>
           </div>

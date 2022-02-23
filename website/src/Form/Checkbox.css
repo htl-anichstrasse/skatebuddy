@@ -1,0 +1,18 @@
+.input-difficulty {
+  margin-left: 20%;
+  margin-top: 0;
+  float: right;
+}
+
+.checkbox-center {
+  max-width: 20%;
+}
+
+.box-name {
+  display: inline-block;
+}
+
+.box-difficulty {
+  float: right;
+  margin-right: 30vh;
+}
