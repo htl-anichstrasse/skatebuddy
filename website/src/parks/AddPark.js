@@ -10,9 +10,9 @@ const AddPark = () =>{
     const [address, setAddress] = useState();
     const [busstop, setBusstop] = useState();
     const [isPending, setIsPending] = useState();
-    
     const [latitude, setLatitude] = useState();
     const [longitude, setLongitude] = useState();
+    
     const [bank, setBank] = useState();
     const [flatrail, setFlatrail] = useState();
     const [funbox, setFunbox] = useState();
