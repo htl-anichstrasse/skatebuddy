@@ -1,45 +1,24 @@
 import { useState } from "react";
 import "./AddPark.css";
-import Checkbox from '../Form/Checkbox.js'
 
-
+const list = [];
 
 const AddPark = () =>{
 
-    const [parkName, setParkName] = useState();
+    const [name, setName] = useState();
     const [address, setAddress] = useState();
     const [busstop, setBusstop] = useState();
-    const [isPending, setIsPending] = useState();
+    const [isPending, setIsPending] = useState(false);
     const [latitude, setLatitude] = useState();
     const [longitude, setLongitude] = useState();
-    
-    const [bank, setBank] = useState();
-    const [flatrail, setFlatrail] = useState();
-    const [funbox, setFunbox] = useState();
-    const [gap, setGap] = useState();
-    const [handrail, setHandrail] = useState();
-    const [jumpramp, setJumpranp] = useState();
-    const [manualpad, setManualpad] = useState();
-    const [miniramp, setMiniramp] = useState();
-    const [bowl, setBowl] = useState();
-    const [quarter, setQuarter] = useState();
-    const [wallride, setWallride] = useState();
-
-    const [bankDifficulty, setBankDifficulty] = useState();
-    const [flatrailDifficulty, setFlatrailDifficulty] = useState();
-    const [funboxDifficulty, setFunboxDifficulty] = useState();
-    const [gapDifficulty, setGapDifficulty] = useState();
-    const [handrailDifficulty, setHandrailDifficulty] = useState();
-    const [jumprampDifficulty, setJumpranpDifficulty] = useState();
-    const [manualpadDifficulty, setManualpadDifficulty] = useState();
-    const [minirampDifficulty, setMinirampDifficulty] = useState();
-    const [bowlDifficulty, setBowlDifficulty] = useState();
-    const [quarterDifficulty, setQuarterDifficulty] = useState();
-    const [wallrideDifficulty, setWallrideDifficulty] = useState();
+    const [description, setDescription] = useState("Bank");
+    const [difficulty, setDifficulty] = useState(1);
+    const [obstacles, setObstacles] = useState(list);
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        const park = { parkName, address, busstop, latitude, longitude }
+        e.preventDefault()
+        const park = { name, address, busstop, latitude, longitude, obstacles }
+        console.log(park)
 
         setIsPending(true)
 
@@ -48,8 +27,13 @@ const AddPark = () =>{
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(park)
         }).then(() => {
-            window.location.reload(true);
         })
+    }
+
+    const addObstacle = (e) =>{
+        const newList = obstacles.concat({ description, difficulty });
+        setObstacles(newList);
+        console.log("ne")
     }
 
     return(
@@ -63,8 +47,8 @@ const AddPark = () =>{
                     className='inputPark'
                     type="text"
                     required
-                    value={parkName}
-                    onChange={(e) => setParkName(e.target.value)}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                 /><br/>
             </div>
             <div className="field">
@@ -90,6 +74,8 @@ const AddPark = () =>{
                 <div className="lat-input">
                     <label>Latitude</label><br/>
                     <input
+                        max={90}
+                        min={-90}
                         className='inputPark'
                         type="number"
                         required
@@ -100,6 +86,8 @@ const AddPark = () =>{
                 <div className="long-input">
                     <label>Longitude</label><br/>
                     <input
+                        max={180}
+                        min={-180}
                         className='inputPark'
                         type="number"
                         required
@@ -109,109 +97,49 @@ const AddPark = () =>{
                 </div>
             </div>
             <h3 className="input-header">Hindernisse</h3>
-            <div className="obstacles-input">
-                <Checkbox
-                    label="Bank"
-                    value={bank}
-                    onChange={ () => setBank(!bank)}
-                    difficulty={bankDifficulty}
-                    difficultyChange={ (e) => setBankDifficulty(e.target.value)}
-                />
-            </div>
-            <div className="obstacles-input">
-                <Checkbox
-                    label="Flatrail"
-                    value={flatrail}
-                    onChange={ () => setFlatrail(!flatrail)}
-                    difficulty={flatrailDifficulty}
-                    difficultyChange={ (e) => setFlatrailDifficulty(e.target.value)}
-                />
-            </div>
-            <div className="obstacles-input">
-                <Checkbox
-                    label="Funbox"
-                    value={funbox}
-                    onChange={ () => setFunbox(!funbox)}
-                    difficulty={funboxDifficulty}
-                    difficultyChange={ (e) => setFunboxDifficulty(e.target.value)}
-                />
-            </div>
-            <div className="obstacles-input">
-                <Checkbox
-                    label="Gap"
-                    value={gap}
-                    onChange={ () => setGap(!gap)}
-                    difficulty={gapDifficulty}
-                    difficultyChange={ (e) => setGapDifficulty(e.target.value)}
-                />
-            </div>
-            <div className="obstacles-input">
-                <Checkbox
-                    label="Handrail"
-                    value={handrail}
-                    onChange={ () => setHandrail(!handrail)}
-                    difficulty={handrailDifficulty}
-                    difficultyChange={ (e) => setHandrailDifficulty(e.target.value)}
-                />
-            </div>
-            <div className="obstacles-input">
-                <Checkbox
-                    label="Jumpramp"
-                    value={jumpramp}
-                    onChange={ () => setJumpranp(!jumpramp)}
-                    difficulty={jumprampDifficulty}
-                    difficultyChange={ (e) => setJumpranpDifficulty(e.target.value)}
-                />
-            </div>
-            <div className="obstacles-input">
-                <Checkbox
-                    label="Manualpad"
-                    value={manualpad}
-                    onChange={ () => setManualpad(!manualpad)}
-                    difficulty={manualpadDifficulty}
-                    difficultyChange={ (e) => setManualpadDifficulty(e.target.value)}
-                />
-            </div>
-            <div className="obstacles-input">
-                <Checkbox
-                    label="Miniramp"
-                    value={miniramp}
-                    onChange={ () => setMiniramp(!miniramp)}
-                    difficulty={minirampDifficulty}
-                    difficultyChange={ (e) => setMinirampDifficulty(e.target.value)}
-                />
-            </div>
-            <div className="obstacles-input">
-                <Checkbox
-                    label="Bowl"
-                    value={bowl}
-                    onChange={ () => setBowl(!bowl)}
-                    difficulty={bowlDifficulty}
-                    difficultyChange={ (e) => setBowlDifficulty(e.target.value)}
-                />
-            </div>
-            <div className="obstacles-input">
-                <Checkbox
-                    label="Quarter"
-                    value={quarter}
-                    onChange={ () => setQuarter(!quarter)}
-                    difficulty={quarterDifficulty}
-                    difficultyChange={ (e) => setQuarterDifficulty(e.target.value)}
-                />
-            </div>
-            <div className="obstacles-input">
-                <Checkbox
-                    label="Wallride"
-                    value={wallride}
-                    onChange={ () => setWallride(!wallride)}
-                    difficulty={wallrideDifficulty}
-                    difficultyChange={ (e) => setWallrideDifficulty(e.target.value)}
-                />
-            </div>
-            <div className="obstacles-input">
+            <select className="obstacle-choose" vlaue={description} onChange={(e) => setDescription(e.target.value)}>
+                <option value="Bank">Bank</option>
+                <option value="Flatrail">Flatrail</option>
+                <option value="Funbox">Funbox</option>
+                <option value="Gap">Gap</option>
+                <option value="Handrail">Handrail</option>
+                <option value="Jumpramp">Jumpramp</option>
+                <option value="Manualpad">Manualpad</option>
+                <option value="Miniramp">Miniramp</option>
+                <option value="Bowl">Bowl</option>
+                <option value="Quarter">Quarter</option>
+                <option value="Wallride">Wallride</option>            
+            </select>
+            <select className="difficulty-choose" value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
+                <option value={5}>5</option>
+                <option value={6}>6</option>
+                <option value={7}>7</option>
+                <option value={8}>8</option>
+                <option value={9}>9</option>
+                <option value={10}>10</option>       
+            </select>
+            <button type="button" className="add-obstacle-button" onClick={addObstacle}>Hinderniss hinzufügen</button><br />
+            <div className="table-center">
+            <table className="obstacle-table">
+                <tr>
+                    <th>Hinderniss</th>
+                    <th>Schwierigkeit</th>
+                </tr>
+                {obstacles.map(obstacle => (
+                            <tr>
+                                <td>{obstacle.description}</td>
+                                <td>{obstacle.difficulty}</td>
+                            </tr>
+                ))}
+            </table>
             </div>
             {!isPending && <button type="submit" className='add-park-button'>Park hinzufügen</button>}
-        </form>
+            {isPending && <button disabled className='add-park-button'>Loading...</button>}
+            </form>  
         </div>
     </div>
     )

@@ -46,3 +46,26 @@
   text-align: left;
   max-height: 2vh;
 }
+
+.add-obstacle-button {
+  margin-top: 20px;
+}
+
+table {
+  margin-top: 20px;
+  margin-left: 10%;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
