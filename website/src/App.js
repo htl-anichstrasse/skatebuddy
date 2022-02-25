@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Profile from './account/Profile';
 import AuthService from './account/Auth/auth-service';
 import AddPark from './parks/AddPark.js'
+import { useEffect } from 'react';
 
 function App() {
 
@@ -21,6 +22,10 @@ function App() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   }
+
+  useEffect(() => {
+    document.title ="Skatebuddy"
+  },[])
 
   return (
     <Router>

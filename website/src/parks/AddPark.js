@@ -14,11 +14,25 @@ const AddPark = () =>{
     const [description, setDescription] = useState("Bank");
     const [difficulty, setDifficulty] = useState(1);
     const [obstacles, setObstacles] = useState(list);
+    const [id, setId] = useState(1);
 
     const handleSubmit = (e) => {
         e.preventDefault()
         const park = { name, address, busstop, latitude, longitude, obstacles }
-        console.log(park)
+
+        setIsPending(true)
+
+        fetch('', {
+            method: 'POST',
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(park)
+        }).then(() => {
+        })
+    }
+
+    const saveProposal = (e) =>{
+        e.preventDefault()
+        const park = { name, address, busstop, latitude, longitude, obstacles }
 
         setIsPending(true)
 
@@ -31,9 +45,16 @@ const AddPark = () =>{
     }
 
     const addObstacle = (e) =>{
-        const newList = obstacles.concat({ description, difficulty });
+        const newList = obstacles.concat({ id, description, difficulty });
+        setId(id+1)
         setObstacles(newList);
-        console.log("ne")
+    }
+
+
+    const removeObstacleFromList = (e) =>{
+        const idOb = e.target.getAttribute("name")
+        // eslint-disable-next-line eqeqeq
+        setObstacles(obstacles.filter(item => item.id != idOb))
     }
 
     return(
@@ -125,18 +146,25 @@ const AddPark = () =>{
             <button type="button" className="add-obstacle-button" onClick={addObstacle}>Hinderniss hinzufügen</button><br />
             <div className="table-center">
             <table className="obstacle-table">
+                <thead>
                 <tr>
                     <th>Hinderniss</th>
                     <th>Schwierigkeit</th>
+                    <th className="remove-obstacle">Hinderniss entfernen</th>
                 </tr>
+                </thead>
+                <tbody>
                 {obstacles.map(obstacle => (
-                            <tr>
+                            <tr key={obstacle.id}>
                                 <td>{obstacle.description}</td>
                                 <td>{obstacle.difficulty}</td>
+                                <td className="button-td"><button type="button" name={obstacle.id} onClick={removeObstacleFromList} className="remove-obstacle-from-list">Entfernen</button></td>
                             </tr>
                 ))}
+                </tbody>
             </table>
             </div>
+            {!isPending && <button type="button" className='add-park-button' onClick={saveProposal}>Als Vorschlag speichern</button>}
             {!isPending && <button type="submit" className='add-park-button'>Park hinzufügen</button>}
             {isPending && <button disabled className='add-park-button'>Loading...</button>}
             </form>  
