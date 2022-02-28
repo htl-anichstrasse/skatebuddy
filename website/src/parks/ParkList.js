@@ -2,18 +2,44 @@ import { Link } from 'react-router-dom';
 import './ParkList.css';
 import Slideshow from './SlideShows';
 import StarRating from 'react-star-ratings'
+import SearchBar from '../staticViews/SearchBar';
+import { useState } from 'react';
 //import Times from './Times';
 
+
+const filterPosts = (posts, query) => {
+  if (!query) {
+      return posts;
+  }
+
+  return posts.filter((post) => {
+      const postName = post.name.toLowerCase();
+      return postName.includes(query);
+  });
+};
+
 const ParkList = ({ skateparks }) => {
+
+  const { search } = window.location;
+  const query = new URLSearchParams(search).get('s');
+  const [searchQuery, setSearchQuery] = useState(query || '');
+  const filteredPosts = filterPosts(skateparks, searchQuery);
 
   return (
     <div className="park-list">
       <div className="add-parks">
-        <Link to="/AddPark" className='park-add-link'>
-          Add a Park
+        <Link to="/AddRecommendation" className='AddRecommendation'>
+         Einen Vorschlag erstellen
+        </Link>
+        <Link to="/Recommendations" className='park-add-link'>
+          Vorschlagverwaltung/Park hinzufügen
         </Link>
       </div>
-      {skateparks.map(skatepark => (
+      <SearchBar
+      searchQuery={searchQuery}
+      setSearchQuery={setSearchQuery}
+      />
+      {filteredPosts.map(skatepark => (
         <div className="park-preview" key={skatepark.skateparkId}>
           <div className="list">
             <div className="park-box">

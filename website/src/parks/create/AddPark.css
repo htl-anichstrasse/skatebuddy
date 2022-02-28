@@ -53,10 +53,10 @@
 
 table {
   margin-top: 20px;
-  margin-left: 10%;
+  margin-left: 3%;
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 80%;
+  width: 94%;
 }
 
 td,
@@ -80,6 +80,7 @@ tr:nth-child(even) {
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
+  font-size: 11px;
 }
 
 .button-td {
@@ -88,4 +89,14 @@ tr:nth-child(even) {
 
 .remove-obstacle {
   text-align: center;
+}
+
+.obstacle-choose {
+  margin-right: 1vh;
+  font-size: 2.5vh;
+}
+
+.difficulty-choose {
+  margin-right: 10vh;
+  font-size: 2.5vh;
 }

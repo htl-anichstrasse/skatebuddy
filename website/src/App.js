@@ -9,7 +9,9 @@ import AllMap from './parks/map/AllMap';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Profile from './account/Profile';
 import AuthService from './account/Auth/auth-service';
-import AddPark from './parks/AddPark.js'
+import AddPark from './parks/create/AddPark';
+import AddRecommendation from './parks/create/AddRecommendation';
+import Recommendationlist from './parks/create/Recommendationlist';
 import { useEffect } from 'react';
 
 function App() {
@@ -47,6 +49,8 @@ function App() {
               <Route path="/AllMap" element={<AllMap/>}/>
               <Route path="/Profile" element={<Profile/>}/>
               <Route path="/AddPark" element={<AddPark/>}/>
+              <Route path="/AddRecommendation" element={<AddRecommendation/>}/>
+              <Route path="/Recommendations" element={<Recommendationlist/>}/>
             </Routes>
           </div>
         </div>
