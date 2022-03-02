@@ -1,5 +1,7 @@
 import AuthService from "./Auth/auth-service";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import './Profile.css'
 
 const Profile = () => {
 
@@ -22,15 +24,31 @@ const Profile = () => {
         window.location.reload(true);
     }
 
+    useEffect(() => {
+        if(!sessionStorage.getItem("data")){
+            navigate("/LogIn");
+        }
+      });
+    
+
     return (
         <>
+        <div className="userProfile">
+        <img src={
+            require('./defaultUserProfilePicture1.png').default}
+              className="pfp"
+              alt="pfp">
+            </img>
         <div className="User-Details">
-        <h1 className="Username">Name: {name}</h1>
-        <h1 className="Email">Email: {email}</h1>
+        <h1 className="Username">Name</h1>
+        <p className="profile-name">{name}</p>
+        <h1 className="Email">Email</h1>
+        <p className="profile-email">{email}</p>
         </div>
-         <button onClick={click} className='Logout-nav'>
+         <button onClick={click} className='logout-profile'>
                   LogOut
                 </button>
+        </div>
         </>
     )
 }

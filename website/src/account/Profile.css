@@ -1,0 +1,44 @@
+.pfp {
+  border: 10px solid darkgrey;
+  margin-top: 5vh;
+  width: 25vh;
+  height: 25vh;
+}
+
+.userProfile {
+  text-align: center;
+  display: block;
+  margin: 5% auto;
+  max-width: 60vh;
+  border-radius: 2vh;
+  box-shadow: inset 0 0 1em white, 0 0 1em black;
+  background-color: white;
+  padding-top: auto;
+  padding-bottom: auto;
+  z-index: 1;
+}
+
+.logout-profile {
+  margin-top: 0;
+  background-color: darkgray;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+.profile-name {
+  margin-top: -1vh;
+  font-size: 25px;
+}
+
+.profile-email {
+  margin-top: -1vh;
+  font-size: 25px;
+}
