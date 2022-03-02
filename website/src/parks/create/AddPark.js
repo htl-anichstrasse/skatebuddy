@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./AddPark.css";
 
 const list = [];
@@ -15,6 +15,20 @@ const AddPark = () =>{
     const [difficulty, setDifficulty] = useState(1);
     const [obstacles, setObstacles] = useState(list);
     const [id, setId] = useState(1);
+
+    useEffect(() => {
+        if(sessionStorage.getItem("recommendation")){
+            let recommend = JSON.parse(sessionStorage.getItem("recommendation"))
+            sessionStorage.removeItem("recommendation")
+            setName(recommend.name)
+            setAddress(recommend.address)
+            setBusstop(recommend.busstop)
+            setLatitude(recommend.latitude)
+            setLongitude(recommend.longitude)
+            setDescription(recommend.description)
+            setObstacles(recommend.obstacles)
+        }
+      }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault()
