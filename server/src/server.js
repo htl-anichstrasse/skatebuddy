@@ -24,7 +24,7 @@ app.use('/api', skateparkRouter);
 app.use('/api', obstacleRouter);
 app.use('/api', skateparkPicRouter);
 app.use('/api', reviewRouter);
-app.use('/api,', skateparkSuggestionRouter);
+app.use('/api', skateparkSuggestionRouter);
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header(
@@ -35,6 +35,5 @@ app.use((req, res, next) => {
 });
 
 app.listen(port, () => {
-    console.log(`app listening at https://skate-buddy.josholaus.com/api
-    `);
+    console.log(`app listening at https://skate-buddy.josholaus.com/api`);
 });

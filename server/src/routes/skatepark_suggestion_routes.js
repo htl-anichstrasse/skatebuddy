@@ -5,7 +5,7 @@ const Skatepark = require('../db/skatepark_suggestions_table_manager');
 const con = require('../db/database_manager');
 const SkateparkPictures = require('../models/skatepark_pictures');
 
-router.get('/skateparks/suggestions', async (req, res, next) => {
+router.get('/suggestions', async (req, res, next) => {
     try {
         let results = await Skatepark.selectAll(con);
         for (let i = 0; i < results.length; i++) {
@@ -29,7 +29,7 @@ router.get('/skateparks/suggestions', async (req, res, next) => {
     }
 });
 
-router.get('/skateparks/suggestions/:id', async (req, res, next) => {
+router.get('/suggestions/:id', async (req, res, next) => {
     try {
         let skatepark = await Skatepark.getById(con, req.params.id);
         let rating = await Skatepark.getAvgRating(con, req.params.id);
@@ -47,7 +47,7 @@ router.get('/skateparks/suggestions/:id', async (req, res, next) => {
     }
 });
 
-router.post('/skateparks/suggestions', async (req, res, next) => {
+router.post('/suggestions', async (req, res, next) => {
     try {
         const skatepark = new Skatepark(
             null,
@@ -75,7 +75,7 @@ router.post('/skateparks/suggestions', async (req, res, next) => {
     }
 });
 
-router.delete('/skateparks/suggestions/:id', async (req, res, next) => {
+router.delete('/suggestions/:id', async (req, res, next) => {
     try {
         await Skatepark.deleteValue(con, req.params.id);
         res.send({ success: true, message: 'Successfully deleted' });
@@ -85,7 +85,7 @@ router.delete('/skateparks/suggestions/:id', async (req, res, next) => {
     }
 });
 
-router.put('/skateparks/suggestions/:id', async (req, res, next) => {
+router.put('/suggestions/:id', async (req, res, next) => {
     const x = {
         column: req.body.column,
         newValue: req.body.newValue,
@@ -99,16 +99,4 @@ router.put('/skateparks/suggestions/:id', async (req, res, next) => {
     }
 });
 
-router.get('/skateparkpictures/suggestions/:id', async (req, res, next) => {
-    try {
-        let pictures = await Skatepark.getAllPicturesFromPark(
-            con,
-            req.params.id,
-        );
-        res.json(pictures);
-    } catch (e) {
-        console.log(e);
-        res.sendStatus(500);
-    }
-});
 module.exports = router;
