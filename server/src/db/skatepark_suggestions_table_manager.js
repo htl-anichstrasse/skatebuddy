@@ -128,7 +128,7 @@ Skatepark.getAvgRating = (con, id) => {
 Skatepark.insertParkObstacles = (con, obstacleId, skateparkId, difficulty) => {
     return new Promise((resolve, reject) => {
         con.query(
-            'Insert into skaterpark_suggestions_obstacle_connector(ObstacleID, SkateparkID, Difficulty) values (?, ?, ?)',
+            'Insert into skatepark_suggestions_obstacle_connector(ObstacleID, SkateparkID, Difficulty) values (?, ?, ?)',
             [obstacleId, skateparkId, difficulty],
             (err, result) => {
                 if (err) {
