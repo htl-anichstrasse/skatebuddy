@@ -87,7 +87,6 @@ Obstacle.readObstacleImage = (obstacleId) => {
         let path =
             process.env.IMAGE_PATH +
             `/obstacles/obstaclePicture${obstacleId}.PNG`;
-        console.log(path);
         fs.access(path, fs.constants.R_OK, (err) => {
             if (err) {
                 reject({ success: 'false', message: 'Image not found' });

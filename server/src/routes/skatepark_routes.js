@@ -52,12 +52,22 @@ router.post('/skateparks', async (req, res, next) => {
         const skatepark = new Skatepark(
             null,
             req.body.name,
-            req.body.lon,
-            req.body.lat,
+            req.body.longitude,
+            req.body.latitude,
             req.body.address,
             req.body.busstop,
         );
+        const obstacles = req.body.obstacles;
         await Skatepark.insertValue(con, skatepark);
+        const skateparkId = await Skatepark.getParkID(con, skatepark);
+        for (i of obstacles) {
+            await Skatepark.insertParkObstacles(
+                con,
+                i.ObstacleID,
+                skateparkId,
+                i.difficulty,
+            );
+        }
         res.send({ success: true, message: 'Successfully inserted' });
     } catch (e) {
         console.log(e);
