@@ -11,6 +11,7 @@ const CreateAccount = (id) => {
     const[name,setName] = useState('');
     const[email,setEmail] = useState('');
     const[password, setPassword] = useState('');
+    const[alreadyExists, setAlreadyExists] = useState(false);
     //const today = new Date();
     //const createdAt = `${today.getDate()}-${today.getMonth()+1}-${today.getFullYear()}`;
     const navigate = useNavigate();
@@ -33,16 +34,23 @@ const CreateAccount = (id) => {
 
             const account = { name, email, password}
 
+            setAlreadyExists(false)
+
             fetch('https://skate-buddy.josholaus.com/api/register', {
                 
                 method: 'POST',
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(account)
-            }).then(() => {
+            }).then(() => { 
                 AuthService.login(email, password).then(
                     () => {
-                        navigate("/");
-                        window.location.reload(false);
+                        if(JSON.parse(localStorage.getItem("user")).success){
+                            navigate("/");
+                            window.location.reload(false);
+                        }else{
+                            setAlreadyExists(true)
+                            localStorage.removeItem("user")
+                        }
                     },
                     error => {
                       console.log("Nope")
@@ -92,6 +100,10 @@ const CreateAccount = (id) => {
                 </div>
                 <button type="submit" className='create-account-button'>Account erstellen</button>
             </form>
+            {alreadyExists &&
+            <p className='user-exists'>
+            Dieser Benutzer existiert bereits
+            </p>}
             </div>
         </div>
     )

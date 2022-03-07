@@ -80,3 +80,8 @@ label {
   margin-top: 30px;
   margin-bottom: 10px;
 }
+
+.user-exists {
+  color: red;
+  margin-bottom: 1vh;
+}

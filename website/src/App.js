@@ -27,6 +27,14 @@ function App() {
 
   useEffect(() => {
     document.title ="Skatebuddy"
+    if(localStorage.getItem("user")){
+      AuthService.tokenValidation(JSON.parse(localStorage.getItem("user")).token)
+    }
+    if(sessionStorage.getItem("validate")){
+      if(!(JSON.parse(sessionStorage.getItem("validate")))){
+        localStorage.removeItem("user")
+      }
+    }
   },[])
 
   return (
