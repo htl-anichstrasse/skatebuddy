@@ -33,6 +33,7 @@ User.selectAll = (con) => {
                     result[i].PasswordHash,
                     result[i].Email,
                     result[i].ProfilePictureID,
+                    result[i].Admin,
                 );
             }
             return resolve(users);
@@ -57,6 +58,7 @@ User.getById = (con, id) => {
                             result[0].PasswordHash,
                             result[0].Email,
                             result[0].ProfilePictureID,
+                            result[0].Admin,
                         ),
                     );
                 } catch (error) {
@@ -160,6 +162,7 @@ User.generateToken = (user) => {
             name: user.name,
             email: user.email,
             profilepictureId: user.profilepictureId,
+            admin: user.admin,
         },
         process.env.JWT_HASH_SECRET,
         { expiresIn: '135d' },
