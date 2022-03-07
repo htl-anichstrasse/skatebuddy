@@ -12,7 +12,7 @@ const SearchBar = ( {searchQuery, setSearchQuery} ) => {
             onInput={e => setSearchQuery(e.target.value.toLowerCase())}
             type="text"
             id="header-search"
-            placeholder="Search blog posts"
+            placeholder="Suche nach einen Park"
             name="s" 
             className='searchbar'
         />

@@ -30,18 +30,22 @@ const ParkList = ({ skateparks }) => {
       <div className="add-parks">
         {sessionStorage.getItem("data") &&
         <>
+        <div className='create-suggestion-park-list-outside'>
+        <Link to="/AddRecommendation" className='AddRecommendation'>
         <div className='create-suggestion-park-list'>
-          <Link to="/AddRecommendation" className='AddRecommendation'>
-            Einen Vorschlag erstellen
-          </Link>
+            <b>Einen Vorschlag erstellen</b>
         </div>
-          <div className='create-parks-parklist'>
+        </Link>
+        </div>
+        <div className='create-parks-parklist-outside'>
              {((JSON.parse(sessionStorage.getItem("data")).admin) === 1) && 
               <Link to="/Recommendations" className='park-add-link'>
-                Vorschlagverwaltung/Park hinzufügen
+                 <div className='create-parks-parklist'>
+                <b>Vorschlagverwaltung/Park hinzufügen</b>
+                </div>
               </Link>
             }
-          </div>
+        </div>
         </>
         }
       </div>
