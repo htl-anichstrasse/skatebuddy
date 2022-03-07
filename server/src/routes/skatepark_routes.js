@@ -77,6 +77,7 @@ router.post('/skateparks', async (req, res, next) => {
 
 router.delete('/skateparks/:id', async (req, res, next) => {
     try {
+        await Skatepark.deleteValueConnector(con, req.params.id);
         await Skatepark.deleteValue(con, req.params.id);
         res.send({ success: true, message: 'Successfully deleted' });
     } catch (e) {

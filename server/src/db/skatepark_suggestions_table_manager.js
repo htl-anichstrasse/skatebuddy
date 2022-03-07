@@ -180,6 +180,21 @@ SkateparkSuggestions.update = (con, column, newValue, id) => {
     });
 };
 
+SkateparkSuggestions.deleteValueConnector = (con, id) => {
+    return new Promise((resolve, reject) => {
+        con.query(
+            'DELETE  FROM skatepark_suggestions_obstacle_connector WHERE SkateparkID = ?',
+            [id],
+            (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                return resolve(result.affectedRows);
+            },
+        );
+    });
+};
+
 SkateparkSuggestions.deleteValue = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(

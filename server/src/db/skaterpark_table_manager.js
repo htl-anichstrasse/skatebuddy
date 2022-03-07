@@ -190,4 +190,19 @@ Skatepark.deleteValue = (con, id) => {
     });
 };
 
+Skatepark.deleteValueConnector = (con, id) => {
+    return new Promise((resolve, reject) => {
+        con.query(
+            'DELETE  FROM skatepark_obstacle_connector WHERE SkateparkID = ?',
+            [id],
+            (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                return resolve(result.affectedRows);
+            },
+        );
+    });
+};
+
 module.exports = Skatepark;
