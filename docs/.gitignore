@@ -1,0 +1,16 @@
+*.aux
+*.fdb*
+*.fls
+*.log
+*.lg
+*.lof
+*.lot
+*.blg
+*.bbl
+*.toc
+*.gz
+main.pdf
+*.out
+*.synctex
+*.synctex(busy)
+__latexindent*

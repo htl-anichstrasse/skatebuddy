@@ -1,0 +1,117 @@
+\documentclass{scrreport}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[combine]{ucs}
+\usepackage[pdftex]{graphicx}
+\usepackage{listings} % source code formatting
+\usepackage{blindtext}
+\usepackage{wrapfig}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{subfiles}
+\usepackage[numbers]{natbib}
+\usepackage{fullpage}
+\usepackage{hyperref}
+\usepackage{courier}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{scrhack}
+\usepackage{siunitx}
+\usepackage{newfloat}
+\DeclareFloatingEnvironment[
+  fileext=lg,
+  name=Code-Snippet,
+  placement=htp,
+]{code}
+\bibliographystyle{unsrt}
+\graphicspath{{images/}{../images/}} % set correct path to images
+\headsep = 35pt
+
+% Basic
+\lstset{basicstyle=\ttfamily\scriptsize}
+\lstset{showspaces=false}
+\lstset{showtabs=false}
+\lstset{showstringspaces=false}
+\lstset{keywordstyle=\bfseries}
+\lstset{tabsize=3}
+\lstset{frameround=ffff}
+\lstset{extendedchars=true}
+\lstset{stringstyle=\ttfamily}
+\lstset{commentstyle=\ttfamily}
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt}
+\lstset{captionpos=b}
+\lstset{frame=single}
+
+% JavaScript
+\definecolor{lightgray}{rgb}{.9,.9,.9}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, const, var, let, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={string, number, class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95, 0.95, 0.96}
+% Define the codebox
+\lstset{
+   language=JavaScript,
+   backgroundcolor=\color{lightgray},
+   extendedchars=true,
+   basicstyle=\footnotesize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   numbers=left,
+   numberstyle=\footnotesize,
+   numbersep=9pt,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
+}
+\DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
+
+\ifx\pdftexversion\undefined
+\usepackage[dvips]{graphicx}
+\else
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsRule{*}{mps}{*}{}
+\fi
+
+\setcounter{secnumdepth}{3}
+\setlength{\parskip}{6pt plus0pt minus0pt}
+\setlength{\parindent}{0pt}
+\pagestyle{headings} 
+
+\begin{document}
+\input{parts/index}
+\setcounter{secnumdepth}{1}
+\appendix
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+\bibliography{references} %references bibtech as used for all papers dealing with online-surveys
+\nocite{*}
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Code-Snippet-Verzeichnis}
+\listof{code}{Code-Snippet-Verzeichnis}
+
+\end{document}
