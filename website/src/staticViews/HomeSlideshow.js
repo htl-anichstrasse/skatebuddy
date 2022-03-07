@@ -21,8 +21,10 @@ const HomeSlideshow = () => {
          {skateparks.map(park=> (
             <Link to={`/skateparks/${park.skateparkId}`}>
               <div className="each-slide" key={park} id="each-slide-home">
-                <div style={{'backgroundImage': `url(https://skate-buddy.josholaus.com/api/skateparkpictures/${park.skateparkId}/${park.pictureIds[0].picId}`}} className='bg' id="bg-home">
-                </div>
+                {park.pictureIds[0] &&
+                 <div style={{'backgroundImage': `url(https://skate-buddy.josholaus.com/api/skateparkpictures/${park.skateparkId}/${park.pictureIds[0].picId}`}} className='bg' id="bg-home">
+                 </div>
+                }
              </div>
             </Link>
           ))} 
