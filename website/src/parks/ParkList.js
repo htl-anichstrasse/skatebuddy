@@ -28,12 +28,22 @@ const ParkList = ({ skateparks }) => {
   return (
     <div className="park-list">
       <div className="add-parks">
-        <Link to="/AddRecommendation" className='AddRecommendation'>
-         Einen Vorschlag erstellen
-        </Link>
-        <Link to="/Recommendations" className='park-add-link'>
-          Vorschlagverwaltung/Park hinzufügen
-        </Link>
+        {sessionStorage.getItem("data") &&
+        <>
+        <div className='create-suggestion-park-list'>
+          <Link to="/AddRecommendation" className='AddRecommendation'>
+            Einen Vorschlag erstellen
+          </Link>
+        </div>
+          <div className='create-parks-parklist'>
+             {((JSON.parse(sessionStorage.getItem("data")).admin) === 1) && 
+              <Link to="/Recommendations" className='park-add-link'>
+                Vorschlagverwaltung/Park hinzufügen
+              </Link>
+            }
+          </div>
+        </>
+        }
       </div>
       <SearchBar
       searchQuery={searchQuery}

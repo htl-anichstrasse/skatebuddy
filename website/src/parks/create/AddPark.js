@@ -33,7 +33,15 @@ const AddPark = () =>{
             setObstacleID(recommend.ObstacleID)
             setObstacles(recommend.obstacles)
         }
-      }, []);
+    if(!sessionStorage.getItem("data")){
+        navigate("/LogIn");
+        return;
+    }
+    if((JSON.parse(sessionStorage.getItem("data")).admin) !== 1){
+        navigate("/");
+            }
+    // eslint-disable-next-line 
+      },[]);
 
     const handleSubmit = async(e) => {
         e.preventDefault()

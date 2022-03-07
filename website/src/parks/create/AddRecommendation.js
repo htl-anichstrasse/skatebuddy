@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const list = [];
@@ -17,6 +17,13 @@ const AddRecommendation = () =>{
     const [listId, setListId] = useState(1);
     const navigate = useNavigate();
 
+    useEffect(() => {
+        if(!sessionStorage.getItem("data")){
+            navigate("/LogIn");
+        }
+      });
+
+      
     const saveProposal = (e) =>{
         e.preventDefault()
         const park = { name, address, busstop, latitude, longitude, obstacles }

@@ -2,11 +2,22 @@ import useFetch from "../../hooks/UseFetch";
 import Error from "../../staticViews/Error";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import "./Recommendationlist.css";
 
 const Recommendations = () => {
 
    const navigate = useNavigate();
+
+   useEffect(() => {
+    if(!sessionStorage.getItem("data")){
+      navigate("/LogIn");
+      return;
+    }
+    if((JSON.parse(sessionStorage.getItem("data")).admin) !== 1){
+          navigate("/");
+    }
+  });
 
     const {
         data: Recommendation,
