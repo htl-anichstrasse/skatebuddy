@@ -19,6 +19,7 @@ class AuthService {
 
     localStorage.removeItem("user");
     sessionStorage.removeItem("data")
+    sessionStorage.removeItem("validate")
 
   }
   getCurrentUser() {
@@ -43,7 +44,26 @@ class AuthService {
       sessionStorage.setItem("data", JSON.stringify(data))      
     })
     }
+
+  tokenValidation(token){
+    fetch(
+      'https://skate-buddy.josholaus.com/api/users/validate',
+      {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ token: token }),
+      },
+    ).then(function(response){
+      return response.json();
+    }).then(function(data) {
+      sessionStorage.setItem("validate", JSON.stringify(data))
+    })
   }
+}
 
 
 export default new AuthService();
