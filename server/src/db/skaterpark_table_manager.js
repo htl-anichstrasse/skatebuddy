@@ -68,6 +68,21 @@ Skatepark.getAllObstaclesFromPark = (con, id) => {
     });
 };
 
+Skatepark.getParkID = (con, skatepark) => {
+    return new Promise((resolve, reject) => {
+        con.query(
+            `Select SkateparkID from skateparks where name = ?`,
+            [skatepark.name],
+            (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                return resolve(result[0].SkateparkID);
+            },
+        );
+    });
+};
+
 Skatepark.getAllPicturesFromPark = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
@@ -109,14 +124,29 @@ Skatepark.getAvgRating = (con, id) => {
         );
     });
 };
+
+Skatepark.insertParkObstacles = (con, obstacleId, skateparkId, difficulty) => {
+    return new Promise((resolve, reject) => {
+        con.query(
+            'Insert into skaterpark_obstacle_connector(ObstacleID, SkateparkID, Difficulty) values (?, ?, ?)',
+            [obstacleId, skateparkId, difficulty],
+            (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                return resolve(result[0]);
+            },
+        );
+    });
+};
 Skatepark.insertValue = (con, skatepark) => {
     return new Promise((resolve, reject) => {
         con.query(
             'Insert into skateparks(Name, Lon, Lat, Address, Busstop) values (?, ?, ?, ?, ?)',
             [
                 skatepark.name,
-                skatepark.lon,
-                skatepark.lat,
+                skatepark.longitude,
+                skatepark.latitude,
                 skatepark.address,
                 skatepark.busstop,
             ],
@@ -149,6 +179,21 @@ Skatepark.deleteValue = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             'DELETE FROM skateparks WHERE SkateparkID = ?',
+            [id],
+            (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                return resolve(result.affectedRows);
+            },
+        );
+    });
+};
+
+Skatepark.deleteValueConnector = (con, id) => {
+    return new Promise((resolve, reject) => {
+        con.query(
+            'DELETE  FROM skatepark_obstacle_connector WHERE SkateparkID = ?',
             [id],
             (err, result) => {
                 if (err) {
