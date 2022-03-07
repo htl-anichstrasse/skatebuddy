@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const list = [];
 
@@ -10,10 +11,11 @@ const AddRecommendation = () =>{
     const [isPending, setIsPending] = useState(false);
     const [latitude, setLatitude] = useState();
     const [longitude, setLongitude] = useState();
-    const [description, setDescription] = useState("Bank");
+    const [ObstacleID, setObstacleID] = useState(1);
     const [difficulty, setDifficulty] = useState(1);
     const [obstacles, setObstacles] = useState(list);
-    const [id, setId] = useState(1);
+    const [listId, setListId] = useState(1);
+    const navigate = useNavigate();
 
     const saveProposal = (e) =>{
         e.preventDefault()
@@ -21,25 +23,26 @@ const AddRecommendation = () =>{
 
         setIsPending(true)
 
-        fetch('', {
+        fetch('https://skate-buddy.josholaus.com/api/suggestions', {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(park)
         }).then(() => {
+            navigate("/parks")
         })
     }
 
     const addObstacle = (e) =>{
-        const newList = obstacles.concat({ id, description, difficulty });
-        setId(id+1)
+        const newList = obstacles.concat({ listId, ObstacleID, difficulty });
+        setListId(listId+1)
         setObstacles(newList);
     }
 
 
     const removeObstacleFromList = (e) =>{
         const idOb = e.target.getAttribute("name")
-        // eslint-disable-next-line eqeqeq
-        setObstacles(obstacles.filter(item => item.id != idOb))
+        // eslint-disable-next-line
+        setObstacles(obstacles.filter(item => item.listId != idOb))
     }
 
     return(
@@ -84,6 +87,7 @@ const AddRecommendation = () =>{
                             min={-90}
                             className='inputPark'
                             type="number"
+                            step="any"
                             required
                             value={latitude}
                             onChange={(e) => setLatitude(e.target.value)}
@@ -96,6 +100,7 @@ const AddRecommendation = () =>{
                             min={-180}
                             className='inputPark'
                             type="number"
+                            step="any"
                             required
                             value={longitude}
                             onChange={(e) => setLongitude(e.target.value)}
@@ -103,18 +108,18 @@ const AddRecommendation = () =>{
                     </div>
                 </div>
                 <h3 className="input-header">Hindernisse</h3>
-                <select className="obstacle-choose" vlaue={description} onChange={(e) => setDescription(e.target.value)}>
-                    <option value="Bank">Bank</option>
-                    <option value="Flatrail">Flatrail</option>
-                    <option value="Funbox">Funbox</option>
-                    <option value="Gap">Gap</option>
-                    <option value="Handrail">Handrail</option>
-                    <option value="Jumpramp">Jumpramp</option>
-                    <option value="Manualpad">Manualpad</option>
-                    <option value="Miniramp">Miniramp</option>
-                    <option value="Bowl">Bowl</option>
-                    <option value="Quarter">Quarter</option>
-                    <option value="Wallride">Wallride</option>            
+                <select className="obstacle-choose" vlaue={ObstacleID} onChange={(e) => setObstacleID(e.target.value)}>
+                    <option value={1}>Bank</option>
+                    <option value={2}>Flatrail</option>
+                    <option value={3}>Funbox</option>
+                    <option value={4}>Gap</option>
+                    <option value={5}>Handrail</option>
+                    <option value={6}>Jumpramp</option>
+                    <option value={7}>Manualpad</option>
+                    <option value={8}>Miniramp</option>
+                    <option value={9}>Bowl</option>
+                    <option value={10}>Quarter</option>
+                    <option value={11}>Wallride</option>          
                 </select>
                 <select className="difficulty-choose" value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
                     <option value={1}>1</option>
@@ -141,9 +146,65 @@ const AddRecommendation = () =>{
                     <tbody>
                     {obstacles.map(obstacle => (
                                 <tr key={obstacle.id}>
-                                    <td>{obstacle.description}</td>
+                                <td>{//eslint-disable-next-line
+                                obstacle.ObstacleID == 1 &&
+                                <>
+                                Bank
+                                </>
+                                }{//eslint-disable-next-line
+                                    obstacle.ObstacleID == 2 &&
+                                <>
+                                Flatrail
+                                </>
+                                }{//eslint-disable-next-line
+                                    obstacle.ObstacleID == 3 &&
+                                <>
+                                Funbox
+                                </>
+                                }{//eslint-disable-next-line
+                                    obstacle.ObstacleID == 4 &&
+                                <>
+                                Gap
+                                </>
+                                }{//eslint-disable-next-line
+                                    obstacle.ObstacleID == 5 &&
+                                <>
+                                Handrail
+                                </>
+                                }{//eslint-disable-next-line
+                                    obstacle.ObstacleID == 6 &&
+                                <>
+                                Jumpramp
+                                </>
+                                }{//eslint-disable-next-line
+                                    obstacle.ObstacleID == 7 &&
+                                <>
+                                Manualpad
+                                </>
+                                }{//eslint-disable-next-line
+                                    obstacle.ObstacleID == 8 &&
+                                <>
+                                Miniramp
+                                </>
+                                }{//eslint-disable-next-line
+                                    obstacle.ObstacleID == 9 &&
+                                <>
+                                Bowl
+                                </>
+                                }{//eslint-disable-next-line
+                                    obstacle.ObstacleID == 10 &&
+                                <>
+                                Quarter
+                                </>
+                                }{//eslint-disable-next-line
+                                    obstacle.ObstacleID == 11 &&
+                                <>
+                                    Wallride
+                                </>
+                                }
+                                </td>
                                     <td>{obstacle.difficulty}</td>
-                                    <td className="button-td"><button type="button" name={obstacle.id} onClick={removeObstacleFromList} className="remove-obstacle-from-list">Entfernen</button></td>
+                                    <td className="button-td"><button type="button" name={obstacle.listId} onClick={removeObstacleFromList} className="remove-obstacle-from-list">Entfernen</button></td>
                                 </tr>
                     ))}
                     </tbody>

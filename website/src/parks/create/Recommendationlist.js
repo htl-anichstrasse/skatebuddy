@@ -1,75 +1,29 @@
-//import useFetch from "../../hooks/UseFetch";
-//import Error from "../../staticViews/Error";
+import useFetch from "../../hooks/UseFetch";
+import Error from "../../staticViews/Error";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./Recommendationlist.css";
-
-const Recommendation = [
-    {
-        "id": 1,
-        "name": "Skatepark Rum Sane Plaza",
-        "address":"",
-        "busstop":"",
-        "latitude": "47.268467",
-        "longitude": "11.447938",
-        "obstacles": [
-
-        ]
-      },
-      {
-        "id": 2,
-        "name": "Skatepark Tivoli",
-        "address":"",
-        "busstop":"",
-        "latitude": 47.2587839,
-        "longitude": 11.4075082,
-        "obstacles": [
-
-        ]
-      },
-      {
-        "id": 3,
-        "name": "Skatepark Schwaz",
-        "address":"",
-        "busstop":"",
-        "latitude": 47.356132953928274,
-        "longitude": 11.715198837273547,
-        "obstacles": [
-
-        ]
-      },
-      {
-        "id": 4,
-        "name": "Skatepark Mayrhofen",
-        "address":"",
-        "busstop":"",
-        "latitude": 47.16365156720211,
-        "longitude": 11.868889701765916,
-        "obstacles": [
-
-        ]
-      }
-]
 
 const Recommendations = () => {
 
    const navigate = useNavigate();
 
-   // const {
-     //   data: Recommendation,
-      //  isPending,
-        //eslint-disable-next-line
-      //  error,
-     // } = useFetch('');
+    const {
+        data: Recommendation,
+        isPending,
+        error,
+      } = useFetch('https://skate-buddy.josholaus.com/api/suggestions');
 
       const removeRecommendFromList = value =>  async e =>{
+        console.log(value)
         e.preventDefault();
         await fetch(
-          ""+value,{
+          "https://skate-buddy.josholaus.com/api/suggestions/"+value,{
             method:'DELETE'
           }
-        )
-        window.location.reload(true);
+        ).then(() => {
+          window.location.reload();
+        })
       }
 
       const changeRecommend = value => e => {
@@ -79,11 +33,11 @@ const Recommendations = () => {
 
     return(
         <>
-        {//isPending && 
-        //<h2>Loading</h2>
+        {isPending && 
+        <h2>Loading</h2>
         }
-       {//error &&  
-        //<Error/>
+       {error &&  
+        <Error/>
         }
         {Recommendation && 
         <div className="Recommendations-list">
@@ -97,8 +51,8 @@ const Recommendations = () => {
                 <tbody>
                 {Recommendation.map(recommend => (
                             <tr key={recommend.id}>
-                                <td>{recommend.name}</td>
-                                <td className="button-td"><button type="button" name={recommend.id} onClick={removeRecommendFromList(recommend.id)} className="remove-recommend-from-list">Entfernen</button><button type="button" name={recommend.id} onClick={changeRecommend(recommend)} className="remove-recommend-from-list">Ändern</button></td>
+                              <td>{recommend.name}</td>
+                                <td className="button-td"><button type="button" name={recommend.id} onClick={removeRecommendFromList(recommend.skateparkId)} className="remove-recommend-from-list">Entfernen</button><button type="button" name={recommend.id} onClick={changeRecommend(recommend)} className="remove-recommend-from-list">Ändern und hinzufügen</button></td>
                             </tr>
                 ))}
                 </tbody>
