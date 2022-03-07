@@ -86,6 +86,7 @@ User.getByEmail = (con, email) => {
                             result[0].PasswordHash,
                             result[0].Email,
                             result[0].ProfilePictureID,
+                            result[0].Admin,
                         ),
                     );
                 } catch (error) {
