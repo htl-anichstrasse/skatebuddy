@@ -20,11 +20,12 @@ const port = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/api', userRouter);
-app.use('/api', skateparkRouter);
+
 app.use('/api', obstacleRouter);
 app.use('/api', skateparkPicRouter);
 app.use('/api', reviewRouter);
 app.use('/api', skateparkSuggestionRouter);
+app.use('/api', skateparkRouter);
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header(

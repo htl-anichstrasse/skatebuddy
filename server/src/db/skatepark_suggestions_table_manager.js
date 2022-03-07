@@ -1,6 +1,6 @@
-const Skatepark = require('../models/skatepark');
+const SkateparkSuggestions = require('../models/skatepark_suggestions');
 
-Skatepark.selectAll = (con) => {
+SkateparkSuggestions.selectAll = (con) => {
     return new Promise((resolve, reject) => {
         con.query('Select * from skateparks_suggestions', (err, result) => {
             if (err) {
@@ -8,7 +8,7 @@ Skatepark.selectAll = (con) => {
             }
             let skateparks = [];
             for (i = 0; i < result.length; i++) {
-                skateparks[i] = new Skatepark(
+                skateparks[i] = new SkateparkSuggestions(
                     result[i].SkateparkID,
                     result[i].Name,
                     result[i].Lon,
@@ -22,7 +22,7 @@ Skatepark.selectAll = (con) => {
     });
 };
 
-Skatepark.getById = (con, id) => {
+SkateparkSuggestions.getById = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             'Select * from skateparks_suggestions where SkateparkID = ?',
@@ -33,7 +33,7 @@ Skatepark.getById = (con, id) => {
                 }
                 try {
                     return resolve(
-                        new Skatepark(
+                        new SkateparkSuggestions(
                             result[0].SkateparkID,
                             result[0].Name,
                             result[0].Lon,
@@ -50,7 +50,7 @@ Skatepark.getById = (con, id) => {
     });
 };
 
-Skatepark.getAllObstaclesFromPark = (con, id) => {
+SkateparkSuggestions.getAllObstaclesFromPark = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             `Select obstacles.ObstacleID, obstacles.Description, skatepark_suggestions_obstacle_connector.difficulty
@@ -68,7 +68,7 @@ Skatepark.getAllObstaclesFromPark = (con, id) => {
     });
 };
 
-Skatepark.getParkID = (con, skatepark) => {
+SkateparkSuggestions.getParkID = (con, skatepark) => {
     return new Promise((resolve, reject) => {
         con.query(
             `Select SkateparkID from skateparks_suggestions where name = ?`,
@@ -83,7 +83,7 @@ Skatepark.getParkID = (con, skatepark) => {
     });
 };
 
-Skatepark.getAllPicturesFromPark = (con, id) => {
+SkateparkSuggestions.getAllPicturesFromPark = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             `select skatepark_pictures.PictureID 
@@ -106,7 +106,7 @@ Skatepark.getAllPicturesFromPark = (con, id) => {
     });
 };
 
-Skatepark.getAvgRating = (con, id) => {
+SkateparkSuggestions.getAvgRating = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             `Select avg(reviews.rating)
@@ -125,7 +125,12 @@ Skatepark.getAvgRating = (con, id) => {
     });
 };
 
-Skatepark.insertParkObstacles = (con, obstacleId, skateparkId, difficulty) => {
+SkateparkSuggestions.insertParkObstacles = (
+    con,
+    obstacleId,
+    skateparkId,
+    difficulty,
+) => {
     return new Promise((resolve, reject) => {
         con.query(
             'Insert into skatepark_suggestions_obstacle_connector(ObstacleID, SkateparkID, Difficulty) values (?, ?, ?)',
@@ -139,7 +144,7 @@ Skatepark.insertParkObstacles = (con, obstacleId, skateparkId, difficulty) => {
         );
     });
 };
-Skatepark.insertValue = (con, skatepark) => {
+SkateparkSuggestions.insertValue = (con, skatepark) => {
     return new Promise((resolve, reject) => {
         con.query(
             'Insert into skateparks_suggestions(Name, Lon, Lat, Address, Busstop) values (?, ?, ?, ?, ?)',
@@ -160,7 +165,7 @@ Skatepark.insertValue = (con, skatepark) => {
     });
 };
 
-Skatepark.update = (con, column, newValue, id) => {
+SkateparkSuggestions.update = (con, column, newValue, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             `UPDATE skateparks_suggestions SET ${column} = ? Where SkateparkID = ? `,
@@ -175,7 +180,7 @@ Skatepark.update = (con, column, newValue, id) => {
     });
 };
 
-Skatepark.deleteValue = (con, id) => {
+SkateparkSuggestions.deleteValue = (con, id) => {
     return new Promise((resolve, reject) => {
         con.query(
             'DELETE FROM skateparks_suggestions WHERE SkateparkID = ?',
@@ -190,4 +195,4 @@ Skatepark.deleteValue = (con, id) => {
     });
 };
 
-module.exports = Skatepark;
+module.exports = SkateparkSuggestions;
