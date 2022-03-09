@@ -2,7 +2,7 @@ import GoogleMapReact from 'google-map-react';
 import React, { useState } from 'react';
 import raw from '../Key.txt';
 import useFetch from '../../hooks/UseFetch';
-import Marker from './Marker.tsx';
+import Marker from './Marker.js';
 
 
 // const Park = ({ text }) => <div>{text}</div>;

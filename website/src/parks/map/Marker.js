@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 //https://levelup.gitconnected.com/reactjs-google-maps-with-custom-marker-ece0c7d184c4
 
-const Marker = (props: any) => {
+const Marker = (props) => {
     const { color, name, link} = props;
 
     return (
