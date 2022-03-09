@@ -1,0 +1,35 @@
+Präambel
+
+Intro
+
+Theorie
+    Webentwicklung
+        HTML
+        CSS
+        JavaScript
+            React
+                JSX
+            Angular, Vue, Svelte
+
+    Mobile Entwicklung
+        Android
+        iOS
+        React Native
+            Expo
+            React Native CLI
+        Flutter, Xamarin
+
+    Backend-Entwicklung
+        Server
+            NodeJS
+                Nodemon
+        Datenbank
+            MySQL
+            GraphQL
+        API
+            ExpressJS
+        CI/CD
+            Github
+            Docker
+
+Server
