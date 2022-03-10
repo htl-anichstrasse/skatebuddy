@@ -2,34 +2,39 @@ Präambel
 
 Intro
 
-Theorie
-    Webentwicklung
-        HTML
-        CSS
-        JavaScript
-            React
+Theorie Part
+    Webentwicklung Ch
+        HTML Sec
+        CSS Sec
+        JavaScript Sec
+            React Sub
                 JSX
-            Angular, Vue, Svelte
+            Alternativen Sub
+                Angular
+                Vue
+                Svelte
 
-    Mobile Entwicklung
-        Android
-        iOS
-        React Native
-            Expo
-            React Native CLI
-        Flutter, Xamarin
+    Mobile Entwicklung Ch
+        Android Sec
+        iOS Sec
+        React Native Sec
+            Expo Sub
+            React Native CLI Sub
+        Alternativen Sec
+            Flutter Sub
+            Xamarin Sub
 
-    Backend-Entwicklung
-        Server
-            NodeJS
+    Backend-Entwicklung Ch
+        Server Sec
+            NodeJS Sub
                 Nodemon
-        Datenbank
-            MySQL
-            GraphQL
-        API
-            ExpressJS
-        CI/CD
-            Github
-            Docker
+        Datenbank Sec
+            MySQL Sub
+            GraphQL Sub
+        API Sec
+            ExpressJS Sub
+        CI/CD Sec
+            Github Sub
+            Docker Sub
 
 Server

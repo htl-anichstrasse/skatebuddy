@@ -11,6 +11,7 @@
         "main.log": true,
         "main.out": true,
         "main.synctex.gz": true,
+        "main.synctex(busy)": true,
         "main.toc": true
     }
 }
