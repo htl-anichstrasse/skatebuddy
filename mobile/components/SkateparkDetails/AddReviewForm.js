@@ -57,30 +57,35 @@ const AddReviewForm = ({ newReview, setModalVisible, parkid }) => {
           rating: parseInt(values.rating, 10),
         };
 
-        const res = await fetch(
-          'https://skate-buddy.josholaus.com/api/reviews',
-          {
-            method: 'POST',
-            headers: {
-              Accept: 'application/json',
-              Authorization: `Bearer ${state.userToken}`,
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(review),
-          },
-        );
-        const resJson = await res.json();
-        if (resJson.success) {
-          newReview(review);
-          actions.resetForm();
-          setModalVisible(false);
+        console.log(review);
 
-          showMessage({
-            message: 'Bewertung erfolgreich gespeichert',
-            type: 'success',
-            icon: 'auto',
-          });
-        } else {
+        try {
+          const res = await fetch(
+            'https://skate-buddy.josholaus.com/api/reviews',
+            {
+              method: 'POST',
+              headers: {
+                Accept: 'application/json',
+                Authorization: `Bearer ${state.userToken}`,
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(review),
+            },
+          );
+          const resJson = await res.json();
+          if (resJson.success) {
+            newReview(review);
+            actions.resetForm();
+            setModalVisible(false);
+
+            showMessage({
+              message: 'Bewertung erfolgreich gespeichert',
+              type: 'success',
+              icon: 'auto',
+            });
+          }
+        } catch (e) {
+          console.log(e);
           showMessage({
             message: 'Bewertung konnte nicht gespeichert werden',
             description:
