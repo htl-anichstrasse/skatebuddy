@@ -17,6 +17,9 @@ import { useEffect } from 'react';
 function App() {
 
   if(localStorage.getItem("user")){
+    if(!(JSON.parse(localStorage.getItem("user"))).success){
+      localStorage.removeItem("user")
+    }
     AuthService.decodeToken(JSON.parse(localStorage.getItem("user")).token)
   }
 
