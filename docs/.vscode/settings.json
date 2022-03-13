@@ -13,5 +13,12 @@
         "main.synctex.gz": true,
         "main.synctex(busy)": true,
         "main.toc": true
-    }
+    },
+    "cSpell.words": [
+        "Funktions",
+        "gruessen",
+        "prototypbasierte",
+        "Stilvorlagen",
+        "Stilvorlagensprache"
+    ]
 }
