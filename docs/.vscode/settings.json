@@ -20,5 +20,9 @@
         "prototypbasierte",
         "Stilvorlagen",
         "Stilvorlagensprache"
-    ]
+    ],
+    "editor.rulers": [100],
+    "workbench.colorCustomizations": {
+        "editorRuler.foreground": "#ffab70"
+    }
 }
