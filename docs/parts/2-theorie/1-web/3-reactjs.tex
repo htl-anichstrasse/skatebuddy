@@ -1,12 +1,14 @@
 \subsection{React}
 \label{reactjs}
-React ist eine der beliebtesten JavaScript Frameworks zum Erstellen von sogenannten Single-Page-Apps. React beschreibt sich selbst als 
-JavaScript Bibliothek und nicht wie andere als ein Framework. React ist viel mehr eine Anleitung, wie man verschieden Dinge machen könnte.
+React ist eine der beliebtesten JavaScript Frameworks zum Erstellen von sogenannten 
+Single-Page-Apps. React beschreibt sich selbst als JavaScript Bibliothek und nicht wie andere als 
+ein Framework. React ist viel mehr eine Anleitung, wie man verschieden Dinge machen könnte.
 React ist also kein All-in-One Paket.
 
 
-Reacts Entwicklungsgrund war es eine möglichst performante Oberfläche zu gestalten. Dabei werden einfache Views erstellt und React
-übernimmt die Änderung der Daten innerhalb der View. React erstellt einen sogenannten virtuellen DOM bei der Datenanzeige.
+Reacts Entwicklungsgrund war es eine möglichst performante Oberfläche zu gestalten. Dabei werden 
+einfache Views erstellt und React übernimmt die Änderung der Daten innerhalb der View. React 
+erstellt einen sogenannten virtuellen DOM bei der Datenanzeige.
 
 
 \begin{figure}[H]
@@ -17,38 +19,90 @@ Reacts Entwicklungsgrund war es eine möglichst performante Oberfläche zu gesta
 \end{figure}
 
 \subsubsection{Virtuelles DOM}
-VDOM ist ein Programmierkonzept, bei dem durch den Prozess \textit{Reconciliation} eine ideale, virtuelle Darstellung der Benutzeroberfläche
-im Speicher gehalten wird und mit dem realen DOM durch eine Bibliothek wie ReactDOM synchronisiert wird. Dies ermöglicht eine deklarative
-API von React, bei der man den Zustand der Benutzeroberfläche angibt und React stellt sicher, dass das DOM diesem Zustand entspricht. Dies 
-entfernt verschiedene Arbeitsschritte, welche sie sonst durchführen müssten.
-VDOM ist viel mehr ein Muster als eine spezifische Technologie. Der Begriff virtuelles DOM wird in React oft mit Objekten in Verbindung gebracht,
-da diese die Benutzeroberfläche darstellen. Um jedoch zusätzliche Information über den Komponentenbaum zu speichern benutzt React interne 
-Objekte nämlich sogenannte \textit{Fiber}. 
-\cite{DOM}
+VDOM ist ein Programmierkonzept, bei dem durch den Prozess \textit{Reconciliation} eine ideale, 
+virtuelle Darstellung der Benutzeroberfläche im Speicher gehalten wird und mit dem realen DOM durch 
+eine Bibliothek wie ReactDOM synchronisiert wird. Dies ermöglicht eine deklarative API von React, 
+bei der man den Zustand der Benutzeroberfläche angibt und React stellt sicher, dass das DOM diesem 
+Zustand entspricht. Dies entfernt verschiedene Arbeitsschritte, welche sie sonst durchführen müssten.
+VDOM ist viel mehr ein Muster als eine spezifische Technologie. Der Begriff virtuelles DOM wird in 
+React oft mit Objekten in Verbindung gebracht, da diese die Benutzeroberfläche darstellen. Um jedoch 
+zusätzliche Information über den Komponentenbaum zu speichern benutzt React interne 
+Objekte nämlich sogenannte \textit{Fiber}.\cite{DOM}
 
 \subsubsection{Single-Page-Apps}
-Wenn man bei einer Webanwendung sich die View ändert, wird dies oft mit eine Seitenwechsel assoziiert. Dies ist zwar nicht falsch, da 
-frühere Webanwendung in der tat solch einen Seitenwechsel durchführten. Dies war jedoch sehr ineffizient, da bei einem Wechsel der View 
-immer eine neue Seite geladen werden musste. Eine modernere Herangehensweise an diese Sache sind \textit{Single-Page-Apps (SPA)}.
-Sie bestehen aus nur einer Seite mit mehreren Views. Anstatt dass bei einem View Wechsel eine neue Seite geladen wird, änderst sich je nach
-State die aktive Seite. \cite{SPA}
+Wenn man bei einer Webanwendung sich die View ändert, wird dies oft mit eine Seitenwechsel 
+assoziiert. Dies ist zwar nicht falsch, da frühere Webanwendung in der tat solch einen Seitenwechsel 
+durchführten. Dies war jedoch sehr ineffizient, da bei einem Wechsel der View immer eine neue Seite 
+geladen werden musste. Eine modernere Herangehensweise an diese Sache sind 
+\textit{Single-Page-Apps (SPA)}. Sie bestehen aus nur einer Seite mit mehreren Views. Anstatt dass 
+bei einem View Wechsel eine neue Seite geladen wird, änderst sich je nach State die aktive Seite.
+~\cite{SPA}
 
 
 \subsubsection{States}
-Die Stärke in React liegt in den States. Ein State ist der Istzustand der Anwendung. Ändert sich die View der Seite, ändert sich auch der
-State. Sobald sich irgendetwas auf der Seite ändert, ändert sich der State der Seite.
+Die Stärke in React liegt in den States. Ein State ist der Istzustand der Anwendung. Ändert sich 
+die View der Seite, ändert sich auch der State. Sobald sich irgendetwas auf der Seite ändert, 
+ändert sich der State der Seite.
 
 
 \subsubsection{Komponenten}
-In React bestehen die Views aus sogenannten Komponenten. Mit React kann man vordefinierte CodeBits programmieren, welche anschließend zu einer
-View zusammengesetzt werden. Eine React Anwendung besteht also aus logisch getrennten Einheiten, die unabhängig voneinander behandelt werden-
-Bei React einzigartig ist, dass kein Pattern mit MVC oder MVVM verwendet wird. In React Logik als sowohl auch Template in einer JS Datei
-verwaltet.
-HTML-Code wird in React in einer JavaScript Datei geschrieben im sogenannten \textit{JSX-Format}. JSX ist HTML jedoch sehr ähnlich.
+In React bestehen die Views aus sogenannten Komponenten. Mit React kann man vordefinierte CodeBits 
+programmieren, welche anschließend zu einer View zusammengesetzt werden. Eine React Anwendung 
+besteht also aus logisch getrennten Einheiten, die unabhängig voneinander behandelt werden-
+Bei React einzigartig ist, dass kein Pattern mit MVC oder MVVM verwendet wird. In React Logik als 
+sowohl auch Template in einer JS Datei verwaltet.
+HTML-Code wird in React in einer JavaScript Datei geschrieben im sogenannten \textit{JSX-Format}. 
+JSX ist HTML jedoch sehr ähnlich.\cite{Komp}
 
 
 In React gibt es zwei verschiedene Arten eine Komponente zu erstellen.
+\begin{itemize}
+  \item Komponenten mit State
+  \item Komponenten ohne State (Funktionale Komponenten)\\
+\end{itemize}
 
-TODO:
+\centerline{\textbf{Komponenten mit State}}
+Sie besitzen einen im Konstruktor initialisierten State. Sie sind immer Klassenkomponenten.\\
 
-\cite{Komp}
+\centerline{\textbf{Komponenten ohne State}}
+Zum Erstellen von Stateless-Komponenten können entweder Funktionen oder Klassen verwendet werden.
+Stateless Funktionskomponenten sind vom großen Vorteil und sollten immer verwendet werden, es sei 
+denn, man benötigt einen Lebenszyklus-Hook. Stateless Komponenten sind viel einfacher in der
+Verwendung.\cite{KompState} 
+
+
+\subsubsection{Die Renderfunktion}
+In der Renderfunktion wird ein JSX-Objekt zurückgegeben, welches dann wie üblich in HTML
+übersetzt wird. 
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{Theorie/React/Renderfunktion.png}
+    \caption{Ein kleines Beispiel für eine Renderfunktion in React}
+  \end{center}
+\end{figure}
+
+In diesem Beispiel gibt die Renderfunktion ein <p>-Element mit dem Text \textbf{Ich bin ein 
+Beispiel für eine Renderfunktion}. 
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{Theorie/React/Renderfunktion-Ergebnis.png}
+    \caption{Ergebnis Renderfunktion}
+  \end{center}
+\end{figure}
+
+So würde die Renderfunktion von oben dann auf der Website aussehen.
+
+ \subsubsection{Props}
+
+ Damit die Komponenten in React miteinander kommunizieren können benötigt man Props. Props ist ein
+ spezielles Schlüsselwort, welches für Eigenschaften steht und welche man für die Übergabe von 
+ Daten von einer Komponente an eine andere verwendet. Daten von Props sollen in nur in eine 
+ Richtung weitergegeben werden und zwar vom Elternteil zum Kind.
+
+ TODO: Pros read only \cite{Props}
+
+
+
+TODO KOMP cite
