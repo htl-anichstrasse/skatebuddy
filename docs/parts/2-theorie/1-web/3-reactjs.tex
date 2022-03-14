@@ -70,19 +70,23 @@ Stateless Funktionskomponenten sind vom großen Vorteil und sollten immer verwen
 denn, man benötigt einen Lebenszyklus-Hook. Stateless Komponenten sind viel einfacher in der
 Verwendung.\cite{KompState} 
 
-
 \subsubsection{Die Renderfunktion}
 In der Renderfunktion wird ein JSX-Objekt zurückgegeben, welches dann wie üblich in HTML
 übersetzt wird. 
 
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.8\textwidth]{Theorie/React/Renderfunktion.png}
-    \caption{Ein kleines Beispiel für eine Renderfunktion in React}
-  \end{center}
-\end{figure}
+\begin{lstlisting}
+  class RenderBeispiel{
+    render{
+      return(
+          <div>
+          <p>Ich bin ein Beispiel fuer eine Renderfunktion</p>
+          </div>
+      );
+    }
+  }
+\end{lstlisting}
 
-In diesem Beispiel gibt die Renderfunktion ein <p>-Element mit dem Text \textbf{Ich bin ein 
+In diesem Beispiel gibt die Renderfunktion ein $<p>$-Element mit dem Text \textbf{Ich bin ein 
 Beispiel für eine Renderfunktion}. 
 
 \begin{figure}[H]
@@ -94,15 +98,30 @@ Beispiel für eine Renderfunktion}.
 
 So würde die Renderfunktion von oben dann auf der Website aussehen.
 
- \subsubsection{Props}
+\subsubsection{Props}
 
  Damit die Komponenten in React miteinander kommunizieren können benötigt man Props. Props ist ein
  spezielles Schlüsselwort, welches für Eigenschaften steht und welche man für die Übergabe von 
  Daten von einer Komponente an eine andere verwendet. Daten von Props sollen in nur in eine 
- Richtung weitergegeben werden und zwar vom Elternteil zum Kind.
+ Richtung weitergegeben werden und zwar vom Elternteil zum Kind. Egal wie eine Komponente 
+ deklariert wird, man darf nie ihre Props verändern.\\
 
- TODO: Pros read only \cite{Props}
+ Eine Funktion welche nicht ihre eigenen Eingaben ändert und bei selben Eingaben immer das selben 
+ Ergebnis liefert nennt man \textit{pure}.
+\begin{lstlisting}
+  function sum(a,b){
+    return a + b;
+  }
+\end{lstlisting}
+In diesem Beispiel einer pure Function sieht man, dass die Eingabewerte nie geändert werden und egal 
+wie oft ich die selben Eingabewerte übergebe, sie werden immer das selbe Ergebnis liefern.\pagebreak
 
 
-
-TODO KOMP cite
+Das Gegenteil einer ``pure Function'' ist eine \textit{impure Function}, welche ihre Eingaben ändert, 
+wie man im folgenden Beispiel sehen kann:
+\begin{lstlisting}
+  function withdraw(account, amount){
+    account.total -= amount;
+  }
+\end{lstlisting}
+~\cite{Props}
