@@ -42,33 +42,9 @@ bei einem View Wechsel eine neue Seite geladen wird, änderst sich je nach State
 \subsubsection{States}
 Die Stärke in React liegt in den States. Ein State ist der Istzustand der Anwendung. Ändert sich 
 die View der Seite, ändert sich auch der State. Sobald sich irgendetwas auf der Seite ändert, 
-ändert sich der State der Seite.
-
-
-\subsubsection{Komponenten}
-In React bestehen die Views aus sogenannten Komponenten. Mit React kann man vordefinierte CodeBits 
-programmieren, welche anschließend zu einer View zusammengesetzt werden. Eine React Anwendung 
-besteht also aus logisch getrennten Einheiten, die unabhängig voneinander behandelt werden-
-Bei React einzigartig ist, dass kein Pattern mit MVC oder MVVM verwendet wird. In React Logik als 
-sowohl auch Template in einer JS Datei verwaltet.
-HTML-Code wird in React in einer JavaScript Datei geschrieben im sogenannten \textit{JSX-Format}. 
-JSX ist HTML jedoch sehr ähnlich.\cite{Komp}
-
-
-In React gibt es zwei verschiedene Arten eine Komponente zu erstellen.
-\begin{itemize}
-  \item Komponenten mit State
-  \item Komponenten ohne State (Funktionale Komponenten)\\
-\end{itemize}
-
-\centerline{\textbf{Komponenten mit State}}
-Sie besitzen einen im Konstruktor initialisierten State. Sie sind immer Klassenkomponenten.\\
-
-\centerline{\textbf{Komponenten ohne State}}
-Zum Erstellen von Stateless-Komponenten können entweder Funktionen oder Klassen verwendet werden.
-Stateless Funktionskomponenten sind vom großen Vorteil und sollten immer verwendet werden, es sei 
-denn, man benötigt einen Lebenszyklus-Hook. Stateless Komponenten sind viel einfacher in der
-Verwendung.\cite{KompState} 
+ändert sich der State der Seite. Ändert sich der State innerhalb einer Komponente, wird die 
+Renderfunktion erneut ausgeführt. React wird mit der Funktion \textit{setState()} darüber informiert,
+dass die Renderfunktion erneut ausgeführt werden muss.
 
 \subsubsection{Die Renderfunktion}
 In der Renderfunktion wird ein JSX-Objekt zurückgegeben, welches dann wie üblich in HTML
@@ -97,6 +73,33 @@ Beispiel für eine Renderfunktion}.
 \end{figure}
 
 So würde die Renderfunktion von oben dann auf der Website aussehen.
+
+
+\subsubsection{Komponenten}
+In React bestehen die Views aus sogenannten Komponenten. Mit React kann man vordefinierte CodeBits 
+programmieren, welche anschließend zu einer View zusammengesetzt werden. Eine React Anwendung 
+besteht also aus logisch getrennten Einheiten, die unabhängig voneinander behandelt werden-
+Bei React einzigartig ist, dass kein Pattern mit MVC oder MVVM verwendet wird. In React Logik als 
+sowohl auch Template in einer JS Datei verwaltet.
+HTML-Code wird in React in einer JavaScript Datei geschrieben im sogenannten \textit{JSX-Format}. 
+JSX ist HTML jedoch sehr ähnlich.\cite{Komp}
+
+
+In React gibt es zwei verschiedene Arten eine Komponente zu erstellen.
+\begin{itemize}
+  \item Komponenten mit State
+  \item Komponenten ohne State (Funktionale Komponenten)\\
+\end{itemize}
+
+\centerline{\textbf{Komponenten mit State}}
+Sie besitzen einen im Konstruktor initialisierten State. Sie sind immer Klassenkomponenten.\\
+
+\centerline{\textbf{Komponenten ohne State}}
+Zum Erstellen von Stateless-Komponenten können entweder Funktionen oder Klassen verwendet werden.
+Stateless Funktionskomponenten sind vom großen Vorteil und sollten immer verwendet werden, es sei 
+denn, man benötigt einen Lebenszyklus-Hook. Stateless Komponenten sind viel einfacher in der
+Verwendung.\cite{KompState} 
+
 
 \subsubsection{Props}
 
