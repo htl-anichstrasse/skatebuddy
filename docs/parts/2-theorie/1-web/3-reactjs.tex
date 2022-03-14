@@ -100,6 +100,26 @@ Stateless Funktionskomponenten sind vom großen Vorteil und sollten immer verwen
 denn, man benötigt einen Lebenszyklus-Hook. Stateless Komponenten sind viel einfacher in der
 Verwendung.\cite{KompState} 
 
+\subsubsection{JSX}
+JSX ist eine syntax Erweiterung zu JavaScript. Es bestimmt wie die Benutzeroberfläche aussehen soll
+und erinnert sehr an eine Vorlagensprache. JSX kommt jedoch mit der Kraft von JavaScript. React basiert 
+grundlegend darauf, dass die Renderlogik mit der Benutzeroberflächenlogik verbunden wird. JSX ist 
+für React nicht notwendig, jedoch ist es ein sehr hilfreiches Werkzeug wenn man in JavaScript-Code an 
+der Benutzeroberfläche arbeiten kann. Außerdem ist es sehr hilfreich um Fehler zu finden.
+\begin{lstlisting}
+  function example jsx(){
+    const j = "Hallo, ich bin JavaScript code"
+
+    return(
+      <div>
+        <p>{j}</p>
+      </div>
+    )
+  }
+\end{lstlisting}
+Innerhalb der geschwungenen Klammern, kann man jede beliebige Art von JavaScript-Code ausführen.
+In diesem Falle würde das $<p>$ Element \textit{Hallo, ich bin JavaScript code} anzeigen.
+~\cite{JSX}
 
 \subsubsection{Props}
 
@@ -117,7 +137,7 @@ Verwendung.\cite{KompState}
   }
 \end{lstlisting}
 In diesem Beispiel einer pure Function sieht man, dass die Eingabewerte nie geändert werden und egal 
-wie oft ich die selben Eingabewerte übergebe, sie werden immer das selbe Ergebnis liefern.\pagebreak
+wie oft ich die selben Eingabewerte übergebe, sie werden immer das selbe Ergebnis liefern.
 
 
 Das Gegenteil einer ``pure Function'' ist eine \textit{impure Function}, welche ihre Eingaben ändert, 
@@ -128,3 +148,4 @@ wie man im folgenden Beispiel sehen kann:
   }
 \end{lstlisting}
 ~\cite{Props}
+\pagebreak
