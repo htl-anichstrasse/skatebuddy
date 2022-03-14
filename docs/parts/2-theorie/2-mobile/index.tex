@@ -1,7 +1,55 @@
 \chapter{Mobile App Entwicklung}
-\label{webdev}
+\label{mobiledev}
 
+\section{Apps}
+Als Apps (von engl. Applications), zu deutsch Anwendungen, werden Softwarepakete für Mobilgeräte
+bezeichnet. Es gibt verschiedenste App-Genres, die alle ihren eigenen Zweck erfüllen.
+Von einfachen ToDo-Listen-Apps bis zu komplexen Buchhaltungssystemen kann praktisch alles realisiert
+werden, wofür die Leistung des Geräts reicht.
+
+Apps können durch mehrere Herangehensweisen entwickelt werden.
+
+\subsection{Native Apps}
+Die Applikation wird direkt auf das Zielbetriebssystem aufgebaut und hat tiefen Zugriff auf die
+Software- und Hardwareschnittstellen des Geräts.
+
+\subsubsection{Vorteil}
+Ein großer Vorteil davon ist die Performance, es gibt keine Zwischen-Ebene, mit der kommuniziert
+werden muss.
+
+\subsubsection{Nachteil}
+Die meisten Firmen wollen ihre Anwendungen auf beiden Plattformen anbieten, also sowohl eine
+Android-App im Google Play Store, als auch eine iOS-App im App Store. Um beides mit Nativen Apps
+zu realisieren benötigt man also zwei App-Entwicklungs-Teams, die zwei verschiedene Repositories
+pflegen müssen und welche beide gleichzeitig neue Features einbauen und testen müssen.
+
+\subsection{Webanwendungen}
+Eine mögliche Lösung ist die Webanwendung. Alles, was dafür auf dem Endgerät vorhanden sein muss,
+ist ein Webbrowser, der die Webseite darstellen kann. Diese Webseite muss nun nur noch von einem
+einzigen Team entwickelt und an unterschiedliche Bildschirmgrößen angepasst werden.
+
+Durch die Verwendung einer Web-App im Browser geht jedoch ein großer Teil des Zugriffs auf die
+gerätespezifische API verloren. Außerdem funktioniert eine Webanwendung nur mit einer aktiven
+Internetverbindung und es muss bei jedem Screen-Wechsel ein neuer Web-Request verarbeitet werden.
+
+\subsection{Hybrid-Apps}
+In einer Hybrid-App werden Native App und Webanwendung kombiniert. Die Native App zeigt in einer
+sogenannten WebView die gewünschte Webseite an und hat gleichzeitig auch Zugriff auf Software- und
+Hardware-Schnittstellen. Der Endbenutzer sollte dabei nicht mitbekommen, dass die Anwendung
+eigentlich nur einen Webbrowser darstellt.
+
+\subsection{Cross-Platform-Apps}
+Eine Cross-Platform-App hat genau wie eine Hybrid-App Zugriff auf tiefere Ebenen der Geräte-API,
+der Unterschied besteht nur darin, dass die Benutzeroberfläche von einer einheitlichen
+Auszeichnungssprache (Markup Language) wie XML bzw. XAML oder JSX in die jeweiligen UI-Elemente der
+Zielplattform umgewandelt werden.
+
+\newpage
 \input{parts/2-theorie/2-mobile/0-android.tex}
+\newpage
 \input{parts/2-theorie/2-mobile/1-ios.tex}
+\newpage
 \input{parts/2-theorie/2-mobile/2-reactnative.tex}
+\newpage
 \input{parts/2-theorie/2-mobile/3-alternativen.tex}
+\newpage
