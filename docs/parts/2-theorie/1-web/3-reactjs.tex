@@ -42,33 +42,9 @@ bei einem View Wechsel eine neue Seite geladen wird, änderst sich je nach State
 \subsubsection{States}
 Die Stärke in React liegt in den States. Ein State ist der Istzustand der Anwendung. Ändert sich 
 die View der Seite, ändert sich auch der State. Sobald sich irgendetwas auf der Seite ändert, 
-ändert sich der State der Seite.
-
-
-\subsubsection{Komponenten}
-In React bestehen die Views aus sogenannten Komponenten. Mit React kann man vordefinierte CodeBits 
-programmieren, welche anschließend zu einer View zusammengesetzt werden. Eine React Anwendung 
-besteht also aus logisch getrennten Einheiten, die unabhängig voneinander behandelt werden-
-Bei React einzigartig ist, dass kein Pattern mit MVC oder MVVM verwendet wird. In React Logik als 
-sowohl auch Template in einer JS Datei verwaltet.
-HTML-Code wird in React in einer JavaScript Datei geschrieben im sogenannten \textit{JSX-Format}. 
-JSX ist HTML jedoch sehr ähnlich.\cite{Komp}
-
-
-In React gibt es zwei verschiedene Arten eine Komponente zu erstellen.
-\begin{itemize}
-  \item Komponenten mit State
-  \item Komponenten ohne State (Funktionale Komponenten)\\
-\end{itemize}
-
-\centerline{\textbf{Komponenten mit State}}
-Sie besitzen einen im Konstruktor initialisierten State. Sie sind immer Klassenkomponenten.\\
-
-\centerline{\textbf{Komponenten ohne State}}
-Zum Erstellen von Stateless-Komponenten können entweder Funktionen oder Klassen verwendet werden.
-Stateless Funktionskomponenten sind vom großen Vorteil und sollten immer verwendet werden, es sei 
-denn, man benötigt einen Lebenszyklus-Hook. Stateless Komponenten sind viel einfacher in der
-Verwendung.\cite{KompState} 
+ändert sich der State der Seite. Ändert sich der State innerhalb einer Komponente, wird die 
+Renderfunktion erneut ausgeführt. React wird mit der Funktion \textit{setState()} darüber informiert,
+dass die Renderfunktion erneut ausgeführt werden muss.
 
 \subsubsection{Die Renderfunktion}
 In der Renderfunktion wird ein JSX-Objekt zurückgegeben, welches dann wie üblich in HTML
@@ -98,6 +74,53 @@ Beispiel für eine Renderfunktion}.
 
 So würde die Renderfunktion von oben dann auf der Website aussehen.
 
+
+\subsubsection{Komponenten}
+In React bestehen die Views aus sogenannten Komponenten. Mit React kann man vordefinierte CodeBits 
+programmieren, welche anschließend zu einer View zusammengesetzt werden. Eine React Anwendung 
+besteht also aus logisch getrennten Einheiten, die unabhängig voneinander behandelt werden-
+Bei React einzigartig ist, dass kein Pattern mit MVC oder MVVM verwendet wird. In React Logik als 
+sowohl auch Template in einer JS Datei verwaltet.
+HTML-Code wird in React in einer JavaScript Datei geschrieben im sogenannten \textit{JSX-Format}. 
+JSX ist HTML jedoch sehr ähnlich.\cite{Komp}
+
+
+In React gibt es zwei verschiedene Arten eine Komponente zu erstellen.
+\begin{itemize}
+  \item Komponenten mit State
+  \item Komponenten ohne State (Funktionale Komponenten)\\
+\end{itemize}
+
+\centerline{\textbf{Komponenten mit State}}
+Sie besitzen einen im Konstruktor initialisierten State. Sie sind immer Klassenkomponenten.\\
+
+\centerline{\textbf{Komponenten ohne State}}
+Zum Erstellen von Stateless-Komponenten können entweder Funktionen oder Klassen verwendet werden.
+Stateless Funktionskomponenten sind vom großen Vorteil und sollten immer verwendet werden, es sei 
+denn, man benötigt einen Lebenszyklus-Hook. Stateless Komponenten sind viel einfacher in der
+Verwendung.\cite{KompState} 
+
+\subsubsection{JSX}
+JSX ist eine syntax Erweiterung zu JavaScript. Es bestimmt wie die Benutzeroberfläche aussehen soll
+und erinnert sehr an eine Vorlagensprache. JSX kommt jedoch mit der Kraft von JavaScript. React basiert 
+grundlegend darauf, dass die Renderlogik mit der Benutzeroberflächenlogik verbunden wird. JSX ist 
+für React nicht notwendig, jedoch ist es ein sehr hilfreiches Werkzeug wenn man in JavaScript-Code an 
+der Benutzeroberfläche arbeiten kann. Außerdem ist es sehr hilfreich um Fehler zu finden.
+\begin{lstlisting}
+  function example jsx(){
+    const j = "Hallo, ich bin JavaScript code"
+
+    return(
+      <div>
+        <p>{j}</p>
+      </div>
+    )
+  }
+\end{lstlisting}
+Innerhalb der geschwungenen Klammern, kann man jede beliebige Art von JavaScript-Code ausführen.
+In diesem Falle würde das $<p>$ Element \textit{Hallo, ich bin JavaScript code} anzeigen.
+~\cite{JSX}
+
 \subsubsection{Props}
 
  Damit die Komponenten in React miteinander kommunizieren können benötigt man Props. Props ist ein
@@ -114,7 +137,7 @@ So würde die Renderfunktion von oben dann auf der Website aussehen.
   }
 \end{lstlisting}
 In diesem Beispiel einer pure Function sieht man, dass die Eingabewerte nie geändert werden und egal 
-wie oft ich die selben Eingabewerte übergebe, sie werden immer das selbe Ergebnis liefern.\pagebreak
+wie oft ich die selben Eingabewerte übergebe, sie werden immer das selbe Ergebnis liefern.
 
 
 Das Gegenteil einer ``pure Function'' ist eine \textit{impure Function}, welche ihre Eingaben ändert, 
@@ -125,3 +148,4 @@ wie man im folgenden Beispiel sehen kann:
   }
 \end{lstlisting}
 ~\cite{Props}
+\pagebreak
