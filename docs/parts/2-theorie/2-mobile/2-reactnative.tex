@@ -3,49 +3,65 @@
 
 \subsection{Was ist React Native?}
 React Native ist ein JavaScript-Framework, welches dafür verwendet wird um Cross-Platform-Apps für
-die Betriebssysteme Android, iOS, Windows und Web zu entwickeln.
-Außerdem ist der Zugriff auf die native Plattform-API möglich.
+die Betriebssysteme Android, iOS, Windows und Web zu entwickeln. Außerdem ist der Zugriff auf die
+native Plattform-API möglich.
 
 \subsection{Geschichte}
-Die ersten Versionen der Facebook-App auf Smartphones war eine Hybrid-App, also eine Webseite,
-welche einfach in einer nativen App eingebunden wird.
-\cite{reactNativeHistory}
+Die ersten Versionen der Facebook-App für Smartphones war eine Hybrid-App, also eine Webseite,
+welche einfach in einer nativen App eingebunden wird \cite{reactNativeHistory}. Die Leistung der
+Handy-App war für das Niveau des Social-Media-Giganten eindeutig zu schlecht, die App musste neu
+geschrieben werden in Objective-C, womit Facebook sich eine 2,5-fach schnellere Anwendung erwartete
+\cite{facebookNewIosApp}.
+
+Nachdem React veröffentlicht worden war, versuchten die Entwickler bei Facebook einen effizienten
+Weg zu finden, die neue Technologie zu nutzen um native Anwendungen, genauer eigentlich
+Cross-Platform Anwendungen, zu schreiben.
+
+2015 wurde die erste stabile Version von React Native veröffentlicht. Seit Anfang an verwendet
+Facebook intern in ihren erfolgreichsten Apps React Native als Basistechnologie. Die Firma Microsoft
+stellt selbst Bibliotheken zur Verfügung, um React Native Anwendungen auch für die Universal Windows
+Platform (UWP) und MacOS zu entwickeln.
 
 \subsection{Wer benutzt React Native?}
 Laut der eigenen Webseite von React Native benutzen einige der größten Firmen der Welt React Native
 als Cross-Platform-Framework für ihre Android- und iOS-Apps.
 
 \begin{center}
-\begin{table}[]
+\begin{table}[H]
   \begin{tabular}{lllll}
     \hline
     \multicolumn{1}{|l|}{\textbf{Unternehmen}}       & \multicolumn{1}{l|}{\textbf{App}}         & \multicolumn{1}{l|}{\textbf{Android}} & \multicolumn{1}{l|}{\textbf{iOS}} & \multicolumn{1}{l|}{\textbf{Bemerkung}} \\ \hline
-    \multicolumn{1}{|l|}{\multirow{5}{*}{Facebook}}  & \multicolumn{1}{l|}{Facebook}             & \multicolumn{1}{c|}{\XBox}            & \multicolumn{1}{c|}{\XBox}        & \multicolumn{1}{l|}{}                   \\
-    \multicolumn{1}{|l|}{}                           & \multicolumn{1}{l|}{Facebook Ads Manager} & \multicolumn{1}{c|}{\XBox}            & \multicolumn{1}{c|}{\XBox}        & \multicolumn{1}{l|}{}                   \\
-    \multicolumn{1}{|l|}{}                           & \multicolumn{1}{l|}{Facebook Analytics}   & \multicolumn{1}{c|}{\XBox}            & \multicolumn{1}{c|}{\XBox}        & \multicolumn{1}{l|}{}                   \\
-    \multicolumn{1}{|l|}{}                           & \multicolumn{1}{l|}{Instagram}            & \multicolumn{1}{c|}{\XBox}            & \multicolumn{1}{c|}{\XBox}        & \multicolumn{1}{l|}{}                   \\
-    \multicolumn{1}{|l|}{}                           & \multicolumn{1}{l|}{Oculus}               & \multicolumn{1}{c|}{\XBox}            & \multicolumn{1}{c|}{\XBox}        & \multicolumn{1}{l|}{}                   \\ \hline
-    \multicolumn{1}{|l|}{\multirow{1}{*}{Coinbase}}  & \multicolumn{1}{l|}{Coinbase}             & \multicolumn{1}{c|}{\XBox}            & \multicolumn{1}{c|}{\XBox}        & \multicolumn{1}{l|}{}                   \\ \hline
-    \multicolumn{1}{|l|}{\multirow{1}{*}{Shopify}}   & \multicolumn{1}{l|}{Shopify}              & \multicolumn{1}{c|}{\XBox}            & \multicolumn{1}{c|}{\XBox}        & \multicolumn{1}{l|}{}                   \\ \hline
+    \multicolumn{1}{|l|}{\multirow{5}{*}{Facebook}}  & \multicolumn{1}{l|}{Facebook}             & \multicolumn{2}{c|}{\multirow{5}{*}{\XBox}}                               & \multicolumn{1}{l|}{}                   \\
+    \multicolumn{1}{|l|}{}                           & \multicolumn{1}{l|}{Facebook Ads Manager} & \multicolumn{2}{c|}{}                                                     & \multicolumn{1}{l|}{}                   \\
+    \multicolumn{1}{|l|}{}                           & \multicolumn{1}{l|}{Facebook Analytics}   & \multicolumn{2}{c|}{}                                                     & \multicolumn{1}{l|}{}                   \\
+    \multicolumn{1}{|l|}{}                           & \multicolumn{1}{l|}{Instagram}            & \multicolumn{2}{c|}{}                                                     & \multicolumn{1}{l|}{}                   \\
+    \multicolumn{1}{|l|}{}                           & \multicolumn{1}{l|}{Oculus}               & \multicolumn{2}{c|}{}                                                     & \multicolumn{1}{l|}{}                   \\ \hline
+    \multicolumn{1}{|l|}{\multirow{1}{*}{Coinbase}}  & \multicolumn{1}{l|}{Coinbase}             & \multicolumn{2}{c|}{\XBox}                                                & \multicolumn{1}{l|}{}                   \\ \hline
+    \multicolumn{1}{|l|}{\multirow{1}{*}{Shopify}}   & \multicolumn{1}{l|}{Shopify}              & \multicolumn{2}{c|}{\XBox}                                                & \multicolumn{1}{l|}{}                   \\ \hline
     \multicolumn{1}{|l|}{\multirow{1}{*}{Discord}}   & \multicolumn{1}{l|}{Discord}              & \multicolumn{1}{c|}{\Square}          & \multicolumn{1}{c|}{\XBox}        & \multicolumn{1}{l|}{}                   \\ \hline
-    \multicolumn{1}{|l|}{\multirow{1}{*}{Microsoft}} & \multicolumn{1}{l|}{Skype}                & \multicolumn{1}{c|}{\XBox}            & \multicolumn{1}{c|}{\XBox}        & \multicolumn{1}{l|}{}                   \\ \hline
-    \multicolumn{1}{|l|}{\multirow{1}{*}{Pinterest}} & \multicolumn{1}{l|}{Pinterest}            & \multicolumn{1}{c|}{\XBox}            & \multicolumn{1}{c|}{\XBox}        & \multicolumn{1}{l|}{}                   \\ \hline
-    \multicolumn{1}{|l|}{\multirow{1}{*}{Tesla}}     & \multicolumn{1}{l|}{Tesla}                & \multicolumn{1}{c|}{\XBox}            & \multicolumn{1}{c|}{\XBox}        & \multicolumn{1}{l|}{}                   \\ \hline
-    \multicolumn{1}{|l|}{\multirow{1}{*}{Uber}}      & \multicolumn{1}{l|}{Uber Eats}            & \multicolumn{1}{c|}{\XBox}            & \multicolumn{1}{c|}{\XBox}        & \multicolumn{1}{l|}{}                   \\ \hline
-    \multicolumn{1}{|l|}{\multirow{1}{*}{Walmart}}   & \multicolumn{1}{l|}{Walmart}              & \multicolumn{1}{c|}{\XBox}            & \multicolumn{1}{c|}{\XBox}        & \multicolumn{1}{l|}{}                   \\ \hline
-    \multicolumn{1}{|l|}{\multirow{1}{*}{Wix.com}}   & \multicolumn{1}{l|}{Wix.com}              & \multicolumn{1}{c|}{\XBox}            & \multicolumn{1}{c|}{\XBox}        & \multicolumn{1}{l|}{}                   \\ \hline
+    \multicolumn{1}{|l|}{\multirow{1}{*}{Microsoft}} & \multicolumn{1}{l|}{Skype}                & \multicolumn{2}{c|}{\XBox}                                                & \multicolumn{1}{l|}{}                   \\ \hline
+    \multicolumn{1}{|l|}{\multirow{1}{*}{Pinterest}} & \multicolumn{1}{l|}{Pinterest}            & \multicolumn{2}{c|}{\XBox}                                                & \multicolumn{1}{l|}{}                   \\ \hline
+    \multicolumn{1}{|l|}{\multirow{1}{*}{Tesla}}     & \multicolumn{1}{l|}{Tesla}                & \multicolumn{2}{c|}{\XBox}                                                & \multicolumn{1}{l|}{}                   \\ \hline
+    \multicolumn{1}{|l|}{\multirow{1}{*}{Uber}}      & \multicolumn{1}{l|}{Uber Eats}            & \multicolumn{2}{c|}{\XBox}                                                & \multicolumn{1}{l|}{}                   \\ \hline
+    \multicolumn{1}{|l|}{\multirow{1}{*}{Walmart}}   & \multicolumn{1}{l|}{Walmart}              & \multicolumn{2}{c|}{\XBox}                                                & \multicolumn{1}{l|}{}                   \\ \hline
+    \multicolumn{1}{|l|}{\multirow{1}{*}{Wix.com}}   & \multicolumn{1}{l|}{Wix.com}              & \multicolumn{2}{c|}{\XBox}                                                & \multicolumn{1}{l|}{}                   \\ \hline
   \end{tabular}
 \end{table}
+
+Berühmte Beispiele für Apps mit React Native \cite{reactNativeShowcase}
 \end{center}
 
-\cite{reactNativeShowcase}
-
 \subsection{Lizenz}
+React Native wird unter der MIT-Lizenz geführt, das heißt dass jeder die Software sowohl für
+Open-Source als auch für Closed-Source-Projekte verwenden darf.
 
 \subsection{Das React in React Native}
 Wie der Name schon vermuten lässt baut React Native hauptsächlich auf die JavaScript-Bibliothek
-React auf. Sie hilft bei der Erstellung der Benutzeroberfläche und verwaltet den Zustand der
-Anwendung.
+React auf. Sie hilft bei der Erstellung der Benutzeroberfläche, verwaltet den Zustand der
+Anwendung und hat noch viele weitere kleine Aufgaben. React an sich ist noch eine Bibliothek,
+mit -- absichtlich -- wenig "Grundgerüst". Das macht es auch für die Open-Source-Gemeinschaft
+einfacher zusammen gute Lösungen zu entwickeln und so werden die wenigen wichtigen Aufgaben von
+React dafür perfekt ausgeführt.
 
 Detaillierte Informationen zu State, Render-Funktionen, Komponenten und JSX finden Sie im Kapitel
 \nameref{reactjs}.
