@@ -44,7 +44,7 @@ Die Stärke in React liegt in den States. Ein State ist der Istzustand der Anwen
 die View der Seite, ändert sich auch der State. Sobald sich irgendetwas auf der Seite ändert, 
 ändert sich der State der Seite. Ändert sich der State innerhalb einer Komponente, wird die 
 Renderfunktion erneut ausgeführt. React wird mit der Funktion \textit{setState()} darüber informiert,
-dass die Renderfunktion erneut ausgeführt werden muss.
+dass die Renderfunktion erneut ausgeführt werden muss.\pagebreak
 
 \subsubsection{Die Renderfunktion}
 In der Renderfunktion wird ein JSX-Objekt zurückgegeben, welches dann wie üblich in HTML
@@ -148,4 +148,42 @@ wie man im folgenden Beispiel sehen kann:
   }
 \end{lstlisting}
 ~\cite{Props}
+\subsubsection{Vor- und Nachteile von React}
+\paragraph{Vorteile}
+\begin{itemize}
+	\item Daten und Präsentationen sind getrennt
+	\item Einfacher Einstieg
+	\item Verhält sich wegen virtuellen DOM immer flüssig
+\end{itemize}
+\paragraph{Nachteile}
+\begin{itemize}
+	\item Benötigt zusätzlich Bibliotheken zum Erstellen einer vollen Website
+	\item Lohnt sich nur bei interaktiven Webseiten
+\end{itemize}~\cite{ReactVor-undNachteile}
+
+\subsubsection{Alternativen zu React}
+\begin{center}
+  \begin{tabular}{ll}
+    \parbox{5cm}{
+      \begin{itemize}
+        \item Inferno JS
+        \item React-Lite
+        \item Aurelia
+        \item Riot JS
+        \item Vue JS
+        \item Cycle.js
+      \end{itemize}}
+    &
+    \parbox{5cm}{
+      \begin{itemize}
+        \item Preact
+        \item Backbone JS
+        \item Ember JS
+        \item Mithril
+        \item AngularJS
+      \end{itemize}}
+  \end{tabular} 
+\end{center}
+\textit{In dieser Diplomschrift wird jedoch nicht genauer auf die einzelnen Alternativen eingegangen, da sie 
+nicht in der Diplomarbeit verwendet wurden.}
 \pagebreak
