@@ -2,26 +2,41 @@
 \label{mobiledev}
 
 \section{Apps}
-Als Apps (von engl. Applications), zu deutsch Anwendungen, werden Softwarepakete für Mobilgeräte
-bezeichnet. Es gibt verschiedenste App-Genres, die alle ihren eigenen Zweck erfüllen.
+Als Apps (von engl. Applications), zu deutsch Anwendungen, werden Softwarepakete für jede Art von
+Computer bezeichnet. Sie erfüllen meistens einen bestimmten Zweck und können von Anwendern auf dem
+gewünschten Gerät installiert werden.
+
+Computer-Anwendungen werden in fast allen Branchen der Wirtschaft eingesetzt, um Menschen bei der
+Arbeit zu Unterstützen. Apps für Unterhaltung und Social Media sind wohl die Apps, welche am meisten
+Bildschirmzeit von Anwendern beanspruchen.
+
 Von einfachen ToDo-Listen-Apps bis zu komplexen Buchhaltungssystemen kann praktisch alles realisiert
 werden, wofür die Leistung des Geräts reicht.
 
-Apps können durch mehrere Herangehensweisen entwickelt werden.
+Die Umsetzung einer App-Idee kann durch mehrere Herangehensweisen angegangen werden.
 
 \subsection{Native Apps}
 Die Applikation wird direkt auf das Zielbetriebssystem aufgebaut und hat tiefen Zugriff auf die
-Software- und Hardwareschnittstellen des Geräts.
+Software- und Hardwareschnittstellen des Geräts. Es gibt jedoch meist viele Wege, also Sprachen und
+Frameworks, um auf der Zielplattform die vorgegebene App zu erstellen.
+
+\begin{itemize}
+  \item Windows: C, C++, C\#
+  \item MacOS und iOS: Swift, Objective-C
+  \item Linux: C
+  \item Android: Kotlin, Java, C++
+\end{itemize}
 
 \subsubsection{Vorteil}
-Ein großer Vorteil davon ist die Performance, es gibt keine Zwischen-Ebene, mit der kommuniziert
-werden muss.
+Ein großer Vorteil davon ist die Performance. Es gibt keine Zwischen-Ebene, mit der kommuniziert
+werden muss, sondern es wird die in das System eingebaute Render-Engine verwendet.
 
 \subsubsection{Nachteil}
-Die meisten Firmen wollen ihre Anwendungen auf beiden Plattformen anbieten, also sowohl eine
-Android-App im Google Play Store, als auch eine iOS-App im App Store. Um beides mit Nativen Apps
-zu realisieren benötigt man also zwei App-Entwicklungs-Teams, die zwei verschiedene Repositories
-pflegen müssen und welche beide gleichzeitig neue Features einbauen und testen müssen.
+Die meisten Firmen wollen ihre Anwendungen auf mehreren Plattformen anbieten, bei einer
+Smartphone-App also sowohl eine Android-App im Google Play Store, als auch eine iOS-App im App Store.
+Um beides mit Native Apps zu realisieren benötigt man also zwei App-Entwicklungs-Teams, die zwei
+verschiedene Repositories pflegen müssen und welche beide gleichzeitig neue Features einbauen und
+testen müssen.
 
 \subsection{Webanwendungen}
 Eine mögliche Lösung ist die Webanwendung. Alles, was dafür auf dem Endgerät vorhanden sein muss,
