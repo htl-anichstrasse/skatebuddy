@@ -1,9 +1,9 @@
-\section{React Native: Einmal lernen, überall schreiben}
+\section{React Native}
 \label{reactnative}
 
 \subsection{Was ist React Native?}
-React Native ist ein JavaScript-Framework, welches dafür verwendet wird um Cross-Platform-Apps für
-die Betriebssysteme Android, iOS, Windows und Web zu entwickeln. Außerdem ist der Zugriff auf die
+React Native ist ein JavaScript-Framework, welches dafür verwendet wird, Cross-Platform-Apps für
+die Betriebssysteme Android, iOS, Windows und MacOS zu entwickeln. Außerdem ist der Zugriff auf die
 native Plattform-API möglich.
 
 \subsection{Geschichte}
@@ -26,29 +26,30 @@ Platform (UWP) und MacOS zu entwickeln.
 Laut der eigenen Webseite von React Native benutzen einige der größten Firmen der Welt React Native
 als Cross-Platform-Framework für ihre Android- und iOS-Apps.
 
-\begin{center}
 \begin{table}[H]
-  \begin{tabular}{lllll}
-    \hline
-    \multicolumn{1}{|l|}{\textbf{Unternehmen}}       & \multicolumn{1}{l|}{\textbf{App}}         & \multicolumn{1}{l|}{\textbf{Android}} & \multicolumn{1}{l|}{\textbf{iOS}} & \multicolumn{1}{l|}{\textbf{Bemerkung}} \\ \hline
-    \multicolumn{1}{|l|}{\multirow{5}{*}{Facebook}}  & \multicolumn{1}{l|}{Facebook}             & \multicolumn{2}{c|}{\multirow{5}{*}{\XBox}}                               & \multicolumn{1}{l|}{}                   \\
-    \multicolumn{1}{|l|}{}                           & \multicolumn{1}{l|}{Facebook Ads Manager} & \multicolumn{2}{c|}{}                                                     & \multicolumn{1}{l|}{}                   \\
-    \multicolumn{1}{|l|}{}                           & \multicolumn{1}{l|}{Facebook Analytics}   & \multicolumn{2}{c|}{}                                                     & \multicolumn{1}{l|}{}                   \\
-    \multicolumn{1}{|l|}{}                           & \multicolumn{1}{l|}{Instagram}            & \multicolumn{2}{c|}{}                                                     & \multicolumn{1}{l|}{}                   \\
-    \multicolumn{1}{|l|}{}                           & \multicolumn{1}{l|}{Oculus}               & \multicolumn{2}{c|}{}                                                     & \multicolumn{1}{l|}{}                   \\ \hline
-    \multicolumn{1}{|l|}{\multirow{1}{*}{Coinbase}}  & \multicolumn{1}{l|}{Coinbase}             & \multicolumn{2}{c|}{\XBox}                                                & \multicolumn{1}{l|}{}                   \\ \hline
-    \multicolumn{1}{|l|}{\multirow{1}{*}{Shopify}}   & \multicolumn{1}{l|}{Shopify}              & \multicolumn{2}{c|}{\XBox}                                                & \multicolumn{1}{l|}{}                   \\ \hline
-    \multicolumn{1}{|l|}{\multirow{1}{*}{Discord}}   & \multicolumn{1}{l|}{Discord}              & \multicolumn{1}{c|}{\Square}          & \multicolumn{1}{c|}{\XBox}        & \multicolumn{1}{l|}{}                   \\ \hline
-    \multicolumn{1}{|l|}{\multirow{1}{*}{Microsoft}} & \multicolumn{1}{l|}{Skype}                & \multicolumn{2}{c|}{\XBox}                                                & \multicolumn{1}{l|}{}                   \\ \hline
-    \multicolumn{1}{|l|}{\multirow{1}{*}{Pinterest}} & \multicolumn{1}{l|}{Pinterest}            & \multicolumn{2}{c|}{\XBox}                                                & \multicolumn{1}{l|}{}                   \\ \hline
-    \multicolumn{1}{|l|}{\multirow{1}{*}{Tesla}}     & \multicolumn{1}{l|}{Tesla}                & \multicolumn{2}{c|}{\XBox}                                                & \multicolumn{1}{l|}{}                   \\ \hline
-    \multicolumn{1}{|l|}{\multirow{1}{*}{Uber}}      & \multicolumn{1}{l|}{Uber Eats}            & \multicolumn{2}{c|}{\XBox}                                                & \multicolumn{1}{l|}{}                   \\ \hline
-    \multicolumn{1}{|l|}{\multirow{1}{*}{Walmart}}   & \multicolumn{1}{l|}{Walmart}              & \multicolumn{2}{c|}{\XBox}                                                & \multicolumn{1}{l|}{}                   \\ \hline
-    \multicolumn{1}{|l|}{\multirow{1}{*}{Wix.com}}   & \multicolumn{1}{l|}{Wix.com}              & \multicolumn{2}{c|}{\XBox}                                                & \multicolumn{1}{l|}{}                   \\ \hline
-  \end{tabular}
+\centering
+\begin{tabular}{|l|l|c|c|l|}
+  \hline
+  \textbf{Unternehmen}      & \textbf{App}         & \textbf{Android} & \multicolumn{1}{l|}{\textbf{iOS}} & \textbf{Bemerkung} \\ \hline\hline
+  \multirow{5}{*}{Facebook} & Facebook             & \multicolumn{2}{c|}{\multirow{5}{*}{\XBox}}          &                    \\
+                            & Facebook Ads Manager & \multicolumn{2}{c|}{}                                &                    \\
+                            & Facebook Analytics   & \multicolumn{2}{c|}{}                                &                    \\
+                            & Instagram            & \multicolumn{2}{c|}{}                                &                    \\
+                            & Oculus               & \multicolumn{2}{c|}{}                                &                    \\ \hline
+  Microsoft                 & Skype                & \multicolumn{2}{c|}{\XBox}                           &                    \\ \hline
+  Discord                   & Discord              & \Square          & \XBox                             &                    \\ \hline
+  Tesla                     & Tesla                & \multicolumn{2}{c|}{\XBox}                           &                    \\ \hline
+  Coinbase                  & Coinbase             & \multicolumn{2}{c|}{\XBox}                           &                    \\ \hline
+  Walmart                   & Walmart              & \multicolumn{2}{c|}{\XBox}                           &                    \\ \hline
+  Pinterest                 & Pinterest            & \multicolumn{2}{c|}{\XBox}                           &                    \\ \hline
+  Uber                      & Uber Eats            & \multicolumn{2}{c|}{\XBox}                           &                    \\ \hline
+  Shopify                   & Shopify              & \multicolumn{2}{c|}{\XBox}                           &                    \\ \hline
+  Wix.com                   & Wix.com              & \multicolumn{2}{c|}{\XBox}                           &                    \\ \hline
+\end{tabular}
 \end{table}
 
-Berühmte Beispiele für Apps mit React Native \cite{reactNativeShowcase}
+\begin{center}
+  Berühmte Beispiele für Apps mit React Native \cite{reactNativeShowcase}
 \end{center}
 
 \subsection{Lizenz}
@@ -66,15 +67,15 @@ React dafür perfekt ausgeführt.
 Detaillierte Informationen zu State, Render-Funktionen, Komponenten und JSX finden Sie im Kapitel
 \nameref{reactjs}.
 
-\subsection{Benutzeroberfläche}
+\subsection{Wie ist eine React Native App aufgebaut?}
+Um ein React Native Projekt zu erzeugen, kann man nicht einfach eine Text-Datei auf seinem PC
+schreiben und sie kompilieren.
 
-
-\subsubsection{Core Components}
 
 
 \section{Expo CLI und Expo Go}
 Die Entwickler von React Native selbst empfehlen allen Anfängern im Gebiet App-Entwicklung die
-Verwendung der Expo CLI, welche eine vereinfachte 
+Verwendung der Expo CLI, welche eine vereinfachte Variante einer React Native Anwendung erzeugt.
 
 Die simpelsten Anwendungen können theoretisch auf jedem Zielbetriebssystem ausgeführt werden, also
 Android, iOS, Windows und Web. Sollte man in seiner Anwendung Zugriff auf gerätespezifische APIs
