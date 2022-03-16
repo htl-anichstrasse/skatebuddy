@@ -1,2 +1,23 @@
 \section{Daten senden}
 \label{sendData}
+
+Natürlich kann man über die Webseite auch Daten an den Server senden. Dies wird benötigt beim 
+Erstellen eines Benutzers sowohl als auch beim einloggen und beim Erstellen eines Parks oder einer 
+Review zu einem Park. Das Senden der Daten an der Server erfolgt ebenfalls mit einem \textit{Fetch}
+diesmal jedoch ist der fetch keine \textit{get Method} wie bei dem useFetch, sondern eine 
+\textit{post Method}.
+\begin{lstlisting}
+    fetch("APU_URL", {
+        method: 'POST',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(data)
+          },
+        ).then(function(response){
+          return response.json();
+        })
+\end{lstlisting}
+
+Im header geben wir an, welchen Datentyp (In unserem Fall ein JSON) wir senden. Im body wandeln wir 
+unseren Datenstring in ein JSON um und senden diesen dann an die entsprechende URL. Dann warten wir 
+auf eine Antwort vom Server, und returnen diese als json. Diese response können wir dann nach beliebigen 
+verwenden.

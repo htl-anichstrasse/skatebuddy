@@ -15,6 +15,7 @@
         "main.toc": true
     },
     "cSpell.words": [
+        "Decoden",
         "fuer",
         "gruessen",
         "gruss",
@@ -25,9 +26,11 @@
         "prototypbasierte",
         "Renderfunktion",
         "Renderlogik",
+        "returnen",
         "Skateparks",
         "Stilvorlagen",
-        "Stilvorlagensprache"
+        "Stilvorlagensprache",
+        "Tokendaten"
     ],
     "editor.rulers": [100],
     "workbench.colorCustomizations": {
