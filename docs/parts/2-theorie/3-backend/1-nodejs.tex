@@ -2,33 +2,55 @@
 \label{nodejs}
 
 \textit{Node.js} ist eine serverseitige, eventbasierte Laufzeitumgebung für die
-Programmiersprache \textit{JavaScript},
+Programmiersprache \textit{JavaScript} (\nameref{js}),
 mit der es möglich ist \textit{JavaScript} Code
 außerhalb des Webbrowsers auszuführen.
 
 Sie wurde 2009 von Ryan Dahl entwickelt als Anwendung, für die Entwicklung skalierbarer
 Netzwerkanwendungen.
 
-NodeJs basiert auf der V8-Engine also auf der selben Engine wie \textit{Google Chrome}.
+NodeJs basiert auf der \textit{V8-Engine} also auf der selben Engine wie \textit{Google Chrome}.
 Das heißt also, dass NodeJs die selbe Engine zum Ausführen von JavaScript-Code verwendet.
 wie \textit{Google Chrome}
+Die \textit{V8-Engine} ist eine prozessbasierte virtuelle Maschine, die
+mittels eines Just-In-Time (JIT) Compilers, den geschriebenen JavaScript Code,
+zur Laufzeit in Maschinencode übersetzt.
 
-Obwohl NodeJS hauptsächlich für die Programmierung von, Webserver
+Obwohl \textit{NodeJS} hauptsächlich für die Programmierung von, Webserver
 Programme eingesetzt wird, kann es auch für die Entwicklung von
 Skripten oder Tools oder bei Entwicklung von Desktop- oder Echtzeitanwendungen
 verwendet werden.
 
 \subsubsection{Vorteile von NodeJs}
-Einer der größten Vorteile von NodeJS gegenüber anderen Web-Serving-Techniken ist,
+Einer der größten Vorteile von \textit{NodeJS} gegenüber anderen Web-Serving-Techniken ist,
 dass es sich bei der Kommunikation um eine \textbf{Non-Blocking I/0} also Einer
 \textbf{asynchronen } Kommunikation handelt.
 
 Außerdem wird keine zusätzlicher Server benötigt bei einer NodeJS Anwendung,
 da die Anwendung auch den Webserver darstellt. Somit haben Server und Webserver
-die selbe Programmiersprache \textbf{Javascript} was wiederum ein großer Vorteil ist.
+die selbe Programmiersprache \textit{Javascript} was wiederum ein großer Vorteil ist.
 
-NodeJs beinhaltet außerdem eine Menge \textbf{Build-in-Modulen}, ohne Funktionen
+NodeJs beinhaltet außerdem eine Menge \textbf{Build-in-Modulen},
 die ohne zusätzliche Installation zur Verfügung stehen.
-Zur Installation von zusätzlichen
-\cite{NodeJs}
+Zwecks Installation, Entfernung und Aktualisierung von zusätzlichen Packages verfügt Node über den
+sogenannten \textit{Node Package Manager (npm)}. Alternativ kann auch der Packetmanager
+\textit{Yarn} verwendet werden.
+
+Packages sind externe Bibliotheken die untergeordnete Aufgaben in Projekten durchführen.
+
+
+\subsection{NodeJs Anwendungsbereich}
+Umfragen des Codings-Forums \textit{Stack Overflow} ergab das rund 50.4%
+der professionellen Entwickler NodeJs als Backend Framework verwenden.
+
+Große Unternehmen wie:
+\begin{itemize}
+    \item Netflix
+    \item Paypal
+    \item Uber
+    \item Linkedin
+\end{itemize}
+verwenden ebenfalls das Framework.
+\cite{NodeJs1}
+\cite{NodeJs2}
 
