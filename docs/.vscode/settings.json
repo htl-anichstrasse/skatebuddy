@@ -15,6 +15,7 @@
         "main.toc": true
     },
     "cSpell.words": [
+        "autogenerierte",
         "Decoden",
         "fuer",
         "gruessen",
@@ -30,7 +31,8 @@
         "Skateparks",
         "Stilvorlagen",
         "Stilvorlagensprache",
-        "Tokendaten"
+        "Tokendaten",
+        "vorgenerierte"
     ],
     "editor.rulers": [100],
     "workbench.colorCustomizations": {
