@@ -4,12 +4,145 @@
 In der App Komponente ist die \nameref{nav} und der \nameref{footer} definiert, 
 also sowohl auch die URLs zu den einzigen \nameref{views}. Diese URLs sind mittels einen React 
 Router definiert. Da der Footer direkt in der App-Komponente ausprogrammiert ist, 
-befindet sich die CSS auch in der CSS-Datei der App-Komponente. Die Navbar wird genau wie die Views 
-als Komponente reingeladen.
+befindet sich die CSS auch in der CSS-Datei der App-Komponente. Die Navigationsleiste wird genau 
+wie die Views als Komponente reingeladen.
 
 \subsection{React Router, Routes, Route}
+Alle Komponenten aus dem die Webseite besteht sind innerhalb einer Router Komponente definiert. Die 
+Router Komponente sorgt dafür, dass die Seite wie eine \nameref{singlePageApp} funktioniert. Betätigt
+der Benutzer einen Wechsel der View, was normalerweise einen Seitenwechsel verursachen würde, wird die 
+Anfrage an den Server vom React Router abgefangen und der Router sendet die neue View ohne einen 
+Seitenwechsel zu verursachen. 
 
-\subsection{Navbar}
+
+Innerhalb der Router-Komponente, nämlich dort wo die View angezeigt werden soll (in meinem Fall unter
+der Navigationsleiste) ist die Routes Komponente definiert.
+\begin{lstlisting}
+    <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/parks" element={<Parks />} />
+        <Route path="/skateparks/:id" element={<ParkDetails />} />
+        <Route path="/LogIn" element={<LogIn />}/>
+        <Route path="/CreateAccount" element={<CreateAccount/>}/>
+        <Route path="/AllMap" element={<AllMap/>}/>
+        <Route path="/Profile" element={<Profile/>}/>
+        <Route path="/AddPark" element={<AddPark/>}/>
+        <Route path="/AddRecommendation" element={<AddRecommendation/>}/>
+        <Route path="/Recommendations" element={<Recommendationlist/>}/>
+    </Routes>
+\end{lstlisting} 
+Innerhalb der Routes Komponente werden die einzelnen Routen definiert. Je nachdem welche URL aufgerufen wird,
+wird eine andere Komponente geladen. Diese Routen werden mittels \nameref{React-Links} in den einzelnen 
+Views geändert. Zum Beispiel wird bei der URL \textit{/parks} die Komponente \textbf{Parks} als 
+Inhalt geladen. Wie man sieht ist bei der \textit{/skateparks} URL ein /:id am Ende. Dieses :id 
+bedeutet, dass je nach welcher id man in die URL schreibt also 1, 2, 3, ... man der 
+ParkDetails-Komponente einen anderen Parameter übergibt. 
+
+\subsubsection{Link-Komponenten}
+\label{React-Links}
+Die Link-Komponente dient dazu die URL zu ändern falls man einen Viewwechsel durchführen möchte.
+\begin{lstlisting}
+   <Link to="/" className='home-nav' id="nav">
+       Home
+   </Link>
+\end{lstlisting}
+Durch das Klicken auf das Wort \textit{Home} wird die URL in diesem Beispiel auf \textit{/} geändert.
+Mit dieser geänderten URL ändern der Router mit den definierten Routes die View.
+
+\subsection{Navigationsleiste}
 \label{nav}
-\subsection{Footer}
+
+Die Navigationsleiste ist genauso wie der \nameref{footer} immer sichtbar. Sie steht über dem Inhalt der Seite und 
+dient zur Navigation der Webseite. Die Navigation erfolgt ganz einfach über \nameref{React-Links}.
+
+\begin{figure}[H]
+  \begin{center}
+    \frame{\includegraphics[width=1\textwidth]{Website/Not-Logged-In-Navbar.png}}
+    \caption{Navbar der Webseite wenn man nicht eingeloggt ist}
+  \end{center}
+\end{figure}
+
+Das Design der Navigationsleiste ist wie auch der Rest der Seite sehr simpel gehalten. Schwebt man 
+mit der Maus über eins der Felder mit denen man die View wechseln kann, wird dieses unterstrichen.
+
+
+Klickt man auf Home, Parks, Login oder Account Erstellen wird die Link-Komponente welche dich zu den 
+jeweiligen Views bringt aufgerufen. Ist man auf der Webseite jedoch eingeloggt, verschwinden jedoch 
+die Login und Account erstellen Felder und es erscheint ein Profil Feld.
+
+\begin{figure}[H]
+    \begin{center}
+      \frame{\includegraphics[width=1\textwidth]{Website/Logged-In-Navbar.png}}
+      \caption{Navbar der Webseite wenn man eingeloggt ist}
+    \end{center}
+\end{figure}
+
+\pagebreak
+
+Das Überprüfen ob man eingeloggt ist oder nicht erfolgt ganz einfach über \nameref{jsx}.
+
+
+\begin{lstlisting}
+    {token && 
+        <Link to="/Profile" className='pofile-nav' id="nav">
+          Profile
+        </Link>
+    }
+
+    {!token &&
+        <>
+         <Link to="/LogIn" className='login-nav' id="nav">
+          Login
+        </Link>
+        <Link to="/CreateAccount" className='createAccount-nav' id="nav">
+              Account Erstellen
+            </Link>
+        </>
+      }
+\end{lstlisting}
+
+Ist die token Variable nicht \textit{null} bzw nicht \textit{false}, wird der Code in den geschwungenen Klammern 
+mit token ausgeführt. Ist die Variable \textit{null oder false} wird der Code mit dem !token ausgeführt. 
+Die Variable token beinhaltet dies, was in dem SessionStorage der Seite steht. Ist man also eingeloggt, ist diese 
+nicht \textit{null} und der Code mit dem Profile-Link wird ausgeführt. Ist man nicht eingeloggt ist token 
+\textit{null} und der Code in den Klammern mit !token wird ausgeführt.
+
+\subsection{Fußzeile}
 \label{footer}
+
+Die Fußzeile ist ein simpler Absatz mit Information am Ende des Inhaltes.
+Sie ist wie auch die Navigationsleiste auf jeder View die selbe. In der Fußzeile befindet sich neben 
+der Information auch ein Top-Knopf, welcher bei Betätigung ganz nach oben scrollt. 
+
+\begin{figure}[H]
+    \begin{center}
+      \frame{\includegraphics[width=0.8\textwidth]{Website/Footer.png}}
+      \caption{Die Fußzeile der Webseite}
+    \end{center}
+\end{figure}
+
+\pagebreak
+
+Damit der Knopf bei Mausklick von selbst nach oben scrollt, weiße ich ihm eine JavaScript-Funktion bei
+Knopfdruck zu.
+
+\begin{lstlisting}
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+    <button onClick={topFunction} id="myBtn" title="Go to top" className="top-button">Top</button>
+\end{lstlisting}
+
+Bei Knopfdruck wird diese simple Funktion ausgeführt, welche ganz nach oben scrollen. Damit die 
+Funktion scrollt und nicht auf einmal ganz oben ist, musste noch folgendes in der CSS Datei 
+hinzugefügt werde.
+
+\begin{lstlisting}
+    html {
+        scroll-behavior: smooth;
+    }
+\end{lstlisting}
+
+Damit springt die Seite mit Knopfdruck nicht nach oben, sondern scrollt reibungslos.
