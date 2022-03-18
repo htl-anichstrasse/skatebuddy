@@ -6,7 +6,7 @@ React Native ist ein JavaScript-Framework, welches dafür verwendet wird, Cross-
 die Betriebssysteme Android, iOS, Windows und MacOS zu entwickeln. Außerdem ist der Zugriff auf die
 native Plattform-API möglich.
 
-\subsection{Wie viel React steckt wirklich in React Native?}
+\subsubsection{Wie viel React steckt wirklich in React Native?}
 Wie der Name schon vermuten lässt baut React Native hauptsächlich auf die JavaScript-Bibliothek
 React auf. Sie hilft bei der Erstellung der Benutzeroberfläche, verwaltet den Zustand der
 Anwendung und hat noch viele weitere kleine Aufgaben. React an sich ist noch eine Bibliothek,
@@ -16,7 +16,7 @@ React dafür perfekt ausgeführt.
 Detaillierte Informationen zu State, Render-Funktionen, Komponenten und JSX finden Sie im Kapitel
 \nameref{reactjs}.
 
-\subsection{Geschichte}
+\subsubsection{Geschichte}
 Die ersten Versionen der Facebook-App für Smartphones war eine Hybrid-App, also eine Webseite,
 welche einfach in einer nativen App eingebunden wird \cite{reactNativeHistory}. Die Leistung der
 Handy-App war für das Niveau des Social-Media-Giganten eindeutig zu schlecht, die App musste neu
@@ -32,7 +32,7 @@ Facebook intern in ihren erfolgreichsten Apps React Native als Basistechnologie.
 stellt selbst Bibliotheken zur Verfügung, um React Native Anwendungen auch für die Universal Windows
 Platform (UWP) und MacOS zu entwickeln.
 
-\subsection{Wer benutzt React Native?}
+\subsubsection{Wer benutzt React Native?}
 Laut der eigenen Webseite von React Native benutzen einige der größten Firmen der Welt React Native
 als Cross-Platform-Framework für ihre Android- und iOS-Apps.
 
@@ -62,11 +62,11 @@ als Cross-Platform-Framework für ihre Android- und iOS-Apps.
   Berühmte Beispiele für Apps mit React Native \cite{reactNativeShowcase}
 \end{center}
 
-\subsection{Lizenz}
+\subsubsection{Lizenz}
 React Native wird unter der MIT-Lizenz geführt, das heißt dass jeder die Software sowohl für
 Open-Source als auch für Closed-Source-Projekte verwenden darf.
 
-\section{Erstellung eines React Native Projekts}
+\subsection{Erstellung eines React Native Projekts}
 Schon bei der Erstellung des Projekts müssen einige Fragen geklärt werden. Als erstes sollte man
 sich wohl fragen, mit welcher CLI man das Projekt erstellen möchte.
 
@@ -82,7 +82,7 @@ Emulatoren:
   \item Gnome Shell
 \end{itemize}
 
-\subsection{Expo CLI}
+\subsubsection{Expo CLI}
 Die Entwickler von React Native selbst empfehlen allen Anfängern im Gebiet App-Entwicklung die
 Verwendung der Expo CLI, welche eine vereinfachte Variante einer React Native Anwendung erzeugt.
 
@@ -93,7 +93,7 @@ Ein wichtiger Nachteil ist jedoch, dass man in einem Expo-Projekt eingeschränkt
 Schnittstellen des Betriebssystems hat, es sind im Projekt nicht einmal die Ordner android und ios
 vorhanden, um Änderungen vorzunehmen.
 
-\subsubsection{Installation und Erstellung}
+\subsubsection{Installation und Erstellung einer Expo App}
 Um eine Expo React Native Anwendung erstellen zu können benötigt man als erstes \nameref{nodejs} und
 den darin enthaltenen Node Package Manager. In einer Kommandozeile führt man nun folgende Befehle
 aus, um die Expo-CLI im globalen Kontext zu installieren und anschließend ein Expo Projekt zu
@@ -121,18 +121,31 @@ C:\example>expo init expoInitBlank
   \end{center}
 \end{figure}
 
+
+\begin{itemize}
+  \item Ordner:
+  \begin{itemize}
+    \item \textbf{.expo-shared, .git, .vscode}:\\
 In den Ordnern .expo-shared, .git und .vscode befinden sich lediglich Konfigurationsdateien für Expo
 selbst, die Versionsverwaltungssoftware Git und Visual Studio Code, dem Text-Editor, den wir
 durchwegs für die gesamte Diplomarbeit verwendet haben.
 
+    \item \textbf{assets}:\\
 Der Ordner assets ist für das Abspeichern von statischen Ressourcen, wie Bildern, Icons oder
 ähnliches gedacht.
 
+    \item \textbf{node\_modules/}:\\
 Im Ordner node\_modules werden alle Bibliotheken abgespeichert, die mit Hilfe des Paketmanagers
 in das Projekt eingebunden wurden. Expo entschied sich gegen die Verwendung von NPM und verwendet
 stattdessen Yarn.
+  \end{itemize}
 
-Die wichtigste Datei im Projekt ist wohl App.js, sie stellt den Einstiegspunkt für das Projekt dar.
+\newpage
+
+  \item Dateien:
+  \begin{itemize}
+    \item \textbf{App.js}\\
+Die wichtigste Datei im Projekt ist wohl App.js, sie ist der Einstiegspunkt für die App.
 
 \begin{lstlisting}
 import { StyleSheet, Text, View } from 'react-native';
@@ -188,9 +201,17 @@ werden \cite{camelCaseNotation}.
 Am Ende der Datei wird noch die Komponente als Default exportiert, damit sie von Expo verarbeitet
 werden kann \cite{jsModules}.
 
+    \item \textbf{.gitignore}\\
 In die Datei .gitignore fügt man Datei- und Ordnernamen ein, die nicht von der Versionsverwaltung
 gesichert werden sollen. Sehr zu empfehlen ist dies beim Ordner node\_modules, da dieser schon
-direkt nach der Erstellung 170 Megabytes groß ist.
+direkt nach der Erstellung 170 Megabytes groß ist und er aus den Dateien package.json und yarn.lock
+generiert werden kann.
+
+
+\end{itemize}
+\end{itemize}
+
+
 
 \subsection{}
 
