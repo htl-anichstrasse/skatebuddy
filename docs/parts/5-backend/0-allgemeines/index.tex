@@ -27,13 +27,6 @@ Zur Konfiguration des Backend-Servers werden die Konfigurationswerte zuerst in d
 
 Die Secrets müssen in Textdateien in einem vom VCS ausgenommenen Ordner erstellt werden. Diese Textdateien müssen anschließend bei der Erstellung der Container, in unserem Fall in der \lstinline{docker-compose.yml}, eingetragen werden. Beim Start der Container werden alle Secrets in die Container an den Pfad \lstinline{/run/secrets/<key>} kopiert, wo sie schlussendlich ausgelesen werden können.
 
-\begin{code}[htp]
-    \begin{center}
-        \includegraphics[width=1\textwidth]{images/Backend/secrets.png}
-        \vspace{-25pt}
-        \caption{Sokkas Docker Secrets in der \lstinline{docker-compose.yml}}
-    \end{center}
-\end{code}
 
 \section{REST-API}
 
