@@ -93,10 +93,11 @@ Ein wichtiger Nachteil ist jedoch, dass man in einem Expo-Projekt eingeschränkt
 Schnittstellen des Betriebssystems hat, es sind im Projekt nicht einmal die Ordner android und ios
 vorhanden, um Änderungen vorzunehmen.
 
+\subsubsection{Installation und Erstellung}
 Um eine Expo React Native Anwendung erstellen zu können benötigt man als erstes \nameref{nodejs} und
 den darin enthaltenen Node Package Manager. In einer Kommandozeile führt man nun folgende Befehle
 aus, um die Expo-CLI im globalen Kontext zu installieren und anschließend ein Expo Projekt zu
-erstellen.
+erstellen. Nach der Auswahl für die Vorlage wir das Projekt erstellt.
 
 \begin{lstlisting}
 C:\example> npm install -g expo-cli
@@ -110,29 +111,88 @@ C:\example>expo init expoInitBlank
     tabs (TypeScript)   several example screens and tabs using react-navigation and TypeScript
     ----- Bare workflow -----
     minimal             bare and minimal, just the essentials to get you started
-
-Choose a template: blank
-Downloaded template.
-Using Yarn to install packages. Pass --npm to use npm instead.
-Installed JavaScript dependencies.
-
-Your project is ready!
-
-To run your project, navigate to the directory and run one of the following yarn commands.
-
-- cd expoInitBlank
-- yarn start # you can open iOS, Android, or web from here, or run them directly with the commands below.
-- yarn android
-- yarn ios # requires an iOS device or macOS for access to an iOS simulator
-- yarn web
 \end{lstlisting}
 
+\subsubsection{Ordnerstruktur}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{Theorie/ReactNative/ExpoFolderStructure.JPG}
+    \caption{Ordnerstruktur Expo Init Blank}
+  \end{center}
+\end{figure}
+
+In den Ordnern .expo-shared, .git und .vscode befinden sich lediglich Konfigurationsdateien für Expo
+selbst, die Versionsverwaltungssoftware Git und Visual Studio Code, dem Text-Editor, den wir
+durchwegs für die gesamte Diplomarbeit verwendet haben.
+
+Der Ordner assets ist für das Abspeichern von statischen Ressourcen, wie Bildern, Icons oder
+ähnliches gedacht.
+
+Im Ordner node\_modules werden alle Bibliotheken abgespeichert, die mit Hilfe des Paketmanagers
+in das Projekt eingebunden wurden. Expo entschied sich gegen die Verwendung von NPM und verwendet
+stattdessen Yarn.
+
+Die wichtigste Datei im Projekt ist wohl App.js, sie stellt den Einstiegspunkt für das Projekt dar.
+
+\begin{lstlisting}
+import { StyleSheet, Text, View } from 'react-native';
+
+function App() {
+  return (
+    <View style={styles.container}>
+      <Text>Open up App.js to start working on your app!</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+
+export default App;
+\end{lstlisting}
+
+In der ersten Zeile des Programms werden diverse React Native Core Components importiert. Core
+Components sind, wörtlich übersetzt, die Kernkomponenten des Frameworks, mit ihnen wird der Großteil
+der Benutzeroberfläche aufgebaut. Wie bereits erwähnt, werden die React Native Komponenten beim
+Kompilieren in die richtigen Komponenten für das Zielsystem umgewandelt.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|l|}
+  \hline
+  \textbf{Komponente} & \textbf{Android} & \textbf{iOS} & \textbf{HTML} \\ \hline\hline
+  View                & ViewGroup        & UIView       & div          \\
+  Text                & TextView         & UITextView   & p            \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{center}
+  React Native Core Components und deren Äquivalente im Überblick \cite{reactNativeCoreComponents}
+\end{center}
+
+In der nächsten Zeile wird unserer erster React-Component erzeugt, welcher im Grunde nur eine
+Funktion ist, die \nameref{jsx}-Code als Rückgabewert liefert.
+
+In Zeile 5 wird zur View ein React Native StyleSheet zugewiesen. Man verwendet nämlich kein
+gewöhnliches \nameref{css}, wie in der Webentwicklung, sondern ein relativ ähnlich aufgebautes,
+eigenes System zur Gestaltung der App. Ein wichtiger Unterschied ist, dass die Attribut-Namen im
+StyleSheet nicht durch Bindestriche getrennt, sondern in der LowerCamelCase-Notation geschrieben
+werden \cite{camelCaseNotation}.
+
+Am Ende der Datei wird noch die Komponente als Default exportiert, damit sie von Expo verarbeitet
+werden kann \cite{jsModules}.
+
+In die Datei .gitignore fügt man Datei- und Ordnernamen ein, die nicht von der Versionsverwaltung
+gesichert werden sollen. Sehr zu empfehlen ist dies beim Ordner node\_modules, da dieser schon
+direkt nach der Erstellung 170 Megabytes groß ist.
 
 \subsection{}
-
-Die simpelsten Anwendungen können theoretisch auf jedem Zielbetriebssystem ausgeführt werden, also
-Android, iOS, Windows und Web. Sollte man in seiner Anwendung Zugriff auf gerätespezifische APIs
-oder Konfigurationsdateien benötigen.
 
 \section{React Native CLI}
 npx seit npm 5.2.0
