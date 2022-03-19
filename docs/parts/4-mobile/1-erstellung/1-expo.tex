@@ -1,4 +1,4 @@
-\subsubsection{Expo CLI}
+\section{Expo CLI}
 \label{expocli}
 Die Entwickler von React Native selbst empfehlen allen Anfängern im Gebiet App-Entwicklung die
 Verwendung der Expo CLI \cite{expocli}, welche eine vereinfachte Variante einer React Native Anwendung erzeugt.
@@ -14,7 +14,7 @@ vorhanden, um Änderungen vorzunehmen.
 Um eine Expo React Native Anwendung erstellen zu können benötigt man als erstes \nameref{nodejs} und
 den darin enthaltenen Node Package Manager. In einer Kommandozeile führt man nun folgende Befehle
 aus, um die Expo-CLI im globalen Kontext zu installieren und anschließend ein Expo Projekt zu
-erstellen. Nach der Auswahl für die Vorlage wir das Projekt erstellt.
+erstellen. Nach der Auswahl für die Vorlage wird das Projekt erstellt.
 
 \begin{lstlisting}
 C:\example> npm install -g expo-cli
@@ -139,7 +139,7 @@ Installieren den Tag -{}-save-dev anhängen).
 
 \item \textbf{package-lock.json, yarn.lock}\\
 package-lock.json und yarn.lock haben beide dieselbe Aufgabe, sie sollten jedoch niemals
-gleichzeitig im gleichen Projekt existieren. Ersteres gehört nämlich zum Paketmanager NPM, wobei
+gleichzeitig im selben Projekt existieren. Ersteres gehört nämlich zum Paketmanager NPM, wobei
 yarn.lock von Yarn generiert wird. Expo erzeugt ein Blank-Template standardmäßig mit Yarn, man kann
 aber auch stattdessen mit dem Tag -{}-npm bei der Projekterstellung NPM einbinden.
 
@@ -160,15 +160,9 @@ generiert werden kann.
 \end{itemize}
 \end{itemize}
 
-\subsubsection{Metro}
-\label{metrobundler}
-Beim Start der App wird als erstes der Metro Bundler initialisiert. Er besteht aus einem Server,
-welcher den geschriebenen Code mittels Babel kompiliert und anschließend an die App schickt. Dadurch
-verhindert man, jedes mal die App neu auf das Gerät installieren zu müssen, um eine kleine Änderung
-im Text sehen zu können. Beim Einbinden von neuen JavaScript-Bibliotheken muss allerdings der
-Bundler neu gestartet werden, um diese verwenden zu können.
 
-Um die App zu starten gibt man folgenden Befehl ein:
+Die App kann nun sofort getestet werden, als erstes startet man wieder den JavaScript-Bundler
+\nameref{metrobundler} mit folgendem Befehl:
 
 \begin{figure}[H]
   \begin{center}
