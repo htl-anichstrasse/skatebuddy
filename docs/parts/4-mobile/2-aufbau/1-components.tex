@@ -1,26 +1,3 @@
-\chapter{Screens, Components \& Styles}
-In unserer App wollen wir Informationen für den Benutzer verständlich darstellen. Es würde keinen
-Sinn machen alle Informationen auf die gleiche Seite zu schreiben, eine logische Gliederung der App
-ist daher sehr wichtig. Screens sind im Grunde nur React-Komponenten; sie werden aus mehreren
-kleineren Komponenten zusammengebaut.
-
-\section{Arten von Screens}
-In Apps gibt es eigentlich nicht so viele Arten von Screens, hier die häufigsten Anwendungsfälle im
-Überblick:
-
-\subsection{Listen}
-Listen-Screens sind dafür da, um mehrere Datensätze untereinander oder nebeneinander darzustellen.
-Dafür wird über jedes Element in einer Liste iteriert und an eine Komponente weitergegeben, welche
-anschließend die Daten aufbereitet und darstellt.
-
-\subsection{Details}
-Nachdem man jedes Element aufgelistet hat, sollte es noch möglich sein ein Element genauer zu
-betrachten bzw. alle Informationen anzuzeigen, welche nicht im Überblick der Liste Platz haben.
-
-\subsection{Formular}
-In Formularen kann der Benutzer Informationen in die App eintragen, welche dann per HTTP an das
-Backend geschickt werden.
-
 \section{Komponenten}
 Komponenten, die in vielen anderen Komponenten gebraucht werden, werden bei uns im Ordner
 root/components/common gespeichert. Andere Komponenten werden im components-Ordner nach ihrem
@@ -193,19 +170,3 @@ verändert. Solle bei der Textüberprüfung ein Fehler auftreten, so wird die Ko
     \caption{Korrekte Eingabe}
   \end{center}
 \end{figure}
-
-
-
-\section{Styles}
-\subsection{Schriftart}
-Durch den Common-Component Text können wir jedem Text in der App eine einheitliche Schriftart geben.
-Ich entschied mich für die Font Poppins.
-
-\subsection{Farbwerte}
-Alle Farben, die man in der App sehen kann, wurden in der Datei Colors.js in root/styles festgelegt.
-So muss nicht, sollte sich das Design ändern müssen, in jedem StyleSheet jede Farbe einzeln
-getauscht werden.
-
-Die Hauptfarbe der App ist der wunderschöne Grünton Jade (\#00A86B), welchen ich durch die Webseite
-color-name.com \cite{colorName} fand. Die Webseite MyColor.Space \cite{myColorSpace} erzeugt anhand
-einer Farbe mehrere andere Farben, die gut dazu passen.
