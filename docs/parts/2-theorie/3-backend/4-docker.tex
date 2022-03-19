@@ -1,7 +1,7 @@
 \section{Docker}
 \subsection{Was ist Docker?}
 Der Begriff \textit{Docker} bezieht sich auf mehrere Dinge. Ein Docker ist sowohl ein Open Source
-Community Projekt, als auch das Unternehmen \textit{Docker Inc}, dass das Projekt und seine Tools#
+Community Projekt, als auch das Unternehmen \textit{Docker Inc}, dass das Projekt und seine Tools
 hauptsächlich unterstützt.
 
 Unter der IT-Software Docker versteht man also eine Containertechnologie, die die Erstellung von Linux
@@ -9,4 +9,31 @@ Containern ermöglicht. Die Container sind in der Regel leichtgewichtige, modula
 . Dadurch entsteht vor allem Flexibilität, da die Container einfach erstellt, eingesetzt, konzipiert
 und zwischen Umgebungen bewegt werden können.
 
+\subsection{Wie genau funktioniert Docker?}
+Damit Docker Prozesse unabhängig voneinander ausführen kann, verwendet die Docker Technologie
+den Linux Kernel und seine Funktionen wie \textbf{Cgroups} \textbf{namespaces}. Somit werden die
+einzelnen Container voneinander isoliert und es ist möglich mehrere Prozesse und Apps getrennt
+voneinander ausführen zu können. Dadurch entsteht eine bessere Infrastruktur die gleichzeitig
+Sicherheit bewahrt.
+
+Die Containertools arbeiten mit einem Image-basierten Bereitstellungsmodell. Aufgrund dessen ist es
+einfach Anwendungen oder Pakete mit all ihren Abhängigkeiten in mehreren Systemen gemeinsam zu benutzen.
+Alle diese Tools bauen auf Linux Container auf was ihre Benutzung einfach und einzigartig macht.
+Außerdem ermöglicht es eine schnellere Bereitstellung und Kontrolle von Versionen und ihrer Verbreitung.
+
+\subsection{Unterschied Docker Container und herkömmliche Linux-Container}
+Ursprünglich basierte die Docker Technologie auf der \textbf{LXC- Technologie}, die mit den
+traditionellen Linux Container assoziiert wird. Docker hat sich jedoch mittlerweile von dieser
+Abhängigkeit befreit, da LXC keine gute Entwickler und Nutzererfahrung bot. Docker bietet wie bereits
+erwähnt mehr Funktionen an als nur die reine Ausführung von Container, sie vereinfacht den Prozess der
+Erstellung und des Aufbaus von Container sowie den Versand von Images.
+
+Linux Container verwenden ein init-System, das mehrere Prozesse verwalten kann. Somit können
+komplette Anwendungen als eines betrieben werden. Docker hingegen schlüsselt die Anwendungen und
+ihre einzelnen Prozesse auf und stellt somit die Tools bereit.
+
+\subsection{Vorteile von Docker}
+
+
+\cite{Docker}
 \label{Docker}
