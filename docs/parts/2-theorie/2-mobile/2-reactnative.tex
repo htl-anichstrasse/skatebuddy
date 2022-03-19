@@ -6,7 +6,7 @@ React Native ist ein JavaScript-Framework, welches dafür verwendet wird, Cross-
 die Betriebssysteme Android, iOS, Windows und MacOS zu entwickeln. Außerdem ist der Zugriff auf die
 native Plattform-API möglich.
 
-\subsection{Wie viel React steckt wirklich in React Native?}
+\subsubsection{Wie viel React steckt wirklich in React Native?}
 Wie der Name schon vermuten lässt baut React Native hauptsächlich auf die JavaScript-Bibliothek
 React auf. Sie hilft bei der Erstellung der Benutzeroberfläche, verwaltet den Zustand der
 Anwendung und hat noch viele weitere kleine Aufgaben. React an sich ist noch eine Bibliothek,
@@ -16,7 +16,7 @@ React dafür perfekt ausgeführt.
 Detaillierte Informationen zu State, Render-Funktionen, Komponenten und JSX finden Sie im Kapitel
 \nameref{reactjs}.
 
-\subsection{Geschichte}
+\subsubsection{Geschichte}
 Die ersten Versionen der Facebook-App für Smartphones war eine Hybrid-App, also eine Webseite,
 welche einfach in einer nativen App eingebunden wird \cite{reactNativeHistory}. Die Leistung der
 Handy-App war für das Niveau des Social-Media-Giganten eindeutig zu schlecht, die App musste neu
@@ -32,7 +32,9 @@ Facebook intern in ihren erfolgreichsten Apps React Native als Basistechnologie.
 stellt selbst Bibliotheken zur Verfügung, um React Native Anwendungen auch für die Universal Windows
 Platform (UWP) und MacOS zu entwickeln.
 
-\subsection{Wer benutzt React Native?}
+\newpage
+
+\subsubsection{Wer benutzt React Native?}
 Laut der eigenen Webseite von React Native benutzen einige der größten Firmen der Welt React Native
 als Cross-Platform-Framework für ihre Android- und iOS-Apps.
 
@@ -69,6 +71,124 @@ Dieser Post ist aus dem Jahr 2018 und seitdem hat sich React Native stark verbes
 begann nämlich auch die Entwicklung von Fabric, der neuen Render-Engine von React Native, welche
 2021 dann schließlich in die offizielle Facebook App übernommen wurde.
 
-\subsection{Lizenz}
+\subsubsection{Lizenz}
 React Native wird unter der MIT-Lizenz geführt, das heißt dass jeder die Software sowohl für
 Open-Source als auch für Closed-Source-Projekte verwenden darf.
+
+\subsection{Erstellung eines React Native Projekts}
+Schon bei der Erstellung des Projekts müssen einige Fragen geklärt werden. Als erstes sollte man
+sich wohl fragen, mit welcher CLI man das Projekt erstellen möchte.
+
+Mit CLI (für engl. command-line-interface) ist in unserem Kontext eine Sammlung von Befehlen
+gemeint, die in der Kommandozeile eines PCs ausgeführt werden können. Beispiele für Kommandozeilen-
+Emulatoren:
+
+\begin{itemize}
+  \item Windows Powershell
+  \item Windows Cmd
+  \item MacOS zsh
+  \item Git Bash
+  \item Gnome Shell
+\end{itemize}
+
+\input{parts/2-theorie/2-mobile/3-expo.tex}
+
+\subsubsection{React Native CLI}
+Bei der Installationsanleitung auf der Webseite von React Native kann man sein aktuelles
+Betriebssystem und Zielplattform auswählen. Apple erlaubt nicht die Entwicklung von Apps auf anderen
+Betriebssystemen als MacOS selbst, d.h. die Entwicklung der App ist auf Windows 11, meinem
+Betriebssystem, nicht möglich. Ich hatte auch während der Entwicklung nie Zugriff auf einen PC mit
+MacOS, daher wurde die gesamte App ausschließlich für Android entwickelt. Doch sollten wir jemals
+diese App wirklich veröffentlichen wollen, so wird das Umschreiben keinen großen Aufwand darstellen,
+da wir immer darauf geachtet haben, nur Bibliotheken zu verwenden, die auch für iOS kompatibel sind.
+
+\subsubsection{Abhängigkeiten und Erstellung des Projekts}
+Für die Verwendung der React-Native-CLI werden einige andere Softwarepakete benötigt, darunter --
+natürlich -- \nameref{nodejs}, mindestens Version 12. Außerdem wird benötigt:
+
+\begin{itemize}
+  \item Java SE Development Kit (mind. Version 11)
+  \item Android Studio
+  \begin{itemize}
+    \item Android SDK 11 (R)
+    \item Android SDK Platform: API Level 30
+    \item Android Virtual Device: Google Pixel 2 mit Android 11
+  \end{itemize}
+\end{itemize}
+
+Sobald alle Abhängigkeiten installiert wurden, führt man folgenden Befehl aus, um ein neues React
+Native Projekt zu erstellen:
+
+\begin{lstlisting}
+C:\example> npx react-native init reactNativeInit
+\end{lstlisting}
+
+NPX ist ein Befehl, der seit Version 5.2.0 in NPM enthalten ist. Er ist speziell bei CLIs hilfreich,
+denn anstatt das Paket react-native auf dem PC zu installieren und dann aufzurufen, wird mit dem
+Befehl automatisch die neueste Version der CLI von einem Server abgefragt und ausgeführt. So kann
+man sicherstellen, dass niemals eine veraltete Version der CLI verwendet wird.
+
+Die App kann nun sofort getestet werden, als erstes startet man wieder den JavaScript-Bundler
+\nameref{metrobundler} mit folgendem Befehl:
+
+\begin{lstlisting}
+C:\example\reactNativeInit> npm start
+\end{lstlisting}
+
+Dies ist die Kurzschreibweise für den Befehl npm run start. Start ist nämlich ein Skript in der
+Datei package.json.
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{Theorie/ReactNative/MetroBundler.png}
+    \caption{Der Metro-Server in Aktion}
+  \end{center}
+\end{figure}
+
+Als nächstes öffnet man den Ordner root/android in Android Studio. Man hat nun zwei Möglichkeiten,
+die App auszuführen:
+
+\begin{enumerate}
+  \item Mit einem virtuellen Android Gerät (Android Virtual Device AVD):\\
+Dazu öffnet man in Android Studio den AVD-Manager und erstellt einen neuen Emulator mit einer
+Android Version von 11. Danach startet man den Emulator und führt folgenden Befehl aus:
+
+\begin{lstlisting}
+C:\example\reactNativeInit> npm run android
+\end{lstlisting}
+
+Die App wird auf dem Emulator installiert und ausgeführt.
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{Theorie/ReactNative/AndroidStudio.png}
+    \caption{Die Beispiel-App in Android Studio}
+  \end{center}
+\end{figure}
+
+  \item Mit einem physischen Android-Gerät:\\
+Als erstes aktiviert man auf dem Gerät in den Einstellungen USB-Debugging und schließt es mittels
+USB an den PC an. Wenn alle Treiber installiert sind, müsste es dann direkt in Android Studio
+erkannt werden, um die App zu installieren.
+
+Jetzt muss noch ein Tunnel über die USB-Verbindung erzeugt werden, damit das Gerät darüber mit dem
+lokalen Metro-Server kommunizieren kann. Man listet alle Geräte auf und erzeugt dann mit der
+Device-Identifikation einen Tunnel.
+
+\begin{lstlisting}
+C:\example\reactNativeInit> adb devices
+List of devices attached
+34299o5j85o496g3        device
+emulator-8125           device
+
+C:\example\reactNativeInit> adb -s 34299o5j85o496g3 reverse tcp:8081 tcp:8081
+8081
+\end{lstlisting}
+
+\end{enumerate}
+
+\subsubsection{Andere CLIs}
+\begin{itemize}
+  \item IgniteCLI \cite{ignitecli}
+  \item Create-React-Native-App \cite{createReactNativeApp}
+\end{itemize}

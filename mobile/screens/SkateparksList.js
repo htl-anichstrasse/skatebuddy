@@ -103,16 +103,6 @@ const SkateparksList = ({ navigation }) => {
       {error && <Error error={error} refresh={refreshData} />}
       {skateparks && (
         <>
-          {/* // * use this button to log the durations and save them in useFetch to avoid API call
-              // TODO CACHING
-           <Button
-            title="Log skateparks"
-            onPress={() => {
-              skateparks.forEach(skatepark => {
-                console.log(skatepark.durations);
-              });
-            }}
-          /> */}
           <SkateparksListSettings
             state={state}
             dispatch={dispatch}
