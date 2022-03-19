@@ -21,7 +21,7 @@
     "flow-bin": "^0.158.0",
     "formik": "^2.2.9",
     "react": "17.0.2",
-    "react-native": "0.66.3",
+    "react-native": "0.67.4",
     "react-native-flash-message": "^0.2.0",
     "react-native-geolocation-service": "^5.3.0-beta.4",
     "react-native-keychain": "^8.0.0",

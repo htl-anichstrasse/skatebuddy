@@ -31,7 +31,7 @@ const ProfileScreen = () => {
               color={colors.white}
             /> */}
           <Image
-            source={require('../data/defaultUserProfilePicture1.jpg')}
+            source={require('../data/defaultUserProfilePicture.jpg')}
             style={styles.profilePicture}
           />
           {/* <Pressable

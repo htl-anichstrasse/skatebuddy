@@ -1,19 +1,4 @@
-export const skateparksImages = {
-  1: {
-    main: require('../data/skatepark_pictures/1-rum/main.jpg'),
-  },
-  2: {
-    main: require('../data/skatepark_pictures/2-tivoli/main.jpg'),
-  },
-  3: {
-    main: require('../data/skatepark_pictures/3-usi/main.jpg'),
-  },
-  4: {
-    main: require('../data/skatepark_pictures/4-lohbach/main.jpg'),
-  },
-};
-
-export const obstaclesIcons = {
+const obstaclesIcons = {
   1: require('../data/obstaclesIcons/bank-icon.jpg'),
   2: require('../data/obstaclesIcons/flatrail-icon.jpg'),
   3: require('../data/obstaclesIcons/funbox-icon.jpg'),
@@ -26,3 +11,5 @@ export const obstaclesIcons = {
   10: require('../data/obstaclesIcons/quarter-icon.jpg'),
   11: require('../data/obstaclesIcons/wallride-icon.jpg'),
 };
+
+export default obstaclesIcons;
