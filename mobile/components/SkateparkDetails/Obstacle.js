@@ -11,7 +11,7 @@ import Text from '@components/common/Text';
 // styles
 import styles from '../../styles/ObstaclesStyles';
 import colors from '@styles/Colors';
-import { obstaclesIcons } from '../../styles/Images';
+import obstaclesIcons from '../../styles/ObstaclesIcons';
 
 const Obstacle = ({ obstacle }) => {
   const skulls = obstacle.difficulty;

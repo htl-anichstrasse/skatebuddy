@@ -10,7 +10,7 @@ Ein wichtiger Nachteil ist jedoch, dass man in einem Expo-Projekt eingeschränkt
 Schnittstellen des Betriebssystems hat, es sind im Projekt nicht einmal die Ordner android und ios
 vorhanden, um Änderungen vorzunehmen.
 
-\subsubsection{Installation und Erstellung einer Expo App}
+\subsection{Installation und Erstellung einer Expo App}
 Um eine Expo React Native Anwendung erstellen zu können benötigt man als erstes \nameref{nodejs} und
 den darin enthaltenen Node Package Manager. In einer Kommandozeile führt man nun folgende Befehle
 aus, um die Expo-CLI im globalen Kontext zu installieren und anschließend ein Expo Projekt zu
@@ -30,136 +30,29 @@ C:\example>expo init expoInitBlank
     minimal             bare and minimal, just the essentials to get you started
 \end{lstlisting}
 
-\subsubsection{Ordnerstruktur}
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.5\textwidth]{Theorie/ReactNative/ExpoFolderStructure.JPG}
-    \caption{Ordnerstruktur Expo Init Blank}
-  \end{center}
-\end{figure}
-
 \begin{itemize}
 \item Ordner:
-\begin{itemize}
-\item \textbf{.expo-shared, .git, .vscode}:\\
-In den Ordnern .expo-shared, .git und .vscode befinden sich lediglich Konfigurationsdateien für Expo
-selbst, die Versionsverwaltungssoftware Git und Visual Studio Code, dem Text-Editor, den wir
-durchwegs für die gesamte Diplomarbeit verwendet haben.
+  \begin{itemize}
+  \item \textbf{.expo-shared, .git}:\\
+  In den Ordnern .expo-shared, .git und .vscode befinden sich lediglich Konfigurationsdateien für
+  Expo selbst und die Versionsverwaltungssoftware Git.
 
-\item \textbf{assets}:\\
-Der Ordner assets ist für das Abspeichern von statischen Ressourcen, wie Bildern, Icons oder
-ähnliches gedacht.
-
-\item \textbf{node\_modules/}:\\
-Im Ordner node\_modules werden alle Bibliotheken abgespeichert, die mit Hilfe des Paketmanagers
-in das Projekt eingebunden wurden. Expo entschied sich gegen die Verwendung von NPM und verwendet
-stattdessen Yarn.
-\end{itemize}
-
-\newpage
+  \item \textbf{assets}:\\
+  Der Ordner assets ist für das Abspeichern von statischen Ressourcen, wie Bilder, Icons oder
+  ähnliches gedacht.
+  \end{itemize}
 
 \item Dateien:
+  \begin{itemize}
+  \item \textbf{app.json}\\
+  In app.json werden bei der Erstellung mit Expo zusätzliche Informationen zur App abgespeichert,
+  darunter auch die Versionsnummer, Bildschirmausrichtung und noch viele weitere Optionen.
 
-\begin{itemize}
-\item \textbf{App.js}\\
-Die wichtigste Datei im Projekt ist wohl App.js, sie ist der Einstiegspunkt für die App.
-
-\begin{lstlisting}
-import { StyleSheet, Text, View } from 'react-native';
-
-function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
-export default App;
-\end{lstlisting}
-
-In der ersten Zeile des Programms werden diverse React Native Core Components importiert. Core
-Components sind, wörtlich übersetzt, die Kernkomponenten des Frameworks, mit ihnen wird der Großteil
-der Benutzeroberfläche aufgebaut. Wie bereits erwähnt, werden die React Native Komponenten beim
-Kompilieren in die richtigen Komponenten für das Zielsystem umgewandelt.
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|l|l|l|}
-  \hline
-  \textbf{Komponente} & \textbf{Android} & \textbf{iOS} & \textbf{HTML} \\ \hline\hline
-  View                & ViewGroup        & UIView       & div          \\
-  Text                & TextView         & UITextView   & p            \\ \hline
-\end{tabular}
-\end{table}
-
-\begin{center}
-  React Native Core Components und deren Äquivalente im Überblick \cite{reactNativeCoreComponents}
-\end{center}
-
-In der nächsten Zeile wird unserer erster React-Component erzeugt, welcher im Grunde nur eine
-Funktion ist, die \nameref{jsx}-Code als Rückgabewert liefert.
-
-In Zeile 5 wird zur View ein React Native StyleSheet zugewiesen. Man verwendet nämlich kein
-gewöhnliches \nameref{css}, wie in der Webentwicklung, sondern ein relativ ähnlich aufgebautes,
-eigenes System zur Gestaltung der App. Ein wichtiger Unterschied ist, dass die Attribut-Namen im
-StyleSheet nicht durch Bindestriche getrennt, sondern in der LowerCamelCase-Notation geschrieben
-werden \cite{camelCaseNotation}.
-
-Am Ende der Datei wird noch die Komponente als Default exportiert, damit sie von Expo verarbeitet
-werden kann \cite{jsModules}.
-
-\item \textbf{app.json, package.json}\\
-app.json wird von Expo generiert und mit Metadaten befüllt. In ihr werden Daten abgespeichert,
-die nicht in der App selbst eingebaut werden, sondern das Projekt selbst beschreiben, z.B. Name der
-App, Versionsnummer, Bildschirmausrichtung und noch viele weiter Optionen.
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.5\textwidth]{Theorie/ReactNative/package-json.png}
-    \caption{package.json in einem Expo Blank Template}
-  \end{center}
-\end{figure}
-
-package.json hat einen ähnlichen Zweck, auch darin sind Name, Versionsnummer, aber auch der
-Eintrittspunkt in die App abgespeichert. In Scripts werden Kommandozeilenbefehle abgespeichert, die
-mit Hilfe des Befehls npm run <script> aufgerufen werden können. Im nächsten Objekt werden die
-Namen der Bibliotheken aufgelistet, welche für das Ausführen der App benötigt werden. Bibliotheken,
-die nur während der Entwicklung benötigt werden, sind unter devDependencies abzuspeichern (beim
-Installieren den Tag -{}-save-dev anhängen).
-
-\item \textbf{package-lock.json, yarn.lock}\\
-package-lock.json und yarn.lock haben beide dieselbe Aufgabe, sie sollten jedoch niemals
-gleichzeitig im selben Projekt existieren. Ersteres gehört nämlich zum Paketmanager NPM, wobei
-yarn.lock von Yarn generiert wird. Expo erzeugt ein Blank-Template standardmäßig mit Yarn, man kann
-aber auch stattdessen mit dem Tag -{}-npm bei der Projekterstellung NPM einbinden.
-
-\item \textbf{babel.config.js}\\
-Babel ist ein sogenannter JavaScript-Transpiler. Er wandelt JavaScript-Features, welche erst in
-späteren Versionen des ECMAScript-Standards eingebaut und möglicherweise noch nicht von allen
-Systemen unterstützt werden, in JavaScript-Code um, welcher auch von älteren Versionen verstanden
-werden kann, um (vgl. ein Compiler wandelt lesbaren Code in Maschinencode um). Außerdem hat er noch
-einige andere Funktionen, welche durch Plugins hinzugefügt werden können. In der Konfigurationsdatei
-wird nur eine vorgefertigte Liste an Plugins in das Projekt eingebunden, das "babel-preset-expo".
-
-\item \textbf{.gitignore}\\
-In die Datei .gitignore fügt man Datei- und Ordnernamen ein, die nicht von der Versionsverwaltung
-gesichert werden sollen. Sehr zu empfehlen ist dies beim Ordner node\_modules, da dieser schon
-direkt nach der Erstellung 170 Megabytes groß ist und er aus den Dateien package.json und yarn.lock
-generiert werden kann.
-
+  \item \textbf{yarn.lock}\\
+  Expo erzeugt ein Blank-Template standardmäßig mit Yarn, man kann aber auch stattdessen mit dem
+  Tag -{}-npm bei der Projekterstellung NPM einbinden.
+  \end{itemize}
 \end{itemize}
-\end{itemize}
-
 
 Die App kann nun sofort getestet werden, als erstes startet man wieder den JavaScript-Bundler
 \nameref{metrobundler} mit folgendem Befehl:
@@ -210,10 +103,6 @@ gemacht werden kann. Danach sieht die Ordnerstruktur so aus:
     \caption{Expo Eject Änderungen}
   \end{center}
 \end{figure}
-
-\begin{itemize}
-  \item 
-\end{itemize}
 
 Um das Projekt für iOS-Geräte zu konfigurieren, führt man folgenden Befehl auf einem MacOS-PC aus:
 
