@@ -1,0 +1,41 @@
+\subsection{authContext}
+\begin{lstlisting}
+const authContext = useMemo(
+  () => ({
+    restoreToken: async token => {
+      const res = await fetch(
+        'https://skate-buddy.josholaus.com/api/users/validate',
+        {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ token }),
+        },
+      );
+
+      if (res.status === 200) {
+        authContext.decodeToken(token);
+        dispatch({ type: 'RESTORE_TOKEN', token });
+      } else {
+        dispatch({ type: 'SIGN_OUT' });
+      }
+    },
+    signIn: async data => {
+      ...
+    },
+    ...
+  }),
+  [],
+);
+\end{lstlisting}
+
+In authContext werden alle Funktionen erstellt, welche für die Server-Anfragen der Authentifikation
+wichtig sind. RestoreToken ist die Funktion, die als erstes Aufgerufen wird, nachdem die App
+gestartet wurde. Sie schickt eine POST-Anfrage an den Server (Zeile 4) und übergibt im Content den
+Token, den es zu überprüfen gilt (Zeile 13). Diese Anfrage wird mit dem await-Statement abgewartet.
+Nachdem die Antwort eingetroffen ist, wird noch die Information aus dem Token entnommen (Zeile 18)
+und anschließend abgespeichert, mit dem dispatch-Aufruf in Zeile 19. Sollte der Token nicht gültig
+oder die Anfrage einfach nicht funktioniert haben, so wir der Benutzer ausgeloggt (Zeile 21).

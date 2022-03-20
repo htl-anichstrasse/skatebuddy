@@ -41,22 +41,6 @@ const SkateparkEntry = ({
           locLoading={locLoading}
           locError={locError}
         />
-
-        {/* 
-
-    return (
-      <Image
-        source={{
-          uri: url,
-          width: Dimensions.get('window').width - 80,
-          height: 200,
-        }}
-        style={{
-          flex: 1,
-        }}
-      />
-    );
-  }; */}
         <Image
           source={{
             uri: url,
