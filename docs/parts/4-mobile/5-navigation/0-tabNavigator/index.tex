@@ -1,6 +1,6 @@
 \section{Tab-Navigation}
 Andere mit React Native gebauten Apps, wie Facebook oder Instagram, verwenden eine sogenannte
-"Bottom-Tabs"-Navigation, also eine Tab-Basierte Navigation auf der Unterseite des Bildschirms, um
+"Bottom-Tabs"{}-Navigation, also eine Tab-Basierte Navigation auf der Unterseite des Bildschirms, um
 ihre Hauptfunktionen dem Benutzer zu präsentieren.
 
 Um die App simpel zu halten ist dies auch unsere präferierte Navigations-Methode, um die einzelnen
@@ -42,3 +42,9 @@ const BottomTabsNavigator = () => {
 export default BottomTabsNavigator;
 \end{lstlisting}
 
+In Zeile 14 wird aus dem Objekt Tab zuerst der Navigator und danach, als Kinder, die einzelnen
+Screens eingefügt. Als Screens können hierbei weitere andere Navigatoren verwendet werden, um eine
+Verschachtelung zu erzeugen.
+
+\input{parts/4-mobile/5-navigation/0-tabNavigator/0-mapScreen.tex}
+\input{parts/4-mobile/5-navigation/0-tabNavigator/1-profileScreen.tex}

@@ -1,0 +1,102 @@
+\subsection{MapScreen}
+Die Umsetzung der Kartenfunktion, um alle Skateparks anzuzeigen, war das zweit-komplizierteste
+Feature in der App. Die Bibliothek "react-native-maps" ist hierbei die Basis dieser Funktion.
+
+\begin{lstlisting}
+const MapScreen = ({ navigation }) => {
+  const {
+    data: skateparks,
+    isLoading,
+    error,
+    refreshData,
+  } = useFetch('https://skate-buddy.josholaus.com/api/skateparks');
+  const mapRef = useRef(null);
+
+  return (
+    <View style={styles.container}>
+      {isLoading && <LoadingCircle />}
+      {error && <Error error={error} refresh={refreshData} />}
+      {skateparks && (
+        <>
+          <Map
+            mapRef={mapRef}
+            skateparks={skateparks}
+            navigation={navigation}
+          />
+          <CircleButton
+            onPress={() => {
+              mapRef.current.animateCamera({
+                center: {
+                  latitude: 47.27,
+                  longitude: 11.4,
+                },
+                altitude: 1000,
+                pitch: 0,
+                heading: 0,
+                zoom: 12,
+              });
+            }}
+          />
+        </>
+      )}
+    </View>
+  );
+};
+export default MapScreen;
+\end{lstlisting}
+
+Zuerst werden mit dem Hook useFetch alle Skateparks von der API abgefragt, solange die Variable
+skateparks null ist, wird nur ein Ladesymbol angezeigt. Anschließend wird die Map erzeugt, wie auch
+ein Knopf, mit dem man die Position der Karte auf Innsbruck zentrieren kann.
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{Mobile/Map/MapScreen.png}
+    \caption{Alle Skateparks werden an der korrekten Stelle angezeigt}
+  \end{center}
+\end{figure}
+
+\subsubsection{Map}
+\begin{lstlisting}
+const Map = ({ skateparks, mapRef, navigation }) => {
+  return (
+    <MapView
+      // props
+      showsUserLocation
+      provider={PROVIDER_GOOGLE}
+      style={mapStyles.map}
+      ref={mapRef}
+      initialCamera={camera}
+      showsPointsOfInterest={false}
+      showsCompass={false}
+      showsIndoors={false}
+      minZoomLevel={8}
+      rotateEnabled={false}
+      pitchEnabled={false}
+      mapType="satellite"
+      // events
+      onRegionChangeComplete={() => {}}
+    >
+      <SkateparkMarkers
+        skateparks={skateparks}
+        mapRef={mapRef}
+        navigation={navigation}
+      />
+    </MapView>
+  );
+};
+export default Map;
+\end{lstlisting}
+
+In der Komponente Map wird einfach eine MapView aufgerufen, welche die Google Maps Ansicht
+beinhaltet. Die Parks werden anschließend wieder an die nächste Komponente weitergegeben, wo sie in
+die Map-Marker umgewandelt werden. Drückt man auf einen Marker, so wird der Park zentriert und ein
+Textfeld wird angezeigt. Wird dies angeklickt, so wird man zu den Details vom jeweiligen Park
+weitergeleitet.
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{Mobile/Map/MapMarkerFocused.png}
+    \caption{Ein ausgewählter Marker}
+  \end{center}
+\end{figure}
