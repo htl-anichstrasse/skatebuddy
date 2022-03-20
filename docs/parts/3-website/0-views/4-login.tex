@@ -1,3 +1,4 @@
+\pagebreak
 \section{Login-Page}
 \label{login-page}
 
@@ -25,7 +26,6 @@ anzeigen. Damit lassen sich Tippfehler beim Eingeben erkennen, falls nötig.
 \subsection{Augensymbol}
 
 \begin{lstlisting}
-
     .toggle-button {
         margin-top: 0;
         margin-left: -30px;
@@ -36,14 +36,24 @@ anzeigen. Damit lassen sich Tippfehler beim Eingeben erkennen, falls nötig.
         background-size: cover;
         cursor: pointer;
     }
-
+\end{lstlisting}
+\begin{lstlisting}
     const togglePassword = () =>{
         setPasswordShown(!passwordShown)
     }
-
+\end{lstlisting}
+\begin{lstlisting}
     <input className="input" type={passwordShown ? "text" : "password"} onChange={e => setPassword(e.target.value)} />
     <button type="button" onClick={togglePassword} className="toggle-button"></button>
 \end{lstlisting}
 
+\begin{figure}[H]
+    \begin{center}
+      \frame{\includegraphics[width=0.2\textwidth]{Website/eye.png}}
+      \caption{Augensymbol zum Umschalten}
+    \end{center}
+\end{figure}
 
-\label{login}
+Das Auge ist ein einfacher Knopf mit dem Bild als Hintergrund, welcher mit einer JavaScript Funktion 
+eine Variable auf true setzt. Ist diese Variable auf \textit{true} wird der Input-Type des inputs von
+\textit{password} auf \textit{text} umgeschaltet und das Passwort somit sichtbar. 
