@@ -1,0 +1,18 @@
+\section{Vorschläge erstellen}
+\label{vorschläge}
+
+\begin{figure}[H]
+    \begin{center}
+      \frame{\includegraphics[width=1\textwidth]{Website/Vorschläge.png}}
+      \caption{Einen Vorschlag erstellen}
+    \end{center}
+\end{figure}
+
+Einen Vorschlag erstellen kann jeder eingeloggte Benutzer. Diese Vorschläge können später von den 
+Admins abgelehnt werden oder als Park hinzugefügt werden. Wie auch schon der Login oder das Account 
+erstellen funktioniert auch das Vorschläge erstellen über ein HTML-Formular. Der Latitude muss sich 
+jedoch innerhalb von +- 90 befinden und der Longitude innerhalb von +-180. Die Hindernisse sind
+ein HTML-select welche bei Betätigung des Knopfes das Hindernis als sowohl auch die Schwierigkeit 
+in eine Liste gespeichert. Diese Liste wird mittels map Funktion als HTML-Tabelle ausgegeben. Die 
+Elemente dieser Liste erhalten eine temporäre Id. Diese temporäre Id wird beim \textit{Entfernen} 
+Knopf verwendet, da dieser das Element anhand der Id entfernt. 

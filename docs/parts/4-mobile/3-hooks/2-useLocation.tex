@@ -27,6 +27,22 @@ ob die Erlaubnis schon erteilt wurde, die Position zu ermitteln.
 
 Sollte dies nicht der Fall sein, so wird die Erlaubnis angefragt.
 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{Mobile/useLocationRequest.png}
+    \caption{Die Berechtigungs-Anfrage beim Starten der App}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{Mobile/useLocationRequest.png}
+    \caption{Beim Ablehnen der Aufforderung wird die Anfrage an die Directions-API abgebrochen}
+  \end{center}
+\end{figure}
+
+Wenn der Benutzer den roten Knopf drückt, wird er noch einmal gebeten die Berechtigung zu erteilen.
+
 \begin{lstlisting}
 const requestPermission = async () => {
   if (Platform.OS === 'android') {
@@ -65,7 +81,8 @@ const getLocation = async () => {
 };
 \end{lstlisting}
 
-Diese Funktion wird jedes Mal aufgerufen, um die Position zu bestimmen. Zeile 4 zeigt, dass zuerst
-geprüft wird, ob die Erlaubnis schon erteilt wurde. Falls nicht wird sie angefragt. Falls dies
-funktioniert haben sollte, wird in Zeile 5 die Position ausgelesen und, in Zeile 7, abgespeichert.
-Geolocation ist in der Bibliothek "react-native-geolocation-service" vorhanden.
+Diese Funktion wird jedes Mal aufgerufen, um die Position zu bestimmen oder noch einmal die
+Berechtigung anzufragen. Zeile 4 zeigt, dass zuerst geprüft wird, ob die Erlaubnis schon erteilt
+wurde. Falls nicht wird sie angefragt. Falls dies funktioniert haben sollte, wird in Zeile 5 die
+Position ausgelesen und, in Zeile 7, abgespeichert. Geolocation ist in der Bibliothek
+"react-native-geolocation-service" vorhanden.

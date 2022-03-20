@@ -1,26 +1,37 @@
 \chapter{Navigation}
-Für die Navigation innerhalb der App ist die Bibliothek React Navigation zuständig. Die verknüpft
-die einzelnen Screens der App miteinander und ist das Gegenstück zu React Router für React im
-Webbrowser.
+Für die Navigation innerhalb der App wurde auf intuitives und simples Design gesetzt, es sollte von
+jedem sofort verstanden werden. Natürlich ist das Selbst-Implementieren dieser Funktionalität keine
+Option, daher wurde die Bibliothek React Navigation verwendet. Sie verknüpft die einzelnen Screens
+der App miteinander und stellt das Gegenstück zu React Router für React im Webbrowser dar.
+
+Damit die Navigation funktionieren kann, muss die gesamte App ein Kind von NavigationContainer sein,
+einer Komponente, die von React Navigation importiert wird.
+
+\begin{lstlisting}
+import { NavigationContainer } from '@react-navigation/native';
+
+const App = () => (
+  <AuthProvider>
+    <NavigationContainer>
+      <AuthHandler />
+    </NavigationContainer>
+    <FlashMessage position="top" />
+  </AuthProvider>
+);
+\end{lstlisting}
 
 Die Navigation innerhalb der App wurde auf zwei Arten umgesetzt:
 
-\section{Stack-Navigation}
-Es gibt in unserer App genau zwei 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{Mobile/Navigators.png}
+    \caption{Stack Navigator und Tab-Navigator}
+  \end{center}
+\end{figure}
 
+\newpage
+\input{parts/4-mobile/5-navigation/0-tabNavigator/index.tex}
 
-Für die Navigation innerhalb der App wurde auf intuitives und simples Design gesetzt, es sollte von
-jedem sofort verstanden werden. Natürlich ist das Selbst-Implementieren dieser Funktionalität keine
-Option, es ga
+\newpage
 
-
-Andere mit React Native gebaute Apps, wie Facebook oder Instagram
-verwenden eine sogenannte "Bottom-Tabs"-Navigation. Also eine Tab-Basierte Navigation auf der
-Unterseite des Bildschirms.
-
-\section{React Navigation}
-React Navigation ist eine Bibliothek für React Native
-
-
-Die Navigation in der App wurde durch die Bibliothek react-native-navigation realisiert, welche
-aktuell in der Version 6 verfügbar ist.
+\input{parts/4-mobile/5-navigation/1-stackNavigator/index.tex}
