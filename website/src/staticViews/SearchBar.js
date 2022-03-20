@@ -5,7 +5,7 @@ const SearchBar = ( {searchQuery, setSearchQuery} ) => {
     return(
         <>
         <label htmlFor="header-search">
-            <span className="visually-hidden">Search blog posts</span>
+            <span className="visually-hidden">Search parks</span>
         </label>
         <input
             value={searchQuery}

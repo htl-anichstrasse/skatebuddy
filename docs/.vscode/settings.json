@@ -31,11 +31,12 @@
         "Renderlogik",
         "returnen",
         "Skateparks",
+        "Sternenbewertung",
         "Stilvorlagen",
         "Stilvorlagensprache",
         "Tokendaten",
         "Viewwechsel",
-        "vorgenerierte",
+        "vorgenerierte"
     ],
     "editor.rulers": [100],
     "workbench.colorCustomizations": {
