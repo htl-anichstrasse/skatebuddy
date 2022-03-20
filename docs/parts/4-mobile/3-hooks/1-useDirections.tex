@@ -9,12 +9,6 @@ ihre API die Möglichkeit an, die Distanz zwischen zwei Orten abzufragen, genau 
   \end{center}
 \end{figure}
 
-\label{apikey}
-Um diese API benutzen zu können benötigt man einen API-Schlüssel, welchen man unter
-\url{https://console.cloud.google.com} erhält. Google ist mit ihrer Cloud Console einer der größten
-Anbieter von Cloud Computing neben Amazon AWS und Microsoft Azure. Für diese Anfragen benötigt man
-Zugriff auf die "Directions API".
-
 \begin{lstlisting}
 const buildUrl = method => {
   let url = 'https://maps.googleapis.com/maps/api/directions/json?origin=';
@@ -35,3 +29,10 @@ const buildUrl = method => {
 
 Mit dieser Funktion bauen wir uns die URL für die Anfrage zusammen. Als Method übergibt man den
 String "walking", "bicycling", "transit" oder "driving".
+
+\subsection{Api-Key}
+\label{apikey}
+Um diese API benutzen zu können benötigt man einen API-Schlüssel, welchen man unter
+\url{https://console.cloud.google.com} erhält. Google ist mit ihrer Cloud Console einer der größten
+Anbieter von Cloud Computing neben Amazon AWS und Microsoft Azure. Für diese Anfragen benötigt man
+Zugriff auf die "Directions API".
