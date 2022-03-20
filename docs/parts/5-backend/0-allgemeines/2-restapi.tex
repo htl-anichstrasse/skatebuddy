@@ -11,7 +11,6 @@ Anfragen aussehen ist im Kapitel \textbf{Rest-Routes} beschrieben \ref*{}.
 \begin{figure}[H]
     \begin{center}
         \includegraphics*[]{Backend/Rest APi..png}
-
     \end{center}
 \end{figure}
 
@@ -21,4 +20,51 @@ Anfragen aussehen ist im Kapitel \textbf{Rest-Routes} beschrieben \ref*{}.
 Damit sensible Daten wie zum Beispiel die User Daten nicht für
 alle Pc's frei zugänglich sind werden bestimmte \textit{Routes} mit einer
 \textit{Bearer Authorization} gesichert. Um die Routes benutzen zu können muss
-im Header der HTTP Anfrage ein Ein
+im Header der HTTP Anfrage ein \texttt{Authorization} Eintrag mitgesendet werden.
+Falls keiner mitgesendet wird sendet die API eine Message mit den Inhalt
+\textbf{Unauthorized}.
+
+Nur Benutzer die einen sogenannten \textit{Bearer-Token} besitzen haben also zugriff
+auf die Ressourcen.
+
+Einen solchen Token erhält man entweder wenn man sich Registriert siehe (api/register) oder wenn sich
+Anmeldet siehe (api/login).
+
+Wie so ein Bearer Token aussieht sehen sie hier:
+
+\texttt{eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMyLCJuYW1lIjoiQSIsImVt
+    YWlsIjoiQUBBIiwicHJvZmlsZXBpY3R1cmVJZCI6bnVsbCwiaWF0IjoxNjQ1Mjk1Nzk0LCJleHAiOjE2N
+    TY5NTk3OTR9.k1p8njU8ra6Rt16nZTTCmnkrhK3H8MygbwGYHtio-Sg}
+
+Als Bearer Token haben wir uns für den \textit{Json Web Token (JWT)} entschieden.
+
+\subsubsection{Json Web Token}
+Der \textit{JWT} wird in der Regel für Authentifizierungsvorgängen verwendet. Es ist ebenfalls
+möglich, in ihm Informationen zu speichern. Die Informationen können verschlüsselt werden
+und somit sichergestellt werden, wer der Absender ist und ob dieser die benötigten Zugriffsrechte
+hat. Ein solcher Token besteht aus drei Teilen.
+
+\paragraph{Header}
+Der Header besteht aus zwei Teilen und liefert Informationen über den Token. Welcher Typ und
+welcher Verschlüsselungsalgorithmus angewendet wurde.
+
+\paragraph{Payload}
+In der Payload wird die tatsächliche Information des Tokens gespeichert. Die Informationen
+werden als \textbf{Key/Value Paare} bereitgestellt.
+
+\paragraph{Signature}
+Die Signatur des Schlüssels wird mithilfe der \textit{Base-64 Kodierung} der Headers
+der Payload und der angegebenen Signatur-/Verschlüsselungsmethode erstellt. Damit die Signatur
+gültig ist wird ebenfalls noch ein geheimer Schlüssel benötigt dem nur der Ursprungsquelle bekannt
+ist. Somit wird sichergestellt das der Token nicht verändert wurde.
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics*[width=0.7\textwidth]{Backend/JWTToken.png}
+        \url{https://medium.com/swlh/understand-the-concept-of-jwt-json-web-tokens-4ee18682a583}
+    \end{center}
+\end{figure}
+
+\cite{JWT}
+
+

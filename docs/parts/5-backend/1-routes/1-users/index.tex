@@ -1,0 +1,135 @@
+\label{/users}
+
+\subsubsection{/users}
+
+\begin{lstlisting}
+    /users
+\end{lstlisting}
+
+\textbf{Beschreibung:} \\
+Returned eine JSON liste mit allen vorhandenen Usern.
+
+\textbf{Authorization-Typ:} \\
+Bearer
+
+\paragraph{Zusätzliche Parameter}
+
+
+\paragraph{Body:}
+
+Keinen
+
+\subsubsection{Response)}
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    [
+    {
+        "userId": 54,
+        "name": "ww",
+        "passwordhash": "$2b$10$6TnxbdU8GnROQK5oLAmEv.RcrlF9MCfC7Jlyv653L45FizJMGuz3u",
+        "email": "w@w.w",
+        "profilepictureId": null,
+        "admin": 0
+    },
+    {
+        "userId": 57,
+        "name": "Alexander",
+        "passwordhash": "$2b$10$rYPBy6ijGCb.Z/ZevSyJDuk4UXZnPlnnMKW4Y1X/zH1OUYNx93zUq",
+        "email": "abertoni@tsn.at",
+        "profilepictureId": null,
+        "admin": 1
+    },
+    {
+        "userId": 58,
+        "name": "Philipp",
+        "passwordhash": "$2b$10$IItK58v.13txECsTqd2cIuI7T3v9XJSt6BK5Rs87cCbutBrijTwqi",
+        "email": "p@p.p",
+        "profilepictureId": null,
+        "admin": 0
+    }
+]
+\end{lstlisting}
+
+\pagebreak
+
+\subsubsection{/users/:id}
+
+\begin{lstlisting}
+    /users/54
+\end{lstlisting}
+
+\textbf{Zweck der Route} \\
+Gibt einen User mit einer bestimmten ID zurück.
+
+
+
+\paragraph{Zusätzliche Parameter}
+\lstinline{id: int} (benötigt) \\
+$\rightarrow$ Die eindeutige ID des gewünschten Users
+
+\begin{lstlisting}
+    GET /users/54
+\end{lstlisting}
+
+
+\textbf{Authorization-Art:} \\
+Bearer
+
+\paragraph{Response }
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    [
+        {
+        "userId": 54,
+        "name": "ww",
+        "passwordhash": "$2b$10$6TnxbdU8GnROQK5oLAmEv.RcrlF9MCfC7Jlyv653L45FizJMGuz3u",
+        "email": "w@w.w",
+        "profilepictureId": null,
+        "admin": 0
+    },
+]
+\end{lstlisting}
+
+\pagebreak
+
+\subsubsection{/users/decode}
+
+\begin{lstlisting}
+    /users/decode
+\end{lstlisting}
+
+\textbf{Was macht die Route?:} \\
+Im Body wird ein JSON Web token mitgesendet. Als Antwort
+wird die Payload ausgeben.
+\textbf{Authorization-Typ:} \\
+Bearer
+
+
+\paragraph{Zusätzliche Parameter}
+Keine
+
+\paragraph{Body:}
+
+\begin{lstlisting}
+
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMyLCJuYW1
+    lIjoiQSIsImVtYWlsIjoiQUBBIiwicHJvZmlsZXBpY3R1cmVJZCI6bnVsbCwiaWF0IjoxNj
+    Q1Mjk1Nzk0LCJleHAiOjE2NTY5NTk3OTR9.k1p8njU8ra6Rt16nZTTCmnkrhK3H8MygbwGYHtio-Sg"
+    
+\end{lstlisting}
+
+\subsubsection{Response:}
+
+\lstinline{Content-Type: Json}
+\begin{lstlisting}
+    [
+        "userId": 32,
+        "name": "A",
+        "email": "A@A",
+        "profilepictureId": null,
+        "iat": 1645295794,
+        "exp": 1656959794
+]
+\end{lstlisting}
