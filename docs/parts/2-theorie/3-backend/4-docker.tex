@@ -33,7 +33,31 @@ komplette Anwendungen als eines betrieben werden. Docker hingegen schlüsselt di
 ihre einzelnen Prozesse auf und stellt somit die Tools bereit.
 
 \subsection{Vorteile von Docker}
+Ein großer Vorteil von Docker ist, dass bei einer Reparatur oder
+Aktualisierung nur ein Teil der Anwendung außer Betrieb genommen werden muss und
+der Rest weiter laufen kann. Außerdem ermöglicht es Docker Prozesse in mehreren
+Apps gemeinsam zu verwenden.
 
+\subsubsection{Layer und Image}
+Ein Docker-Image besteht aus mehreren Layer. Mehrere Layer werden dann
+in einem einzelnen Image vereint. Falls ein User einen Befehl wie \textit{copy}
+oder \textit{run}, wird ein neuer Layer erstellt.
+
+Diese Layer verwendet Docker dann für die Erstellung neuer Container, was eine enorm schnelle
+Entwicklung bedeutet. Bei jedem Image hat man außerdem ein eingebautes Änderungsprotokoll
+und somit volle Kontrolle über Container-Images.
+
+\subsubsection{Rollback Funktion?}
+Eines der größten Vorteile vom Layering Prinzip ist, das man auf vorherige Versionen
+Zurücksetzten kann. Aufgrund diesen Ansatz wird für eine kontinuierliche Integration und
+Bereitstellung gesorgt. \textbf{Continuous Integration/Continuous Development CI/CD}
+
+\subsubsection{Schnelle Bereitstellung}
+Die neue Bereitstellung von Hardware dauert in der Regel Tage. Mithilfe der Docker-basierten
+Container wird die Bereitstellung in Sekunden erledigt. Da für jeden Prozess ein neuer Container
+erstellt wird kann man einfach ähnliche Prozesse in Sekunden teilen. Aufgrund das beim Hinzufügen
+oder Verschieben eines Containers das Betriebssystem nicht neu gebootet werden muss sind die
+Bereitstellungszeiten wesentlich kürzer.
 
 \cite{Docker}
 \label{Docker}
