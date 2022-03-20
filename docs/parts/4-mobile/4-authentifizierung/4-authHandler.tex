@@ -1,0 +1,60 @@
+\section{AuthHandler}
+In AuthHandler entscheidet die App, ob ein Benutzer eingeloggt ist oder nicht.
+
+\begin{lstlisting}
+const Auth = () => {
+  const { restoreToken } = useAuthContext();
+  const state = useAuthContextState();
+
+  useEffect(() => {
+    const checkForValidToken = async () => {
+      let token = null;
+
+      try {
+        if (await Keychain.hasInternetCredentials('jwt')) {
+          const creds = await Keychain.getInternetCredentials('jwt');
+          token = creds.password;
+        }
+      } catch (e) {
+        // Restoring token failed
+      }
+      restoreToken(token);
+    };
+
+    checkForValidToken();
+  }, [restoreToken]);
+
+  if (state.isLoading) {
+    return <SplashScreen />;
+  }
+
+  if (state.userToken == null) {
+    return <LoginSignupStack />;
+  }
+
+  return <BottomTabsNavigator />;
+};
+
+export default Auth;
+\end{lstlisting}
+
+Als erstes werden die Funktion restoreToken und state aus dem Content entnommen. Sobald die App
+gestartet wird, wird die asynchrone Funktion checkForValidToken aufgerufen. In ihr wird in Zeile 10
+und 11 zuerst überprüft, ob im verschlüsselten, internen Speicher ein Eintrag für "jwt" besteht.
+
+Die Komponente Keychain wird von der Bibliothek react-native-keychain bereitgestellt. Sie enthält
+Funktionen um auf Android und iOS sensible Informationen sicher abzuspeichern. Auf Android wird der
+Android Keystore verwendet, auf iOS die Keychain Services.
+
+Die Keychain ist in unserer App dafür zuständig, den JWT auch nach dem Beenden der App im internen
+Speicher festzuhalten und beim Start wieder daraus auszulesen. Sollte ein Eintrag vorhanden sein,
+wird der Token der Funktion restoreToken aus authContext übergeben, in welcher er überprüft wird.
+
+Beim Start der App wurde state.isLoading als true und state.userToken als null definiert. Solange
+isLoading auf true ist, wird der Ladebildschirm SplashScreen angezeigt. Sobald der Token überprüft
+wurde, wird isLoading auf false gesetzt und es entscheidet sich ob der User eingeloggt wird, oder
+nicht.
+
+Ist nach der Überprüfung die Variable userToken immer noch null, so wird der LoginStack angezeigt.
+Sollte der Token gültig sein, so wird er in userToken abgespeichert, was die If-Abfrage in Zeile 27
+false macht. Somit bleibt nur noch das Statement in Zeile 31 übrig, der User ist eingeloggt.

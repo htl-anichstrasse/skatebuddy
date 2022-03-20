@@ -16,7 +16,6 @@ const useLocation = () => {
 
       if (status) {
         setLocError(null);
-        setLocLoading(false);
         return true;
       }
     } else if (Platform.OS === 'ios') {

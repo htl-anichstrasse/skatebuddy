@@ -1,0 +1,71 @@
+\section{useLocation}
+In diesem Hook wird die aktuelle GPS-Position vom Gerät abgefragt. Der Benutzer wird, sofern er dies
+noch nicht getan hat, nach der Erlaubnis gefragt, die genaue Position des Gerätes zu ermitteln und
+mit der App zu teilen. Dies wird benötigt, um die Distanz zwischen Benutzer und Skateparks zu
+berechnen.
+
+\begin{lstlisting}
+const checkPermission = async () => {
+  if (Platform.OS === 'android') {
+    const status = await PermissionsAndroid.check(
+      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+    );
+
+    if (status) {
+      setLocError(null);
+      return true;
+    }
+  } else if (Platform.OS === 'ios') {
+    // TODO Implement iOS permission check
+  }
+  return false;
+};
+\end{lstlisting}
+
+In Zeile 3 wird mit Hilfe der PermissionsAndroid-API, bereitgestellt von React Native, überprüft
+ob die Erlaubnis schon erteilt wurde, die Position zu ermitteln.
+
+Sollte dies nicht der Fall sein, so wird die Erlaubnis angefragt.
+
+\begin{lstlisting}
+const requestPermission = async () => {
+  if (Platform.OS === 'android') {
+    const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+    );
+    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      setLocError(null);
+      return true;
+    }
+  } else if (Platform.OS === 'ios') {
+    // TODO: Implement iOS permission request
+  }
+  setLocError('Standortdienst wurde abgelehnt');
+  return false;
+};
+\end{lstlisting}
+
+\begin{lstlisting}
+const getLocation = async () => {
+  setLocLoading(true);
+  setLocError(null);
+  if ((await checkPermission()) || (await requestPermission())) {
+    Geolocation.getCurrentPosition(
+      geolocation => {
+        setLocation(geolocation);
+        setLocLoading(false);
+      },
+      error => {
+        setLocError(`${error.code} ${error.message}`);
+        setLocLoading(false);
+      },
+      { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 },
+    );
+  }
+};
+\end{lstlisting}
+
+Diese Funktion wird jedes Mal aufgerufen, um die Position zu bestimmen. Zeile 4 zeigt, dass zuerst
+geprüft wird, ob die Erlaubnis schon erteilt wurde. Falls nicht wird sie angefragt. Falls dies
+funktioniert haben sollte, wird in Zeile 5 die Position ausgelesen und, in Zeile 7, abgespeichert.
+Geolocation ist in der Bibliothek "react-native-geolocation-service" vorhanden.

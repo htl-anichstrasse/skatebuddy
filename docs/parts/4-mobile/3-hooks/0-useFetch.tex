@@ -1,0 +1,24 @@
+\section{useFetch}
+Der useFetch-Hook wurde bereits in der Webseite verwendet, die App nutzt eine leicht abgewandelte
+Version, damit man auch die Daten aktualisieren kann. Mehr dazu im Abschnitt \nameref{getData}.
+
+\begin{lstlisting}
+  ...
+  const [refresher, setRefresher] = useState(false);
+
+  const refreshData = () => {
+    setRefresher(prevRefresher => !prevRefresher);
+  };
+
+  useEffect(() => {
+    ...
+  }, [url, refresher]);
+  ...
+\end{lstlisting}
+
+useEffect ist ein React-Hook. Er führt seine übergebene Funktion dann aus, wenn sich eine Variable
+in der im zweiten Argument übergebenen Liste ändert. Sollte die Liste leer sein, so wird die
+Funktion nur ausgeführt, sobald die Komponente das erste Mal gerendert wird.
+
+Sobald die Variable refresher nun also geändert wird, wird die Funktion im useEffect-Hook neu
+ausgeführt.

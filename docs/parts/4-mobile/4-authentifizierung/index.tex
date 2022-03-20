@@ -1,0 +1,28 @@
+\chapter{Authentifizierung}
+Die Umsetzung der Authentifizierung war das wohl komplizierteste Thema in der gesamten
+Entwicklungsphase. Um die Authentifizierung in der App reibungslos durchzuführen, werden mehrere
+React Hooks verwendet.
+
+Im Einstiegspunkt der App, also App.js, ist werden mehrere Bibliotheken eingebunden, die in der
+ganzen App verwendet werden.
+
+\begin{lstlisting}
+const App = () => (
+  <AuthProvider>
+    <NavigationContainer>
+      <AuthHandler />
+    </NavigationContainer>
+    <FlashMessage position="top" />
+  </AuthProvider>
+);
+
+export default App;
+\end{lstlisting}
+
+\newpage
+\input{parts/4-mobile/4-authentifizierung/0-authcontext.tex}
+
+\newpage
+\input{parts/4-mobile/4-authentifizierung/4-authHandler.tex}
+
+

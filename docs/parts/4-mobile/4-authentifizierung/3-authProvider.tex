@@ -1,0 +1,55 @@
+\subsection{AuthProvider}
+Alle diese Funktionen und Variablen sind enthalten in der Komponente AuthProvider. Sie übernimmt die
+wichtigste Aufgabe von allen, nämlich das Bereitstellen all dieser Funktionalität an die restliche
+App.
+
+\begin{lstlisting}
+const AuthContext = React.createContext();
+const AuthContextState = React.createContext();
+
+const useAuthContext = () => useContext(AuthContext);
+const useAuthContextState = () => useContext(AuthContextState);
+
+const AuthProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(
+    ...
+  );
+
+  const authContext = useMemo(
+    ...
+  );
+
+  return (
+    <AuthContext.Provider value={authContext}>
+      <AuthContextState.Provider value={state}>
+        {children}
+      </AuthContextState.Provider>
+    </AuthContext.Provider>
+  );
+};
+
+export { AuthProvider };
+export { useAuthContext };
+export { useAuthContextState };
+\end{lstlisting}
+
+AuthProvider umschließt in App.js alle anderen Komponenten, hier wird offensichtlich warum das so
+sein muss. Zuerst muss aber geklärt werden, was ein Context ist.
+
+In Zeile 3 wird als erstes ein Context erstellt. Dieser erhält den Namen AuthContext und soll die
+Funktionen aus authContext in der restlichen App verfügbar machen.
+
+In Zeile 19 wird über AuthContext.Provider ein ContextProvider erstellt, der eine Variable über das
+Property value annimmt.
+
+Wird nun in einer Komponente, die ein Kind von AuthContext ist, die Funktion useContext(AuthContext)
+aufgerufen, so ist der zurückgegebene Wert gleich der value, die dem Provider übergeben wurde.
+
+Um zu umgehen, dass ich jedes mal, wenn ich eine Funktion brauche, useContext und zusätzlich auch
+noch AuthContext importieren muss, fasse ich diesen Ausdruck zu useAuthContext zusammen (Zeile 6).
+So ist es möglich, durch das importieren von useAuthContext in einem Kind von AuthContext.Provider
+auf die gespeicherte Variable zuzugreifen.
+
+In einer üblichen Anwendung werden Daten über Props von Eltern an Kinder weitergegeben. Context
+macht es möglich direkt für alle Kinder eine Variable zur Verfügung zu stellen, ohne jedem einzeln
+die Variable zu übergeben.
