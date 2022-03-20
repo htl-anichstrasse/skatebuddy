@@ -1,0 +1,24 @@
+\section{Rest-Api}
+\label{restapi}
+
+\textbf{Rest} steht für REpresentational State Transfer, \textbf{API} für Application
+Programming Interface. Die Rest Api hat die Aufgabe den CLient bzw. die App
+mithilfe von sogenannten \textbf{Rest-Routes} zugriff auf die Datenbank zu geben.
+Im Prinzip kann jeder Computer mit Internet Zugang auf die API zugreifen, insofern
+sie die vorgefertigten \textbf{HTTP-Anfragen} an den Server senden. Wie genau diese
+Anfragen aussehen ist im Kapitel \textbf{Rest-Routes} beschrieben \ref*{}.
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics*[]{Backend/Rest APi..png}
+
+    \end{center}
+\end{figure}
+
+
+\subsection{Authorization}
+
+Damit sensible Daten wie zum Beispiel die User Daten nicht für
+alle Pc's frei zugänglich sind werden bestimmte \textit{Routes} mit einer
+\textit{Bearer Authorization} gesichert. Um die Routes benutzen zu können muss
+im Header der HTTP Anfrage ein Ein
