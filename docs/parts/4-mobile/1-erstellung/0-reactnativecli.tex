@@ -24,9 +24,12 @@ natürlich -- \nameref{nodejs}, mindestens Version 12. Außerdem wird benötigt:
 Sobald alle Abhängigkeiten installiert wurden, führt man folgenden Befehl aus, um ein neues React
 Native Projekt zu erstellen:
 
-\begin{lstlisting}
+\begin{code}[htp]
+\begin{lstlisting}[firstnumber=1,language=JavaScript, style=CMD]
 C:\example> npx react-native init reactNativeInit
 \end{lstlisting}
+\caption{CMD - React Native CLI init}
+\end{code}
 
 NPX ist ein Befehl, der seit Version 5.2.0 in NPM enthalten ist. Er ist speziell bei CLIs hilfreich,
 denn anstatt das Paket react-native auf dem PC zu installieren und dann aufzurufen, wird mit dem
@@ -93,7 +96,8 @@ App.js ist also die erste richtige Code-Datei, welche von uns bearbeitet wird. A
 ich hier ein klassisches Hallo-Welt-Programm, welches eigentlich von der Expo-CLI erstellt wird,
 jedoch sehr gut zur Veranschaulichung dient.
 
-\begin{lstlisting}
+\begin{code}[htp]
+\begin{lstlisting}[firstnumber=1,language=JavaScript, style=JSX]
 import { StyleSheet, Text, View } from 'react-native';
 
 function App() {
@@ -115,25 +119,30 @@ const styles = StyleSheet.create({
 
 export default App;
 \end{lstlisting}
+\caption{React Component - App.js}
+\end{code}
 
 In der ersten Zeile des Programms werden diverse React Native Core Components importiert. Core
 Components sind, wörtlich übersetzt, die Kernkomponenten des Frameworks, mit ihnen wird der Großteil
 der Benutzeroberfläche aufgebaut. Wie bereits erwähnt, werden die React Native Komponenten beim
 Kompilieren in die richtigen Komponenten für das Zielsystem umgewandelt.
 
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|l|l|l|}
-  \hline
-  \textbf{Komponente} & \textbf{Android} & \textbf{iOS} & \textbf{HTML} \\ \hline\hline
-  View                & ViewGroup        & UIView       & div          \\
-  Text                & TextView         & UITextView   & p            \\ \hline
-\end{tabular}
-\end{table}
 
-\begin{center}
-  React Native Core Components und deren Äquivalente im Überblick \cite{reactNativeCoreComponents}
-\end{center}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\textwidth]{Mobile/React Native CLI/CoreComponents.JPG}
+    \caption{Tabelle - Core Components und deren Gegenstücke \cite{reactNativeCoreComponents}}
+  \end{center}
+% \begin{table}[H]
+% \centering
+% \begin{tabular}{|l|l|l|l|}
+%   \hline
+%   \textbf{Komponente} & \textbf{Android} & \textbf{iOS} & \textbf{HTML} \\ \hline\hline
+%   View                & ViewGroup        & UIView       & div          \\
+%   Text                & TextView         & UITextView   & p            \\ \hline
+% \end{tabular}
+% \end{table}
+\end{figure}
 
 In der nächsten Zeile wird unserer erster React-Component erzeugt, welcher im Grunde nur eine
 Funktion ist, die \nameref{jsx}-Code als Rückgabewert liefert.
