@@ -26,11 +26,7 @@ router.get('/obstacles/:id', async (req, res, next) => {
 
 router.post('/obstacles', async (req, res, next) => {
     try {
-        const obstacle = new Obstacles(
-            null,
-            req.body.description,
-            req.body.difficulty,
-        );
+        const obstacle = new Obstacles(null, req.body.description, null);
         await Obstacles.insertValue(con, obstacle);
         res.send({ success: true, message: 'Successfully inserted' });
     } catch (e) {
@@ -63,17 +59,4 @@ router.put('/obstacles/:id', async (req, res, next) => {
     }
 });
 
-router.get('/obstaclepictures/:id', async (req, res, next) => {
-    try {
-        try {
-            let image = await Obstacles.readObstacleImage(req.params.id);
-            res.set({ 'Content-Type': 'image/png' });
-            res.send(image);
-        } catch (error) {
-            res.json(error);
-        }
-    } catch (e) {
-        res.sendStatus(500);
-    }
-});
 module.exports = router;

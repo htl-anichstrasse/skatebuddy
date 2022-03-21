@@ -100,6 +100,7 @@ router.put('/skateparks/:id', async (req, res, next) => {
     }
 });
 
+//OTher
 router.get('/skateparkpictures/:id', async (req, res, next) => {
     try {
         let pictures = await Skatepark.getAllPicturesFromPark(

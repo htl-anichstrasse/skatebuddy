@@ -43,6 +43,7 @@ router.get('/users/:id', async (req, res, next) => {
     }
 });
 
+//other route
 router.post('/check/email', async (req, res, next) => {
     const email = req.body.email;
     try {
