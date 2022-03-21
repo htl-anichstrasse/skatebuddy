@@ -1,0 +1,86 @@
+
+\subsubsection{POST /register}
+
+\begin{lstlisting}
+    /register
+\end{lstlisting}
+
+\textbf{Zweck der Route:} \\
+Mit dieser Route kann man sich registrieren. Der Server
+sendet dann eine Nachricht mit einem Erfolg oder nicht Erfolg.
+Bei dieser Route erhält der User einen gültigen Bearer Token.
+
+\textbf{Authorization:} \\
+Keine
+
+\paragraph{Zusätzliche Parameter}
+Keine
+
+\textbf{Body:}
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    {
+        {
+    "name": "Test",
+    "password": "Test",
+    "email": "test@test.com"
+}  
+}
+\end{lstlisting}
+
+\subsubsection{Response)}
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    {
+        {
+            "success": true,
+            "token": "eyJhbGciOiJIUzI1NJ.LCJleHAiOY5NTk3OTR9.k1p8njURt1GYHtio-Sg"
+        }
+}
+\end{lstlisting}
+
+\pagebreak
+
+\subsubsection{POST /login}
+
+\begin{lstlisting}
+    /login
+\end{lstlisting}
+
+\textbf{Zweck der Route:} \\
+Mit dieser Route kann man sich einloggen. Der Server
+sendet dann eine Nachricht mit einem Erfolg oder nicht Erfolg.
+Bei dieser Route erhält der User einen gültigen Bearer Token.
+
+\textbf{Authorization:} \\
+Keine
+
+\paragraph{Zusätzliche Parameter}
+Keine
+
+\textbf{Body:}
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    {
+        {
+            "name": "Test",
+            "password": "Test",
+            "email": "test@test.com"
+        }  
+}
+
+\end{lstlisting}
+\subsubsection{Response)}
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    {
+        {
+            "success": true,
+            "token": "eyJhbGciOiJIUzI1NJ.LCJleHAiOY5NTk3OTR9.k1p8njURt1GYHtio-Sg"
+        }
+}
+\end{lstlisting}
+
+\pagebreak

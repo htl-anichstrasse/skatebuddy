@@ -1,25 +1,29 @@
 \label{/users}
 
-\subsubsection{/users}
+\subsubsection{GET /users}
 
 \begin{lstlisting}
     /users
 \end{lstlisting}
 
-\textbf{Beschreibung:} \\
-Returned eine JSON liste mit allen vorhandenen Usern.
+\textbf{Zweck der Route:} \\
+Gibt  eine JSON liste zurück mit allen vorhandenen Usern.
 
-\textbf{Authorization-Typ:} \\
+\textbf{Authorization:} \\
 Bearer
 
 \paragraph{Zusätzliche Parameter}
 
+\textbf{Body:}
+Keinen
 
 \paragraph{Body:}
 
 Keinen
 
-\subsubsection{Response)}
+\newpage
+
+\subsubsection{Response}
 
 \lstinline{Content-Type: JSON}
 \begin{lstlisting}
@@ -53,7 +57,7 @@ Keinen
 
 \pagebreak
 
-\subsubsection{/users/:id}
+\subsubsection{GET /users/:id}
 
 \begin{lstlisting}
     /users/54
@@ -72,8 +76,10 @@ $\rightarrow$ Die eindeutige ID des gewünschten Users
     GET /users/54
 \end{lstlisting}
 
+\textbf{Body:}
+Keinen
 
-\textbf{Authorization-Art:} \\
+\textbf{Authorization:} \\
 Bearer
 
 \paragraph{Response }
@@ -81,10 +87,11 @@ Bearer
 \lstinline{Content-Type: JSON}
 \begin{lstlisting}
     [
-        {
+    {
         "userId": 54,
         "name": "ww",
-        "passwordhash": "$2b$10$6TnxbdU8GnROQK5oLAmEv.RcrlF9MCfC7Jlyv653L45FizJMGuz3u",
+        "passwordhash": "$2b$10$6TnxbdU8GnROQK5oL
+                         AmEv.RcrlF9MCfC7Jlyv653L45FizJMGuz3u",
         "email": "w@w.w",
         "profilepictureId": null,
         "admin": 0
@@ -100,9 +107,10 @@ Bearer
     /users/decode
 \end{lstlisting}
 
-\textbf{Was macht die Route?:} \\
+\textbf{Zweck der Route:} \\
 Im Body wird ein JSON Web token mitgesendet. Als Antwort
 wird die Payload ausgeben.
+
 \textbf{Authorization-Typ:} \\
 Bearer
 
@@ -110,13 +118,11 @@ Bearer
 \paragraph{Zusätzliche Parameter}
 Keine
 
-\paragraph{Body:}
+\textbf{Body:}
 
 \begin{lstlisting}
 
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMyLCJuYW1
-    lIjoiQSIsImVtYWlsIjoiQUBBIiwicHJvZmlsZXBpY3R1cmVJZCI6bnVsbCwiaWF0IjoxNj
-    Q1Mjk1Nzk0LCJleHAiOjE2NTY5NTk3OTR9.k1p8njU8ra6Rt16nZTTCmnkrhK3H8MygbwGYHtio-Sg"
+    "token": "eyJhbGciOiJIUzI1NJ.LCJleHAiOY5NTk3OTR9.k1p8njURt1GYHtio-Sg"
     
 \end{lstlisting}
 
@@ -133,3 +139,119 @@ Keine
         "exp": 1656959794
 ]
 \end{lstlisting}
+
+\pagebreak
+
+\subsubsection{GET /users/validate}
+
+\begin{lstlisting}
+    /users/validate
+\end{lstlisting}
+
+\textbf{Zweck der Route:} \\
+Im Body wird ein JWT-Token gesendet und der Server gibt zurück ob der Token
+gültig ist oder nicht.
+
+\textbf{Authorization:} \\
+Bearer
+
+\paragraph{Zusätzliche Parameter}
+ID
+
+\textbf{Body:}
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    {
+    "token": "eyJhbGciOiJIUzI1NJ.LCJleHAiOY5NTk3OTR9.k1p8njURt1GYHtio-Sg"
+    }
+\end{lstlisting}
+
+
+\subsubsection{Response)}
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    {
+        "success": true,
+        "message": "Token Valid"
+    }
+\end{lstlisting}
+
+\pagebreak
+
+\subsubsection{DEL /users/}
+
+\begin{lstlisting}
+    /users/1
+\end{lstlisting}
+
+\textbf{Zweck der Route:} \\
+Ein User mit einer bestimmten ID wird aus der Datenbank gelöscht.
+
+\textbf{Authorization:} \\
+Bearer
+
+\paragraph{Zusätzliche Parameter}
+\lstinline{id: int} (benötigt)
+$\rightarrow$ Die eindeutige ID des gewünschten Users
+
+\textbf{Body:}
+Keinen
+
+
+\subsubsection{Response)}
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    {
+    "success": true,
+    "message": "Successfully deleted"
+}
+\end{lstlisting}
+
+\pagebreak
+
+
+\subsubsection{PUT /users/:id}
+
+\begin{lstlisting}
+    /users/1
+\end{lstlisting}
+
+\textbf{Zweck der Route:} \\
+Ein User mit einer bestimmten ID wird aus der Datenbank kann nach belieben geändert
+werden.
+
+\textbf{Authorization:} \\
+Bearer
+
+\paragraph{Zusätzliche Parameter}
+\lstinline{id: int} (benötigt)
+$\rightarrow$ Die eindeutige ID des gewünschten Users
+
+\textbf{Body:}\\
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    {
+        {
+    "column": "name",
+    "newValue":"hans"
+
+        }
+}
+\end{lstlisting}
+
+\subsubsection{Response)}
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    {
+        {
+            "success": true,
+            "message": "Successfully updated"
+        }
+}
+\end{lstlisting}
+
+\pagebreak
+

@@ -1,0 +1,197 @@
+\label{/obstacles}
+
+\subsubsection{GET /obstacles}
+
+\begin{lstlisting}
+    /obstacles
+\end{lstlisting}
+
+\textbf{Zweck der Route:} \\
+Gibt  eine JSON liste mit allen vorhandenen Obstacles zurück.
+
+\textbf{Authorization:} \\
+Keine
+
+\paragraph{Zusätzliche Parameter}
+Keine
+
+\paragraph{Body:}
+
+Keinen
+
+\subsubsection{Response)}
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    [
+        
+    {
+        "obstacleId": 1,
+        "description": "Bowl"
+    },
+    {
+        "obstacleId": 2,
+        "description": "box"
+    },
+    {
+        "obstacleId": 3,
+        "description": "Mini Ramp"
+    },
+    ...
+    ]
+\end{lstlisting}
+
+\pagebreak
+
+\subsubsection{GET /obstacles/:id}
+
+\begin{lstlisting}
+    /obstacles/2
+\end{lstlisting}
+
+\textbf{Zweck der Route} \\
+Gibt ein Obstacle mit einer bestimmten ID zurück.
+
+
+
+
+\paragraph{Zusätzliche Parameter}
+\lstinline{id: int} (benötigt) \\
+$\rightarrow$ Die eindeutige ID des gewünschten Obstacles
+
+
+\textbf{Body:} \\
+Keinen
+
+\textbf{Authorization:} \\
+Keinen
+
+\paragraph{Response }
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    {
+        "obstacleId": 2,
+        "description": "box"
+    },
+\end{lstlisting}
+
+\pagebreak
+
+
+\subsubsection{Post /obstacles}
+
+\begin{lstlisting}
+    /obstacles/2
+\end{lstlisting}
+
+\textbf{Zweck der Route} \\
+Mit dieser Route ist es möglich ein neues Obstacle zu erstellen.
+
+
+
+
+
+\paragraph{Zusätzliche Parameter}
+Keine
+
+
+\textbf{Body:} \\
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    "description": "Mini Ramp"
+\end{lstlisting}
+
+\textbf{Authorization:} \\
+Keinen
+
+\paragraph{Response }
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+[
+    {
+        "success": true,
+        "message": "Successfully inserted"
+    }
+]
+\end{lstlisting}
+
+\pagebreak
+
+
+\subsubsection{DEL /obstacles/}
+
+\begin{lstlisting}
+    /obstacles/1
+\end{lstlisting}
+
+\textbf{Zweck der Route:} \\
+Ein User mit einer bestimmten ID wird aus der Datenbank gelöscht.
+
+\textbf{Authorization:} \\
+Bearer
+
+\paragraph{Zusätzliche Parameter}
+\lstinline{id: int} (benötigt)
+$\rightarrow$ Die eindeutige ID der gewünschten Review.
+
+\textbf{Body:}
+Keinen
+
+
+\subsubsection{Response)}
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    {
+    "success": true,
+    "message": "Successfully deleted"
+}
+\end{lstlisting}
+
+\pagebreak
+
+
+\subsubsection{PUT /skateparks/:id}
+
+\begin{lstlisting}
+    /obstacles/1
+\end{lstlisting}
+
+\textbf{Zweck der Route:} \\
+Ein Obstacle mit einer bestimmten ID kann nach belieben geändert werden.
+
+\textbf{Authorization:} \\
+Keine
+
+\paragraph{Zusätzliche Parameter}
+\lstinline{id: int} (benötigt)
+$\rightarrow$ Die eindeutige ID der gewünschten Review.
+
+\textbf{Body:}\\
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    {
+        {
+            "Title": "Mini Ramp",
+            "newValue":"Kleine Rampe"
+
+        }
+}
+\end{lstlisting}
+
+\subsubsection{Response)}
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    {
+        {
+            "success": true,
+            "message": "Successfully updated"
+        }
+}
+\end{lstlisting}
+
+\pagebreak
+

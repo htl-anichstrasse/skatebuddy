@@ -1,0 +1,36 @@
+\label{/other}
+
+\newpage
+\subsubsection{GET /check/email}
+
+\begin{lstlisting}
+    /check/email
+\end{lstlisting}
+
+\textbf{Zweck der Route:} \\
+Fragt am Server an ob ein User mit der im Body
+festgelegten Email existiert. Der Server Antwort mit
+true oder false.
+
+\textbf{Authorization:} \\
+Keine
+
+\paragraph{Zusätzliche Parameter}
+Keine
+
+\paragraph{Body:}
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    {
+        "email":"test@gmail.com"
+    }
+\end{lstlisting}
+
+\subsubsection{Response)}
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    { exists: true }
+\end{lstlisting}
+
+\pagebreak

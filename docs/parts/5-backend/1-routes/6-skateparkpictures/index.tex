@@ -1,0 +1,108 @@
+\label{/skateparkpictures}
+
+\subsubsection{GET /skateparkpictures}
+
+\begin{lstlisting}
+    /skateparkpictures
+\end{lstlisting}
+
+\textbf{Zweck der Route:} \\
+Gibt  eine JSON liste mit allen vorhandenen Skateparkpicture-ID's zurück.
+
+\textbf{Authorization:} \\
+Keine
+
+\paragraph{Zusätzliche Parameter}
+Keine
+
+\paragraph{Body:}
+
+Keinen
+
+\subsubsection{Response)}
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    [
+    {
+        "skateparkId": 1,
+        "picId": 1
+    },
+    {
+        "skateparkId": 1,
+        "picId": 2
+    },
+    {
+        "skateparkId": 1,
+        "picId": 3
+    },
+    ... 
+    ]
+\end{lstlisting}
+
+\pagebreak
+
+\subsubsection{GET /skateparkpictures/:id/:pid}
+
+\begin{lstlisting}
+    /obsskateparkpicturestacles/2/1
+\end{lstlisting}
+
+\textbf{Zweck der Route} \\
+Ruft ein Bild vom Server mit einer Park und Bild Nummer ab. Der Server Antwortet
+dannach mit den Binärdaten des Bildes.
+
+
+
+
+\paragraph{Zusätzliche Parameter}
+\lstinline{id: int} (benötigt) \\
+$\rightarrow$ Die eindeutige ID des gewünschten Skateparks und des Bildes
+
+
+\textbf{Body:} \\
+Keinen
+
+\textbf{Authorization:} \\
+Keinen
+
+\paragraph{Response }
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    Binaerdaten des Bildes
+\end{lstlisting}
+\pagebreak
+
+\subsubsection{GET /skateparkpictures/:id}
+
+\begin{lstlisting}
+    /s#skateparkpictures/3
+\end{lstlisting}
+
+\textbf{Zweck der Route} \\
+Gibt eine Liste aller Obstacles in einem Park zurück.
+
+
+
+
+\paragraph{Zusätzliche Parameter}
+\lstinline{id: int} (benötigt) \\
+$\rightarrow$ Die eindeutige ID des gewünschten Skateparks.
+
+
+\textbf{Body:} \\
+Keinen
+
+\textbf{Authorization:} \\
+Keinen
+
+\paragraph{Response }
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    [
+        4,
+        6    
+    ]
+\end{lstlisting}
