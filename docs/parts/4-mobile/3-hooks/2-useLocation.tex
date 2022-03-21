@@ -27,6 +27,25 @@ ob die Erlaubnis schon erteilt wurde, die Position zu ermitteln.
 
 Sollte dies nicht der Fall sein, so wird die Erlaubnis angefragt.
 
+
+\begin{lstlisting}
+  const requestPermission = async () => {
+    if (Platform.OS === 'android') {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+      );
+      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+        setLocError(null);
+        return true;
+      }
+    } else if (Platform.OS === 'ios') {
+      // TODO: Implement iOS permission request
+    }
+    setLocError('Standortdienst wurde abgelehnt');
+    return false;
+  };
+  \end{lstlisting}
+
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.6\textwidth]{Mobile/useLocationRequest.png}
@@ -36,31 +55,14 @@ Sollte dies nicht der Fall sein, so wird die Erlaubnis angefragt.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.6\textwidth]{Mobile/useLocationRequest.png}
+    \includegraphics[width=0.6\textwidth]{Mobile/useLocationDenied.png}
     \caption{Beim Ablehnen der Aufforderung wird die Anfrage an die Directions-API abgebrochen}
   \end{center}
 \end{figure}
 
 Wenn der Benutzer den roten Knopf drückt, wird er noch einmal gebeten die Berechtigung zu erteilen.
 
-\begin{lstlisting}
-const requestPermission = async () => {
-  if (Platform.OS === 'android') {
-    const granted = await PermissionsAndroid.request(
-      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-    );
-    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-      setLocError(null);
-      return true;
-    }
-  } else if (Platform.OS === 'ios') {
-    // TODO: Implement iOS permission request
-  }
-  setLocError('Standortdienst wurde abgelehnt');
-  return false;
-};
-\end{lstlisting}
-
+\newpage
 \begin{lstlisting}
 const getLocation = async () => {
   setLocLoading(true);

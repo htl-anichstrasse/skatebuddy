@@ -9,14 +9,9 @@ const Auth = () => {
   useEffect(() => {
     const checkForValidToken = async () => {
       let token = null;
-
-      try {
-        if (await Keychain.hasInternetCredentials('jwt')) {
-          const creds = await Keychain.getInternetCredentials('jwt');
-          token = creds.password;
-        }
-      } catch (e) {
-        // Restoring token failed
+      if (await Keychain.hasInternetCredentials('jwt')) {
+        const creds = await Keychain.getInternetCredentials('jwt');
+        token = creds.password;
       }
       restoreToken(token);
     };
@@ -24,13 +19,8 @@ const Auth = () => {
     checkForValidToken();
   }, [restoreToken]);
 
-  if (state.isLoading) {
-    return <SplashScreen />;
-  }
-
-  if (state.userToken == null) {
-    return <LoginSignupStack />;
-  }
+  if (state.isLoading) return <SplashScreen />;
+  if (state.userToken == null) return <LoginSignupStack />;
 
   return <BottomTabsNavigator />;
 };

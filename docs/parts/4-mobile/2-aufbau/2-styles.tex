@@ -20,6 +20,7 @@ verschiedenen Anbietern in die App einzubauen. Hauptsächlich verwendete ich die
 MaterialCommunityIcons, eine große Sammlung von Icons orientiert am Material Design, einer
 Designsprache entwickelt von Google.
 
+\newpage
 \subsection{FlashMessage}
 \begin{lstlisting}
 const App = () => (
@@ -35,11 +36,15 @@ Die Komponente FlashMessage ist für Mitteilungen über Geschehnisse in der App 
 Login fehlgeschlagen oder Login erfolgreich.
 
 \begin{figure}[H]
-  \centering
-  \hfill
-  \subfigure[Login-Informationen falsch]{\includegraphics[width=0.4\textwidth]{Mobile/Auth/failed.png}}
-  \hfill
-  \subfigure[Login-Informationen richtig]{\includegraphics[width=0.4\textwidth]{Mobile/Auth/granted.png}}
-  \hfill
-  \caption{FlashMessage Beispiel}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{Mobile/Auth/failed.png}
+    \caption{Login-Informationen falsch}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{Mobile/Auth/granted.png}
+    \caption{Login-Informationen richtig}
+  \end{center}
 \end{figure}
