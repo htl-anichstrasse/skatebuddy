@@ -1,5 +1,6 @@
 \subsection{authContext}
-\begin{lstlisting}
+\begin{code}[htp]
+\begin{lstlisting}[firstnumber=1,language=JavaScript, style=JSX]
 const authContext = useMemo(
   () => ({
     restoreToken: async token => {
@@ -31,6 +32,8 @@ const authContext = useMemo(
   [],
 );
 \end{lstlisting}
+\caption{JavaScript Funktion - Die Auth-Funktionen}
+\end{code}
 
 In authContext werden alle Funktionen erstellt, welche für die Server-Anfragen der Authentifikation
 wichtig sind. RestoreToken ist die Funktion, die als erstes Aufgerufen wird, nachdem die App

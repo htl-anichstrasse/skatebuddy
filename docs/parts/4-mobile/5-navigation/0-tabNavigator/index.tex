@@ -6,7 +6,8 @@ ihre Hauptfunktionen dem Benutzer zu präsentieren.
 Um die App simpel zu halten ist dies auch unsere präferierte Navigations-Methode, um die einzelnen
 Bereiche der Anwendung miteinander zu verbinden.
 
-\begin{lstlisting}
+\begin{code}[htp]
+\begin{lstlisting}[firstnumber=1,language=JavaScript, style=JSX]
 import MapScreen from '../screens/MapScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import SkateparksStack from './SkateparksStack';
@@ -18,7 +19,6 @@ const BottomTabsNavigator = () => {
   const tabBarIcons = (route, focused, color) => {
     ...
   };
-
   return (
     <Tab.Navigator
       backBehavior="initialRoute"
@@ -41,6 +41,8 @@ const BottomTabsNavigator = () => {
 
 export default BottomTabsNavigator;
 \end{lstlisting}
+\caption{React Component - Bottom-Tab-Navigation}
+\end{code}
 
 In Zeile 14 wird aus dem Objekt Tab zuerst der Navigator und danach, als Kinder, die einzelnen
 Screens eingefügt. Als Screens können hierbei weitere andere Navigatoren verwendet werden, um eine

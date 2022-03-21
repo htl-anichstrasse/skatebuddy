@@ -7,7 +7,8 @@ zusätzliche Wrapper-Bibliothek, Redux-Toolkit, um das erstellen von Redux-Store
 vereinfachen \cite{reduxToolkit}. Stores werden in Apps Variablen oder Objekte genannt, die von
 überall in der App aufrufbar sein sollen und zentrale Informationen zum Zustand speichern.
 
-\begin{lstlisting}
+\begin{code}[htp]
+\begin{lstlisting}[firstnumber=1,language=JavaScript, style=JSX]
 const [state, dispatch] = useReducer(
   (prevState, action) => {
     switch (action.type) {
@@ -32,14 +33,20 @@ const [state, dispatch] = useReducer(
   },
 );
 \end{lstlisting}
+\caption{JavaScript Funktion - Aus dem Hook werden zwei Variablen extrahiert, state und dispatch.}
+\end{code}
 
-Aus dem Hook werden zwei Variablen extrahiert, state und dispatch. State ist das Objekt, welches wir
-als zweiten Parameter dem Hook übergeben. Dispatch ist eine Funktion, welche wir aufgerufen werden
-kann um den State zu verändern.
+State ist das Objekt, welches wir als zweiten Parameter dem Hook übergeben. Dispatch ist eine
+Funktion, welche wir aufgerufen werden kann um den State zu verändern.
 
-\begin{lstlisting}
+\newpage
+
+\begin{code}[htp]
+\begin{lstlisting}[firstnumber=1,language=JavaScript, style=JSX]
 dispatch({ type: 'SIGN_OUT' });
 \end{lstlisting}
+\caption{JavaScript Funktion - Die State-Veränderung "SIGN-OUT" wird aufgerufen.}
+\end{code}
 
 Dispatch wird ein Objekt übergeben, welches im useReducer-Hook action genannt wird. Als erstes wird
 anhand von action.type in Zeile 3 überprüft, welche Art von Veränderung vorgenommen werden soll.

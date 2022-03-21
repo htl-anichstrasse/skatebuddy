@@ -7,7 +7,8 @@ der App miteinander und stellt das Gegenstück zu React Router für React im Web
 Damit die Navigation funktionieren kann, muss die gesamte App ein Kind von NavigationContainer sein,
 einer Komponente, die von React Navigation importiert wird.
 
-\begin{lstlisting}
+\begin{code}[htp]
+\begin{lstlisting}[firstnumber=1,language=JavaScript, style=JSX]
 import { NavigationContainer } from '@react-navigation/native';
 
 const App = () => (
@@ -19,12 +20,14 @@ const App = () => (
   </AuthProvider>
 );
 \end{lstlisting}
+\caption{JavaScript Funktion - In NavigationContainer können Navigationen erstellt werden.}
+\end{code}
 
 Die Navigation innerhalb der App wurde auf zwei Arten umgesetzt:
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.6\textwidth]{Mobile/Navigators.png}
+    \includegraphics[width=0.5\textwidth]{Mobile/Navigators.png}
     \caption{Stack Navigator und Tab-Navigator}
   \end{center}
 \end{figure}

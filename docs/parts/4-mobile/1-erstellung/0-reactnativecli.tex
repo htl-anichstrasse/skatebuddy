@@ -255,11 +255,12 @@ die App auszuführen:
 Dazu öffnet man in Android Studio den AVD-Manager und erstellt einen neuen Emulator mit einer
 Android Version von 11. Danach startet man den Emulator und führt folgenden Befehl aus:
 
-\begin{lstlisting}
+\begin{code}[htp]
+\begin{lstlisting}[firstnumber=1,language=JavaScript, style=CMD]
 C:\example\reactNativeInit> npm run android
 \end{lstlisting}
-
-Die App wird auf dem Emulator installiert und ausgeführt.
+\caption{CMD - Die App wird auf dem Emulator installiert und ausgeführt.}
+\end{code}
 
 \begin{figure}[H]
   \begin{center}
@@ -278,7 +279,8 @@ Jetzt muss noch ein Tunnel über die USB-Verbindung erzeugt werden, damit das Ge
 lokalen Metro-Server kommunizieren kann. Man listet alle Geräte auf und erzeugt dann mit der
 Device-Identifikation einen Tunnel.
 
-\begin{lstlisting}
+\begin{code}[htp]
+\begin{lstlisting}[firstnumber=1,language=JavaScript, style=CMD]
 C:\example\reactNativeInit> adb devices
 List of devices attached
 34299o5j85o496g3        device
@@ -287,5 +289,7 @@ emulator-8125           device
 C:\example\reactNativeInit> adb -s 34299o5j85o496g3 reverse tcp:8081 tcp:8081
 8081
 \end{lstlisting}
+\caption{CMD - Erstellung eines TCP-Tunnels über USB}
+\end{code}
 
 \end{enumerate}
