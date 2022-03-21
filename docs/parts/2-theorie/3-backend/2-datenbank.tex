@@ -56,7 +56,11 @@ befinden sich die Daten und um auf diese zugreifen zu können wird ein sogenannt
 benötigt. Unter \textit{SQL} sendet also der Client eine Anfrage auch genannt \textbf{resquest}
 worauf der Datenbankserver mit den benötigten Daten antwortet \textbf{response} .
 
+Wir haben uns für eine \textit{MySQL} Datenbank entschieden, da wir uns schon in der Schule
+damit auseinander gesetzt haben und wir somit schon Erfahrung haben.
+
 \includegraphics[width=0.75\textwidth]{Backend/ClientSever.png}
+
 
 \subsection{Andere Datenbanktypen}
 Wie bereits oben beschrieben ist \textit{MySql} ein relatives Datenbanksystem. Es gibt
@@ -100,7 +104,70 @@ Vielzahl von Transaktionen mehrerer Benutzer ausgelegt ist.
 Das sind natürlich nicht alle vorhandenen Datenbanktypen. Die Anderen sind jedoch
 nicht weit verbreitet und speziell für wissenschaftliche, finanzielle oder andere Funktionen konzipiert.
 
+\subsubsection{Password-Hashing}
+Damit in der Datenbank die Passwörter nicht im Klartext angezeigt werden.
+Müssen sie vorher \textbf{gehashed} werden.
 
+\paragraph{Was bedeutet Hashing?}
+Das sogenannte Password-Hashing dient einem erhöhten Datenschutz. Er
+wandelt das Klartext Passwort in eine Reihe von Zeichen und Symbolen-folgen an.
+
+\paragraph{Wie funktioniert das Hashing?}
+Mittels eines Password Hashing Verfahrens werden Passwörter in einer festgelegten
+Codefolge in zufälligen Buchstaben und Zahlen umgewandelt. Die Generierung der
+sogenannten \textit{Hashes} läuft also automatisiert mit einem Hash-Algorithmus ab.
+Die bekanntesten Hashing Algorithmen sind \textbf{Skrypt} oder \textbf{Argon2}.
+
+\paragraph{Salted Passwords}
+Da ein Algorithmus gleiche Passwörter immer gleich Hashed und man somit leicht
+das Klartext Passwort raus filtern kann wird der Hash noch "gesalzen". Ein \textit{Salt}
+ist eine zufällig generierte Ziffer die in dem Hash einfließt. Somit kann also verhindert
+werden das der gleiche Hash öfter in der Datenbank steht.
+\cite{Hashing}
+
+\begin{code}[H]
+    \begin{lstlisting}[firstnumber=1,language=JavaScript, style=CMD]
+        router.post('/register', async (req, res, next) => {
+            const password = req.body.password;
+            const encryptedPassword = await bcrypt.hash(password, saltRounds);
+            try {
+                const temp = new User(
+                    null,
+                    req.body.name,
+                    encryptedPassword,
+                    req.body.email,
+                );
+                var alreadyExists = await User.alreadyExists(
+                    con,
+                    temp.name,
+                    temp.email,
+                );
+                if (!alreadyExists) {
+                    await User.insertValue(con, temp);
+                    const user = await User.getByEmail(con, temp.email);
+                    token = User.generateToken(user);
+                    res.send({ success: true, token: token });
+                } else {
+                    res.send({ success: false, message: 'User already exists!' });
+                }
+            } catch (e) {
+                console.log(e);
+                res.sendStatus(500);
+            }
+        });
+    \end{lstlisting}
+    \caption{Code-Snippet-Hashing}
+\end{code}
+
+\paragraph{Erklärung zum Code:}
+In Zeile zwei wird das Klartext Passwort aus dem Body entnommen. Des weiteren
+wird in der nächsten Zeile das Klartext Passwort mittels der asynchronen Methode
+\texttt{bcrypt.hash(klartext Passwort, saltRounds)}. Die saltRounds sind ein
+Faktor der bestimmt wie lange es dauert um ein einziges BCrypt Hash zu erstellen.
+Den Faktor um 1 zu erhöhen würde eine doppelt so lange Hash Zeit bedeuten.
+Im Weiterfolgeanden Code wird zuerst gecheckt ob ein User mit der Email oder dem Username bereits
+besteht. Falls der Username und die Email unique sind wird der Benutzer
+in die Datenbank eingetragen und ein Token \ref*{restapi} wird erstellt.
 \cite{MySQL}
 \label{db}
 
