@@ -69,15 +69,23 @@
 
 \lstdefinelanguage{JavaScript}{
   keywords={typeof, new, true, false, catch, function, return, null, catch, switch, const, var, let, if, in, while, do, else, case, break},
-  keywordstyle=\color{blue}\bfseries,
+  keywordstyle=\color{themeRed},
   identifierstyle=\color{themeDark},
   sensitive=false,
   comment=[l]{//},
   morecomment=[s]{/*}{*/},
-  commentstyle=\color{purple}\ttfamily,
-  stringstyle=\color{red}\ttfamily,
+  commentstyle=\color{themePurple}\ttfamily,
   morestring=[b]',
   morestring=[b]"
+  basicstyle = {\color{themeDark}},
+  backgroundcolor = {\color{white}},
+  stringstyle = {\color{themeBlue}},
+  keywordstyle = {\color{themeRed}},
+  keywordstyle = [2]{\color{themeBlue}},
+  keywordstyle = [3]{\color{themePurple}},
+  otherkeywords = {import,from,function,export,default,async},
+  morekeywords = [2]{View,Text,styles,StyleSheet},
+  morekeywords = [3]{App,style}
 }
 
 
@@ -90,7 +98,7 @@
   keywordstyle = {\color{themeRed}},
     keywordstyle = [2]{\color{themeBlue}},
     keywordstyle = [3]{\color{themePurple}},
-    otherkeywords = {import,from,function,export,default},
+    otherkeywords = {import,from,function,export,default,async},
     morekeywords = [2]{View,Text,styles,StyleSheet},
     morekeywords = [3]{App,style}
 }
@@ -104,9 +112,9 @@
     keywordstyle = [2]{\color{themeBlue}},
     keywordstyle = [3]{\color{themePurple}},
     keywordstyle = [4]{\color{teal}},
-    otherkeywords = {import,from,function,export,default},
-    morekeywords = [2]{View,Text,styles,StyleSheet},
-    morekeywords = [3]{App,style},
+    otherkeywords = {npx, npm},
+    morekeywords = [2]{react, native},
+    morekeywords = [3]{init, start},
     morekeywords = [4]{++},
 }
 
