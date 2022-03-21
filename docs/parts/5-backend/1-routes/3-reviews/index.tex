@@ -1,0 +1,224 @@
+\label{/reviews}
+
+\subsubsection{GET /reviews}
+
+\begin{lstlisting}
+    /reviews
+\end{lstlisting}
+
+\textbf{Zweck der Route:} \\
+Gibt  eine JSON liste zurück mit allen vorhandenen Reviews.
+
+\textbf{Authorization:} \\
+Keine
+
+\paragraph{Zusätzliche Parameter}
+Keine
+
+\paragraph{Body:}
+
+Keinen
+
+\subsubsection{Response)}
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    [
+        {
+            "reviewId": 122,
+            "skateparkId": 2,
+            "userId": 58,
+            "rating": 5,
+            "title": "Grosse Bowl",
+            "content": "Einfach nur perfekt.",
+            "username": "Philipp"
+        },
+        {
+            "reviewId": 121,
+            "skateparkId": 1,
+            "userId": 58,
+            "rating": 3,
+            "title": "Keine Bowl",
+            "content": "Es gibt zwar eine Miniramp, aber keine Bowl. Trotzdem guter Park.",
+            "username": "Philipp"
+        },
+        {
+            "reviewId": 120,
+            "skateparkId": 1,
+            "userId": 57,
+            "rating": 4,
+            "title": "Guter Park",
+            "content": "Ein sehr guter Park mit einer grossen und abwechslungsreichen Anzahl an Hindernissen.",
+            "username": "Alexander"
+        }
+]
+\end{lstlisting}
+
+\pagebreak
+
+\subsubsection{GET /reviews/:id}
+
+\begin{lstlisting}
+    /reviews/2
+\end{lstlisting}
+
+\textbf{Zweck der Route} \\
+Gibt einen Review mit einer bestimmten SkateparkID zurück.
+
+
+
+\paragraph{Zusätzliche Parameter}
+\lstinline{id: int} (benötigt) \\
+$\rightarrow$ Die eindeutige ID des gewünschten Skateparks
+
+
+\textbf{Body:} \\
+Keinen
+
+\textbf{Authorization:} \\
+Keinen
+
+\paragraph{Response }
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    [
+        {
+            "reviewId": 122,
+            "skateparkId": 2,
+            "userId": 58,
+            "rating": 5,
+            "title": "Grosse Bowl",
+            "content": "Einfach nur perfekt.",
+            "username": "Philipp"
+        }
+]
+\end{lstlisting}
+
+\pagebreak
+
+
+\subsubsection{Post /reviews}
+
+\begin{lstlisting}
+    /reviews/2
+\end{lstlisting}
+
+\textbf{Zweck der Route} \\
+Mit dieser Route ist es möglich eine neue Review hinzuzufügen.
+
+
+
+
+\paragraph{Zusätzliche Parameter}
+\lstinline{id: int} (benötigt) \\
+$\rightarrow$ Die eindeutige ID des gewünschten Skateparks
+
+
+\textbf{Body:} \\
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    {
+        "parkid": "2",
+        "userid": "10",
+        "rating": "5",
+        "title": "Cool",
+        "content": "Nice"
+    }
+\end{lstlisting}
+
+\textbf{Authorization:} \\
+Keinen
+
+\paragraph{Response }
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+[
+    {
+        "success": true,
+        "message": "Successfully inserted"
+    }
+]
+\end{lstlisting}
+
+\pagebreak
+
+\pagebreak
+
+\subsubsection{DEL /reviews/}
+
+\begin{lstlisting}
+    /users/1
+\end{lstlisting}
+
+\textbf{Zweck der Route:} \\
+Ein User mit einer bestimmten ID wird aus der Datenbank gelöscht.
+
+\textbf{Authorization:} \\
+Bearer
+
+\paragraph{Zusätzliche Parameter}
+\lstinline{id: int} (benötigt)
+$\rightarrow$ Die eindeutige ID der gewünschten Review.
+
+\textbf{Body:}
+Keinen
+
+
+\subsubsection{Response)}
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    {
+    "success": true,
+    "message": "Successfully deleted"
+}
+\end{lstlisting}
+
+\pagebreak
+
+
+\subsubsection{PUT /reviews/:id}
+
+\begin{lstlisting}
+    /reviews/1
+\end{lstlisting}
+
+\textbf{Zweck der Route:} \\
+Eine Review mit einer bestimmten ID kann nach belieben geändert werden.
+werden.
+
+\textbf{Authorization:} \\
+Keine
+
+\paragraph{Zusätzliche Parameter}
+\lstinline{id: int} (benötigt)
+$\rightarrow$ Die eindeutige ID der gewünschten Review.
+
+\textbf{Body:}\\
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    {
+        {
+            "Title": "Alter Titel",
+            "newValue":"Neuer Titel"
+
+        }
+}
+\end{lstlisting}
+
+\subsubsection{Response)}
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    {
+        {
+            "success": true,
+            "message": "Successfully updated"
+        }
+}
+\end{lstlisting}
+
+\pagebreak
+

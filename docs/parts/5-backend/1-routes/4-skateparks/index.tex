@@ -1,0 +1,272 @@
+\label{/skateparks}
+
+\subsubsection{GET /skateparks}
+
+\begin{lstlisting}
+    /reviews
+\end{lstlisting}
+
+\textbf{Zweck der Route:} \\
+Gibt  eine JSON liste mit allen vorhandenen Skateparks,  BilderID's und
+Obstacles zurück.
+
+\textbf{Authorization:} \\
+Keine
+
+\paragraph{Zusätzliche Parameter}
+Keine
+
+\paragraph{Body:}
+
+Keinen
+
+\newpage
+
+\subsubsection{Response)}
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    [
+        {
+        "skateparkId": 1,
+        "name": "Sane Skate Plaza Rum",
+        "longitude": 11.448424,
+        "latitude": 47.26836,
+        "address": "Innsbruck Hallenbad O-Dorf, 6063 Innsbruck",
+        "busstop": "Innsbruck Hallenbad O-Dorf",
+        "rating": 3.5,
+        "obstacles": [
+            {
+                "ObstacleID": 8,
+                "Description": "Miniramp",
+                "difficulty": 4
+            },
+            {
+                "ObstacleID": 7,
+                "Description": "Manualpad",
+                "difficulty": 6
+            },
+            {
+                "ObstacleID": 2,
+                "Description": "Flatrail",
+                "difficulty": 7
+            }
+        ],
+        "pictureIds": [
+            {
+                "skateparkId": 1,
+                "picId": 1
+            },
+            {
+                "skateparkId": 1,
+                "picId": 2
+            },
+            {
+                "skateparkId": 1,
+                "picId": 3
+            },
+            {
+                "skateparkId": 1,
+                "picId": 4
+            }
+        ]
+    },
+
+    ...
+\end{lstlisting}
+
+\pagebreak
+
+\subsubsection{GET /skateparks/:id}
+
+\begin{lstlisting}
+    /skateparks/2
+\end{lstlisting}
+
+\textbf{Zweck der Route} \\
+Gibt einen Skatepark mit seinen zugehörigen Obstacles und Bilder ID's aus.
+
+
+
+
+\paragraph{Zusätzliche Parameter}
+\lstinline{id: int} (benötigt) \\
+$\rightarrow$ Die eindeutige ID des gewünschten Skateparks
+
+
+\textbf{Body:} \\
+Keinen
+
+\textbf{Authorization:} \\
+Keinen
+
+\paragraph{Response }
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    [
+        {
+    "skateparkId": 1,
+    "name": "Sane Skate Plaza Rum",
+    "longitude": 11.448424,
+    "latitude": 47.26836,
+    "address": "Innsbruck Hallenbad O-Dorf, 6063 Innsbruck",
+    "busstop": "Innsbruck Hallenbad O-Dorf",
+    "rating": 3.5,
+    "obstacles": [
+        {
+            "ObstacleID": 8,
+            "Description": "Miniramp",
+            "difficulty": 4
+        },
+        {
+            "ObstacleID": 7,
+            "Description": "Manualpad",
+            "difficulty": 6
+        },
+        {
+            "ObstacleID": 2,
+            "Description": "Flatrail",
+            "difficulty": 7
+        }
+    ]
+}
+]
+\end{lstlisting}
+
+\pagebreak
+
+
+\subsubsection{Post /skateparks}
+
+\begin{lstlisting}
+    /reviews/2
+\end{lstlisting}
+
+\textbf{Zweck der Route} \\
+Mit dieser Route ist es möglich einen neuen Skatepark hinzuzufügen.
+
+
+
+
+
+\paragraph{Zusätzliche Parameter}
+\lstinline{id: int} (benötigt) \\
+$\rightarrow$ Die eindeutige ID des gewünschten Skateparks
+
+
+\textbf{Body:} \\
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    {
+    "name": "Ibk1",
+    "longitude": 4.23232,
+    "latitude": 2.3232,
+    "address": "dee",
+    "busstop": "dwwd",
+    "obstacles": [
+        {
+            "ObstacleID": 2,
+            "difficulty": 0
+        },
+        {
+            "ObstacleID": 5,
+            "difficulty": 0
+        }
+    
+\end{lstlisting}
+
+\textbf{Authorization:} \\
+Keinen
+
+\paragraph{Response }
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+[
+    {
+        "success": true,
+        "message": "Successfully inserted"
+    }
+]
+\end{lstlisting}
+
+\pagebreak
+
+
+\subsubsection{DEL /skateparks/}
+
+\begin{lstlisting}
+    /users/1
+\end{lstlisting}
+
+\textbf{Zweck der Route:} \\
+Ein User mit einer bestimmten ID wird aus der Datenbank gelöscht.
+
+\textbf{Authorization:} \\
+Bearer
+
+\paragraph{Zusätzliche Parameter}
+\lstinline{id: int} (benötigt)
+$\rightarrow$ Die eindeutige ID der gewünschten Review.
+
+\textbf{Body:}
+Keinen
+
+
+\subsubsection{Response)}
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    {
+    "success": true,
+    "message": "Successfully deleted"
+}
+\end{lstlisting}
+
+\pagebreak
+
+
+\subsubsection{PUT /skateparks/:id}
+
+\begin{lstlisting}
+    /skateparks/1
+\end{lstlisting}
+
+\textbf{Zweck der Route:} \\
+Ein Skatepark mit einer bestimmten ID kann nach belieben geändert werden.
+werden.
+
+\textbf{Authorization:} \\
+Keine
+
+\paragraph{Zusätzliche Parameter}
+\lstinline{id: int} (benötigt)
+$\rightarrow$ Die eindeutige ID des gewünschten Parks..
+
+\textbf{Body:}\\
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    {
+        {
+            "Title": "Sane Skate Plaza Rum",
+            "newValue":"Nur Rum"
+
+        }
+}
+\end{lstlisting}
+
+\subsubsection{Response)}
+
+\lstinline{Content-Type: JSON}
+\begin{lstlisting}
+    {
+        {
+            "success": true,
+            "message": "Successfully updated"
+        }
+}
+\end{lstlisting}
+
+\pagebreak
+
