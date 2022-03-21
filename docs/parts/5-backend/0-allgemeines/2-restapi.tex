@@ -65,6 +65,38 @@ ist. Somit wird sichergestellt das der Token nicht verändert wurde.
     \url{https://medium.com/swlh/understand-the-concept-of-jwt-json-web-tokens-4ee18682a583}
 \end{figure}
 
+\pagebreak
+
+
+\begin{code}[htp]
+    \begin{lstlisting}[firstnumber=1,language=JavaScript, style=CMD]
+    router.use('/users*', async (req, res, next) => {
+    const auth = req.headers['authorization'];
+
+    if (!auth) {
+        res.sendStatus(401);
+        return;
+    }
+    const token = auth.split(' ');
+    try {
+        jwt.verify(token[1], process.env.JWT_HASH_SECRET);
+        next();
+    } catch (e) {
+        res.sendStatus(401);
+    }
+});
+    \end{lstlisting}
+    \caption{Code-Snippet-Authorization}
+\end{code}
+
+In der ersten Zeile sieht man das diese Route für alle http Anfragen
+die mit \textit{/api/users} beginnt gilt. In der Konstante \textit{auth}
+wird der Header ausgelesen. Falls sich im Header nichts befindet sendet der
+Server einen Error 401 \textbf{Unauthorized}. Falls es einen Token findet
+wird er gesplited und in eine Konstante namens \textit{token} gespeichert.
+Nun wird in der 10 Zeile der Token mithilfe der Methode \texttt{jwt.verify(token[1], Hash SECRET)}
+verifiziert. Falls dies klappt wird die Methode \texttt{next()} aufgerufen die
+weiter \textit{/api/users} anfragen durchlässt.
 
 
 \cite{JWT}
