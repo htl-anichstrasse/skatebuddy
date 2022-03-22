@@ -1,26 +1,24 @@
 \section{Benutzertoken}
 \label{benutzer}
 
-Der Benutzer kann sich mittels eines einfachen Formular in die Webseite einloggen als auch einen neuen 
+Der Benutzer kann sich mittels eines einfachen Formulars in die Website einloggen, als auch einen neuen 
 Account erstellen. Bei erfolgreichem \nameref{login} oder \nameref{createAccount} erhält man vom Server einen 
-\textit{JWT (JSON Web Token)}, welcher für die weitere Verwendung dekodiert werden muss. Dieser kodierte 
-Token wird im LocalStorage gespeichert, damit man sich nicht jedes mal neu einloggen muss, wenn man 
-die Seite verlässt.
+\textit{JWT (\nameref{token})}, welcher für die weitere Verwendung dekodiert werden muss. Dieser kodierte 
+Token wird im LocalStorage gespeichert, damit bei erneuten Aufruf der Seite das Login-Formular nicht neu 
+ausgefüllt werden muss.
+
 \begin{lstlisting}
     localStorage.setItem("user", JSON.stringify(response.data));
 \end{lstlisting}
-So wurde der Token in den LocalStorage der Seite gespeichert.
-
-
-\textbf{TODO: Name Ref fauler neuner zu Token}
+So wird der Token in den LocalStorage der Seite gespeichert.
 
 \subsection{Token dekodieren}
 
-Das dekodieren von dem Token erfolgt in einer \textit{decodeToken} Methode. In dieser Methode wird der 
+Das Dekodieren von dem Token erfolgt in einer \textit{decodeToken} Methode. In dieser Methode wird der 
 Token mittels \textit{post fetch} an den Server gesendet. War das Decoden des Tokens erfolgreich, 
-erhalten wir als Antwort vom Server alle Daten zu dem eingeloggten User. Diese Daten werden dann in 
-dem SessionStorage des Browsers gespeichert und werden somit beim schließen des Browsers wieder verworfen. 
-Das dekodieren eines Tokens wird nach dem Login und bei dem Aufruf der Seite gemacht.
+beinhaltet die Antwort des Servers alle Daten zu dem eingeloggten User. Diese Daten werden dann im 
+SessionStorage des Browsers gespeichert und werden somit beim schließen des Browsers wieder verworfen. 
+Das Dekodieren eines Tokens wird nach dem Login und bei dem erneuten Aufruf der Seite gemacht.
 \begin{lstlisting}
     sessionStorage.setItem("data", JSON.stringify(data))
 \end{lstlisting}
@@ -29,17 +27,17 @@ So erfolgt das Speichern der Tokendaten in den SessionStorage.
 \subsection{Token Überprüfung}
 
 Die Token selbst besitzen ein Ablaufdatum. Ist dieses Ablaufdatum erreicht, sind sie nicht mehr 
-gültig und man wird ausgeloggt und muss sich wieder neu einloggen. Die Überprüfung dieses Ablaufdatum 
-findet jedes mal statt, wenn die Seite neu aufgerufen wird. Wie auch schon beim Decoden eines Tokens,
+gültig und werden aus dem LocalStorage geworfen, was zu einem automatischen ausloggen aus der Seite führt. Die Überprüfung dieses Ablaufdatums 
+findet jedes mal statt wenn die Seite neu aufgerufen wird. Wie auch schon beim Decoden eines Tokens,
 ist dies auch ein \textit{post Fetch}, welches den Token an Server sendet. Ist das Ablaufdatum des
-Token erreicht, gibt der Server als Antwort \textit{success:false} zurück. Ist dies der Fall ist der 
-Token abgelaufen und man wird ausgeloggt. Ist der Token nicht abgelaufen gibt der Server die Antwort 
-\textit{success:true} und bleibt eingeloggt. 
+Tokens erreicht, gibt der Server als Antwort \textit{success:false} zurück. 
+Ist der Token nicht abgelaufen gibt der Server die Antwort \textit{success:true} und 
+der Benutzer bleibt eingeloggt. 
 
 \subsection{Token entfernen}
 
-Beim Ausloggen wird der Token aus dem LocalStorage entfernt. Die Information des dekodierten Token 
-wird ebenfalls aus dem SessionStorage entfernt. Dies erfolgt ganz einfach mittels einer \textit{logout}
+Beim Ausloggen wird der Token aus dem LocalStorage entfernt. Die Informationen des dekodierten Token 
+werden ebenfalls aus dem SessionStorage entfernt. Dies erfolgt ganz einfach mittels einer \textit{logout}
 Methode, welche wie folgt aussieht:
 
 \begin{lstlisting}
