@@ -8,10 +8,10 @@
     \end{center}
 \end{figure}
 
-Auf der Profilseite ist es möglich seinen Benutzernamen und seine Email einzusehen. Außerdem loggt 
-man sich hier von der Seite wieder aus. Die Informationen über den Benutzer werden ganz einfach über 
-seinen token ausgelesen. Ist man auf der Seite nicht eingeloggt und man versucht auf die Profilseite
-zu kommen indem man die URL dieser Seite eingibt, leitet diese auf die Login-view weiter. Die
+Auf der Profilseite ist es möglich seinen Benutzernamen und seine Email einzusehen. Außerdem ist es  
+möglich sich von der Seite wieder auszuloggen. Die Informationen über den Benutzer werden ganz einfach über 
+seinen token ausgelesen. Ist der Anwender auf der Seite nicht eingeloggt und er versucht auf die Profilseite
+zu gelangen indem er die URL dieser Seite eingibt, leitet diese ihn auf die Login-view weiter. Die
 Überleitung auf die Login view erfolgt wie folgt:
 
 \begin{lstlisting}
@@ -23,4 +23,4 @@ zu kommen indem man die URL dieser Seite eingibt, leitet diese auf die Login-vie
 \end{lstlisting}
 
 UseEffect ist ein React Hook welcher ausgeführt wird, wenn die Seite einmal geladen wurde. Diese 
-Überprüfung wird auch in der Admin-View der Seite verwendet. 
+Überprüfung wird auch in der Admin-View der Seite verwendet um unerlaubten Zugriff zu vermeiden.
