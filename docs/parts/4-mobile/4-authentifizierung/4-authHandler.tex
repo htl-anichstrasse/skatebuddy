@@ -1,7 +1,8 @@
 \section{AuthHandler}
 In AuthHandler entscheidet die App, ob ein Benutzer eingeloggt ist oder nicht.
 
-\begin{lstlisting}
+\begin{code}[htp]
+\begin{lstlisting}[firstnumber=1,language=JavaScript, style=JSX]
 const Auth = () => {
   const { restoreToken } = useAuthContext();
   const state = useAuthContextState();
@@ -27,6 +28,8 @@ const Auth = () => {
 
 export default Auth;
 \end{lstlisting}
+\caption{React Component - Ob ein Benutzer eingeloggt ist, hängt von state.userToken ab.}
+\end{code}
 
 Als erstes werden die Funktion restoreToken und state aus dem Content entnommen. Sobald die App
 gestartet wird, wird die asynchrone Funktion checkForValidToken aufgerufen. In ihr wird in Zeile 10

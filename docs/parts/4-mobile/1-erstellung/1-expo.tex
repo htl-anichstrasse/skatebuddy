@@ -16,19 +16,24 @@ den darin enthaltenen Node Package Manager. In einer Kommandozeile führt man nu
 aus, um die Expo-CLI im globalen Kontext zu installieren und anschließend ein Expo Projekt zu
 erstellen. Nach der Auswahl für die Vorlage wird das Projekt erstellt.
 
-\begin{lstlisting}
+
+\begin{code}[htp]
+\begin{lstlisting}[firstnumber=1,language=JavaScript, style=CMD]
 C:\example> npm install -g expo-cli
 added 1549 packages, and audited 1550 packages in 1m
 
 C:\example>expo init expoInitBlank
-? Choose a template: - Use arrow-keys. Return to submit.
+? Choose a template: - Use arrow-keys.
     ----- Managed workflow -----
 >   blank               a minimal app as clean as an empty canvas
-    blank (TypeScript)  same as blank but with TypeScript configuration
-    tabs (TypeScript)   several example screens and tabs using react-navigation and TypeScript
+    blank (TypeScript)
+    tabs (TypeScript)
     ----- Bare workflow -----
-    minimal             bare and minimal, just the essentials to get you started
+    minimal
 \end{lstlisting}
+\caption{CMD - Als Beispiel-Projekt ist das Template blank geeignet.}
+\end{code}
+
 
 \begin{itemize}
 \item Ordner:
@@ -92,9 +97,10 @@ Wie bereits vorher schon erwähnt, hat es einige Nachteile seine App mit Expo zu
 einen schnellen Prototypen zu bauen ist das Framework perfekt. Um also eine Expo App in eine
 vollwertige React Native Anwendung umzuwandeln, benötigt man folgenden Befehl.
 
-\begin{lstlisting}
+\begin{code}[htp]
+\begin{lstlisting}[firstnumber=1,language=JavaScript, style=CMD]
 C:\example\expoInitBlank> expo eject
 \end{lstlisting}
-
-Man wird bei einer Eingabeaufforderung darüber informiert, dass dieser Prozess nicht rückgängig
-gemacht werden kann.
+\caption{CMD - Man wird bei einer Eingabeaufforderung darüber informiert, dass dieser Prozess nicht rückgängig
+gemacht werden kann.}
+\end{code}

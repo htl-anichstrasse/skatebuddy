@@ -9,7 +9,8 @@ ihre API die Möglichkeit an, die Distanz zwischen zwei Orten abzufragen, genau 
   \end{center}
 \end{figure}
 
-\begin{lstlisting}
+\begin{code}[htp]
+\begin{lstlisting}[firstnumber=1,language=JavaScript, style=JSX]
 const buildUrl = method => {
   let url = 'https://maps.googleapis.com/maps/api/directions/json?origin=';
   url += location.coords.latitude.toString();
@@ -26,9 +27,11 @@ const buildUrl = method => {
   return url;
 };
 \end{lstlisting}
+\caption{JavaScript Funktion - Die Url für den API-Request wird generiert.}
+\end{code}
 
 Mit dieser Funktion bauen wir uns die URL für die Anfrage zusammen. Als Method übergibt man den
-String "walking", "bicycling", "transit" oder "driving".
+String "walking", "bicycling", "transit"{ }oder "driving".
 
 \subsection{Api-Key}
 \label{apikey}

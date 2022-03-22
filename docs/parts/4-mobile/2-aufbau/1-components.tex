@@ -22,10 +22,11 @@ selben Code generieren.
 \end{figure}
 
 Da jede Komponente in unserer App ähnlich aufgebaut ist und damit wir nicht jedes mal den gleichen
-Code schreiben müssen, habe ich ein eigenes Snippet erstellt. Die Abkürzung rnfec steht hierbei für
-React Native Functional Component Export Custom und erzeugt folgenden Code:
+Code schreiben müssen, habe ich ein eigenes Snippet erstellt. Die Abkürzung rnfec steht für React
+Native Functional Component Export Custom und erzeugt folgenden Code:
 
-\begin{lstlisting}
+\begin{code}[htp]
+\begin{lstlisting}[firstnumber=1,language=JavaScript, style=JSX]
 import React from 'react'
 import { View } from 'react-native'
 import Text from '@components/common/Text';
@@ -40,6 +41,8 @@ const Test = () => {
 
 export default Test
 \end{lstlisting}
+\caption{React Component - Snippet rnfec in der Datei Test.js}
+\end{code}
 
 Der Name der Komponente wird hierbei vom Dateinamen abgeleitet. Eine Besonderheit, die auffällt, ist
 das Import-Statement von Text. Das Verwenden von Alias-Paths wird durch das Babel-Plugin
@@ -52,17 +55,16 @@ zuzuweisen, deswegen wird in unserer App immer eine eigene Text-Komponente verwe
 auch beim Erzeugen von neuen Komponenten automatisch eingebunden, damit nicht versehentlich doch die
 falsche Komponente verwendet wird.
 
-\begin{lstlisting}
-import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+\begin{code}[htp]
+\begin{lstlisting}[firstnumber=1,language=JavaScript, style=JSX]
 import colors from '../../styles/Colors';
 
 const CustomText = ({ style, children }) => (
-  <Text style={[styles.defaultStyle, style]}>{children}</Text>
+  <Text style={[styles.customFont, style]}>{children}</Text>
 );
 
 const styles = StyleSheet.create({
-  defaultStyle: {
+  customFont: {
     fontFamily: 'Poppins-Regular',
     color: colors.text,
   },
@@ -70,20 +72,19 @@ const styles = StyleSheet.create({
 
 export default CustomText;
 \end{lstlisting}
+\caption{React Component - Custom Text Komponente}
+\end{code}
 
 Alle Kinder dieser Komponente werden dann direkt in den Text eingebunden und, sollte man noch ein
 style-Property an die Komponente übergeben wird der Standard-Style überschrieben.
 
 \newpage
 \subsection{Button}
-Auch der Button-Component von React Native lässt sich leicht nachbauen.
-
-\begin{lstlisting}
+\begin{code}[htp]
+\begin{lstlisting}[firstnumber=1,language=JavaScript, style=JSX]
 import React from 'react';
 import { Pressable } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import Text from './Text';
 import styles from '@styles/GlobalStyles';
@@ -109,21 +110,15 @@ const Button = ({
         color={styles.buttonText.color}
       />
     )}
-    {icon && iconType === 'mi' && (
-      <MaterialIcons
-        name={icon}
-        size={iconSize}
-        color={styles.buttonText.color}
-      />
-    )}
-    {icon && iconType === 'ii' && (
-      <Ionicons name={icon} size={iconSize} color={styles.buttonText.color} />
-    )}
+    ...
   </Pressable>
 );
 
 export default Button;
+
 \end{lstlisting}
+\caption{React Component - Auch der Button-Component von React Native lässt sich leicht nachbauen.}
+\end{code}
 
 Die Funktion, welche beim Drücken aufgerufen werden soll, wird der Komponente als onPress übergeben.
 Sollte das Prop icon leer sein, wird kein Icon gerendert, andernfalls wird noch überprüft, welche

@@ -22,15 +22,18 @@ Designsprache entwickelt von Google.
 
 \newpage
 \subsection{FlashMessage}
-\begin{lstlisting}
+\begin{code}[htp]
+\begin{lstlisting}[firstnumber=1,language=JavaScript, style=JSX]
 const App = () => (
-    ...
-    <FlashMessage position="top" />
-    ...
+  ...
+  <FlashMessage position="top" />
+  ...
 );
 
 export default App;
 \end{lstlisting}
+\caption{React Component - FlashMessage-Komponente in root/App.js}
+\end{code}
 
 Die Komponente FlashMessage ist für Mitteilungen über Geschehnisse in der App zuständig, z.B.
 Login fehlgeschlagen oder Login erfolgreich.

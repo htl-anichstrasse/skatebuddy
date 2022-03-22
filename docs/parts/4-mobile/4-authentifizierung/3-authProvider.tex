@@ -3,7 +3,8 @@ Alle diese Funktionen und Variablen sind enthalten in der Komponente AuthProvide
 wichtigste Aufgabe von allen, nämlich das Bereitstellen all dieser Funktionalität an die restliche
 App.
 
-\begin{lstlisting}
+\begin{code}[htp]
+\begin{lstlisting}[firstnumber=1,language=JavaScript, style=JSX]
 const AuthContext = React.createContext();
 const AuthContextState = React.createContext();
 
@@ -32,6 +33,8 @@ export { AuthProvider };
 export { useAuthContext };
 export { useAuthContextState };
 \end{lstlisting}
+\caption{React Component - Alle Kinder erhalten Zugriff auf authContext und state}
+\end{code}
 
 AuthProvider umschließt in App.js alle anderen Komponenten, hier wird offensichtlich warum das so
 sein muss. Zuerst muss aber geklärt werden, was ein Context ist.

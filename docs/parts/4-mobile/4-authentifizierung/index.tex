@@ -6,7 +6,8 @@ React Hooks verwendet.
 Im Einstiegspunkt der App, also App.js, ist werden mehrere Bibliotheken eingebunden, die in der
 ganzen App verwendet werden.
 
-\begin{lstlisting}
+\begin{code}[htp]
+\begin{lstlisting}[firstnumber=1,language=JavaScript, style=JSX]
 const App = () => (
   <AuthProvider>
     <NavigationContainer>
@@ -18,6 +19,8 @@ const App = () => (
 
 export default App;
 \end{lstlisting}
+\caption{React Component - AuthProvider ist die äußerste Komponente.}
+\end{code}
 
 \newpage
 \input{parts/4-mobile/4-authentifizierung/0-authcontext.tex}

@@ -4,7 +4,11 @@ noch nicht getan hat, nach der Erlaubnis gefragt, die genaue Position des Gerät
 mit der App zu teilen. Dies wird benötigt, um die Distanz zwischen Benutzer und Skateparks zu
 berechnen.
 
-\begin{lstlisting}
+In Zeile 3 wird mit Hilfe der PermissionsAndroid-API, bereitgestellt von React Native, überprüft
+ob die Erlaubnis schon erteilt wurde, die Position zu ermitteln.
+
+\begin{code}[htp]
+\begin{lstlisting}[firstnumber=1,language=JavaScript, style=JSX]
 const checkPermission = async () => {
   if (Platform.OS === 'android') {
     const status = await PermissionsAndroid.check(
@@ -15,36 +19,34 @@ const checkPermission = async () => {
       setLocError(null);
       return true;
     }
-  } else if (Platform.OS === 'ios') {
-    // TODO Implement iOS permission check
   }
   return false;
 };
 \end{lstlisting}
-
-In Zeile 3 wird mit Hilfe der PermissionsAndroid-API, bereitgestellt von React Native, überprüft
-ob die Erlaubnis schon erteilt wurde, die Position zu ermitteln.
+\caption{JavaScript Funktion - Berechtigung prüfen.}
+\end{code}
 
 Sollte dies nicht der Fall sein, so wird die Erlaubnis angefragt.
 
-
-\begin{lstlisting}
-  const requestPermission = async () => {
-    if (Platform.OS === 'android') {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-      );
-      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-        setLocError(null);
-        return true;
-      }
-    } else if (Platform.OS === 'ios') {
-      // TODO: Implement iOS permission request
+\begin{code}[htp]
+\begin{lstlisting}[firstnumber=1,language=JavaScript, style=JSX]
+const requestPermission = async () => {
+  if (Platform.OS === 'android') {
+    const response = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+    );
+    if (response === PermissionsAndroid.RESULTS.GRANTED) {
+      setLocError(null);
+      return true;
     }
-    setLocError('Standortdienst wurde abgelehnt');
-    return false;
-  };
-  \end{lstlisting}
+  }
+  setLocError('Standortdienst wurde abgelehnt');
+  return false;
+};
+\end{lstlisting}
+\caption{JavaScript Funktion - Berechtigung anfragen.}
+\end{code}
+
 
 \begin{figure}[H]
   \begin{center}
@@ -63,7 +65,9 @@ Sollte dies nicht der Fall sein, so wird die Erlaubnis angefragt.
 Wenn der Benutzer den roten Knopf drückt, wird er noch einmal gebeten die Berechtigung zu erteilen.
 
 \newpage
-\begin{lstlisting}
+
+\begin{code}[htp]
+\begin{lstlisting}[firstnumber=1,language=JavaScript, style=JSX]
 const getLocation = async () => {
   setLocLoading(true);
   setLocError(null);
@@ -82,6 +86,8 @@ const getLocation = async () => {
   }
 };
 \end{lstlisting}
+\caption{JavaScript Funktion - Geolocation-API liefert die Position.}
+\end{code}
 
 Diese Funktion wird jedes Mal aufgerufen, um die Position zu bestimmen oder noch einmal die
 Berechtigung anzufragen. Zeile 4 zeigt, dass zuerst geprüft wird, ob die Erlaubnis schon erteilt
