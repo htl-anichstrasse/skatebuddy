@@ -1,15 +1,13 @@
 \subsection{React}
 \label{reactjs}
-React ist eine der beliebtesten JavaScript Frameworks zum Erstellen von sogenannten 
-Single-Page-Apps. React beschreibt sich selbst als JavaScript Bibliothek und nicht wie andere als 
-ein Framework. React ist viel mehr eine Anleitung, wie man verschieden Dinge machen könnte.
+React beschreibt sich selbst als JavaScript Bibliothek und nicht wie andere als 
+ein Framework. React ist viel mehr eine Anleitung wie man verschieden Dinge machen könnte.
 React ist also kein All-in-One Paket.
 
 
-Reacts Entwicklungsgrund war es eine möglichst performante Oberfläche zu gestalten. Dabei werden 
-einfache Views erstellt und React übernimmt die Änderung der Daten innerhalb der View. React 
+React wurde entwickelt um eine möglichst performante Oberfläche zu gestalten. Dabei werden 
+einfache Views erstellt und React übernimmt die Änderung der Daten innerhalb dieser Views. React 
 erstellt einen sogenannten virtuellen DOM bei der Datenanzeige.
-
 
 \begin{figure}[H]
   \begin{center}
@@ -20,21 +18,21 @@ erstellt einen sogenannten virtuellen DOM bei der Datenanzeige.
 
 \subsubsection{Virtuelles DOM}
 VDOM ist ein Programmierkonzept, bei dem durch den Prozess \textit{Reconciliation} eine ideale, 
-virtuelle Darstellung der Benutzeroberfläche im Speicher gehalten wird und mit dem realen DOM durch 
-eine Bibliothek wie ReactDOM synchronisiert wird. Dies ermöglicht eine deklarative API von React, 
-bei der man den Zustand der Benutzeroberfläche angibt und React stellt sicher, dass das DOM diesem 
-Zustand entspricht. Dies entfernt verschiedene Arbeitsschritte, welche sie sonst durchführen müssten.
+virtuelle Darstellung der Benutzeroberfläche im Speicher gehalten wird und mit dem realen DOM, durch 
+eine Bibliothek wie ReactDOM, synchronisiert wird. Dies ermöglicht eine deklarative API von React, 
+bei welcher man den Zustand der Benutzeroberfläche angibt und React stellt sicher, dass das DOM diesem 
+Zustand entspricht. Dies entfernt verschiedene Arbeitsschritte, welche sonst durchgeführt werden müssten.
 VDOM ist viel mehr ein Muster als eine spezifische Technologie. Der Begriff virtuelles DOM wird in 
 React oft mit Objekten in Verbindung gebracht, da diese die Benutzeroberfläche darstellen. Um jedoch 
-zusätzliche Information über den Komponentenbaum zu speichern benutzt React interne 
+zusätzliche Information über den Komponentenbaum zu speichern, benutzt React interne 
 Objekte nämlich sogenannte \textit{Fiber}.\cite{DOM}
 
 \subsubsection{Single-Page-App}
 \label{singlePageApp}
-Wenn man bei einer Webanwendung sich die View ändert, wird dies oft mit eine Seitenwechsel 
+Wenn sich bei einer Webanwendung die View ändert, wird dies oft mit einen Seitenwechsel 
 assoziiert. Dies ist zwar nicht falsch, da frühere Webanwendung in der tat solch einen Seitenwechsel 
 durchführten. Dies war jedoch sehr ineffizient, da bei einem Wechsel der View immer eine neue Seite 
-geladen werden musste. Eine modernere Herangehensweise an diese Sache sind 
+geladen werden musste. Eine modernere Herangehensweise an diese Sache sind sogenannte
 \textit{Single-Page-Apps (SPA)}. Sie bestehen aus nur einer Seite mit mehreren Views. Anstatt dass 
 bei einem View Wechsel eine neue Seite geladen wird, änderst sich je nach State die aktive Seite.
 ~\cite{SPA}
@@ -64,7 +62,7 @@ In der Renderfunktion wird ein JSX-Objekt zurückgegeben, welches dann wie übli
 \end{lstlisting}
 
 In diesem Beispiel gibt die Renderfunktion ein $<p>$-Element mit dem Text \textbf{Ich bin ein 
-Beispiel für eine Renderfunktion}. 
+Beispiel für eine Renderfunktion} aus.
 
 \begin{figure}[H]
   \begin{center}
@@ -77,12 +75,12 @@ So würde die Renderfunktion von oben dann auf der Website aussehen.
 
 
 \subsubsection{Komponenten}
-In React bestehen die Views aus sogenannten Komponenten. Mit React kann man vordefinierte CodeBits 
-programmieren, welche anschließend zu einer View zusammengesetzt werden. Eine React Anwendung 
-besteht also aus logisch getrennten Einheiten, die unabhängig voneinander behandelt werden-
-Bei React einzigartig ist, dass kein Pattern mit MVC oder MVVM verwendet wird. In React Logik als 
-sowohl auch Template in einer JS Datei verwaltet.
-HTML-Code wird in React in einer JavaScript Datei geschrieben im sogenannten \textit{JSX-Format}. 
+In React bestehen die Views aus sogenannten Komponenten. Mit React können vordefinierte CodeBits 
+programmiert werden, welche am Ende zu einer View zusammengesetzt werden. Eine React Anwendung 
+besteht also aus logisch getrennten Einheiten, welche unabhängig voneinander behandelt werden.
+Bei React wird kein Pattern mit MVC oder MVVM verwendet. In React wird Logik als 
+sowohl auch Template in der selben JS-Datei verwaltet.
+HTML-Code wird in React in einer JavaScript Datei geschrieben und zwar im sogenannten \textit{JSX-Format}. 
 JSX ist HTML jedoch sehr ähnlich.\cite{Komp}
 
 
@@ -96,18 +94,18 @@ In React gibt es zwei verschiedene Arten eine Komponente zu erstellen.
 Sie besitzen einen im Konstruktor initialisierten State. Sie sind immer Klassenkomponenten.\\
 
 \centerline{\textbf{Komponenten ohne State}}
-Zum Erstellen von Stateless-Komponenten können entweder Funktionen oder Klassen verwendet werden.
+Zum Erstellen von Komponenten ohne State können entweder Funktionen oder Klassen verwendet werden.
 Stateless Funktionskomponenten sind vom großen Vorteil und sollten immer verwendet werden, es sei 
-denn, man benötigt einen Lebenszyklus-Hook. Stateless Komponenten sind viel einfacher in der
+denn, es wird ein Lebenszyklus-Hook benötigt. Stateless Komponenten sind viel einfacher in der
 Verwendung.\cite{KompState} 
 
 \subsubsection{JSX}
 \label{jsx}
-JSX ist eine syntax Erweiterung zu JavaScript. Es bestimmt wie die Benutzeroberfläche aussehen soll
+JSX ist eine Erweiterung der Syntax von JavaScript. Es bestimmt wie die Benutzeroberfläche aussehen soll
 und erinnert sehr an eine Vorlagensprache. JSX kommt jedoch mit der Kraft von JavaScript. React basiert 
 grundlegend darauf, dass die Renderlogik mit der Benutzeroberflächenlogik verbunden wird. JSX ist 
-für React nicht notwendig, jedoch ist es ein sehr hilfreiches Werkzeug wenn man in JavaScript-Code an 
-der Benutzeroberfläche arbeiten kann. Außerdem ist es sehr hilfreich um Fehler zu finden.
+für React nicht notwendig, jedoch ist es ein sehr hilfreiches Werkzeug. 
+Außerdem ist es sehr hilfreich um Fehler zu finden.
 \begin{lstlisting}
   function example jsx(){
     const j = "Hallo, ich bin JavaScript code"
@@ -119,31 +117,30 @@ der Benutzeroberfläche arbeiten kann. Außerdem ist es sehr hilfreich um Fehler
     )
   }
 \end{lstlisting}
-Innerhalb der geschwungenen Klammern, kann man jede beliebige Art von JavaScript-Code ausführen.
+Innerhalb der geschwungenen Klammern, kann jede beliebige Art von JavaScript-Code ausgeführt werden.
 In diesem Falle würde das $<p>$ Element \textit{Hallo, ich bin JavaScript code} anzeigen.
 ~\cite{JSX}
 
 \subsubsection{Props}
 
- Damit die Komponenten in React miteinander kommunizieren können benötigt man Props. Props ist ein
- spezielles Schlüsselwort, welches für Eigenschaften steht und welche man für die Übergabe von 
- Daten von einer Komponente an eine andere verwendet. Daten von Props sollen in nur in eine 
+ Damit die Komponenten in React miteinander kommunizieren können, werden Props benötigt. Props ist ein
+ spezielles Schlüsselwort, welches für Eigenschaften steht und welches für die Übergabe von 
+ Daten einer Komponente an eine andere verwendet wird. Daten von Props sollen nur in einer 
  Richtung weitergegeben werden und zwar vom Elternteil zum Kind. Egal wie eine Komponente 
- deklariert wird, man darf nie ihre Props verändern.\\
+ deklariert wird, ihre Props dürfen nie verändert werden.\\
 
  Eine Funktion welche nicht ihre eigenen Eingaben ändert und bei selben Eingaben immer das selben 
- Ergebnis liefert nennt man \textit{pure}.
+ Ergebnis liefert wird \textit{pure} genannt.
 \begin{lstlisting}
   function sum(a,b){
     return a + b;
   }
 \end{lstlisting}
-In diesem Beispiel einer pure Function sieht man, dass die Eingabewerte nie geändert werden und egal 
-wie oft ich die selben Eingabewerte übergebe, sie werden immer das selbe Ergebnis liefern.
+In diesem Beispiel einer \textit{pure Function} ist sichtbar, dass die Eingabewerte nie geändert werden und egal 
+wie oft die selben Eingabewerte übergeben werden, die Funktion wird immer das selbe Ergebnis liefern.
 
 
-Das Gegenteil einer ``pure Function'' ist eine \textit{impure Function}, welche ihre Eingaben ändert, 
-wie man im folgenden Beispiel sehen kann:
+Das Gegenteil einer ``pure Function'' ist eine \textit{impure Function} eine Funktion, welche ihre Eingaben ändert.
 \begin{lstlisting}
   function withdraw(account, amount){
     account.total -= amount;
@@ -159,13 +156,13 @@ wie man im folgenden Beispiel sehen kann:
 \end{itemize}
 \paragraph{Nachteile}
 \begin{itemize}
-	\item Benötigt zusätzlich Bibliotheken zum Erstellen einer vollen Website
+	\item Benötigt zusätzliche Bibliotheken zum Erstellen einer vollen Website
 	\item Lohnt sich nur bei interaktiven Webseiten
 \end{itemize}~\cite{ReactVor-undNachteile}
 
 \subsubsection{React hooks}
-React Hooks wurden in der React Version 16.8 hinzugefügt. Sie sind eine Erweiterung von React und sind 
-zu 100\% mit bestehenden Code Kompatibel. Mit ihnen kann man State und andere React-Funktionen außerhalb 
+Hooks wurden in der React Version 16.8 hinzugefügt. Sie sind eine Erweiterung von React und sind 
+zu 100\% mit bestehenden Code Kompatibel. Mit ihnen kann man States und andere React-Funktionen außerhalb 
 von Klassenkomponenten benutzen. Durch diese Hooks werden Komponenten unabhängiger. 
 
 
