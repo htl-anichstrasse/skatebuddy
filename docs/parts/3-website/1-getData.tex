@@ -2,14 +2,13 @@
 \section{Daten bekommen}
 \label{getData}
 
-Auf der Website werden wiederholt Daten vom Server geholt. Dies mache ich mit einem \textit{fetch}.
-Mit dem Fetch Befehl und den richtigen API-Link konnte ich mur so immer die Daten holen, die ich
-gebraucht habe. 
+Auf der Website werden wiederholt Daten vom Server geholt. Dies erfolgt mittels \textit{fetch}.
+Mit dem Fetch Befehl und dem richtigen API-Link werden die gebrauchten Daten vom Server geholt. 
 
 
-Im Projekt selbst habe ich einen Custom Fetch verwendet, welcher zusätzlich zu den Daten auch einen 
-Error liefert, falls der Fetch fehlschlägt, als so wohl auch eine boolean Variable, welche true ist und 
-erst false wird, wenn alle Daten vom Server an der Website angekommen ist. Diese Variable genannt 
+Im Projekt wird ein Custom Fetch verwendet, welcher zusätzlich zu den Daten auch einen 
+Error liefert falls der Fetch fehlschlägt, als so wohl auch eine boolean Variable, welche true ist und 
+erst false wird, sobald alle Daten vom Server empfangen wurden. Diese Variable namens 
 \textit{isPending} ist in dem Sinne von nützen, dass der Nutzer informiert wird, dass die Daten noch
 laden müssen.
 
@@ -60,16 +59,14 @@ export default useFetch;
 
 \end{lstlisting}
 
-Wie man im Code sehen kann, werden die drei Variablen mit einem \textit{setState} und dem Wert null
+Wie im Code sichtbar, werden die drei Variablen mit einem \textit{setState} und dem Wert null
 deklariert. Außer \textit{isPending} welche wie oben schon genannt standardmäßig auf true ist. Diese
-drei Werte werden am Ende als return Wert zurückgegeben um sie dann außerhalb des useFetch benutzen 
+drei Werte werden am Ende als return Wert zurückgegeben um sie außerhalb des useFetch benutzen 
 zu können.
 
 
 Falls ein Fehler auftritt, wird der State der Error Variable auf eine Error Komponente gesetzt. Dies
-habe ich gemacht um bei jedem Fetch dem Benutzer eine Einheitliche Fehlermeldung zu geben, falls ein 
-Fehler auftritt.
-
+sorgt für eine Einheitliche Fehlermeldung, falls es ein Problem beim Bekommen der Daten auftritt.
 
 Diese Fehlermeldung sieht wie folgt aus:
 \begin{figure}[H]
