@@ -11,7 +11,7 @@ Error liefert falls der Fetch fehlschlägt, als so wohl auch eine boolean Variab
 erst false wird, sobald alle Daten vom Server empfangen wurden. Diese Variable namens 
 \textit{isPending} ist in dem Sinne von nützen, dass der Nutzer informiert wird, dass die Daten noch
 laden müssen.
-
+\begin{code}[htp]
 \begin{lstlisting}
 import { useState, useEffect } from 'react';
 import Error from '../staticViews/Error'
@@ -58,6 +58,8 @@ const useFetch = url => {
 export default useFetch;
 
 \end{lstlisting}
+\caption{React Component - useFetch zum Empfangen von Daten}
+\end{code}
 
 Wie im Code sichtbar, werden die drei Variablen mit einem \textit{setState} und dem Wert null
 deklariert. Außer \textit{isPending} welche wie oben schon genannt standardmäßig auf true ist. Diese

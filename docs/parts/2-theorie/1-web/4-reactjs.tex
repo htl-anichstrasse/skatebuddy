@@ -49,6 +49,7 @@ dass die Renderfunktion erneut ausgeführt werden muss.\pagebreak
 In der Renderfunktion wird ein JSX-Objekt zurückgegeben, welches dann wie üblich in HTML
 übersetzt wird. 
 
+\begin{code}[htp]
 \begin{lstlisting}
   class RenderBeispiel{
     render{
@@ -60,6 +61,8 @@ In der Renderfunktion wird ein JSX-Objekt zurückgegeben, welches dann wie übli
     }
   }
 \end{lstlisting}
+\caption{React Component - Renderfunktion}
+\end{code}
 
 In diesem Beispiel gibt die Renderfunktion ein $<p>$-Element mit dem Text \textbf{Ich bin ein 
 Beispiel für eine Renderfunktion} aus.
@@ -106,6 +109,7 @@ und erinnert sehr an eine Vorlagensprache. JSX kommt jedoch mit der Kraft von Ja
 grundlegend darauf, dass die Renderlogik mit der Benutzeroberflächenlogik verbunden wird. JSX ist 
 für React nicht notwendig, jedoch ist es ein sehr hilfreiches Werkzeug. 
 Außerdem ist es sehr hilfreich um Fehler zu finden.
+\begin{code}[htp]
 \begin{lstlisting}
   function example jsx(){
     const j = "Hallo, ich bin JavaScript code"
@@ -117,6 +121,8 @@ Außerdem ist es sehr hilfreich um Fehler zu finden.
     )
   }
 \end{lstlisting}
+\caption{React Component - JSX example }
+\end{code}
 Innerhalb der geschwungenen Klammern, kann jede beliebige Art von JavaScript-Code ausgeführt werden.
 In diesem Falle würde das $<p>$ Element \textit{Hallo, ich bin JavaScript code} anzeigen.
 ~\cite{JSX}
@@ -131,21 +137,27 @@ In diesem Falle würde das $<p>$ Element \textit{Hallo, ich bin JavaScript code}
 
  Eine Funktion welche nicht ihre eigenen Eingaben ändert und bei selben Eingaben immer das selben 
  Ergebnis liefert wird \textit{pure} genannt.
+\begin{code}[htp]
 \begin{lstlisting}
   function sum(a,b){
     return a + b;
   }
 \end{lstlisting}
+\caption{JavaScript Funktion - Pure Function}
+\end{code}
 In diesem Beispiel einer \textit{pure Function} ist sichtbar, dass die Eingabewerte nie geändert werden und egal 
 wie oft die selben Eingabewerte übergeben werden, die Funktion wird immer das selbe Ergebnis liefern.
 
 
 Das Gegenteil einer ``pure Function'' ist eine \textit{impure Function} eine Funktion, welche ihre Eingaben ändert.
+\begin{code}[htp]
 \begin{lstlisting}
   function withdraw(account, amount){
     account.total -= amount;
   }
 \end{lstlisting}
+\caption{JavaScript Funktion - Funktion als Return}
+\end{code}
 ~\cite{Props}
 \subsubsection{Vor- und Nachteile von React}
 \paragraph{Vorteile}
