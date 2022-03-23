@@ -1,5 +1,5 @@
 \section{AuthHandler}
-In AuthHandler entscheidet die App, ob ein Benutzer eingeloggt ist oder nicht.
+In \textbf{AuthHandler} entscheidet die App, ob ein Benutzer eingeloggt ist oder nicht.
 
 \begin{code}[htp]
 \begin{lstlisting}[firstnumber=1,language=JavaScript, style=JSX]
@@ -31,23 +31,28 @@ export default Auth;
 \caption{React Component - Ob ein Benutzer eingeloggt ist, hängt von state.userToken ab.}
 \end{code}
 
-Als erstes werden die Funktion restoreToken und state aus dem Content entnommen. Sobald die App
-gestartet wird, wird die asynchrone Funktion checkForValidToken aufgerufen. In ihr wird in Zeile 10
-und 11 zuerst überprüft, ob im verschlüsselten, internen Speicher ein Eintrag für "jwt" besteht.
+Als erstes werden die Funktion \textbf{restoreToken} und \textbf{state} aus dem Context entnommen.
+Sobald die App gestartet wird, wird die asynchrone Funktion \textbf{checkForValidToken} aufgerufen.
+In ihr wird in Zeile 10 und 11 zuerst überprüft, ob im verschlüsselten, internen Speicher ein
+Eintrag für \textbf{jwt} besteht.
 
-Die Komponente Keychain wird von der Bibliothek react-native-keychain bereitgestellt. Sie enthält
-Funktionen um auf Android und iOS sensible Informationen sicher abzuspeichern. Auf Android wird der
-Android Keystore verwendet, auf iOS die Keychain Services.
+Die Komponente \textbf{Keychain} wird von der Bibliothek \textbf{react-native-keychain}
+bereitgestellt. Sie enthält Funktionen um auf Android und iOS sensible Informationen sicher
+abzuspeichern. Auf Android wird der \textbf{Android Keystore} verwendet, auf iOS die
+\textbf{Keychain Services}.
 
-Die Keychain ist in unserer App dafür zuständig, den JWT auch nach dem Beenden der App im internen
-Speicher festzuhalten und beim Start wieder daraus auszulesen. Sollte ein Eintrag vorhanden sein,
-wird der Token der Funktion restoreToken aus authContext übergeben, in welcher er überprüft wird.
+Die \textbf{Keychain} ist in unserer App dafür zuständig, den JWT auch nach dem Beenden der App im
+internen Speicher festzuhalten und beim Start wieder daraus auszulesen. Sollte ein Eintrag vorhanden
+sein, wird der Token der Funktion \textbf{restoreToken} aus \textbf{authContext} übergeben, in
+welcher er überprüft wird.
 
-Beim Start der App wurde state.isLoading als true und state.userToken als null definiert. Solange
-isLoading auf true ist, wird der Ladebildschirm SplashScreen angezeigt. Sobald der Token überprüft
-wurde, wird isLoading auf false gesetzt und es entscheidet sich ob der User eingeloggt wird, oder
-nicht.
+\newpage
+Beim Start der App wurde \textbf{state.isLoading} als \textbf{true} und \textbf{state.userToken} als
+\textbf{null} definiert. Solange \textbf{isLoading} auf \textbf{true} ist, wird der Ladebildschirm
+(\textbf{SplashScreen.js}) angezeigt. Sobald der Token überprüft wurde, wird \textbf{isLoading} auf
+\textbf{false} gesetzt und es entscheidet sich ob der User eingeloggt wird, oder nicht.
 
-Ist nach der Überprüfung die Variable userToken immer noch null, so wird der LoginStack angezeigt.
-Sollte der Token gültig sein, so wird er in userToken abgespeichert, was die If-Abfrage in Zeile 27
-false macht. Somit bleibt nur noch das Statement in Zeile 31 übrig, der User ist eingeloggt.
+Ist nach der Überprüfung die Variable \textbf{userToken} immer noch \textbf{null}, so wird der
+\textbf{LoginStack} angezeigt. Sollte der Token gültig sein, so wird er in v{userToken}
+abgespeichert, was die If-Abfrage in Zeile 27 \textbf{false} macht. Somit bleibt nur noch das
+Statement in Zeile 31 übrig, der User ist eingeloggt.

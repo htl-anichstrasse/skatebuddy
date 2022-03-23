@@ -4,7 +4,7 @@ noch nicht getan hat, nach der Erlaubnis gefragt, die genaue Position des Gerät
 mit der App zu teilen. Dies wird benötigt, um die Distanz zwischen Benutzer und Skateparks zu
 berechnen.
 
-In Zeile 3 wird mit Hilfe der PermissionsAndroid-API, bereitgestellt von React Native, überprüft
+In Zeile 3 wird mit Hilfe der \textbf{PermissionsAndroid}-API, bereitgestellt von React Native, überprüft,
 ob die Erlaubnis schon erteilt wurde, die Position zu ermitteln.
 
 \begin{code}[htp]
@@ -92,5 +92,5 @@ const getLocation = async () => {
 Diese Funktion wird jedes Mal aufgerufen, um die Position zu bestimmen oder noch einmal die
 Berechtigung anzufragen. Zeile 4 zeigt, dass zuerst geprüft wird, ob die Erlaubnis schon erteilt
 wurde. Falls nicht wird sie angefragt. Falls dies funktioniert haben sollte, wird in Zeile 5 die
-Position ausgelesen und, in Zeile 7, abgespeichert. Geolocation ist in der Bibliothek
-"react-native-geolocation-service" vorhanden.
+Position ausgelesen und in Zeile 7 abgespeichert. \textbf{Geolocation} ist in der Bibliothek
+\textbf{react-native-geolocation-service} vorhanden.

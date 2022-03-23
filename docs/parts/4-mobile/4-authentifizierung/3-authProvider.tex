@@ -36,23 +36,25 @@ export { useAuthContextState };
 \caption{React Component - Alle Kinder erhalten Zugriff auf authContext und state}
 \end{code}
 
-AuthProvider umschließt in App.js alle anderen Komponenten, hier wird offensichtlich warum das so
-sein muss. Zuerst muss aber geklärt werden, was ein Context ist.
+\textbf{AuthProvider} umschließt in \textbf{App.js} alle anderen Komponenten, hier wird
+offensichtlich, warum das so sein muss. Zuerst muss aber geklärt werden, was ein Context ist.
 
 In Zeile 3 wird als erstes ein Context erstellt. Dieser erhält den Namen AuthContext und soll die
 Funktionen aus authContext in der restlichen App verfügbar machen.
 
-In Zeile 19 wird über AuthContext.Provider ein ContextProvider erstellt, der eine Variable über das
-Property value annimmt.
+In Zeile 19 wird über \textbf{AuthContext.Provider} ein ContextProvider erstellt, der eine Variable über das
+Property \textbf{value} annimmt.
 
-Wird nun in einer Komponente, die ein Kind von AuthContext ist, die Funktion useContext(AuthContext)
-aufgerufen, so ist der zurückgegebene Wert gleich der value, die dem Provider übergeben wurde.
+Wird nun in einer Komponente, die ein Kind von \textbf{AuthContext} ist, die Funktion
+\textbf{useContext(AuthContext)} aufgerufen, so ist der zurückgegebene Wert gleich der \textbf{value}, die
+dem Provider übergeben wurde.
 
+\newpage
 Um zu umgehen, dass ich jedes mal, wenn ich eine Funktion brauche, useContext und zusätzlich auch
-noch AuthContext importieren muss, fasse ich diesen Ausdruck zu useAuthContext zusammen (Zeile 6).
-So ist es möglich, durch das importieren von useAuthContext in einem Kind von AuthContext.Provider
-auf die gespeicherte Variable zuzugreifen.
+noch \textbf{AuthContext} importieren muss, fasse ich diesen Ausdruck zu \textbf{useAuthContext}
+zusammen (Zeile 6). So ist es möglich, durch das Importieren von \textbf{useAuthContext} in einem
+Kind von \textbf{AuthContext.Provider} auf die gespeicherte Variable zuzugreifen.
 
 In einer üblichen Anwendung werden Daten über Props von Eltern an Kinder weitergegeben. Context
 macht es möglich direkt für alle Kinder eine Variable zur Verfügung zu stellen, ohne jedem einzeln
-die Variable zu übergeben.
+die Variable übergeben zu müssen.

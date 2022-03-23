@@ -1,6 +1,6 @@
 \section{Komponenten}
 Komponenten, die in vielen anderen Komponenten gebraucht werden, werden bei uns im Ordner
-root/components/common gespeichert. Andere Komponenten werden im components-Ordner nach ihrem
+\textbf{root/components/common} gespeichert. Andere Komponenten werden im \textbf{components}-Ordner nach ihrem
 zugehörigen Screen getrennt.
 
 \subsection{Snippets}
@@ -22,8 +22,8 @@ selben Code generieren.
 \end{figure}
 
 Da jede Komponente in unserer App ähnlich aufgebaut ist und damit wir nicht jedes mal den gleichen
-Code schreiben müssen, habe ich ein eigenes Snippet erstellt. Die Abkürzung rnfec steht für React
-Native Functional Component Export Custom und erzeugt folgenden Code:
+Code schreiben müssen, habe ich ein eigenes Snippet erstellt. Die Abkürzung \textbf{rnfec} steht für
+React Native Functional Component Export Custom und erzeugt folgenden Code:
 
 \begin{code}[htp]
 \begin{lstlisting}[firstnumber=1,language=JavaScript, style=JSX]
@@ -46,7 +46,7 @@ export default Test
 
 Der Name der Komponente wird hierbei vom Dateinamen abgeleitet. Eine Besonderheit, die auffällt, ist
 das Import-Statement von Text. Das Verwenden von Alias-Paths wird durch das Babel-Plugin
-"module-resolver" möglich gemacht.
+\textbf{module-resolver} möglich gemacht.
 
 \newpage
 \subsection{Text}
@@ -76,7 +76,7 @@ export default CustomText;
 \end{code}
 
 Alle Kinder dieser Komponente werden dann direkt in den Text eingebunden und, sollte man noch ein
-style-Property an die Komponente übergeben wird der Standard-Style überschrieben.
+\textbf{style}-Property an die Komponente übergeben, wird der Standard-Style überschrieben.
 
 \newpage
 \subsection{Button}
@@ -126,7 +126,7 @@ Art von Icon verwendet werden soll. Die Icons werden nämlich von mehreren Anbie
 
 \newpage
 \subsection{TextInput}
-Auch die Komponente TextInput wird von uns überschrieben. Sie besteht zusätzlich immer aus einem
+Auch die Komponente \textbf{TextInput} wird von uns überschrieben. Sie besteht zusätzlich immer aus einem
 Icon auf der linken Seite. Je nach dem, ob der Input gerade bearbeitet wird, wird die Farbe
 verändert. Solle bei der Textüberprüfung ein Fehler auftreten, so wird die Komponente rot gefärbt.
 

@@ -1,6 +1,6 @@
 \subsection{MapScreen}
 Die Umsetzung der Kartenfunktion, um alle Skateparks anzuzeigen, war das zweit-komplizierteste
-Feature in der App. Die Bibliothek "react-native-maps" ist hierbei die Basis dieser Funktion.
+Feature in der App. Die Bibliothek \textbf{react-native-maps} ist hierbei die Basis dieser Funktion.
 
 \begin{code}[htp]
 \begin{lstlisting}[firstnumber=1,language=JavaScript, style=JSX]
@@ -48,8 +48,8 @@ export default MapScreen;
 \caption{React Component - Der Karten-Tab}
 \end{code}
 
-Zuerst werden mit dem Hook useFetch alle Skateparks von der API abgefragt, solange die Variable
-skateparks null ist, wird nur ein Ladesymbol angezeigt. Anschließend wird die Map erzeugt, wie auch
+Zuerst werden mit dem Hook \textbf{useFetch} alle Skateparks von der API abgefragt, solange die Variable
+\textbf{skateparks} \textbf{null} ist, wird nur ein Ladesymbol angezeigt. Anschließend wird die Map erzeugt, wie auch
 ein Knopf, mit dem man die Position der Karte auf Innsbruck zentrieren kann.
 
 \begin{figure}[H]
@@ -94,7 +94,7 @@ export default Map;
 \caption{React Component - Die MapView-Komponente aus react-native-maps}
 \end{code}
 
-In der Komponente Map wird einfach eine MapView aufgerufen, welche die Google Maps Ansicht
+In der Komponente \textbf{Map} wird einfach eine \textbf{MapView} aufgerufen, welche die Google Maps Ansicht
 beinhaltet. Die Parks werden anschließend wieder an die nächste Komponente weitergegeben, wo sie in
 die Map-Marker umgewandelt werden. Drückt man auf einen Marker, so wird der Park zentriert und ein
 Textfeld wird angezeigt. Wird dies angeklickt, so wird man zu den Details vom jeweiligen Park

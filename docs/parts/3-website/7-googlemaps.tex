@@ -1,10 +1,10 @@
 \section{Map}
 \label{map}
 
-Auf der Webseite habe ich die Google-Maps-API benutzt, um eine schnelle Überblick von allen Parks
+Auf der Webseite wird die Google-Maps-API benutzt, um einen schnellen Überblick von allen Parks
 zu schaffen. Die Google Maps Komponente wurde wie die \nameref{slideshow} Komponente über npm 
-herunter geladen. Der Name der Komponente lautet \textit{google-map-react} und wurde von \textit{istarkov}
-und \textit{itsmichaeldiego} erstellt. Ich habe auf der Seite zwei mal die Map benutzt. Der folgende 
+heruntergeladen. Der Name der Komponente lautet \textit{google-map-react} und wurde von \textit{istarkov}
+und \textit{itsmichaeldiego} erstellt. Auf der Seite wird die Komponente zwei mal benutzt. Der folgende 
 Code ist die Map, wo alle Parks eingezeichnet sind.
 
 \begin{lstlisting}
@@ -50,17 +50,16 @@ Code ist die Map, wo alle Parks eingezeichnet sind.
       </GoogleMapReact>}
 \end{lstlisting}
 
-In den options, welche ich als Parameter der Komponente übergebe, wird der maximale und minimale Zoom 
-definiert, der möglich sein soll. Außerdem werden viele Variablen mit dem Wert \textit{true} übergeben, 
+In den options, welche als Parameter der Komponente übergeben werden, wird der maximale und minimale Zoom 
+definiert, welcher möglich sein soll. Außerdem werden viele Variablen mit dem Wert \textit{true} übergeben, 
 welche verschiedene Google-Maps Eigenschaften wie zum Beispiel Street view aktivieren. Der \nameref{apikey}
-wird mittels \textit{useFetch} aus einer Textdatei ausgelesen, damit man diesem nicht im Quellcode zu 
-finden ist. Innerhalb der park Variable, welche auch für die map verwendet wird, befinden sich alle 
-Informationen aller Parks. In der Marker Komponente, wird dann der Breiten- und Längengrad als sowohl auch
+wird mittels \textit{useFetch} aus einer Textdatei ausgelesen, damit dieser nicht im Quellcode zu 
+finden ist. Innerhalb der park Variable, befinden sich die 
+Informationen über alle Parks. In der Marker Komponente, wird dann der Breiten- und Längengrad als sowohl auch
 der Parkname als Parameter übergeben. Es wird auch die Park ID als Parameter übergeben, um Innerhalb der 
-Marker Komponente einen Link zu den Details des jeweiligen Parks zu ermöglichen. Drückt man also auf den Marker 
-auf eines gewissen Parks, landet man auf dessen Details. Auf der Map wird ebenso ein Marker geladen, dem 
-der Längengrad und Breitengrad des Benutzers übergeben wird, um eine bessere Orientierung der Umgebung 
-zu ermöglichen.
+Marker Komponente einen Link zu den Details des jeweiligen Parks zu ermöglichen. Drückt der Benutzer also auf den Marker 
+auf eines gewissen Parks, landet er auf dessen Details. Auf der Map wird ebenso ein Marker geladen, dem 
+der Längengrad und Breitengrad des Benutzers übergeben wird, um eine bessere Orientierung zu ermöglichen.
 
 \subsection{Marker}
 
@@ -74,7 +73,7 @@ Breitengrades platziert werden.
     \end{center}
 \end{figure}
 
-Den Namen den man den Markern als Parameter übergibt, wird angezeigt, wenn sich die Maus über den 
-Marker befindet. Übergibt man den Marker eine ParkID als link, kann dieser dazu benutzt werden die 
-View zu einer \nameref{parkDetails}-View zu ändern. Übergibt man den Marker keinen Link Parameter
+Den Namen welcher dem Markern als Parameter übergeben wird, wird angezeigt, wenn sich die Maus über den 
+Marker befindet. Wird dem Marker eine ParkID übergeben, kann dieser dazu benutzt werden die 
+View zu einer \nameref{parkDetails}-View zu ändern. Wird dem Marker kein Link Parameter übergeben
 passiert beim Drücken des Markers nichts.
