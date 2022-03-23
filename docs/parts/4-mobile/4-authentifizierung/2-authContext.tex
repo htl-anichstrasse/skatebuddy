@@ -36,7 +36,7 @@ const authContext = useMemo(
 \end{code}
 
 In authContext werden alle Funktionen erstellt, welche für die Server-Anfragen der Authentifikation
-wichtig sind. RestoreToken ist die Funktion, die als erstes Aufgerufen wird, nachdem die App
+wichtig sind. RestoreToken ist die Funktion, die als erstes aufgerufen wird, nachdem die App
 gestartet wurde. Sie schickt eine POST-Anfrage an den Server (Zeile 4) und übergibt im Content den
 Token, den es zu überprüfen gilt (Zeile 13). Diese Anfrage wird mit dem await-Statement abgewartet.
 Nachdem die Antwort eingetroffen ist, wird noch die Information aus dem Token entnommen (Zeile 18)

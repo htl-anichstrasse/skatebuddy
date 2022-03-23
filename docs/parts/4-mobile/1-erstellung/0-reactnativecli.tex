@@ -1,11 +1,12 @@
 \section{React Native CLI}
-\textbf{Wichtig}: In der Installationsanleitung auf der Webseite von React Native kann man sein
-aktuelles Betriebssystem und Zielplattform auswählen. Apple erlaubt nicht die Entwicklung von Apps
-auf anderen Betriebssystemen als MacOS selbst, d.h. die Entwicklung der iOS-App ist auf Windows 11,
-meinem Betriebssystem, nicht möglich. Ich hatte während der Entwicklung nie Zugriff auf einen PC mit
-MacOS, daher wurde die gesamte App ausschließlich für Android entwickelt. Doch sollten wir jemals
-diese App wirklich veröffentlichen wollen, so wird das Umschreiben keinen großen Aufwand darstellen,
-da wir immer darauf geachtet haben, nur Bibliotheken zu verwenden, die auch für iOS kompatibel sind.
+\textbf{Wichtig}: In der Installationsanleitung auf der Webseite von \textbf{React Native} kann man sein
+aktuelles Betriebssystem und seine gewünschte Zielplattform auswählen. Apple erlaubt nicht die
+Entwicklung von Apps auf anderen Betriebssystemen als MacOS selbst, d.h. die Entwicklung der iOS-App
+ist auf Windows 11, meinem Betriebssystem, nicht möglich. Ich hatte während der Entwicklung nie
+Zugriff auf einen PC mit MacOS, daher wurde die gesamte App ausschließlich für Android entwickelt.
+Doch sollten wir jemals diese App wirklich veröffentlichen wollen, so wird das Umschreiben keinen
+großen Aufwand darstellen, da ich immer darauf geachtet habe, nur Bibliotheken zu verwenden, die
+auch für iOS kompatibel sind.
 
 \subsection{Abhängigkeiten und Erstellung des Projekts}
 Für die Verwendung der React-Native-CLI werden einige andere Softwarepakete benötigt, darunter --
@@ -31,7 +32,7 @@ C:\example> npx react-native init reactNativeInit
 \caption{CMD - React Native CLI init}
 \end{code}
 
-NPX ist ein Befehl, der seit Version 5.2.0 in NPM enthalten ist. Er ist speziell bei CLIs hilfreich,
+\textbf{NPX} ist ein Befehl, der seit Version 5.2.0 in \textbf{NPM} enthalten ist. Er ist speziell bei CLIs hilfreich,
 denn anstatt das Paket react-native auf dem PC zu installieren und dann aufzurufen, wird mit dem
 Befehl automatisch die neueste Version der CLI von einem Server abgefragt und ausgeführt. So kann
 man sicherstellen, dass niemals eine veraltete Version der CLI verwendet wird.
@@ -52,24 +53,24 @@ man sicherstellen, dass niemals eine veraltete Version der CLI verwendet wird.
 \begin{itemize}
 \item \textbf{\_\_tests\_\_/}:\\
 In diesem Ordner werden Skripts abgespeichert, die die Funktionalität der App überprüfen sollen,
-sogenannte Tests. React Native empfiehlt hierbei die Bibliothek Jest, welche die Durchführung von
+sogenannte Tests. React Native empfiehlt hierbei die Bibliothek \textbf{Jest}, welche die Durchführung von
 Snapshot-Tests ermöglicht. Diese testen, ob sich die Benutzeroberfläche auch so verhaltet, wie
 erwartet. Tests sind in großen Projekten nicht mehr wegzudenken, bei kleineren Projekten sind sie
 aber meist den Schreibaufwand nicht wert.
 
 \item \textbf{.vscode/}:\\
-In diesem Ordner ist es möglich Einstellungen und Skripts für den Text-Editor Visual Studio Code
+In diesem Ordner ist es möglich Einstellungen und Skripts für den Text-Editor \textbf{Visual Studio Code}
 abzuspeichern, den wir durchwegs für die gesamte Diplomarbeit verwendet haben.
 
 \item \textbf{android/}:\\
 Manche Änderungen kann man nicht mit Hilfe von JavaScript vornehmen, manchmal muss man auch die
 plattformspezifischen Dateien der App verändern. Diese sind alle im Ordner android vorhanden. In ihm
-sind hauptsächlich Konfigurationsdateien für das Build-Automatisierungstool Gradle und Manifest-
+sind hauptsächlich Konfigurationsdateien für das Build-Automatisierungstool \textbf{Gradle} und Manifest-
 Dateien, welche Metadaten zur App enthalten und auch für andere Bibliotheken bearbeitet werden
 müssen, z.B. Google-Maps-Funktionalität.
 
 \item \textbf{node\_modules/}:\\
-Im Ordner node\_modules werden alle Bibliotheken abgespeichert, die mit Hilfe des Paketmanagers
+Im Ordner \textbf{node\_modules} werden alle Bibliotheken abgespeichert, die mit Hilfe des Paketmanagers
 in das Projekt eingebunden wurden.
 
 \item \textbf{\_bundle/, ios/}:\\
@@ -89,10 +90,10 @@ unserer Diplomarbeit wurden diese Ordner nicht benötigt.
 
 \begin{itemize}
 \item \textbf{index.js, App.js}:\\
-index.js ist, wie der Name schon vermuten lässt, die Einstiegsdatei für das Projekt. In ihr wird
-nur die Datei App.js eingebunden.
+\textbf{index.js} ist, wie der Name schon vermuten lässt, die Einstiegsdatei für das Projekt. In ihr wird
+nur die Datei \textbf{App.js} eingebunden.
 
-App.js ist also die erste richtige Code-Datei, welche von uns bearbeitet wird. Als Erklärung zeige
+\textbf{App.js} ist also die erste richtige Code-Datei, welche von uns bearbeitet wird. Als Erklärung zeige
 ich hier ein klassisches Hallo-Welt-Programm, welches eigentlich von der Expo-CLI erstellt wird,
 jedoch sehr gut zur Veranschaulichung dient.
 
@@ -147,17 +148,17 @@ Kompilieren in die richtigen Komponenten für das Zielsystem umgewandelt.
 In der nächsten Zeile wird unserer erster React-Component erzeugt, welcher im Grunde nur eine
 Funktion ist, die \nameref{jsx}-Code als Rückgabewert liefert.
 
-In Zeile 5 wird zur View ein React Native StyleSheet zugewiesen. Man verwendet nämlich kein
+In Zeile 5 wird zur View ein React Native \textbf{StyleSheet} zugewiesen. Man verwendet nämlich kein
 gewöhnliches \nameref{css}, wie in der Webentwicklung, sondern ein relativ ähnlich aufgebautes,
 eigenes System zur Gestaltung der App. Ein wichtiger Unterschied ist, dass die Attribut-Namen im
-StyleSheet nicht durch Bindestriche getrennt, sondern in der LowerCamelCase-Notation geschrieben
+\textbf{StyleSheet} nicht durch Bindestriche getrennt, sondern in der LowerCamelCase-Notation geschrieben
 werden \cite{camelCaseNotation}.
 
-Am Ende der Datei wird noch die Komponente als Default exportiert, damit sie von Expo verarbeitet
+Am Ende der Datei wird noch die Komponente als Default exportiert, damit sie von \textbf{index.js} verarbeitet
 werden kann \cite{jsModules}.
 
 \item \textbf{app.json, package.json}:\\
-app.json wird von React Native generiert und enthält zu Beginn bloß den Namen und Anzeigenamen der
+\textbf{app.json} wird von React Native generiert und enthält zu Beginn bloß den Namen und Anzeigenamen der
 App.
 
 % \begin{figure}[H]
@@ -167,65 +168,67 @@ App.
 %   \end{center}
 % \end{figure}
 
-package.json hat einen ähnlichen Zweck, auch darin sind Name, Versionsnummer, aber auch der
+\textbf{package.json} hat einen ähnlichen Zweck, auch darin sind Name, Versionsnummer, aber auch der
 Eintrittspunkt in die App abgespeichert. In Scripts werden Kommandozeilenbefehle abgespeichert, die
-mit Hilfe des Befehls npm run <script> aufgerufen werden können. Im nächsten Objekt werden die
+mit Hilfe des Befehls \textbf{npm run <script>} aufgerufen werden können. Im nächsten Objekt werden die
 Namen der Bibliotheken aufgelistet, welche für das Ausführen der App benötigt werden. Bibliotheken,
 die nur während der Entwicklung benötigt werden, sind unter devDependencies abzuspeichern (beim
-Installieren den Tag -{}-save-dev anhängen).
+Installieren den Tag \textbf{-{}-save-dev} anhängen).
 
 \item \textbf{package-lock.json}:\\
-package-lock.json gehört zu NPM und ist eine Lockfile. In einer Lockfile werden alle installierten
+\textbf{package-lock.json} gehört zu \textbf{NPM} und ist eine Lockfile. In einer Lockfile werden alle installierten
 Dependencies noch einmal aufgelistet und mit der Versionsnummer abgespeichert, um sicherzugehen,
-dass bei der Generierung von node\_modules/ alle Bibliotheken immer dieselbe Version haben.
+dass bei der Generierung von \textbf{node\_modules/} alle Bibliotheken immer dieselbe Version haben.
+
+\newpage
 
 \item \textbf{babel.config.js}:\\
-Babel ist ein sogenannter JavaScript-Transpiler. Er wandelt JavaScript-Features, welche erst in
-späteren Versionen des ECMAScript-Standards eingebaut und möglicherweise noch nicht von allen
+\textbf{Babel} ist ein sogenannter JavaScript-Transpiler. Er wandelt JavaScript-Features, welche erst in
+späteren Versionen des \textbf{ECMAScript}-Standards eingebaut und möglicherweise noch nicht von allen
 Systemen unterstützt werden, in JavaScript-Code um, welcher auch von älteren Versionen verstanden
 werden kann, um (vgl. ein Compiler wandelt lesbaren Code in Maschinencode um). Außerdem hat er noch
 einige andere Funktionen, welche durch Plugins hinzugefügt werden können. In der Konfigurationsdatei
-wird nur eine vorgefertigte Liste an Plugins in das Projekt eingebunden, das "babel-preset-expo".
+wird nur eine vorgefertigte Liste an Plugins in das Projekt eingebunden, das \textbf{babel-preset-expo}.
 
 \item \textbf{metro.config.js}:\\
-Eine Konfigurationsdatei für den JavaScript-Bundler Metro.
+Eine Konfigurationsdatei für den JavaScript-Bundler \textbf{Metro}.
 
 \item \textbf{.gitignore}:\\
-In die Datei .gitignore fügt man Datei- und Ordnernamen ein, die nicht von der Versionsverwaltung
-gesichert werden sollen. Sehr zu empfehlen ist dies beim Ordner node\_modules, da dieser schon
-direkt nach der Erstellung 170 Megabytes groß ist und er aus den Dateien package.json und yarn.lock
+In die Datei \textbf{.gitignore} fügt man Datei- und Ordnernamen ein, die nicht von der Versionsverwaltung
+gesichert werden sollen. Sehr zu empfehlen ist dies beim Ordner \textbf{node\_modules/}, da dieser schon
+direkt nach der Erstellung 170 Megabytes groß ist und er aus den Dateien \textbf{package.json} und \textbf{yarn.lock}
 generiert werden kann.
 
 \item \textbf{.eslintrc.js}:\\
-ESLint ist ein Linter für JavaScript, er überprüft alle vorhandenen JavaScript-Dateien nach
+\textbf{ESLint} ist ein Linter für JavaScript, er überprüft alle vorhandenen JavaScript-Dateien nach
 möglichen syntaktischen oder semantischen Fehlern und kann sogar mögliche Verbesserungen vorschlagen.
 
 \item \textbf{.prettierrc.js}:\\
-Prettier ist ein Werkzeug, welches jeder Programmierer verwenden sollte. Es übernimmt die Aufgabe
+\textbf{Prettier} ist ein Werkzeug, welches jeder Programmierer verwenden sollte. Es übernimmt die Aufgabe
 des Formatierens von Quellcode, sodass ein einheitliches System herrscht und Zeit gespart wird.
 
 \item \textbf{.flowconfig}:\\
 In JavaScript gibt es, Stand 2022, keine statische Typsicherheit bei Variablen, jede Variable kann
-jeden Typ annehmen. Flow ist ein System, welches in Kommentaren in Code die Typen von bestimmten
+jeden Typ annehmen. \textbf{Flow} ist ein System, welches in Kommentaren in Code die Typen von bestimmten
 Variablen festlegt und beim Schreiben der App Fehler anzeigt, falls diese verletzt werden.
-Stattdessen könnte man auch die Sprache TypeScript verwenden, welche zu gewöhnlichem JavaScript
+Stattdessen könnte man auch die Sprache \textbf{TypeScript} verwenden, welche zu gewöhnlichem JavaScript
 kompiliert werden kann.
 
 \item \textbf{.watchmanconfig}:\\
-Watchman wurde von Facebook entwickelt, um die Veränderung von Dateien zu registrieren und bestimmte
+\textbf{Watchman} wurde von Facebook entwickelt, um die Veränderung von Dateien zu registrieren und bestimmte
 Prozesse dadurch zu starten, z.B. das Kompilieren von TypeScript zu JavaScript.
 
 \item \textbf{Gemfile, Gemfile.lock}:\\
 Diese beiden Dateien werden nur bei der Entwicklung von iOS-Apps benötigt. Sie gehören zum Ruby-
-Projekttool Bundler.
+Projekttool \textbf{Bundler}.
 
 \end{itemize}
 
 \newpage
 \subsection{Metro}
 \label{metrobundler}
-Beim Start der App wird als erstes der Metro Bundler initialisiert. Er besteht aus einem Server,
-welcher den geschriebenen Code mittels Babel kompiliert und anschließend an die App schickt. Dadurch
+Beim Start der App wird als erstes der \textbf{Metro Bundler} initialisiert. Er besteht aus einem Server,
+welcher den geschriebenen Code mittels \textbf{Babel} kompiliert und anschließend an die App schickt. Dadurch
 verhindert man, jedes mal die App neu auf das Gerät installieren zu müssen, um eine kleine Änderung
 im Text sehen zu können. Beim Einbinden von neuen JavaScript-Bibliotheken muss allerdings der
 Bundler neu gestartet werden, um diese verwenden zu können.
@@ -247,7 +250,7 @@ C:\example\reactNativeInit> npm start
 \end{figure}
 
 \newpage
-Als nächstes öffnet man den Ordner root/android in Android Studio. Man hat nun zwei Möglichkeiten,
+Als nächstes öffnet man den Ordner \textbf{root/android} in Android Studio. Man hat nun zwei Möglichkeiten,
 die App auszuführen:
 
 \begin{enumerate}
