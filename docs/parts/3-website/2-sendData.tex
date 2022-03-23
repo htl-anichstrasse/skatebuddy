@@ -6,6 +6,7 @@ Erstellen eines Benutzers als sowohl auch beim einloggen und beim Erstellen eine
 Review zu einem Park benötigt. Das Senden der Daten an den Server erfolgt ebenfalls mit einem \textit{Fetch},
 diesmal jedoch ist der fetch keine \textit{get Method} wie bei dem useFetch, sondern eine 
 \textit{post Method}.
+\begin{code}[htp]
 \begin{lstlisting}
     fetch("APU_URL", {
         method: 'POST',
@@ -16,6 +17,8 @@ diesmal jedoch ist der fetch keine \textit{get Method} wie bei dem useFetch, son
           return response.json();
         })
 \end{lstlisting}
+\caption{React Component - Fetch zum Bekommen von Daten}
+\end{code}
 Im header wird angegeben, welcher Datentyp (In unserem Fall ein JSON) gesendet wird. Im body wird der 
 Datenstring in ein JSON umgewandelt und anschließend an die entsprechende URL gesendet. Dann wird auf 
 eine Antwort vom Server gewartet und danach wird diese Antwort als JSON returned. 

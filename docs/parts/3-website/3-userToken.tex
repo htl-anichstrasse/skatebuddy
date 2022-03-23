@@ -6,12 +6,13 @@ Account erstellen. Bei erfolgreichem \nameref{login} oder \nameref{createAccount
 \textit{JWT (\nameref{token})}, welcher für die weitere Verwendung dekodiert werden muss. Dieser kodierte 
 Token wird im LocalStorage gespeichert, damit bei erneuten Aufruf der Seite das Login-Formular nicht neu 
 ausgefüllt werden muss.
-
+\begin{code}[htp]
 \begin{lstlisting}
     localStorage.setItem("user", JSON.stringify(response.data));
 \end{lstlisting}
+\caption{JavaScript Funktion - Speichern des Tokens in LocalStorage}
+\end{code}
 So wird der Token in den LocalStorage der Seite gespeichert.
-
 \subsection{Token dekodieren}
 
 Das Dekodieren von dem Token erfolgt in einer \textit{decodeToken} Methode. In dieser Methode wird der 
@@ -19,9 +20,13 @@ Token mittels \textit{post fetch} an den Server gesendet. War das Decoden des To
 beinhaltet die Antwort des Servers alle Daten zu dem eingeloggten User. Diese Daten werden dann im 
 SessionStorage des Browsers gespeichert und werden somit beim schließen des Browsers wieder verworfen. 
 Das Dekodieren eines Tokens wird nach dem Login und bei dem erneuten Aufruf der Seite gemacht.
+\begin{code}[htp]
 \begin{lstlisting}
     sessionStorage.setItem("data", JSON.stringify(data))
 \end{lstlisting}
+\caption{JavaScript Funktion - Speichern der Data in SessionStorage}
+\end{code}
+
 So erfolgt das Speichern der Tokendaten in den SessionStorage.
 
 \subsection{Token Überprüfung}
@@ -40,6 +45,7 @@ Beim Ausloggen wird der Token aus dem LocalStorage entfernt. Die Informationen d
 werden ebenfalls aus dem SessionStorage entfernt. Dies erfolgt ganz einfach mittels einer \textit{logout}
 Methode, welche wie folgt aussieht:
 
+\begin{code}[htp]
 \begin{lstlisting}
     logout() {
         localStorage.removeItem("user");
@@ -47,5 +53,6 @@ Methode, welche wie folgt aussieht:
         sessionStorage.removeItem("validate")
     }    
 \end{lstlisting}
-
+\caption{JavaScript Funktion - Löschen aller Informationen in Local-/SessionStorage}
+\end{code}
 Damit befindet sich nichts mehr im Local- und SessionStorage.

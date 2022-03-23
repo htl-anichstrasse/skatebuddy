@@ -17,6 +17,7 @@ Seitenwechsel zu verursachen.
 
 Innerhalb der Router-Komponente, nämlich dort wo die View angezeigt werden soll, ist die Routes
 Komponente definiert.
+\begin{code}[htp]
 \begin{lstlisting}
     <Routes>
         <Route path="/" element={<Home />} />
@@ -31,6 +32,8 @@ Komponente definiert.
         <Route path="/Recommendations" element={<Recommendationlist/>}/>
     </Routes>
 \end{lstlisting} 
+\caption{React Component - Die Routen der Webseite}
+\end{code}
 Innerhalb der Routes Komponente werden die einzelnen Routen definiert. Je nachdem welche URL aufgerufen wird,
 wird eine andere Komponente geladen. Diese Routen werden mittels \nameref{React-Links} in den einzelnen 
 Views geändert. Zum Beispiel wird bei der URL \textit{/parks} die Komponente \textbf{Parks} als 
@@ -41,11 +44,14 @@ ParkDetails-Komponente ein anderer Parameter übergeben wird.
 \subsubsection{Link-Komponenten}
 \label{React-Links}
 Die Link-Komponente dient dazu die URL zu ändern falls ein Viewwechsel durchgeführt werden soll.
+\begin{code}[htp]
 \begin{lstlisting}
    <Link to="/" className='home-nav' id="nav">
        Home
    </Link>
 \end{lstlisting}
+\caption{React Component - React Link Komponente}
+\end{code}
 Durch das Klicken auf das Wort \textit{Home} wird die URL in diesem Beispiel auf \textit{/} geändert.
 Mit dieser geänderten URL ändert der Router mit den definierten Routes die View.
 
@@ -81,6 +87,7 @@ Felder und es erscheint ein Profil Feld.
 Das Überprüfen ob der Benutzer eingeloggt ist oder nicht erfolgt ganz einfach über \nameref{jsx}.
 
 
+\begin{code}[htp]
 \begin{lstlisting}
     {token && 
         <Link to="/Profile" className='pofile-nav' id="nav">
@@ -99,6 +106,8 @@ Das Überprüfen ob der Benutzer eingeloggt ist oder nicht erfolgt ganz einfach 
         </>
       }
 \end{lstlisting}
+\caption{React Component - Überprüfen des Logins für die Navigationsleiste}
+\end{code}
 
 Ist die token Variable nicht \textit{null}, wird der Code in den geschwungenen Klammern 
 mit token ausgeführt. Ist die Variable \textit{null} wird der Code mit dem !token ausgeführt. 
@@ -125,6 +134,7 @@ der Information auch ein Top-Knopf, welcher bei Betätigung ganz nach oben scrol
 Damit der Knopf bei Mausklick von selbst nach oben scrollt, wird ihm eine JavaScript-Funktion 
 zugewiesen, welche bei Knopfdruck \textit{(onClick)} ausgeführt wird.
 
+\begin{code}[htp]
 \begin{lstlisting}
     function topFunction() {
         document.body.scrollTop = 0;
@@ -133,13 +143,18 @@ zugewiesen, welche bei Knopfdruck \textit{(onClick)} ausgeführt wird.
 
     <button onClick={topFunction} id="myBtn" title="Go to top" className="top-button">Top</button>
 \end{lstlisting}
+\caption{JavaScript Funktion - Scroll top Funktion}
+\end{code}
 
 Dass die Funktion scrollt und nicht auf einmal ganz oben ist, bewirken folgende CSS-Zeilen.
 
+\begin{code}[htp]
 \begin{lstlisting}
     html {
         scroll-behavior: smooth;
     }
 \end{lstlisting}
+\caption{CSS - smooth scrolling}
+\end{code}
 
 Damit springt die Seite mit Knopfdruck nicht nach oben, sondern scrollt reibungslos.
