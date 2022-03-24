@@ -1,15 +1,15 @@
 \section{App.js}
 \label{appDatei}
 
-In der App Komponente ist die \nameref{nav} und der \nameref{footer} definiert, 
-als sowohl auch die URLs zu den einzelnen \nameref{views}. Diese URLs sind mit einen React 
+In der App Komponente ist die \underline{\nameref{nav}} und der \underline{\nameref{footer}} definiert, 
+als sowohl auch die URLs zu den einzelnen \underline{\nameref{views}}. Diese URLs sind mit einen React 
 Router definiert. Da der Footer direkt in der App-Komponente ausprogrammiert ist, 
 befindet sich die CSS des footers auch in der CSS-Datei der App-Komponente. Die Navigationsleiste wird genau 
 wie die Views als Komponente reingeladen.
 
 \subsection{React Router, Routes, Route}
 Alle Komponenten aus denen die Webseite besteht sind innerhalb einer Router Komponente definiert. Die 
-Router Komponente sorgt dafür, dass die Seite wie eine \nameref{singlePageApp} funktioniert. Betätigt
+Router Komponente sorgt dafür, dass die Seite wie eine \underline{\nameref{singlePageApp}} funktioniert. Betätigt
 der Benutzer einen Wechsel der View, was normalerweise einen Seitenwechsel verursachen würde, wird die 
 Anfrage an den Server vom React Router abgefangen und der Router sendet die neue View ohne einen 
 Seitenwechsel zu verursachen. 
@@ -35,7 +35,7 @@ Komponente definiert.
 \caption{React Component - Die Routen der Webseite}
 \end{code}
 Innerhalb der Routes Komponente werden die einzelnen Routen definiert. Je nachdem welche URL aufgerufen wird,
-wird eine andere Komponente geladen. Diese Routen werden mittels \nameref{React-Links} in den einzelnen 
+wird eine andere Komponente geladen. Diese Routen werden mittels \underline{\nameref{React-Links}} in den einzelnen 
 Views geändert. Zum Beispiel wird bei der URL \textit{/parks} die Komponente \textbf{Parks} als 
 Inhalt geladen. Bei der \textit{/skateparks} URL ist ein /:id am Ende. Dieses :id 
 bedeutet, dass je nach welche id in die URL geschrieben wird, also 1, 2, 3, ... der 
@@ -58,8 +58,8 @@ Mit dieser geänderten URL ändert der Router mit den definierten Routes die Vie
 \subsection{Navigationsleiste}
 \label{nav}
 
-Die Navigationsleiste ist genauso wie der \nameref{footer} immer sichtbar. Sie steht über dem Inhalt der Seite und 
-dient zur Navigation. Die Navigation erfolgt ganz einfach über \nameref{React-Links}.
+Die Navigationsleiste ist genauso wie der \underline{\nameref{footer}} immer sichtbar. Sie steht über dem Inhalt der Seite und 
+dient zur Navigation. Die Navigation erfolgt ganz einfach über \underline{\nameref{React-Links}}.
 
 \begin{figure}[H]
   \begin{center}
@@ -84,7 +84,7 @@ Felder und es erscheint ein Profil Feld.
 
 \pagebreak
 
-Das Überprüfen ob der Benutzer eingeloggt ist oder nicht erfolgt ganz einfach über \nameref{jsx}.
+Das Überprüfen ob der Benutzer eingeloggt ist oder nicht erfolgt ganz einfach über \underline{\nameref{jsx}}.
 
 
 \begin{code}[htp]
