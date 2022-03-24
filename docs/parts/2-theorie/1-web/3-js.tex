@@ -3,7 +3,7 @@
 
 JavaScript ist eine Programmiersprache/Skriptsprache, die üblicherweise in Webseiten Verwendung 
 findet. Sie wird jedoch auch noch in vielen anderen Umgebungen außerhalb der Website Entwicklung
-benutzt, wie zum Beispiel \nameref{nodejs}. 
+benutzt, wie zum Beispiel \underline{\nameref{nodejs}}. 
 JavaScript besitzt First-Class-Functions (Funktionen erster Klasse). 
 Außerdem is JS eine prototypbasierte Sprache, welche mehreren Paradigmen folgt und dynamisch als sowohl auch 
 objektorientiert ist. JavaScript ist plattformunabhängig. Zusätzlich ist es sehr kompakt und 
@@ -16,19 +16,23 @@ First-Class-Funktionen besitzt, kann man Funktionen als Parameter übergeben, ei
 zuweisen oder von einer anderen Funktion zurückgegeben werden.~\cite{First-Class-Funktion}
 
 \subsubsection{Beispiel für die Zuweisung einer Funktion an eine Variable}
-\begin{lstlisting}
-    const v = function(){
-        Console.log("Ausgaben in der Konsole")
-    }
-
-    v();
-\end{lstlisting}
+\begin{code}[htp]
+    \begin{lstlisting}
+        const v = function(){
+            Console.log("Ausgaben in der Konsole")
+        }
+    
+        v();
+    \end{lstlisting}
+\caption{JavaScript Funktion - Zuweisung einer Funktion an eine Variable}
+\end{code}
 Hier wird der Variable \textit{v} eine anonyme Funktion zugewiesen, welche in der Konsole 
 eine Ausgabe liefert. Diese Funktion wird dann ganz einfach über die Variable mittels den zwei 
 Klammern aufgerufen.
 
 
 \subsubsection{Beispiel für das Übergeben einer Funktion als Argument}
+\begin{code}[htp]
 \begin{lstlisting}
     function sagHallo() {
         return "Hallo, ";
@@ -39,12 +43,15 @@ Klammern aufgerufen.
 
     gruessen(sagHallo(), "JavaScript!");
 \end{lstlisting}
+\caption{JavaScript Funktion - Übergeben einer Funktion als Argument}
+\end{code}
 Hier übergeben wir der Funktion \textit{gruessen} 2 Parameter. Einer dieser beiden Parameter ist eine
 Funktion namens \textit{sagHallo}, welche ``Hallo, `` als return liefert. Führen wir nun 
 die Methode gruessen mit diesen Parametern aus, wird in die Console der Satz 
 \textit{``Hallo, Javascript``} geschrieben.
 
 \subsubsection{Eine Funktion als Return}
+\begin{code}[htp]
 \begin{lstlisting}
     function sagHallo(){
         return function(){
@@ -52,6 +59,8 @@ die Methode gruessen mit diesen Parametern aus, wird in die Console der Satz
         }
     }
 \end{lstlisting}
+\caption{JavaScript Funktion - Funktion als Return}
+\end{code}
 Hier wird ganz einfach als return-Wert eine Funktion übergeben.
 
 \subsection{Objektorientierte Programmierung}

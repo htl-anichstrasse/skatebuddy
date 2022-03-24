@@ -1,11 +1,12 @@
 \section{Slideshow}
 \label{slideshow}
 
-Auf der \nameref{home} und auf der \nameref{parklist} gibt es eine Slideshow von Bildern.
+Auf der \underline{\nameref{home}} und auf der \underline{\nameref{parklist}} gibt es eine Slideshow von Bildern.
 Diese Slideshow Komponente ist extern und wurde mittels npm heruntergeladen und in das 
 Projekt importiert. Der Ersteller dieser Komponente ist \textit{femioladeji}. Verwendet wird diese 
 Komponente wie folgt:
 
+\begin{code}[htp]
 \begin{lstlisting}
     const Slideshow = (parkpics) => {
     return (
@@ -22,12 +23,14 @@ Komponente wie folgt:
     )
 }
 \end{lstlisting}
+\caption{React Component - Slideshow}
+\end{code}
 
 Der JavaScript Funktion wird ein Parameter übergeben names \textit{parkpics}. Die 
 Daten für diesen Parameter werden mittels \textit{useFetch} vom Server geholt. In diesem Parameter 
 befindet sich ein zwei-dimensionales Array, welches die ParkID des Parks als sowohl auch die ID des 
 Bildes enthält. Insgesamt werden der Slide Komponente zwei Parameter übergeben: autoplay={false} sorgt
-dafür, dass die Bilder nicht von selbst weiter schalten. (Auf der \nameref{home} ist diese Variable auf true) und
+dafür, dass die Bilder nicht von selbst weiter schalten. (Auf der \underline{\nameref{home}} ist diese Variable auf true) und
 eine transitionDuration welche die Geschwindigkeit festlegt, mit der die Bilder weiter geschaltet werden soll.
 Innerhalb der Slide Komponente steht eine map Funktion, welche für jedes Element im Parameter parkpics 
 ein div erzeugt, welches das jeweilige Bild als Hintergrundbild besitzt. 
