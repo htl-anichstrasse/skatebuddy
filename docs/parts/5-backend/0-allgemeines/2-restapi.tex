@@ -2,11 +2,11 @@
 \label{restapi}
 
 \textbf{Rest} steht für REpresentational State Transfer, \textbf{API} für Application
-Programming Interface. Die Rest Api hat die Aufgabe den CLient bzw. die App
-mithilfe von sogenannten \textbf{Rest-Routes} zugriff auf die Datenbank zu geben.
-Im Prinzip kann jeder Computer mit Internet Zugang auf die API zugreifen, insofern
+Programming Interface. Die Rest-Api hat die Aufgabe den Client bzw. die App
+mithilfe von sogenannten \textbf{Rest-Routes}, zugriff auf die Datenbank zu geben.
+Im Prinzip kann jeder Computer mit Internetzugang auf die API zugreifen, insofern
 sie die vorgefertigten \textbf{HTTP-Anfragen} an den Server senden. Wie genau diese
-Anfragen aussehen ist im Kapitel \textbf{Rest-Routes} beschrieben \ref*{restroutes}.
+Anfragen aussehen ist im Kapitel \textbf{Rest-Routes} beschrieben \underline{\nameref*{restroutes}}.
 
 \begin{figure}[H]
     \begin{center}
@@ -24,18 +24,18 @@ kann an den Server folgende \textbf{HTTP/HTTPs} Anfragen senden:
     \centering
     \begin{tabular}{llll}
         \textbf{HTTP-Methode (Befehl)} & \textbf{Definition}                                                              &  & \\
-        Get                            & Fordert eine Ressource vom Server an ohne sie zu                                 &  & \\
+        GET                            & Fordert eine Ressource vom Server an ohne sie zu verändern                       &  & \\
         POST                           & Erstellt eine neue Ressource und sendet diese an den Server                      &  & \\
         PUT                            & Legt die angegebene Ressource auf dem Server an oder modifiziert eine bestehende &  & \\
         PATCH                          & Modifiziert einen Teil der angegebenen Ressource                                 &  & \\
-        DELETE                         & Löscht eine Angegebene Ressource                                                 &  &
+        DELETE                         & Löscht eine angegebene Ressource                                                 &  &
     \end{tabular}
 \end{table}
 \subsection{Authorization}
 
-Damit sensible Daten wie zum Beispiel die User Daten nicht für
-alle Pc's frei zugänglich sind werden bestimmte \textit{Routes} mit einer
-\textit{Bearer Authorization} gesichert. Um die Routes benutzen zu können muss
+Damit sensible Daten, wie zum Beispiel die User Daten, nicht für
+alle Pc's frei zugänglich sind, werden bestimmte \textit{Routes} mit einer
+\textit{Bearer Authorization} gesichert. Um die Routes benutzen zu können, muss
 im Header der HTTP Anfrage ein \texttt{Authorization} Eintrag mitgesendet werden.
 Falls keiner mitgesendet wird sendet die API eine Message mit den Inhalt
 \textbf{Unauthorized}.
@@ -43,13 +43,13 @@ Falls keiner mitgesendet wird sendet die API eine Message mit den Inhalt
 Nur Benutzer die einen sogenannten \textit{Bearer-Token} besitzen haben also zugriff
 auf die Ressourcen.
 
-Einen solchen Token erhält man entweder wenn man sich Registriert siehe (api/register) oder wenn sich
-Anmeldet siehe (api/login).
+Einen solchen Token erhält man entweder wenn man sich Registriert, siehe (api/register) oder wenn man sich
+Anmeldet, siehe (api/login).
 
 Wie so ein Bearer Token aussieht sehen sie hier:
 
 \texttt{eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMyLCJuYW1lIjoiQSIsImVt
-    YWlsIjoiQUBBIiwicHJvZmlsZXBpY3R1cmVJZCI6bnVsbCwiaWF0IjoxNjQ1Mjk1Nzk0LCJleHAiOjE2N
+    YWlsIjoiQUBBIiwicHJvZmlsZXBpY3R1cHSmVJZCI6bnVsbCwiaWF0IjoxNjQ1Mjk1Nzk0LCJleHAiOjE2N
     TY5NTk3OTR9.k1p8njU8ra6Rt16nZTTCmnkrhK3H8MygbwGYHtio-Sg}
 
 Als Bearer Token haben wir uns für den \textit{Json Web Token (JWT)} entschieden.
@@ -59,8 +59,8 @@ Als Bearer Token haben wir uns für den \textit{Json Web Token (JWT)} entschiede
 \subsubsection{Json Web Token}
 \label{token}
 Der \textit{JWT} wird in der Regel für Authentifizierungsvorgängen verwendet. Es ist ebenfalls
-möglich, in ihm Informationen zu speichern. Die Informationen können verschlüsselt werden
-und somit sichergestellt werden, wer der Absender ist und ob dieser die benötigten Zugriffsrechte
+möglich, Informationen in ihm zu speichern. Die Informationen können verschlüsselt werden
+und somit kann sichergestellt werden, wer der Absender ist und ob dieser die benötigten Zugriffsrechte
 hat. Ein solcher Token besteht aus drei Teilen.
 
 \paragraph{Header}

@@ -2,8 +2,9 @@
 \subsubsection{POST /register}
 
 \begin{lstlisting}
-    /register
-\end{lstlisting}
+        /register
+    \end{lstlisting}
+
 
 \textbf{Zweck der Route:} \\
 Mit dieser Route kann man sich registrieren. Der Server
@@ -17,28 +18,34 @@ Keine
 Keine
 
 \textbf{Body:}
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
-    {
+\begin{code}
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
         {
-    "name": "Test",
-    "password": "Test",
-    "email": "test@test.com"
-}  
-}
-\end{lstlisting}
+            {
+        "name": "Test",
+        "password": "Test",
+        "email": "test@test.com"
+    }  
+    }
+    \end{lstlisting}
+    \caption{Body der Register-Route}
+\end{code}
 
 \subsubsection{Response)}
 
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
-    {
+\begin{code}
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
         {
-            "success": true,
-            "token": "eyJhbGciOiJIUzI1NJ.LCJleHAiOY5NTk3OTR9.k1p8njURt1GYHtio-Sg"
-        }
-}
-\end{lstlisting}
+            {
+                "success": true,
+                "token": "eyJhbGciOiJIUzI1NJ.LCJleHAiOY5NTk3OTR9.k1p8njURt1GYHtio-Sg"
+            }
+    }
+    \end{lstlisting}
+    \caption{Response der Register-Route}
+\end{code}
 
 \pagebreak
 
@@ -47,6 +54,7 @@ Keine
 \begin{lstlisting}
     /login
 \end{lstlisting}
+
 
 \textbf{Zweck der Route:} \\
 Mit dieser Route kann man sich einloggen. Der Server
@@ -60,8 +68,9 @@ Keine
 Keine
 
 \textbf{Body:}
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
+\begin{code}
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
     {
         {
             "name": "Test",
@@ -69,18 +78,23 @@ Keine
             "email": "test@test.com"
         }  
 }
-
 \end{lstlisting}
+    \caption{Beispiel Body Login-Route}
+\end{code}
+
+
 \subsubsection{Response)}
-
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
-    {
+\begin{code}
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
         {
-            "success": true,
-            "token": "eyJhbGciOiJIUzI1NJ.LCJleHAiOY5NTk3OTR9.k1p8njURt1GYHtio-Sg"
-        }
-}
-\end{lstlisting}
+            {
+                "success": true,
+                "token": "eyJhbGciOiJIUzI1NJ.LCJleHAiOY5NTk3OTR9.k1p8njURt1GYHtio-Sg"
+            }
+    }
+    \end{lstlisting}
+    \caption{Response der Login-Route}
+\end{code}
 
 \pagebreak
