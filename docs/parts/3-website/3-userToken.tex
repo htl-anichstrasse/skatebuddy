@@ -8,7 +8,7 @@ Token wird im LocalStorage gespeichert, damit bei erneuten Aufruf der Seite das 
 ausgefüllt werden muss.
 \begin{code}[htp]
 \begin{lstlisting}
-    localStorage.setItem("user", JSON.stringify(response.data));
+localStorage.setItem("user", JSON.stringify(response.data));
 \end{lstlisting}
 \caption{JavaScript Funktion - Speichern des Tokens in LocalStorage}
 \end{code}
@@ -22,7 +22,7 @@ SessionStorage des Browsers gespeichert und werden somit beim schließen des Bro
 Das Dekodieren eines Tokens wird nach dem Login und bei dem erneuten Aufruf der Seite gemacht.
 \begin{code}[htp]
 \begin{lstlisting}
-    sessionStorage.setItem("data", JSON.stringify(data))
+sessionStorage.setItem("data", JSON.stringify(data))
 \end{lstlisting}
 \caption{JavaScript Funktion - Speichern der Data in SessionStorage}
 \end{code}
@@ -47,11 +47,11 @@ Methode, welche wie folgt aussieht:
 
 \begin{code}[htp]
 \begin{lstlisting}
-    logout() {
-        localStorage.removeItem("user");
-        sessionStorage.removeItem("data")
-        sessionStorage.removeItem("validate")
-    }    
+logout() {
+    localStorage.removeItem("user");
+    sessionStorage.removeItem("data")
+    sessionStorage.removeItem("validate")
+}    
 \end{lstlisting}
 \caption{JavaScript Funktion - Löschen aller Informationen in Local-/SessionStorage}
 \end{code}

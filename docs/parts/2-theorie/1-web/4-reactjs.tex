@@ -52,15 +52,15 @@ In der Renderfunktion wird ein JSX-Objekt zurückgegeben, welches dann wie übli
 
 \begin{code}[htp]
 \begin{lstlisting}
-  class RenderBeispiel{
-    render{
-      return(
-          <div>
+class RenderBeispiel{
+  render{
+    return(
+        <div>
           <p>Ich bin ein Beispiel fuer eine Renderfunktion</p>
-          </div>
-      );
-    }
+        </div>
+    );
   }
+}
 \end{lstlisting}
 \caption{React Component - Renderfunktion}
 \end{code}
@@ -112,15 +112,15 @@ für React nicht notwendig, jedoch ist es ein sehr hilfreiches Werkzeug.
 Außerdem ist es sehr hilfreich um Fehler zu finden.
 \begin{code}[htp]
 \begin{lstlisting}
-  function example jsx(){
-    const j = "Hallo, ich bin JavaScript code"
+function example jsx(){
+  const j = "Hallo, ich bin JavaScript code"
 
-    return(
-      <div>
-        <p>{j}</p>
-      </div>
-    )
-  }
+  return(
+    <div>
+      <p>{j}</p>
+    </div>
+  )
+}
 \end{lstlisting}
 \caption{React Component - JSX example }
 \end{code}
@@ -140,9 +140,9 @@ In diesem Falle würde das $<p>$ Element \textit{Hallo, ich bin JavaScript code}
  Ergebnis liefert wird \textit{pure} genannt.
 \begin{code}[htp]
 \begin{lstlisting}
-  function sum(a,b){
-    return a + b;
-  }
+function sum(a,b){
+  return a + b;
+}
 \end{lstlisting}
 \caption{JavaScript Funktion - Pure Function}
 \end{code}
@@ -153,9 +153,9 @@ wie oft die selben Eingabewerte übergeben werden, die Funktion wird immer das s
 Das Gegenteil einer ``pure Function'' ist eine \textit{impure Function} eine Funktion, welche ihre Eingaben ändert.
 \begin{code}[htp]
 \begin{lstlisting}
-  function withdraw(account, amount){
-    account.total -= amount;
-  }
+function withdraw(account, amount){
+  account.total -= amount;
+}
 \end{lstlisting}
 \caption{JavaScript Funktion - Funktion als Return}
 \end{code}
