@@ -1,4 +1,5 @@
 \section{Server}
+\label{server}
 
 \subsection{Was ist ein Server?}
 Als \textit{Server} eng(Diener) wird sowohl ein Computer mit einem Netzwerk genannt,
@@ -16,11 +17,11 @@ werden.
 Ein Software-Server ist in der Regel ein Programm oder ein Anwendung
 der von anderen Rechnern den sogenannten Clients lokal über ein Netzwerk in Anspruch genommen
 werden kann. Die Art der Server Software bestimmt den Dienst des Servers. Grundlage für
-eine Kommunikation bildet das Client-Server-Modell. \ref{db}
+eine Kommunikation bildet das Client-Server-Modell. \underline{\nameref{db}}
 
 \subsubsection{Funktionsweiße eines Servers}
 Wie bereits erwähnt basiert die Kommunikation zwischen Server und Clients
-auf der Grundlage des \textit{Client-Server-Modells}. Jeder verfügbare Dienst im Netzwerk wird von
+auf der Grundlage des \textit{Client-Server-Modells}. Jeder verfügbare Dienst im Netzwerk, wird von
 einem dauerhaft erreichbaren Server zur Verfügung gestellt. Somit kann sichergestellt werden, dass
 Dienste wie Webbrowser E-Mail zu jeder Zeit auf den Server zugreifen können um den Dienst
 in Beanspruchung nehmen zu können.
@@ -34,19 +35,20 @@ in Beanspruchung nehmen zu können.
 Ein Webserver hat die Aufgabe, Websites zu speichern, aufzubereiten und an die Webbrowser bzw. Clients
 auszugeben. Kommuniziert wird zwischen Server und Software mittels dem \textbf{Hypertext Transfer Protocol
     (HTTP)} bzw mittels der verschlüsselten Variante \textbf{HTTPS}. Die gängigsten Webserver sind
-Apache HTTP Server, Microsoft Internet Information Services (IIS) oder Nginx.
+der Apache HTTP Server, Microsoft Internet Information Services (IIS) oder Nginx.
 
 \paragraph{File-Server}
 Ein File Server hat die Aufgabe zur zentralen Speicherung von Dateien, welche von den Clients
 über ein Netzwerk zugänglich gemacht werden. Ein File Server ermöglicht aufgrund von verschiedenster
 Dateiversionen, Konflikte entgegenzuwirken. Außerdem erfolgt eine automatische Versionierung der
-Daten sowie ein zentrales Back-up sämtlicher Daten. Falls der Zugriff auf den Server über das
+Daten sowie ein zentrales Back-up der sämtlicher Daten. Falls der Zugriff auf den Server über das
 Web läuft kommen Protokolle wie \textbf{FTP} (File Transport Protocol), \textbf{SFTP}(Secure File Transfer
 Protocol). \textbf{FTPS}(FTP over SSL) oder \textbf{SCP}(Secure Copy) zum Einsatz. Im lokalen
-Gebrauch sind die Protokolle \textbf{SMB}(Server MEssage Block) und \textbf{NFS}(Network File System).
+Gebrauch sind die Protokolle \textbf{SMB}(Server MEssage Block) und \textbf{NFS}(Network File System)
+im Einsatz.
 
 \paragraph{Mailserver}
-Wie des Name es bereits andeutet ermöglicht ein Mail Server E-Mails zu empfangen, zu senden und
+Wie der Name es bereits andeutet ermöglicht ein Mail Server E-Mails zu empfangen, zu senden und
 weiterzuleiten. Er besteht aus mehreren Software-Modulen. Zum Einsatz kommt hier in der Regel
 das \textbf{Simple Mail Transfer Protocol}(SMTP). User die einen Mail-Server nutzen
 wollen benötigen einen E-Mail Client, der die Nachrichten vom Server holt und im E-Mail-Postfach
@@ -59,12 +61,12 @@ zugriff auf ein oder mehrere
 Datenbanksysteme zu gewährleisten. Die wohl bekanntesten Software-Lösungen sind \textit{Oracle},
 \textit{MySql}, \textit{Microsoft SQL Server}, \textit{PostgreSQL} und \textit{DB2}. Um mit dem
 Backend Server kommunizieren zu können benötigt der User das sogenannte \textbf{Frontend}.
-\ref{db}
+\underline{\nameref{db}}
 
 \paragraph{Proxy-Server}
 Ein Proxy-Server dient als Kommunikationsschnittstelle in einem Rechnernetzwerk. Er nimmt Anfragen
 aus dem Netzwerk entgegen und leitet diese über seine IP-Adresse weiter. Eingesetzt wird ein solcher
-Proxy-Server um Kommunikationen zu filtern, Bandbreite zu kontrollieren, Verfügbarkeit durch
+Proxy-Server um Kommunikationen zu filtern, Bandbreiten zu kontrollieren und Verfügbarkeiten durch
 Lastverteilung zu erhöhen um Daten zwischenzuspeichern auch \textbf{Caching} genannt. Mithilfe eines
 Proxy-Servers ist es ebenfalls möglich Anonymität zu gewährleisten, da die IP-Adressen der Clients
 hinter dem Proxy verborgen bleiben.
@@ -89,4 +91,3 @@ die Benutzer nicht mehr um den Betrieb der Hardware zu kümmern.
 
 
 
-\label{server}

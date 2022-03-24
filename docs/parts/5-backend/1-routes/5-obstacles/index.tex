@@ -20,26 +20,28 @@ Keine
 Keinen
 
 \subsubsection{Response)}
-
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
-    [
-        
-    {
-        "obstacleId": 1,
-        "description": "Bowl"
-    },
-    {
-        "obstacleId": 2,
-        "description": "box"
-    },
-    {
-        "obstacleId": 3,
-        "description": "Mini Ramp"
-    },
-    ...
-    ]
-\end{lstlisting}
+\begin{code}
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
+        [
+            
+        {
+            "obstacleId": 1,
+            "description": "Bowl"
+        },
+        {
+            "obstacleId": 2,
+            "description": "box"
+        },
+        {
+            "obstacleId": 3,
+            "description": "Mini Ramp"
+        },
+        ...
+        ]
+    \end{lstlisting}
+    \caption{Response der get Obstacle-Route}
+\end{code}
 
 \pagebreak
 
@@ -67,14 +69,16 @@ Keinen
 Keinen
 
 \paragraph{Response }
-
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
-    {
-        "obstacleId": 2,
-        "description": "box"
-    },
-\end{lstlisting}
+\begin{code}
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
+        {
+            "obstacleId": 2,
+            "description": "box"
+        },
+    \end{lstlisting}
+    \caption{Response der Get Obstacle-Route}
+\end{code}
 
 \pagebreak
 
@@ -97,25 +101,30 @@ Keine
 
 
 \textbf{Body:} \\
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
-    "description": "Mini Ramp"
-\end{lstlisting}
+\begin{code}
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
+        "description": "Mini Ramp"
+    \end{lstlisting}
+    \caption{Body der post Obstacle-Route}
+\end{code}
 
 \textbf{Authorization:} \\
 Keinen
 
 \paragraph{Response }
-
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
-[
-    {
-        "success": true,
-        "message": "Successfully inserted"
-    }
-]
-\end{lstlisting}
+\begin{code}
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
+    [
+        {
+            "success": true,
+            "message": "Successfully inserted"
+        }
+    ]
+    \end{lstlisting}
+    \caption{Response der post Obstacle-Route}
+\end{code}
 
 \pagebreak
 
@@ -141,19 +150,21 @@ Keinen
 
 
 \subsubsection{Response)}
-
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
-    {
-    "success": true,
-    "message": "Successfully deleted"
-}
-\end{lstlisting}
+\begin{code}
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
+        {
+        "success": true,
+        "message": "Successfully deleted"
+    }
+    \end{lstlisting}
+    \caption{Response der delete Obstacle-Route}
+\end{code}
 
 \pagebreak
 
 
-\subsubsection{PUT /skateparks/:id}
+\subsubsection{PUT /obstacles/:id}
 
 \begin{lstlisting}
     /obstacles/1
@@ -167,21 +178,24 @@ Keine
 
 \paragraph{Zusätzliche Parameter}
 \lstinline{id: int} (benötigt)
-$\rightarrow$ Die eindeutige ID der gewünschten Review.
+$\rightarrow$ Die eindeutige ID des gewünschten Obstacles.
 
 \textbf{Body:}\\
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
-    {
+\begin{code}
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
         {
-            "Title": "Mini Ramp",
-            "newValue":"Kleine Rampe"
+            {
+                "Title": "Mini Ramp",
+                "newValue":"Kleine Rampe"
+    
+            }
+    }
+    \end{lstlisting}
+    \caption{Body der pur Obstacle-Route}
+\end{code}
 
-        }
-}
-\end{lstlisting}
-
-\subsubsection{Response)}
+\subsubsection{Response}
 
 \lstinline{Content-Type: JSON}
 \begin{lstlisting}

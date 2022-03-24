@@ -19,33 +19,35 @@ Keine
 
 Keinen
 
-\subsubsection{Response)}
-
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
-    [
-    {
-        "skateparkId": 1,
-        "picId": 1
-    },
-    {
-        "skateparkId": 1,
-        "picId": 2
-    },
-    {
-        "skateparkId": 1,
-        "picId": 3
-    },
-    ... 
-    ]
-\end{lstlisting}
+\subsubsection{Response}
+\begin{code}
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
+        [
+        {
+            "skateparkId": 1,
+            "picId": 1
+        },
+        {
+            "skateparkId": 1,
+            "picId": 2
+        },
+        {
+            "skateparkId": 1,
+            "picId": 3
+        },
+        ... 
+        ]
+    \end{lstlisting}
+    \caption{Response get Skateparkpicture-Route}
+\end{code}
 
 \pagebreak
 
 \subsubsection{GET /skateparkpictures/:id/:pid}
 
 \begin{lstlisting}
-    /obsskateparkpicturestacles/2/1
+    /skateparkpicturestacles/2/1
 \end{lstlisting}
 
 \textbf{Zweck der Route} \\
@@ -67,17 +69,19 @@ Keinen
 Keinen
 
 \paragraph{Response }
-
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
-    Binaerdaten des Bildes
-\end{lstlisting}
+\begin{code}
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
+        Binaerdaten des Bildes
+    \end{lstlisting}
+    \caption{Response der get Skateparkpicture Route}
+\end{code}
 \pagebreak
 
 \subsubsection{GET /skateparkpictures/:id}
 
 \begin{lstlisting}
-    /s#skateparkpictures/3
+    /skateparkpictures/3
 \end{lstlisting}
 
 \textbf{Zweck der Route} \\
@@ -98,11 +102,13 @@ Keinen
 Keinen
 
 \paragraph{Response }
-
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
-    [
-        4,
-        6    
-    ]
-\end{lstlisting}
+\begin{code}
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
+        [
+            4,
+            6    
+        ]
+    \end{lstlisting}
+    \caption{Response der Get skateparkpictures-Routes}
+\end{code}
