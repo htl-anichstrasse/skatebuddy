@@ -25,9 +25,10 @@ Keinen
 
 \subsubsection{Response}
 
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
-    [
+\begin{code}[h]
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
+[
     {
         "userId": 54,
         "name": "ww",
@@ -43,17 +44,13 @@ Keinen
         "email": "abertoni@tsn.at",
         "profilepictureId": null,
         "admin": 1
-    },
-    {
-        "userId": 58,
-        "name": "Philipp",
-        "passwordhash": "$2b$10$IItK58v.13txECsTqd2cIuI7T3v9XJSt6BK5Rs87cCbutBrijTwqi",
-        "email": "p@p.p",
-        "profilepictureId": null,
-        "admin": 0
     }
 ]
 \end{lstlisting}
+    \caption{Response der get User-Route}
+\end{code}
+
+
 
 \pagebreak
 
@@ -72,10 +69,6 @@ Gibt einen User mit einer bestimmten ID zurück.
 \lstinline{id: int} (benötigt) \\
 $\rightarrow$ Die eindeutige ID des gewünschten Users
 
-\begin{lstlisting}
-    GET /users/54
-\end{lstlisting}
-
 \textbf{Body:}
 Keinen
 
@@ -84,28 +77,34 @@ Bearer
 
 \paragraph{Response }
 
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
+\begin{code}
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
     [
-    {
-        "userId": 54,
-        "name": "ww",
-        "passwordhash": "$2b$10$6TnxbdU8GnROQK5oL
-                         AmEv.RcrlF9MCfC7Jlyv653L45FizJMGuz3u",
-        "email": "w@w.w",
-        "profilepictureId": null,
-        "admin": 0
-    },
-]
-\end{lstlisting}
+        {
+            "userId": 54,
+            "name": "ww",
+            "passwordhash": "$2b$10$6TnxbdU8GnROQK5oL
+                             AmEv.RcrlF9MCfC7Jlyv653L45FizJMGuz3u",
+            "email": "w@w.w",
+            "profilepictureId": null,
+            "admin": 0
+        },
+    ]
+    \end{lstlisting}
+    \caption{Response für die get User-Route}
+\end{code}
 
 \pagebreak
 
 \subsubsection{/users/decode}
 
-\begin{lstlisting}
-    /users/decode
-\end{lstlisting}
+\begin{code}
+    \begin{lstlisting}
+        /users/decode
+    \end{lstlisting}
+    \caption{Decode Route Beispiel}
+\end{code}
 
 \textbf{Zweck der Route:} \\
 Im Body wird ein JSON Web token mitgesendet. Als Antwort
@@ -120,33 +119,42 @@ Keine
 
 \textbf{Body:}
 
-\begin{lstlisting}
+\begin{code}
+    \begin{lstlisting}
 
-    "token": "eyJhbGciOiJIUzI1NJ.LCJleHAiOY5NTk3OTR9.k1p8njURt1GYHtio-Sg"
-    
-\end{lstlisting}
+        "token": "eyJhbGciOiJIUzI1NJ.LCJleHAiOY5NTk3OTR9.k1p8njURt1GYHtio-Sg"
+        
+    \end{lstlisting}
+    \caption{JWT Token}
+\end{code}
 
 \subsubsection{Response:}
 
-\lstinline{Content-Type: Json}
-\begin{lstlisting}
-    [
-        "userId": 32,
-        "name": "A",
-        "email": "A@A",
-        "profilepictureId": null,
-        "iat": 1645295794,
-        "exp": 1656959794
-]
-\end{lstlisting}
+\begin{code}
+    \lstinline{Content-Type: Json}
+    \begin{lstlisting}
+        [
+            "userId": 32,
+            "name": "A",
+            "email": "A@A",
+            "profilepictureId": null,
+            "iat": 1645295794,
+            "exp": 1656959794
+    ]
+    \end{lstlisting}
+    \caption{Response für die Decode Token Route}
+\end{code}
 
 \pagebreak
 
 \subsubsection{GET /users/validate}
 
-\begin{lstlisting}
-    /users/validate
-\end{lstlisting}
+\begin{code}
+    \begin{lstlisting}
+        /users/validate
+    \end{lstlisting}
+    \caption{Beispiel Validate User Route}
+\end{code}
 
 \textbf{Zweck der Route:} \\
 Im Body wird ein JWT-Token gesendet und der Server gibt zurück ob der Token
@@ -159,31 +167,39 @@ Bearer
 ID
 
 \textbf{Body:}
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
-    {
-    "token": "eyJhbGciOiJIUzI1NJ.LCJleHAiOY5NTk3OTR9.k1p8njURt1GYHtio-Sg"
-    }
-\end{lstlisting}
+\begin{code}
+    \begin{lstlisting}
+
+        "token": "eyJhbGciOiJIUzI1NJ.LCJleHAiOY5NTk3OTR9.k1p8njURt1GYHtio-Sg"
+        
+    \end{lstlisting}
+    \caption{Body der Validate Route}
+\end{code}
 
 
-\subsubsection{Response)}
+\subsubsection{Response}
 
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
-    {
-        "success": true,
-        "message": "Token Valid"
-    }
-\end{lstlisting}
+\begin{code}
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
+        {
+            "success": true,
+            "message": "Token Valid"
+        }
+    \end{lstlisting}
+    \caption{Response für die Validate Token Route}
+\end{code}
 
 \pagebreak
 
 \subsubsection{DEL /users/}
 
-\begin{lstlisting}
-    /users/1
-\end{lstlisting}
+\begin{code}
+    \begin{lstlisting}
+        /users/1
+    \end{lstlisting}
+    \caption{Body der aktuellen Route}
+\end{code}
 
 \textbf{Zweck der Route:} \\
 Ein User mit einer bestimmten ID wird aus der Datenbank gelöscht.
@@ -199,24 +215,30 @@ $\rightarrow$ Die eindeutige ID des gewünschten Users
 Keinen
 
 
-\subsubsection{Response)}
+\subsubsection{Response}
 
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
-    {
-    "success": true,
-    "message": "Successfully deleted"
-}
-\end{lstlisting}
+\begin{code}
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
+        {
+        "success": true,
+        "message": "Successfully deleted"
+    }
+    \end{lstlisting}
+    \caption{Response für die delete User Route}
+\end{code}
 
 \pagebreak
 
 
 \subsubsection{PUT /users/:id}
 
-\begin{lstlisting}
-    /users/1
-\end{lstlisting}
+\begin{code}
+    \begin{lstlisting}
+        /users/1
+    \end{lstlisting}
+    \caption{Beispiel für die Put User Route}
+\end{code}
 
 \textbf{Zweck der Route:} \\
 Ein User mit einer bestimmten ID wird aus der Datenbank kann nach belieben geändert
@@ -230,28 +252,35 @@ Bearer
 $\rightarrow$ Die eindeutige ID des gewünschten Users
 
 \textbf{Body:}\\
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
-    {
+\begin{code}
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
         {
-    "column": "name",
-    "newValue":"hans"
+            {
+                "column": "name",
+                "newValue":"hans"
+    
+            }
+    }
+    \end{lstlisting}
+    \caption{Body der aktuellen Route}
+\end{code}
 
-        }
-}
-\end{lstlisting}
 
-\subsubsection{Response)}
+\subsubsection{Response}
 
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
-    {
+\begin{code}
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
         {
-            "success": true,
-            "message": "Successfully updated"
-        }
-}
-\end{lstlisting}
+            {
+                "success": true,
+                "message": "Successfully updated"
+            }
+    }
+    \end{lstlisting}
+    \caption{Response der aktuellen Route}
+\end{code}
 
 \pagebreak
 

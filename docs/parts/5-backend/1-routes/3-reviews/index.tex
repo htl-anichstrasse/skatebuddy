@@ -3,7 +3,7 @@
 \subsubsection{GET /reviews}
 
 \begin{lstlisting}
-    /reviews
+        /reviews
 \end{lstlisting}
 
 \textbf{Zweck der Route:} \\
@@ -19,40 +19,34 @@ Keine
 
 Keinen
 
-\subsubsection{Response)}
+\subsubsection{Response}
 
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
-    [
-        {
-            "reviewId": 122,
-            "skateparkId": 2,
-            "userId": 58,
-            "rating": 5,
-            "title": "Grosse Bowl",
-            "content": "Einfach nur perfekt.",
-            "username": "Philipp"
-        },
-        {
-            "reviewId": 121,
-            "skateparkId": 1,
-            "userId": 58,
-            "rating": 3,
-            "title": "Keine Bowl",
-            "content": "Es gibt zwar eine Miniramp, aber keine Bowl. Trotzdem guter Park.",
-            "username": "Philipp"
-        },
-        {
-            "reviewId": 120,
-            "skateparkId": 1,
-            "userId": 57,
-            "rating": 4,
-            "title": "Guter Park",
-            "content": "Ein sehr guter Park mit einer grossen und abwechslungsreichen Anzahl an Hindernissen.",
-            "username": "Alexander"
-        }
-]
-\end{lstlisting}
+\begin{code}
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
+        [
+            {
+                "reviewId": 122,
+                "skateparkId": 2,
+                "userId": 58,
+                "rating": 5,
+                "title": "Grosse Bowl",
+                "content": "Einfach nur perfekt.",
+                "username": "Philipp"
+            },
+            {
+                "reviewId": 121,
+                "skateparkId": 1,
+                "userId": 58,
+                "rating": 3,
+                "title": "Keine Bowl",
+                "content": "Es gibt zwar eine Miniramp, aber keine Bowl. Trotzdem guter Park.",
+                "username": "Philipp"
+            },
+    ]
+    \end{lstlisting}
+    \caption{Response der Get Review Route }
+\end{code}
 
 \pagebreak
 
@@ -79,30 +73,33 @@ Keinen
 Keinen
 
 \paragraph{Response }
-
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
-    [
-        {
-            "reviewId": 122,
-            "skateparkId": 2,
-            "userId": 58,
-            "rating": 5,
-            "title": "Grosse Bowl",
-            "content": "Einfach nur perfekt.",
-            "username": "Philipp"
-        }
-]
-\end{lstlisting}
+\begin{code}
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
+        [
+            {
+                "reviewId": 122,
+                "skateparkId": 2,
+                "userId": 58,
+                "rating": 5,
+                "title": "Grosse Bowl",
+                "content": "Einfach nur perfekt.",
+                "username": "Philipp"
+            }
+    ]
+    \end{lstlisting}
+    \caption{Response der Get Review-Route}
+\end{code}
 
 \pagebreak
 
 
 \subsubsection{Post /reviews}
 
+
 \begin{lstlisting}
-    /reviews/2
-\end{lstlisting}
+        /reviews/2
+    \end{lstlisting}
 
 \textbf{Zweck der Route} \\
 Mit dieser Route ist es möglich eine neue Review zu einem bestimmten Skatepark hinzuzufügen.
@@ -116,40 +113,46 @@ $\rightarrow$ Die eindeutige ID des gewünschten Skateparks
 
 
 \textbf{Body:} \\
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
-    {
-        "parkid": "2",
-        "userid": "10",
-        "rating": "5",
-        "title": "Cool",
-        "content": "Nice"
-    }
-\end{lstlisting}
+\begin{code}
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
+        {
+            "parkid": "2",
+            "userid": "10",
+            "rating": "5",
+            "title": "Cool",
+            "content": "Nice"
+        }
+    \end{lstlisting}
+    \caption{Body der Post Review-Route}
+\end{code}
 
 \textbf{Authorization:} \\
 Keinen
 
 \paragraph{Response }
-
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
-[
-    {
-        "success": true,
-        "message": "Successfully inserted"
-    }
-]
-\end{lstlisting}
+\begin{code}
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
+    [
+        {
+            "success": true,
+            "message": "Successfully inserted"
+        }
+    ]
+    \end{lstlisting}
+    \caption{Response der Post Review-Route}
+\end{code}
 
 \pagebreak
 
 
 \subsubsection{DEL /reviews/}
 
+
 \begin{lstlisting}
-    /users/1
-\end{lstlisting}
+        /reviews/1
+    \end{lstlisting}
 
 \textbf{Zweck der Route:} \\
 Eine Review mit einer bestimmten ID wird aus der Datenbank gelöscht.
@@ -165,15 +168,18 @@ $\rightarrow$ Die eindeutige ID der gewünschten Review.
 Keinen
 
 
-\subsubsection{Response)}
+\subsubsection{Response}
 
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
-    {
-    "success": true,
-    "message": "Successfully deleted"
-}
-\end{lstlisting}
+\begin{code}
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
+        {
+        "success": true,
+        "message": "Successfully deleted"
+    }
+    \end{lstlisting}
+    \caption{Response der delete-Route}
+\end{code}
 
 \pagebreak
 
@@ -181,8 +187,9 @@ Keinen
 \subsubsection{PUT /reviews/:id}
 
 \begin{lstlisting}
-    /reviews/1
-\end{lstlisting}
+        /reviews/1
+    \end{lstlisting}
+
 
 \textbf{Zweck der Route:} \\
 Eine Review mit einer bestimmten ID kann nach belieben geändert werden.
@@ -196,28 +203,33 @@ Keine
 $\rightarrow$ Die eindeutige ID der gewünschten Review.
 
 \textbf{Body:}\\
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
-    {
+\begin{code}
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
         {
-            "Title": "Alter Titel",
-            "newValue":"Neuer Titel"
+            {
+                "Title": "Alter Titel",
+                "newValue":"Neuer Titel"
+    
+            }
+    }
+    \end{lstlisting}
+    \caption{Body der Put Review-Route}
+\end{code}
 
-        }
-}
-\end{lstlisting}
-
-\subsubsection{Response)}
-
-\lstinline{Content-Type: JSON}
-\begin{lstlisting}
-    {
+\subsubsection{Response}
+\begin{code}
+    \lstinline{Content-Type: JSON}
+    \begin{lstlisting}
         {
-            "success": true,
-            "message": "Successfully updated"
-        }
-}
-\end{lstlisting}
+            {
+                "success": true,
+                "message": "Successfully updated"
+            }
+    }
+    \end{lstlisting}
+    \caption{Response der Put Review Route}
+\end{code}
 
 
 \pagebreak
