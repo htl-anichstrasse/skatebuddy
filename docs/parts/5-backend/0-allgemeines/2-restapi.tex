@@ -23,12 +23,12 @@ kann an den Server folgende \textbf{HTTP/HTTPs} Anfragen senden:
 \begin{table}
     \centering
     \begin{tabular}{llll}
-        \textbf{HTTP-Methode (Befehl)} & \textbf{Definition}                                                              &  & \\
-        GET                            & Fordert eine Ressource vom Server an ohne sie zu verändern                       &  & \\
-        POST                           & Erstellt eine neue Ressource und sendet diese an den Server                      &  & \\
-        PUT                            & Legt die angegebene Ressource auf dem Server an oder modifiziert eine bestehende &  & \\
-        PATCH                          & Modifiziert einen Teil der angegebenen Ressource                                 &  & \\
-        DELETE                         & Löscht eine angegebene Ressource                                                 &  &
+        \textbf{HTTP-Methode (Befehl)} & \textbf{Definition}                                         &  & \\
+        GET                            & Fordert eine Ressource vom Server an ohne sie zu verändern  &  & \\
+        POST                           & Erstellt eine neue Ressource und sendet diese an den Server &  & \\
+        PUT                            & Modifiziert eine bestehende Ressource                       &  & \\
+        PATCH                          & Modifiziert einen Teil der angegebenen Ressource            &  & \\
+        DELETE                         & Löscht eine angegebene Ressource                            &  &
     \end{tabular}
 \end{table}
 \subsection{Authorization}
@@ -48,9 +48,9 @@ Anmeldet, siehe (api/login).
 
 Wie so ein Bearer Token aussieht sehen sie hier:
 
-\texttt{eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMyLCJuYW1lIjoiQSIsImVt
-    YWlsIjoiQUBBIiwicHJvZmlsZXBpY3R1cHSmVJZCI6bnVsbCwiaWF0IjoxNjQ1Mjk1Nzk0LCJleHAiOjE2N
-    TY5NTk3OTR9.k1p8njU8ra6Rt16nZTTCmnkrhK3H8MygbwGYHtio-Sg}
+\texttt{eyJhbGciOiCI6IkpXVCJ9.eyJoiQSIsImVt
+    YWlsIjY3R1ck1Nzk0LCJleHAiOjE2N
+    TY5NTk3OTR9.k1pMygbwGYHtio-Sg}
 
 Als Bearer Token haben wir uns für den \textit{Json Web Token (JWT)} entschieden.
 
@@ -105,7 +105,7 @@ ist. Somit wird sichergestellt das der Token nicht verändert wurde.
     }
 });
     \end{lstlisting}
-    \caption{Code-Snippet-Authorization}
+    \caption{Authorization}
 \end{code}
 
 In der ersten Zeile sieht man das diese Route für alle http Anfragen
