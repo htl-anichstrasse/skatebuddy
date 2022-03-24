@@ -8,14 +8,14 @@ diesmal jedoch ist der fetch keine \textit{get Method} wie bei dem useFetch, son
 \textit{post Method}.
 \begin{code}[htp]
 \begin{lstlisting}
-    fetch("APU_URL", {
-        method: 'POST',
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(data)
-          },
-        ).then(function(response){
-          return response.json();
-        })
+fetch("APU_URL", {
+  method: 'POST',
+  headers: {"Content-Type": "application/json"},
+  body: JSON.stringify(data)
+  },
+).then(function(response){
+  return response.json();
+})
 \end{lstlisting}
 \caption{React Component - Fetch zum Bekommen von Daten}
 \end{code}

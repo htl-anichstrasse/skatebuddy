@@ -26,31 +26,31 @@ anzeigen. Damit lassen sich Tippfehler beim Eingeben erkennen, falls nötig.
 \subsection{Augensymbol}
 \begin{code}[htp]
 \begin{lstlisting}
-    .toggle-button {
-        margin-top: 0;
-        margin-left: -30px;
-        height: 17px;
-        width: 20px;
-        border: white;
-        background: no-repeat url('./eye.png');
-        background-size: cover;
-        cursor: pointer;
-    }
+.toggle-button {
+    margin-top: 0;
+    margin-left: -30px;
+    height: 17px;
+    width: 20px;
+    border: white;
+    background: no-repeat url('./eye.png');
+    background-size: cover;
+    cursor: pointer;
+}
 \end{lstlisting}
 \caption{CSS -  CSS des Augensymbols}
 \end{code}
 \begin{code}[htp]
 \begin{lstlisting}
-    const togglePassword = () =>{
-        setPasswordShown(!passwordShown)
-    }
+const togglePassword = () =>{
+    setPasswordShown(!passwordShown)
+}
 \end{lstlisting}
 \caption{JavaScript Funktion -  Variablenändern bei Knopfdruck}
 \end{code}
 \begin{code}[htp]
 \begin{lstlisting}
-    <input className="input" type={passwordShown ? "text" : "password"} onChange={e => setPassword(e.target.value)} />
-    <button type="button" onClick={togglePassword} className="toggle-button"></button>
+<input className="input" type={passwordShown ? "text" : "password"} onChange={e => setPassword(e.target.value)} />
+<button type="button" onClick={togglePassword} className="toggle-button"></button>
 \end{lstlisting}
 \caption{HTML - Input und Knopf für Passwort anzeigen}
 \end{code}

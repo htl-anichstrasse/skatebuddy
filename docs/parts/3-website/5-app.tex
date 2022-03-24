@@ -19,18 +19,18 @@ Innerhalb der Router-Komponente, nämlich dort wo die View angezeigt werden soll
 Komponente definiert.
 \begin{code}[htp]
 \begin{lstlisting}
-    <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/parks" element={<Parks />} />
-        <Route path="/skateparks/:id" element={<ParkDetails />} />
-        <Route path="/LogIn" element={<LogIn />}/>
-        <Route path="/CreateAccount" element={<CreateAccount/>}/>
-        <Route path="/AllMap" element={<AllMap/>}/>
-        <Route path="/Profile" element={<Profile/>}/>
-        <Route path="/AddPark" element={<AddPark/>}/>
-        <Route path="/AddRecommendation" element={<AddRecommendation/>}/>
-        <Route path="/Recommendations" element={<Recommendationlist/>}/>
-    </Routes>
+<Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/parks" element={<Parks />} />
+  <Route path="/skateparks/:id" element={<ParkDetails />} />
+  <Route path="/LogIn" element={<LogIn />}/>
+  <Route path="/CreateAccount" element={<CreateAccount/>}/>
+  <Route path="/AllMap" element={<AllMap/>}/>
+  <Route path="/Profile" element={<Profile/>}/>
+  <Route path="/AddPark" element={<AddPark/>}/>
+  <Route path="/AddRecommendation" element={<AddRecommendation/>}/>
+  <Route path="/Recommendations" element={<Recommendationlist/>}/>
+</Routes>
 \end{lstlisting} 
 \caption{React Component - Die Routen der Webseite}
 \end{code}
@@ -46,9 +46,9 @@ ParkDetails-Komponente ein anderer Parameter übergeben wird.
 Die Link-Komponente dient dazu die URL zu ändern falls ein Viewwechsel durchgeführt werden soll.
 \begin{code}[htp]
 \begin{lstlisting}
-   <Link to="/" className='home-nav' id="nav">
-       Home
-   </Link>
+<Link to="/" className='home-nav' id="nav">
+  Home
+</Link>
 \end{lstlisting}
 \caption{React Component - React Link Komponente}
 \end{code}
@@ -87,22 +87,21 @@ Das Überprüfen ob der Benutzer eingeloggt ist oder nicht erfolgt ganz einfach 
 
 \begin{code}[htp]
 \begin{lstlisting}
-    {token && 
-        <Link to="/Profile" className='pofile-nav' id="nav">
-          Profile
-        </Link>
-    }
-
-    {!token &&
-        <>
-         <Link to="/LogIn" className='login-nav' id="nav">
-          Login
-        </Link>
-        <Link to="/CreateAccount" className='createAccount-nav' id="nav">
-              Account Erstellen
-            </Link>
-        </>
-      }
+{token && 
+  <Link to="/Profile" className='pofile-nav' id="nav">
+    Profile
+  </Link>
+}
+{!token &&
+  <>
+    <Link to="/LogIn" className='login-nav' id="nav">
+      Login
+    </Link>
+    <Link to="/CreateAccount" className='createAccount-nav' id="nav">
+      Account Erstellen
+    </Link>
+  </>
+}
 \end{lstlisting}
 \caption{React Component - Überprüfen des Logins für die Navigationsleiste}
 \end{code}
@@ -132,12 +131,12 @@ zugewiesen, welche bei Knopfdruck \textit{(onClick)} ausgeführt wird.
 
 \begin{code}[htp]
 \begin{lstlisting}
-    function topFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    }
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
 
-    <button onClick={topFunction} id="myBtn" title="Go to top" className="top-button">Top</button>
+<button onClick={topFunction} id="myBtn" title="Go to top" className="top-button">Top</button>
 \end{lstlisting}
 \caption{JavaScript Funktion - Scroll top Funktion}
 \end{code}
@@ -146,9 +145,9 @@ Dass die Funktion scrollt und nicht auf einmal ganz oben ist, bewirken folgende 
 
 \begin{code}[htp]
 \begin{lstlisting}
-    html {
-        scroll-behavior: smooth;
-    }
+html {
+  scroll-behavior: smooth;
+}
 \end{lstlisting}
 \caption{CSS - smooth scrolling}
 \end{code}

@@ -9,19 +9,19 @@ Komponente wie folgt:
 
 \begin{code}[htp]
 \begin{lstlisting}
-    const Slideshow = (parkpics) => {
-    return (
-      <div className="slide-container">
-        <Slide autoplay={false} transitionDuration={420}>
-         {parkpics.parkpics.map(pic=> (
-            <div className="each-slide" key={pic.skateparkId}>
-              <div style={{'backgroundImage': `url(https://skate-buddy.josholaus.com/api/skateparkpictures/${pic.skateparkId}/${pic.picId})` }} className='bg'>
-              </div>
+const Slideshow = (parkpics) => {
+  return (
+    <div className="slide-container">
+      <Slide autoplay={false} transitionDuration={420}>
+        {parkpics.parkpics.map(pic=> (
+          <div className="each-slide" key={pic.skateparkId}>
+            <div style={{'backgroundImage': `url(https://skate-buddy.josholaus.com/api/skateparkpictures/${pic.skateparkId}/${pic.picId})` }} className='bg'>
             </div>
-          ))} 
-        </Slide>
-      </div>
-    )
+          </div>
+        ))} 
+      </Slide>
+    </div>
+  )
 }
 \end{lstlisting}
 \caption{React Component - Slideshow}

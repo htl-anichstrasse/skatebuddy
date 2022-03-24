@@ -16,11 +16,11 @@ zu gelangen indem er die URL dieser Seite eingibt, leitet diese ihn auf die Logi
 
 \begin{code}[htp]
 \begin{lstlisting}
-    useEffect(() => {
-        if(!sessionStorage.getItem("data")){
-            navigate("/LogIn");
-        }
-      });
+useEffect(() => {
+  if(!sessionStorage.getItem("data")){
+    navigate("/LogIn");
+  }
+});
 \end{lstlisting}
 \caption{React Component - Navigiert nach Login falls der Benutzer nicht eingeloggt ist}
 \end{code}

@@ -11,46 +11,46 @@ Code ist die Map, wo alle Parks eingezeichnet sind.
 
 \begin{code}[htp]
 \begin{lstlisting}
-    const options = (maps) => {
-        return {
-            minZoom: 9,
-            maxZoom: 20,
-            disableDefaultUI: true,
-            mapTypeControl: true,
-            streetViewControl: true,
-            styles: [{ featureType: 'poi', elementType: 'labels', stylers: [{ visibility: 'on' }] }],
-        };
-  };
-
-    const defaultProps = {
-        center: {
-            lat: 47.2683,
-            lng: 11.3933,
-        },
-        zoom: 11,
+const options = (maps) => {
+    return {
+        minZoom: 9,
+        maxZoom: 20,
+        disableDefaultUI: true,
+        mapTypeControl: true,
+        streetViewControl: true,
+        styles: [{ featureType: 'poi', elementType: 'labels', stylers: [{ visibility: 'on' }] }],
     };
+};
+
+const defaultProps = {
+    center: {
+        lat: 47.2683,
+        lng: 11.3933,
+    },
+    zoom: 11,
+};
     
-    <GoogleMapReact
-        options={options}
-        bootstrapURLKeys={{ key: Keys }} //API-Key
-        defaultCenter={defaultProps.center}
-        defaultZoom={defaultProps.zoom}>
-        {parks.map(park => (
-            <Marker
-            lat={park.latitude}
-            lng={park.longitude}
-            name={park.name}
-            color="red"
-            link={park.skateparkId}
-            />  
-        ))}
-        {UserLangitude && <Marker
-              lat={UserLangitude}
-              lng={UserLongitude}
-              name="Ihre Position"
-              color = "blue"
-            />}
-      </GoogleMapReact>}
+<GoogleMapReact
+    options={options}
+    bootstrapURLKeys={{ key: Keys }} //API-Key
+    defaultCenter={defaultProps.center}
+    defaultZoom={defaultProps.zoom}>
+    {parks.map(park => (
+        <Marker
+        lat={park.latitude}
+        lng={park.longitude}
+        name={park.name}
+        color="red"
+        link={park.skateparkId}
+        />  
+    ))}
+    {UserLangitude && <Marker
+        lat={UserLangitude}
+        lng={UserLongitude}
+        name="Ihre Position"
+        color = "blue"
+    />}
+</GoogleMapReact>}
 \end{lstlisting}
 \caption{React Component - Google map}
 \end{code}

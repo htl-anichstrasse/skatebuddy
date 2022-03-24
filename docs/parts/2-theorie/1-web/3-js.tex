@@ -17,13 +17,13 @@ zuweisen oder von einer anderen Funktion zurückgegeben werden.~\cite{First-Clas
 
 \subsubsection{Beispiel für die Zuweisung einer Funktion an eine Variable}
 \begin{code}[htp]
-    \begin{lstlisting}
-        const v = function(){
-            Console.log("Ausgaben in der Konsole")
-        }
+\begin{lstlisting}
+const v = function(){
+    Console.log("Ausgaben in der Konsole")
+}
     
-        v();
-    \end{lstlisting}
+v();
+\end{lstlisting}
 \caption{JavaScript Funktion - Zuweisung einer Funktion an eine Variable}
 \end{code}
 Hier wird der Variable \textit{v} eine anonyme Funktion zugewiesen, welche in der Konsole 
@@ -34,14 +34,14 @@ Klammern aufgerufen.
 \subsubsection{Beispiel für das Übergeben einer Funktion als Argument}
 \begin{code}[htp]
 \begin{lstlisting}
-    function sagHallo() {
-        return "Hallo, ";
-    }
-    function gruessen(gruss, name){
-        Console.log(gruss(), name);
-    }
+function sagHallo() {
+    return "Hallo, ";
+}
+function gruessen(gruss, name){
+    Console.log(gruss(), name);
+}
 
-    gruessen(sagHallo(), "JavaScript!");
+gruessen(sagHallo(), "JavaScript!");
 \end{lstlisting}
 \caption{JavaScript Funktion - Übergeben einer Funktion als Argument}
 \end{code}
@@ -53,11 +53,11 @@ die Methode gruessen mit diesen Parametern aus, wird in die Console der Satz
 \subsubsection{Eine Funktion als Return}
 \begin{code}[htp]
 \begin{lstlisting}
-    function sagHallo(){
-        return function(){
-            Console.log("Hallo")
-        }
+function sagHallo(){
+    return function(){
+        Console.log("Hallo")
     }
+}
 \end{lstlisting}
 \caption{JavaScript Funktion - Funktion als Return}
 \end{code}
