@@ -19,26 +19,39 @@
   </p>
 </p>
 
-## About the project
+## Zusammenfassung
 
-Enter a description about the project, its history and its goals here.
+Neue Skater haben oft keine Auskunft über die lokalen Parks bzw. wissen gar nicht wie viele
+Skateparks es mittlerweile in Tirol gibt. Viele hören deswegen mit dem Skateboarden auf, bevor sie 
+überhaupt ihren ersten Trick lernen. Sowohl in der App als auch auf der Website wollen wir einen 
+schnellen Überblick über die in der Nähe liegenden Parks bereitstellen, damit neue Skater diese
+ausprobieren können und dort vielleicht neue Freunde kennenlernen, welche sie motivieren weiter zu 
+machen und nicht aufzugeben.
 
-## Installation
 
-Enter a step by step explanation for installing this repository on a local machine.
+Es ist Skatern möglich ihre eigene Meinung zu den einzelnen Parks zu äußern und diese dementsprechend 
+zu bewerten. Diese Bewertungen helfen neuen Skatern bei der Suche nach beliebten Parks. 
+Alternativ ist es möglich die Skateparks nach der Entfernung zu sortieren und somit die Parks in 
+der Nähe leichter zu finden.
 
-Clone the repository.
 
-```
-git clone https://github.com/htl-anichstrasse/template.git
-```
+Falls die Skater einen Park kennen, welcher nicht in der Datenbank vorhanden ist, können 
+sie diesen als Vorschlag hinzufügen. Dieser Vorschlag kann von Admins angesehen werden. Die Admins 
+können dann Änderungen an diesen Vorschlag vornehmen und anschließend als Park hinzufügen oder den
+Vorschlag löschen.
 
-Step 2 here
+## Bilder
 
-## Contact
+<a href="https://github.com/htl-anichstrasse/skatebuddy/blob/master/mobile/SCREENSHOTS.md">Mobile App</a>
 
-If you have any questions about this project, please feel free to contact us.
+## Kontakt
 
+Bei etwaigen Fragen zum Projekt können Sie sich gerne bei uns melden.
+
+### Privat
+Schuler Philipp - schulerp03+skatebuddy@gmail.com
+
+### TSN-Emails
 Neuner Maximilian - maximilineuner@tsn.at<br>
 Schuler Philipp - pschuler@tsn.at<br>
 Bertoni Alexander - abertoni@tsn.at<br>
