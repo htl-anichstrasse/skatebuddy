@@ -11,11 +11,11 @@
   <p align="center">
     A convenient companion for skaters to find new parks and shops.
     <br/>
-    <a href="https://github.com/htl-anichstrasse/template/releases">Releases</a>
+    <a href="https://github.com/htl-anichstrasse/skatebuddy/releases">Releases</a>
     ·
-    <a href="https://github.com/htl-anichstrasse/template/issues">Report Bug</a>
+    <a href="https://github.com/htl-anichstrasse/skatebuddy/issues">Report Bug</a>
     ·
-    <a href="https://github.com/htl-anichstrasse/template/issues">Request Feature</a>
+    <a href="https://github.com/htl-anichstrasse/skatebuddy/issues">Request Feature</a>
   </p>
 </p>
 
